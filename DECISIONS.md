@@ -1,0 +1,47 @@
+# Decisions
+
+These are the founder's decisions, made 2026-10-22. The full reasoning is in `docs/plan.md`. Code that implements a decision cites its section number.
+
+## The loop (preserved)
+1. **Three nutrients, six-week rounds, food suggestions that fill her marks.** This is the core and is not up for change. Everything else is built around it.
+2. **Mark:** RDA basis uses `max(EAR, 0.8 × RDA)`. AI basis uses `AI × 1.0`. Fixed values are used as they are (EPA+DHA). The basis is always read from data.
+3. **Verdict:** the mean over logged days, unclamped. It needs at least 21 logged days. Consistency (logged days) is shown separately as a count that only goes up.
+4. **Ranking and progress:** blend today with the round-to-date mean over logged days (0.5 each).
+5. **Weekly check-in** every 7 days.
+6. **Picking:** a food-frequency screener plus life-stage priors suggest three, and she can swap any of them. From round 2, suggestions come from her data.
+7. **Carry-forward happens once.** A second miss in a row turns the nutrient into a "longer project" with different coaching, and the next-lowest first-time miss carries instead.
+8. **Locked-in** nutrients have weight 0.3. A drifting one (three weeks under its mark) is offered back, never forced. Projects have weight 0.6. When the list runs out, she moves into "seasons".
+
+## Who it's for
+9. Perimenopause is the first niche. The target engine supports every band.
+10. **Pregnancy is supported with its own targets**, and repeated notices say "check with your doctor or midwife; this isn't medical advice".
+    - Suggestions hard-exclude everything in `PREGNANCY_FLAGS` (`packages/core/src/foods.ts`). The list was reviewed against Health Canada's guidance on 2026-10-22:
+      - [Safe food handling for pregnant people](https://www.canada.ca/en/health-canada/services/publications/food-nutrition/safe-food-handling-pregnant-people.html)
+      - [Mercury in fish Q&A](https://www.canada.ca/en/health-canada/services/food-nutrition/food-safety/chemical-contaminants/environmental-contaminants/mercury/mercury-fish-questions-answers.html)
+    - What that guidance covers: high-mercury fish (fresh or frozen tuna, shark, swordfish, marlin, orange roughy, escolar), canned albacore (it has a weekly limit, so we don't push it), raw or undercooked animal foods and eggs, unpasteurised dairy and juice, soft, semi-soft and blue cheeses, non-dried deli meats, refrigerated smoked seafood, refrigerated pâté, and raw sprouts.
+    - `high_retinol` (liver) is our own conservative rule, because preformed vitamin A is teratogenic.
+    - The live Canada.ca pages must be re-checked before launch.
+11. **Bands:**
+    - Bands follow the DRI tables exactly: 19–30, 31–50, 51–70 and 71+. Pregnancy and lactation use their own rows.
+    - **An 18-year-old uses 19–30.**
+    - Menstruation changes iron only, whatever her age.
+    - EPA+DHA is 350 mg in pregnancy and lactation.
+    - Users must be 18 or older. Age comes from birth year and month only.
+
+## Product
+12. **Design:** Pantry, type-led. **No illustrations, ever.** Jars and shelves are drawn in code. Foods are shown as type plus a category colour chip.
+13. **Stack:** Expo/React Native (TypeScript), a new Supabase project (never v1's), `@tend/core` for all the maths, and RevenueCat.
+14. **Beta testers:** a fresh start, an optional import of their foods and rotation, and founding-member status with free access for life.
+15. **Shareable round card:** yes. It shows foods and nutrient names only, never numbers.
+16. **Cycle-aware:** the infrastructure exists (context modifiers and a feature flag). No cycle data is collected until a release decision is made. The first candidate is a "heavy periods" setting for iron.
+17. **Calories:** hidden by default, opt-in.
+18. **Market:** Canada first, with Canadian English, CAD, Health Canada priority allergens and the Canadian Nutrient File.
+19. **Allergens and diet** filter suggestions in exactly one place (`eligibleFoods`), before ranking. Untagged foods are never suggested.
+
+## Business
+- **Name:** Tend (a working name, pending trademark checks).
+- **Pricing:** a subscription with a hard paywall at the end of onboarding and a 7-day trial on the annual plan. The starting price is roughly CAD 12.99 a month or 79.99 a year, to be checked against competitors. Substack offer codes. The app asks for a review only at the end of a round where she reached her marks.
+- **Legal entity and D-U-N-S number** are needed before the first public App Store submission.
+
+## Data
+- The founder's merged database is the only real source. The `@tend/core` maths is tested on hand-entered fixtures. Phase 2 starts when the database file arrives.
