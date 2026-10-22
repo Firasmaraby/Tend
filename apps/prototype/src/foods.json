@@ -1,0 +1,4423 @@
+[
+ {
+  "id": "cnf:3393",
+  "name": "Lentils, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 116.0,
+   "iron": 3.33,
+   "calcium": 19.0,
+   "magnesium": 36.0,
+   "potassium": 369.0,
+   "fibre": 4.25,
+   "folate_dfe": 181.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 1.5,
+   "vit_k": 1.7,
+   "zinc": 1.27,
+   "choline": 32.7,
+   "ala": 0.037,
+   "vit_e": 0.11,
+   "selenium": 2.8,
+   "vit_b6": 0.178,
+   "thiamin": 0.169,
+   "riboflavin": 0.073,
+   "niacin": 2.41,
+   "phosphorus": 180.0,
+   "copper": 251.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 198.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Lentils, mature seeds, boiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3390",
+  "name": "Chickpeas, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 164.0,
+   "iron": 2.89,
+   "calcium": 49.0,
+   "magnesium": 48.0,
+   "potassium": 291.0,
+   "fibre": 4.56,
+   "folate_dfe": 172.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 1.3,
+   "vit_k": 4.0,
+   "zinc": 1.53,
+   "choline": 42.8,
+   "ala": 0.043,
+   "vit_e": 0.35,
+   "selenium": 3.7,
+   "vit_b6": 0.139,
+   "thiamin": 0.116,
+   "riboflavin": 0.063,
+   "niacin": 1.9427,
+   "phosphorus": 168.0,
+   "copper": 352.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 164.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, boiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3377",
+  "name": "Black beans, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 132.0,
+   "iron": 2.1,
+   "calcium": 27.0,
+   "magnesium": 70.0,
+   "potassium": 355.0,
+   "fibre": 6.97,
+   "folate_dfe": 149.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 3.3,
+   "zinc": 1.12,
+   "choline": 32.6,
+   "ala": 0.105,
+   "vit_e": 0.87,
+   "selenium": 1.2,
+   "vit_b6": 0.069,
+   "thiamin": 0.244,
+   "riboflavin": 0.059,
+   "niacin": 2.255,
+   "phosphorus": 140.0,
+   "copper": 209.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 172.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beans, black, mature seeds, boiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3382",
+  "name": "Kidney beans, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 127.0,
+   "iron": 2.94,
+   "calcium": 28.0,
+   "magnesium": 45.0,
+   "potassium": 403.0,
+   "fibre": 6.59,
+   "folate_dfe": 130.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 1.2,
+   "vit_k": 8.4,
+   "zinc": 1.07,
+   "choline": 30.5,
+   "ala": 0.168,
+   "vit_e": 0.03,
+   "selenium": 1.2,
+   "vit_b6": 0.12,
+   "thiamin": 0.16,
+   "riboflavin": 0.058,
+   "niacin": 2.2947,
+   "phosphorus": 142.0,
+   "copper": 242.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 177.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beans, kidney, dark red, mature seeds, boiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3386",
+  "name": "White beans, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 139.0,
+   "iron": 3.7,
+   "calcium": 90.0,
+   "magnesium": 63.0,
+   "potassium": 561.0,
+   "fibre": 6.89,
+   "folate_dfe": 81.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 3.5,
+   "zinc": 1.38,
+   "choline": 35.1,
+   "ala": 0.069,
+   "vit_e": 0.94,
+   "selenium": 1.3,
+   "vit_b6": 0.093,
+   "thiamin": 0.118,
+   "riboflavin": 0.046,
+   "niacin": 2.0567,
+   "phosphorus": 113.0,
+   "copper": 287.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 179.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beans, white, mature seeds, boiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2209",
+  "name": "Edamame, cooked",
+  "category": "legumes",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 141.0,
+   "iron": 2.5,
+   "calcium": 145.0,
+   "magnesium": 60.0,
+   "potassium": 539.0,
+   "fibre": 4.2,
+   "folate_dfe": 111.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 8.0,
+   "retinol": 0.0,
+   "vit_c": 17.0,
+   "zinc": 0.91,
+   "ala": 0.354,
+   "vit_e": 0.6,
+   "selenium": 1.4,
+   "vit_b6": 0.06,
+   "thiamin": 0.26,
+   "riboflavin": 0.155,
+   "niacin": 3.75,
+   "phosphorus": 158.0,
+   "copper": 117.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 155.0,
+   "label": "1 cup shelled"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "soy"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Soybeans, green (edamame), boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "usda_fdc_sr_legacy:172475",
+  "name": "Tofu, firm (calcium-set)",
+  "category": "legumes",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 144.0,
+   "iron": 2.66,
+   "calcium": 683.0,
+   "magnesium": 58.0,
+   "potassium": 237.0,
+   "fibre": 2.3,
+   "folate_dfe": 29.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_c": 0.2,
+   "zinc": 1.57,
+   "selenium": 17.4,
+   "vit_b6": 0.092,
+   "thiamin": 0.158,
+   "riboflavin": 0.102,
+   "phosphorus": 190.0,
+   "copper": 378.0,
+   "vit_d": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 126.0,
+   "label": "½ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "soy"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Tofu, raw, firm, prepared with calcium sulfate",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": [
+   "vit_a_rae",
+   "vit_k",
+   "choline",
+   "ala",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ]
+ },
+ {
+  "id": "cnf:3338",
+  "name": "Hummus",
+  "category": "legumes",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 177.0,
+   "iron": 1.56,
+   "calcium": 49.0,
+   "magnesium": 29.0,
+   "potassium": 173.0,
+   "fibre": 4.0,
+   "folate_dfe": 59.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 7.9,
+   "vit_k": 3.0,
+   "zinc": 1.09,
+   "choline": 27.8,
+   "ala": 0.075,
+   "vit_e": 0.75,
+   "selenium": 2.4,
+   "vit_b6": 0.399,
+   "thiamin": 0.089,
+   "riboflavin": 0.052,
+   "niacin": 1.349,
+   "phosphorus": 110.0,
+   "copper": 224.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 60.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "sesame"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Hummus, homemade",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:4421",
+  "name": "Oats, dry",
+  "category": "grains",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 389.0,
+   "iron": 4.72,
+   "calcium": 54.0,
+   "magnesium": 177.0,
+   "potassium": 429.0,
+   "fibre": 10.6,
+   "folate_dfe": 56.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "zinc": 3.97,
+   "ala": 0.11,
+   "vit_e": 0.53,
+   "vit_b6": 0.119,
+   "thiamin": 0.763,
+   "riboflavin": 0.139,
+   "niacin": 4.861,
+   "phosphorus": 523.0,
+   "copper": 626.0,
+   "vit_d": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 40.0,
+   "label": "½ cup dry"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "gluten"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Grains, oats, dry",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "epa_dha",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:5917",
+  "name": "Quinoa, cooked",
+  "category": "grains",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 120.0,
+   "iron": 1.49,
+   "calcium": 17.0,
+   "magnesium": 64.0,
+   "potassium": 172.0,
+   "fibre": 2.8,
+   "folate_dfe": 42.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 1.09,
+   "choline": 23.0,
+   "vit_e": 0.63,
+   "selenium": 2.8,
+   "vit_b6": 0.123,
+   "thiamin": 0.107,
+   "riboflavin": 0.11,
+   "niacin": 1.2787,
+   "phosphorus": 152.0,
+   "copper": 192.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 185.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Grains, quinoa, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "ala",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:4497",
+  "name": "Brown rice, cooked",
+  "category": "grains",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 123.0,
+   "iron": 0.56,
+   "calcium": 3.0,
+   "magnesium": 39.0,
+   "potassium": 86.0,
+   "fibre": 1.48,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.2,
+   "zinc": 0.71,
+   "choline": 9.2,
+   "ala": 0.011,
+   "vit_e": 0.17,
+   "selenium": 5.8,
+   "vit_b6": 0.123,
+   "thiamin": 0.178,
+   "riboflavin": 0.069,
+   "niacin": 3.111,
+   "phosphorus": 103.0,
+   "copper": 106.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 195.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Grains, rice, brown, long-grain, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:4067",
+  "name": "Whole wheat bread",
+  "category": "grains",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 257.0,
+   "iron": 2.42,
+   "calcium": 73.0,
+   "magnesium": 76.0,
+   "potassium": 205.0,
+   "fibre": 6.28,
+   "folate_dfe": 31.0,
+   "folic_acid": 10.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 7.8,
+   "zinc": 1.66,
+   "choline": 27.2,
+   "ala": 0.154,
+   "vit_e": 2.66,
+   "selenium": 33.34,
+   "vit_b6": 0.137,
+   "thiamin": 0.239,
+   "riboflavin": 0.13,
+   "niacin": 5.5117,
+   "phosphorus": 215.0,
+   "copper": 233.0,
+   "vit_d": 0.33,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 64.0,
+   "label": "2 slices"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "wheat",
+   "gluten"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Bread, whole wheat, commercial",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:4517",
+  "name": "Whole wheat pasta, cooked",
+  "category": "grains",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 149.0,
+   "iron": 1.72,
+   "calcium": 13.0,
+   "magnesium": 54.0,
+   "potassium": 96.0,
+   "fibre": 3.23,
+   "folate_dfe": 21.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.6,
+   "zinc": 1.34,
+   "choline": 6.5,
+   "ala": 0.036,
+   "vit_e": 0.23,
+   "selenium": 36.3,
+   "vit_b6": 0.093,
+   "thiamin": 0.156,
+   "riboflavin": 0.099,
+   "niacin": 4.4093,
+   "phosphorus": 127.0,
+   "copper": 225.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 140.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "wheat",
+   "gluten"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Pasta, (spaghetti, macaroni), whole wheat, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:4486",
+  "name": "Pearl barley, cooked",
+  "category": "grains",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 123.0,
+   "iron": 1.33,
+   "calcium": 11.0,
+   "magnesium": 22.0,
+   "potassium": 93.0,
+   "fibre": 2.46,
+   "folate_dfe": 16.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.8,
+   "zinc": 0.82,
+   "choline": 13.4,
+   "ala": 0.02,
+   "vit_e": 0.01,
+   "selenium": 8.6,
+   "vit_b6": 0.115,
+   "thiamin": 0.083,
+   "riboflavin": 0.062,
+   "niacin": 2.6963,
+   "phosphorus": 54.0,
+   "copper": 105.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 157.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "gluten"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Grains, barley, pearled, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2214",
+  "name": "Spinach, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 23.0,
+   "iron": 3.57,
+   "calcium": 136.0,
+   "magnesium": 87.0,
+   "potassium": 466.0,
+   "fibre": 2.4,
+   "folate_dfe": 146.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 524.0,
+   "retinol": 0.0,
+   "vit_c": 9.8,
+   "vit_k": 493.6,
+   "zinc": 0.76,
+   "choline": 19.7,
+   "ala": 0.085,
+   "vit_e": 2.08,
+   "selenium": 1.5,
+   "vit_b6": 0.242,
+   "thiamin": 0.095,
+   "riboflavin": 0.236,
+   "niacin": 1.1567,
+   "phosphorus": 56.0,
+   "copper": 174.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 180.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Spinach, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2213",
+  "name": "Spinach, raw",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 23.0,
+   "iron": 2.71,
+   "calcium": 99.0,
+   "magnesium": 79.0,
+   "potassium": 558.0,
+   "fibre": 2.2,
+   "folate_dfe": 194.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 469.0,
+   "retinol": 0.0,
+   "vit_c": 28.1,
+   "vit_k": 482.9,
+   "zinc": 0.53,
+   "choline": 19.3,
+   "ala": 0.138,
+   "iodine": 7.3,
+   "vit_e": 2.03,
+   "selenium": 1.0,
+   "vit_b6": 0.195,
+   "thiamin": 0.078,
+   "riboflavin": 0.189,
+   "niacin": 1.374,
+   "phosphorus": 49.0,
+   "copper": 130.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Spinach, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:2105",
+  "name": "Kale, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 36.0,
+   "iron": 0.84,
+   "calcium": 150.0,
+   "magnesium": 25.0,
+   "potassium": 144.0,
+   "fibre": 4.0,
+   "folate_dfe": 65.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 146.0,
+   "retinol": 0.0,
+   "vit_c": 17.8,
+   "vit_k": 418.5,
+   "zinc": 0.27,
+   "choline": 0.4,
+   "ala": 0.103,
+   "vit_e": 1.61,
+   "selenium": 0.9,
+   "vit_b6": 0.063,
+   "thiamin": 0.063,
+   "riboflavin": 0.14,
+   "niacin": 1.0403,
+   "phosphorus": 42.0,
+   "copper": 67.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 130.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Kale, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2053",
+  "name": "Swiss chard, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 20.0,
+   "iron": 2.26,
+   "calcium": 58.0,
+   "magnesium": 86.0,
+   "potassium": 549.0,
+   "fibre": 2.1,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 306.0,
+   "retinol": 0.0,
+   "vit_c": 18.0,
+   "vit_k": 327.3,
+   "zinc": 0.33,
+   "choline": 28.7,
+   "ala": 0.003,
+   "vit_e": 1.89,
+   "selenium": 0.9,
+   "vit_b6": 0.085,
+   "thiamin": 0.034,
+   "riboflavin": 0.086,
+   "niacin": 0.66,
+   "phosphorus": 33.0,
+   "copper": 163.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 175.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Chard, swiss, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2064",
+  "name": "Collard greens, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 33.0,
+   "iron": 1.13,
+   "calcium": 141.0,
+   "magnesium": 21.0,
+   "potassium": 117.0,
+   "fibre": 4.0,
+   "folate_dfe": 16.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 380.0,
+   "retinol": 0.0,
+   "vit_c": 18.2,
+   "vit_k": 406.6,
+   "zinc": 0.23,
+   "choline": 38.4,
+   "ala": 0.093,
+   "vit_e": 0.88,
+   "selenium": 0.5,
+   "vit_b6": 0.128,
+   "thiamin": 0.04,
+   "riboflavin": 0.106,
+   "niacin": 1.025,
+   "phosphorus": 32.0,
+   "copper": 51.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 190.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Collards, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2039",
+  "name": "Bok choy, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 11.0,
+   "iron": 1.04,
+   "calcium": 93.0,
+   "magnesium": 11.0,
+   "potassium": 371.0,
+   "fibre": 1.0,
+   "folate_dfe": 41.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 212.0,
+   "retinol": 0.0,
+   "vit_c": 26.0,
+   "vit_k": 34.0,
+   "zinc": 0.17,
+   "choline": 12.1,
+   "ala": 0.041,
+   "vit_e": 0.09,
+   "selenium": 0.4,
+   "vit_b6": 0.166,
+   "thiamin": 0.032,
+   "riboflavin": 0.063,
+   "niacin": 0.678,
+   "phosphorus": 29.0,
+   "copper": 19.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 170.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Bok choy, pak-choi, boiled drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2375",
+  "name": "Broccoli, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 35.0,
+   "iron": 0.67,
+   "calcium": 40.0,
+   "magnesium": 21.0,
+   "potassium": 293.0,
+   "fibre": 2.4,
+   "folate_dfe": 108.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 77.0,
+   "retinol": 0.0,
+   "vit_c": 64.9,
+   "vit_k": 141.1,
+   "zinc": 0.45,
+   "choline": 40.1,
+   "ala": 0.119,
+   "vit_e": 1.45,
+   "selenium": 1.6,
+   "vit_b6": 0.2,
+   "thiamin": 0.063,
+   "riboflavin": 0.123,
+   "niacin": 1.1197,
+   "phosphorus": 67.0,
+   "copper": 61.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 156.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Broccoli, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2484",
+  "name": "Red bell pepper, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 26.0,
+   "iron": 0.43,
+   "calcium": 7.0,
+   "magnesium": 12.0,
+   "potassium": 211.0,
+   "fibre": 1.41,
+   "folate_dfe": 46.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 157.0,
+   "retinol": 0.0,
+   "vit_c": 127.7,
+   "vit_k": 4.9,
+   "zinc": 0.25,
+   "choline": 5.6,
+   "ala": 0.056,
+   "vit_e": 1.58,
+   "selenium": 0.1,
+   "vit_b6": 0.291,
+   "thiamin": 0.054,
+   "riboflavin": 0.085,
+   "niacin": 1.179,
+   "phosphorus": 26.0,
+   "copper": 17.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 149.0,
+   "label": "1 cup chopped"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Pepper, sweet, red, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2241",
+  "name": "Sweet potato, baked",
+  "category": "vegetables",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 90.0,
+   "iron": 0.69,
+   "calcium": 38.0,
+   "magnesium": 27.0,
+   "potassium": 475.0,
+   "fibre": 3.3,
+   "folate_dfe": 6.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 961.0,
+   "retinol": 0.0,
+   "vit_c": 19.6,
+   "vit_k": 2.3,
+   "zinc": 0.32,
+   "choline": 13.1,
+   "ala": 0.004,
+   "vit_e": 0.71,
+   "selenium": 0.2,
+   "vit_b6": 0.286,
+   "thiamin": 0.107,
+   "riboflavin": 0.106,
+   "niacin": 2.1537,
+   "phosphorus": 54.0,
+   "copper": 161.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 200.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Sweet potato, baked, skin removed after baking",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2478",
+  "name": "Potato, baked with skin",
+  "category": "vegetables",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 93.0,
+   "iron": 1.08,
+   "calcium": 15.0,
+   "magnesium": 28.0,
+   "potassium": 535.0,
+   "fibre": 2.2,
+   "folate_dfe": 28.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 9.6,
+   "vit_k": 2.0,
+   "zinc": 0.36,
+   "choline": 14.8,
+   "ala": 0.013,
+   "vit_e": 0.04,
+   "selenium": 0.4,
+   "vit_b6": 0.311,
+   "thiamin": 0.064,
+   "riboflavin": 0.048,
+   "niacin": 1.8267,
+   "phosphorus": 70.0,
+   "copper": 118.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 173.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Potato, flesh and skin, baked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2380",
+  "name": "Carrots, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 41.0,
+   "iron": 0.3,
+   "calcium": 33.0,
+   "magnesium": 12.0,
+   "potassium": 320.0,
+   "fibre": 2.44,
+   "folate_dfe": 19.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 835.0,
+   "retinol": 0.0,
+   "vit_c": 5.9,
+   "vit_k": 13.2,
+   "zinc": 0.24,
+   "choline": 8.8,
+   "ala": 0.002,
+   "iodine": 1.8,
+   "vit_e": 0.66,
+   "selenium": 0.57,
+   "vit_b6": 0.138,
+   "thiamin": 0.066,
+   "riboflavin": 0.058,
+   "niacin": 1.183,
+   "phosphorus": 35.0,
+   "copper": 45.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 128.0,
+   "label": "1 cup chopped"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Carrot, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:2379",
+  "name": "Brussels sprouts, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 36.0,
+   "iron": 1.2,
+   "calcium": 36.0,
+   "magnesium": 20.0,
+   "potassium": 317.0,
+   "fibre": 3.57,
+   "folate_dfe": 60.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 39.0,
+   "retinol": 0.0,
+   "vit_c": 62.0,
+   "vit_k": 140.3,
+   "zinc": 0.33,
+   "choline": 40.6,
+   "ala": 0.168,
+   "vit_e": 0.43,
+   "selenium": 1.5,
+   "vit_b6": 0.178,
+   "thiamin": 0.107,
+   "riboflavin": 0.08,
+   "niacin": 1.0737,
+   "phosphorus": 56.0,
+   "copper": 83.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 156.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Brussels sprouts, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:1991",
+  "name": "Asparagus, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 22.0,
+   "iron": 0.91,
+   "calcium": 23.0,
+   "magnesium": 14.0,
+   "potassium": 224.0,
+   "fibre": 2.0,
+   "folate_dfe": 149.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 50.0,
+   "retinol": 0.0,
+   "vit_c": 7.7,
+   "vit_k": 50.6,
+   "zinc": 0.6,
+   "choline": 26.1,
+   "ala": 0.03,
+   "iodine": 0.0,
+   "vit_e": 1.5,
+   "selenium": 6.1,
+   "vit_b6": 0.079,
+   "thiamin": 0.162,
+   "riboflavin": 0.139,
+   "niacin": 1.5673,
+   "phosphorus": 54.0,
+   "copper": 165.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 180.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Asparagus, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:2460",
+  "name": "Tomato, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 18.0,
+   "iron": 0.27,
+   "calcium": 10.0,
+   "magnesium": 11.0,
+   "potassium": 237.0,
+   "fibre": 1.21,
+   "folate_dfe": 15.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 42.0,
+   "retinol": 0.0,
+   "vit_c": 13.7,
+   "vit_k": 7.9,
+   "zinc": 0.17,
+   "choline": 6.7,
+   "ala": 0.003,
+   "vit_e": 0.54,
+   "selenium": 0.0,
+   "vit_b6": 0.08,
+   "thiamin": 0.037,
+   "riboflavin": 0.019,
+   "niacin": 0.694,
+   "phosphorus": 24.0,
+   "copper": 59.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 123.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Tomato, red, ripe, raw, year round average",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2501",
+  "name": "Beets, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 44.0,
+   "iron": 0.79,
+   "calcium": 16.0,
+   "magnesium": 23.0,
+   "potassium": 305.0,
+   "fibre": 2.02,
+   "folate_dfe": 80.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 2.0,
+   "retinol": 0.0,
+   "vit_c": 3.6,
+   "vit_k": 0.2,
+   "zinc": 0.35,
+   "choline": 6.3,
+   "ala": 0.005,
+   "vit_e": 0.04,
+   "selenium": 0.7,
+   "vit_b6": 0.067,
+   "thiamin": 0.027,
+   "riboflavin": 0.04,
+   "niacin": 0.6643,
+   "phosphorus": 38.0,
+   "copper": 74.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 170.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beets, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2410",
+  "name": "Green peas, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 84.0,
+   "iron": 1.54,
+   "calcium": 27.0,
+   "magnesium": 39.0,
+   "potassium": 271.0,
+   "fibre": 6.65,
+   "folate_dfe": 63.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 40.0,
+   "retinol": 0.0,
+   "vit_c": 14.2,
+   "vit_k": 25.9,
+   "zinc": 1.19,
+   "choline": 29.7,
+   "ala": 0.019,
+   "vit_e": 0.14,
+   "selenium": 1.9,
+   "vit_b6": 0.216,
+   "thiamin": 0.259,
+   "riboflavin": 0.149,
+   "niacin": 2.6377,
+   "phosphorus": 117.0,
+   "copper": 173.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 160.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Peas, green, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2452",
+  "name": "Butternut squash, baked",
+  "category": "vegetables",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 40.0,
+   "iron": 0.6,
+   "calcium": 41.0,
+   "magnesium": 29.0,
+   "potassium": 284.0,
+   "fibre": 1.68,
+   "folate_dfe": 19.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 558.0,
+   "retinol": 0.0,
+   "vit_c": 15.1,
+   "vit_k": 1.0,
+   "zinc": 0.13,
+   "ala": 0.024,
+   "vit_e": 1.29,
+   "selenium": 0.5,
+   "vit_b6": 0.124,
+   "thiamin": 0.072,
+   "riboflavin": 0.017,
+   "niacin": 1.1857,
+   "phosphorus": 27.0,
+   "copper": 65.0,
+   "vit_d": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 205.0,
+   "label": "1 cup cubed"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Squash, winter, butternut, baked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline",
+   "epa_dha",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:1511",
+  "name": "Avocado",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 160.0,
+   "iron": 0.55,
+   "calcium": 12.0,
+   "magnesium": 29.0,
+   "potassium": 485.0,
+   "fibre": 6.7,
+   "folate_dfe": 81.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 7.0,
+   "retinol": 0.0,
+   "vit_c": 10.0,
+   "vit_k": 21.0,
+   "zinc": 0.64,
+   "choline": 14.2,
+   "ala": 0.111,
+   "iodine": 0.0,
+   "vit_e": 2.07,
+   "selenium": 0.4,
+   "vit_b6": 0.257,
+   "thiamin": 0.067,
+   "riboflavin": 0.13,
+   "niacin": 2.1547,
+   "phosphorus": 52.0,
+   "copper": 190.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 75.0,
+   "label": "½ avocado"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Avocado, raw, all commercial varieties",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:1616",
+  "name": "Orange",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 49.0,
+   "iron": 0.13,
+   "calcium": 43.0,
+   "magnesium": 11.0,
+   "potassium": 166.0,
+   "fibre": 2.2,
+   "folate_dfe": 34.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 12.0,
+   "retinol": 0.0,
+   "vit_c": 59.1,
+   "vit_k": 0.0,
+   "zinc": 0.08,
+   "ala": 0.009,
+   "iodine": 0.0,
+   "vit_e": 0.15,
+   "selenium": 0.0,
+   "vit_b6": 0.079,
+   "thiamin": 0.068,
+   "riboflavin": 0.051,
+   "niacin": 0.575,
+   "phosphorus": 23.0,
+   "copper": 39.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 140.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Orange, california, navel, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:1585",
+  "name": "Kiwi",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 61.0,
+   "iron": 0.31,
+   "calcium": 34.0,
+   "magnesium": 17.0,
+   "potassium": 312.0,
+   "fibre": 3.0,
+   "folate_dfe": 25.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 4.0,
+   "retinol": 0.0,
+   "vit_c": 92.7,
+   "vit_k": 40.3,
+   "zinc": 0.14,
+   "choline": 7.8,
+   "ala": 0.042,
+   "iodine": 1.7,
+   "vit_e": 1.46,
+   "selenium": 0.2,
+   "vit_b6": 0.063,
+   "thiamin": 0.027,
+   "riboflavin": 0.025,
+   "niacin": 0.591,
+   "phosphorus": 34.0,
+   "copper": 130.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 150.0,
+   "label": "2 kiwis"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Kiwi fruit, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "usda_fdc_sr_legacy:167762",
+  "name": "Strawberries",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 32.0,
+   "iron": 0.41,
+   "calcium": 16.0,
+   "magnesium": 13.0,
+   "potassium": 153.0,
+   "fibre": 2.0,
+   "folate_dfe": 24.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 58.8,
+   "vit_k": 2.2,
+   "zinc": 0.14,
+   "choline": 5.7,
+   "ala": 0.0,
+   "iodine": 0.0,
+   "vit_e": 0.29,
+   "selenium": 0.4,
+   "vit_b6": 0.047,
+   "thiamin": 0.024,
+   "riboflavin": 0.022,
+   "niacin": 0.25,
+   "phosphorus": 24.0,
+   "copper": 48.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 152.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Strawberries, raw",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:1704",
+  "name": "Banana",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 89.0,
+   "iron": 0.26,
+   "calcium": 5.0,
+   "magnesium": 27.0,
+   "potassium": 358.0,
+   "fibre": 1.74,
+   "folate_dfe": 20.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 3.0,
+   "retinol": 0.0,
+   "vit_c": 8.7,
+   "vit_k": 0.5,
+   "zinc": 0.15,
+   "choline": 9.8,
+   "ala": 0.027,
+   "iodine": 0.0,
+   "vit_e": 0.1,
+   "selenium": 1.0,
+   "vit_b6": 0.367,
+   "thiamin": 0.031,
+   "riboflavin": 0.073,
+   "niacin": 0.815,
+   "phosphorus": 22.0,
+   "copper": 78.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 118.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Banana, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:1696",
+  "name": "Apple",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 52.0,
+   "iron": 0.12,
+   "calcium": 6.0,
+   "magnesium": 5.0,
+   "potassium": 107.0,
+   "fibre": 1.9,
+   "folate_dfe": 3.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 3.0,
+   "retinol": 0.0,
+   "vit_c": 4.6,
+   "vit_k": 2.2,
+   "zinc": 0.04,
+   "choline": 3.4,
+   "ala": 0.009,
+   "iodine": 0.37,
+   "vit_e": 0.18,
+   "selenium": 0.0,
+   "vit_b6": 0.041,
+   "thiamin": 0.017,
+   "riboflavin": 0.026,
+   "niacin": 0.1077,
+   "phosphorus": 11.0,
+   "copper": 27.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 182.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Apple, raw, with skin",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "usda_fdc_foundation:2346411",
+  "name": "Blueberries",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 57.3846,
+   "iron": 0.3398,
+   "calcium": 11.69,
+   "magnesium": 6.179,
+   "potassium": 85.64,
+   "fibre": 2.4,
+   "folate_dfe": 6.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 2.67,
+   "retinol": 0.0,
+   "vit_c": 8.059,
+   "vit_k": 19.3,
+   "zinc": 0.0853,
+   "choline": 6.0,
+   "ala": 0.04,
+   "iodine": 0.5,
+   "vit_e": 0.57,
+   "selenium": 0.0,
+   "vit_b6": 0.052,
+   "thiamin": 0.037,
+   "riboflavin": 0.041,
+   "niacin": 0.23,
+   "phosphorus": 12.96,
+   "copper": 46.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 148.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_foundation",
+   "name": "Blueberries, raw",
+   "citation": "USDA FoodData Central (Foundation Foods)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": []
+ },
+ {
+  "id": "usda_fdc_sr_legacy:173941",
+  "name": "Dried apricots",
+  "category": "fruit",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 241.0,
+   "iron": 2.66,
+   "calcium": 55.0,
+   "magnesium": 32.0,
+   "potassium": 1162.0,
+   "fibre": 7.3,
+   "folate_dfe": 10.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 180.0,
+   "retinol": 0.0,
+   "vit_c": 1.0,
+   "vit_k": 3.1,
+   "zinc": 0.39,
+   "choline": 13.9,
+   "vit_e": 4.33,
+   "selenium": 2.2,
+   "vit_b6": 0.143,
+   "thiamin": 0.015,
+   "riboflavin": 0.074,
+   "phosphorus": 71.0,
+   "copper": 343.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 35.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "sulphite"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Apricots, dried, sulfured, uncooked",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": [
+   "ala",
+   "iodine"
+  ]
+ },
+ {
+  "id": "usda_fdc_sr_legacy:168162",
+  "name": "Prunes",
+  "category": "fruit",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 240.0,
+   "iron": 0.93,
+   "calcium": 43.0,
+   "magnesium": 41.0,
+   "potassium": 732.0,
+   "fibre": 7.1,
+   "folate_dfe": 4.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 39.0,
+   "retinol": 0.0,
+   "vit_c": 0.6,
+   "vit_k": 59.5,
+   "zinc": 0.44,
+   "choline": 10.1,
+   "vit_e": 0.43,
+   "selenium": 0.3,
+   "vit_b6": 0.205,
+   "thiamin": 0.051,
+   "riboflavin": 0.186,
+   "phosphorus": 69.0,
+   "copper": 281.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 40.0,
+   "label": "4 to 5 prunes"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Plums, dried (prunes), uncooked",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": [
+   "ala",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:1603",
+  "name": "Mango",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 60.0,
+   "iron": 0.16,
+   "calcium": 11.0,
+   "magnesium": 10.0,
+   "potassium": 168.0,
+   "fibre": 1.6,
+   "folate_dfe": 43.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 54.0,
+   "retinol": 0.0,
+   "vit_c": 36.4,
+   "vit_k": 4.2,
+   "zinc": 0.09,
+   "choline": 7.6,
+   "ala": 0.037,
+   "iodine": 0.0,
+   "vit_e": 0.9,
+   "selenium": 0.6,
+   "vit_b6": 0.119,
+   "thiamin": 0.028,
+   "riboflavin": 0.038,
+   "niacin": 0.8857,
+   "phosphorus": 14.0,
+   "copper": 111.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 165.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Mango, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:1578",
+  "name": "Guava",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 68.0,
+   "iron": 0.26,
+   "calcium": 18.0,
+   "magnesium": 22.0,
+   "potassium": 417.0,
+   "fibre": 5.4,
+   "folate_dfe": 49.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 31.0,
+   "retinol": 0.0,
+   "vit_c": 228.3,
+   "vit_k": 2.6,
+   "zinc": 0.23,
+   "choline": 7.6,
+   "ala": 0.112,
+   "vit_e": 0.73,
+   "selenium": 0.6,
+   "vit_b6": 0.11,
+   "thiamin": 0.067,
+   "riboflavin": 0.04,
+   "niacin": 1.4507,
+   "phosphorus": 40.0,
+   "copper": 230.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 110.0,
+   "label": "2 guavas"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Guava, common, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cofid:14-092",
+  "name": "Dried figs",
+  "category": "fruit",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 227.0,
+   "iron": 4.2,
+   "calcium": 250.0,
+   "magnesium": 80.0,
+   "potassium": 970.0,
+   "fibre": 7.5,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "retinol": 0.0,
+   "vit_c": 1.0,
+   "zinc": 0.7,
+   "ala": 0.0,
+   "iodine": 0.8,
+   "vit_e": 0.4,
+   "selenium": 0.0,
+   "vit_b6": 0.26,
+   "thiamin": 0.08,
+   "riboflavin": 0.1,
+   "niacin": 1.3,
+   "phosphorus": 89.0,
+   "copper": 300.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 40.0,
+   "label": "5 figs"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cofid",
+   "name": "Figs, whole fruit, dried",
+   "citation": "McCance and Widdowson's CoFID 2021 (UK)",
+   "licence": "Open Government Licence v3.0"
+  },
+  "missing": [
+   "vit_a_rae",
+   "vit_k",
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:2534",
+  "name": "Almonds",
+  "category": "nuts_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 579.0,
+   "iron": 3.71,
+   "calcium": 269.0,
+   "magnesium": 270.0,
+   "potassium": 733.0,
+   "fibre": 12.5,
+   "folate_dfe": 44.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 3.12,
+   "choline": 52.1,
+   "ala": 0.003,
+   "vit_e": 25.63,
+   "selenium": 4.1,
+   "vit_b6": 0.137,
+   "thiamin": 0.205,
+   "riboflavin": 1.138,
+   "niacin": 7.1347,
+   "phosphorus": 481.0,
+   "copper": 1031.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup (about 23)"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Nuts, almonds, dried, unblanched, unroasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2590",
+  "name": "Walnuts",
+  "category": "nuts_seeds",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 655.0,
+   "iron": 2.91,
+   "calcium": 98.0,
+   "magnesium": 158.0,
+   "potassium": 441.0,
+   "fibre": 6.7,
+   "folate_dfe": 98.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 1.3,
+   "vit_k": 2.7,
+   "zinc": 3.09,
+   "choline": 39.2,
+   "ala": 9.08,
+   "vit_e": 0.7,
+   "selenium": 4.9,
+   "vit_b6": 0.537,
+   "thiamin": 0.341,
+   "riboflavin": 0.15,
+   "niacin": 3.9583,
+   "phosphorus": 346.0,
+   "copper": 1586.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Nuts, walnuts, English or Persian",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:5709",
+  "name": "Cashews",
+  "category": "nuts_seeds",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 553.0,
+   "iron": 6.68,
+   "calcium": 37.0,
+   "magnesium": 292.0,
+   "potassium": 660.0,
+   "fibre": 3.3,
+   "folate_dfe": 25.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.5,
+   "vit_k": 34.1,
+   "zinc": 5.78,
+   "ala": 0.062,
+   "iodine": 5.0,
+   "vit_e": 0.9,
+   "selenium": 19.9,
+   "vit_b6": 0.417,
+   "thiamin": 0.423,
+   "riboflavin": 0.058,
+   "niacin": 5.8453,
+   "phosphorus": 593.0,
+   "copper": 2195.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Nuts, cashew nuts, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:2516",
+  "name": "Pumpkin seeds",
+  "category": "nuts_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 559.0,
+   "iron": 8.82,
+   "calcium": 46.0,
+   "magnesium": 592.0,
+   "potassium": 809.0,
+   "fibre": 6.0,
+   "folate_dfe": 58.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 1.9,
+   "vit_k": 7.3,
+   "zinc": 7.81,
+   "choline": 63.0,
+   "ala": 0.12,
+   "vit_e": 2.18,
+   "selenium": 9.4,
+   "vit_b6": 0.143,
+   "thiamin": 0.273,
+   "riboflavin": 0.153,
+   "niacin": 14.587,
+   "phosphorus": 1233.0,
+   "copper": 1343.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, pumpkin and squash seed kernels, dried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2526",
+  "name": "Sunflower seeds",
+  "category": "nuts_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 585.0,
+   "iron": 5.25,
+   "calcium": 78.0,
+   "magnesium": 325.0,
+   "potassium": 645.0,
+   "fibre": 8.6,
+   "folate_dfe": 227.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 3.0,
+   "retinol": 0.0,
+   "vit_c": 1.4,
+   "vit_k": 0.0,
+   "zinc": 5.0,
+   "choline": 55.1,
+   "ala": 0.069,
+   "iodine": 0.0,
+   "vit_e": 35.17,
+   "selenium": 53.0,
+   "vit_b6": 1.345,
+   "thiamin": 1.48,
+   "riboflavin": 0.355,
+   "niacin": 14.135,
+   "phosphorus": 660.0,
+   "copper": 1800.0,
+   "vit_d": 0.0,
+   "epa_dha": 14.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, sunflower seed kernels, dried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:3362",
+  "name": "Peanuts, dry roasted",
+  "category": "nuts_seeds",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 587.0,
+   "iron": 1.58,
+   "calcium": 58.0,
+   "magnesium": 178.0,
+   "potassium": 634.0,
+   "fibre": 8.4,
+   "folate_dfe": 97.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 2.77,
+   "choline": 64.6,
+   "ala": 0.025,
+   "vit_e": 4.93,
+   "selenium": 9.3,
+   "vit_b6": 0.466,
+   "thiamin": 0.152,
+   "riboflavin": 0.197,
+   "niacin": 18.1883,
+   "phosphorus": 363.0,
+   "copper": 428.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "¼ cup"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "peanut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Peanuts, all types, dry roasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:6289",
+  "name": "Peanut butter, natural",
+  "category": "nuts_seeds",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 585.0,
+   "iron": 2.26,
+   "calcium": 54.0,
+   "magnesium": 176.0,
+   "potassium": 658.0,
+   "fibre": 8.0,
+   "folate_dfe": 145.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 3.31,
+   "ala": 0.003,
+   "vit_e": 7.0,
+   "selenium": 7.5,
+   "vit_b6": 0.256,
+   "thiamin": 0.438,
+   "riboflavin": 0.098,
+   "niacin": 17.3583,
+   "phosphorus": 358.0,
+   "copper": 671.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 32.0,
+   "label": "2 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "peanut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Peanut butter, natural",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2544",
+  "name": "Brazil nuts",
+  "category": "nuts_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 659.0,
+   "iron": 2.43,
+   "calcium": 160.0,
+   "magnesium": 376.0,
+   "potassium": 659.0,
+   "fibre": 7.5,
+   "folate_dfe": 22.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.7,
+   "vit_k": 0.0,
+   "zinc": 4.06,
+   "choline": 28.8,
+   "ala": 0.018,
+   "vit_e": 5.65,
+   "selenium": 1917.0,
+   "vit_b6": 0.101,
+   "thiamin": 0.617,
+   "riboflavin": 0.035,
+   "niacin": 2.545,
+   "phosphorus": 725.0,
+   "copper": 1743.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 10.0,
+   "label": "2 nuts"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Nuts, brazilnuts, dried, unblanched",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2511",
+  "name": "Chia seeds",
+  "category": "small_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 486.0,
+   "iron": 7.72,
+   "calcium": 631.0,
+   "magnesium": 335.0,
+   "potassium": 407.0,
+   "fibre": 34.4,
+   "folate_dfe": 49.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 2.0,
+   "retinol": 0.0,
+   "vit_c": 1.6,
+   "zinc": 4.58,
+   "ala": 17.83,
+   "iodine": 0.0,
+   "vit_e": 0.5,
+   "selenium": 55.2,
+   "vit_b6": 0.42,
+   "thiamin": 0.62,
+   "riboflavin": 0.17,
+   "niacin": 16.0967,
+   "phosphorus": 860.0,
+   "copper": 924.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 15.0,
+   "label": "1½ tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, chia seeds, dried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:4528",
+  "name": "Flaxseed, ground",
+  "category": "small_seeds",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 534.0,
+   "iron": 5.73,
+   "calcium": 255.0,
+   "magnesium": 392.0,
+   "potassium": 813.0,
+   "fibre": 27.3,
+   "folate_dfe": 87.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.6,
+   "vit_k": 4.3,
+   "zinc": 4.34,
+   "choline": 78.7,
+   "ala": 22.813,
+   "vit_e": 0.31,
+   "selenium": 25.4,
+   "vit_b6": 0.473,
+   "thiamin": 1.644,
+   "riboflavin": 0.161,
+   "niacin": 8.03,
+   "phosphorus": 642.0,
+   "copper": 1220.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 14.0,
+   "label": "2 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, flaxseed (linseed), whole and ground",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:7568",
+  "name": "Hemp hearts",
+  "category": "small_seeds",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 553.0,
+   "iron": 7.95,
+   "calcium": 70.0,
+   "magnesium": 700.0,
+   "potassium": 1200.0,
+   "fibre": 4.0,
+   "folate_dfe": 110.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 0.5,
+   "zinc": 9.9,
+   "ala": 8.684,
+   "iodine": 2.9,
+   "vit_e": 0.8,
+   "selenium": 36.0,
+   "vit_b6": 0.6,
+   "thiamin": 1.275,
+   "riboflavin": 0.285,
+   "niacin": 15.35,
+   "phosphorus": 1650.0,
+   "copper": 1600.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 20.0,
+   "label": "2 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, hemp seeds, hulled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:2521",
+  "name": "Sesame seeds, toasted",
+  "category": "small_seeds",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 565.0,
+   "iron": 14.76,
+   "calcium": 989.0,
+   "magnesium": 356.0,
+   "potassium": 475.0,
+   "fibre": 14.0,
+   "folate_dfe": 98.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 7.16,
+   "ala": 0.36,
+   "iodine": 0.0,
+   "vit_e": 0.24,
+   "selenium": 34.4,
+   "vit_b6": 0.802,
+   "thiamin": 0.803,
+   "riboflavin": 0.251,
+   "niacin": 10.7643,
+   "phosphorus": 638.0,
+   "copper": 2470.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 15.0,
+   "label": "1½ tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "sesame"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, sesame seeds, whole, roasted and toasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:2598",
+  "name": "Tahini",
+  "category": "small_seeds",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 607.0,
+   "iron": 6.35,
+   "calcium": 141.0,
+   "magnesium": 353.0,
+   "potassium": 459.0,
+   "fibre": 9.3,
+   "folate_dfe": 98.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 3.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "zinc": 10.45,
+   "ala": 0.427,
+   "vit_e": 0.26,
+   "selenium": 34.4,
+   "vit_b6": 0.149,
+   "thiamin": 1.587,
+   "riboflavin": 0.12,
+   "niacin": 12.194,
+   "phosphorus": 790.0,
+   "copper": 1488.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 15.0,
+   "label": "1 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "sesame"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Seeds, sesame butter, tahini, unroasted kernels",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3183",
+  "name": "Salmon, Atlantic, baked",
+  "category": "fish",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 206.0,
+   "iron": 0.34,
+   "calcium": 15.0,
+   "magnesium": 30.0,
+   "potassium": 384.0,
+   "fibre": 0.0,
+   "folate_dfe": 34.0,
+   "folic_acid": 0.0,
+   "vit_b12": 2.8,
+   "vit_a_rae": 69.0,
+   "retinol": 69.0,
+   "vit_c": 3.7,
+   "vit_k": 0.1,
+   "zinc": 0.43,
+   "choline": 90.5,
+   "ala": 0.11,
+   "vit_e": 1.14,
+   "selenium": 41.4,
+   "vit_b6": 0.647,
+   "thiamin": 0.34,
+   "riboflavin": 0.135,
+   "niacin": 12.1783,
+   "phosphorus": 252.0,
+   "copper": 49.0,
+   "vit_d": 6.8,
+   "epa_dha": 2147.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 fillet piece (100 g)"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, salmon, atlantic, farmed, baked or broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:5965",
+  "name": "Pink salmon, canned with bones",
+  "category": "fish",
+  "form": "canned",
+  "per100g": {
+   "energy_kcal": 138.0,
+   "iron": 0.77,
+   "calcium": 283.0,
+   "magnesium": 32.0,
+   "potassium": 333.0,
+   "fibre": 0.0,
+   "folate_dfe": 4.0,
+   "folic_acid": 0.0,
+   "vit_b12": 4.95,
+   "vit_a_rae": 20.0,
+   "retinol": 20.0,
+   "vit_c": 0.0,
+   "vit_k": 0.1,
+   "zinc": 0.96,
+   "choline": 87.8,
+   "ala": 0.048,
+   "vit_e": 1.28,
+   "selenium": 39.5,
+   "vit_b6": 0.105,
+   "thiamin": 0.027,
+   "riboflavin": 0.202,
+   "niacin": 11.559,
+   "phosphorus": 379.0,
+   "copper": 82.0,
+   "vit_d": 14.5,
+   "epa_dha": 1077.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "½ can drained"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, salmon, pink, canned, drained solids with bone",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3203",
+  "name": "Sardines, canned in oil",
+  "category": "fish",
+  "form": "canned",
+  "per100g": {
+   "energy_kcal": 208.0,
+   "iron": 2.92,
+   "calcium": 382.0,
+   "magnesium": 39.0,
+   "potassium": 397.0,
+   "fibre": 0.0,
+   "folate_dfe": 7.7,
+   "folic_acid": 0.0,
+   "vit_b12": 8.94,
+   "vit_a_rae": 32.0,
+   "retinol": 32.0,
+   "vit_c": 0.0,
+   "vit_k": 2.6,
+   "zinc": 1.31,
+   "choline": 75.0,
+   "ala": 0.49,
+   "vit_e": 2.04,
+   "selenium": 52.7,
+   "vit_b6": 0.167,
+   "thiamin": 0.08,
+   "riboflavin": 0.227,
+   "niacin": 9.845,
+   "phosphorus": 490.0,
+   "copper": 186.0,
+   "vit_d": 2.33,
+   "epa_dha": 982.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 92.0,
+   "label": "1 can drained"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3187",
+  "name": "Rainbow trout, baked",
+  "category": "fish",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 168.0,
+   "iron": 0.36,
+   "calcium": 30.0,
+   "magnesium": 30.0,
+   "potassium": 450.0,
+   "fibre": 0.0,
+   "folate_dfe": 12.0,
+   "folic_acid": 0.0,
+   "vit_b12": 4.11,
+   "vit_a_rae": 100.0,
+   "retinol": 100.0,
+   "vit_c": 2.9,
+   "vit_k": 0.1,
+   "zinc": 0.54,
+   "choline": 77.6,
+   "ala": 0.08,
+   "iodine": 8.0,
+   "vit_e": 2.79,
+   "selenium": 28.1,
+   "vit_b6": 0.386,
+   "thiamin": 0.143,
+   "riboflavin": 0.107,
+   "niacin": 11.296,
+   "phosphorus": 270.0,
+   "copper": 55.0,
+   "vit_d": 6.39,
+   "epa_dha": 875.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 fillet piece (100 g)"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, trout, rainbow, farmed, baked or broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:3022",
+  "name": "Atlantic mackerel, baked",
+  "category": "fish",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 262.0,
+   "iron": 1.57,
+   "calcium": 15.0,
+   "magnesium": 97.0,
+   "potassium": 401.0,
+   "fibre": 0.0,
+   "folate_dfe": 2.0,
+   "folic_acid": 0.0,
+   "vit_b12": 19.0,
+   "vit_a_rae": 54.0,
+   "retinol": 54.0,
+   "vit_c": 0.4,
+   "zinc": 0.94,
+   "ala": 0.11,
+   "vit_e": 1.94,
+   "selenium": 51.6,
+   "vit_b6": 0.46,
+   "thiamin": 0.159,
+   "riboflavin": 0.412,
+   "niacin": 11.3,
+   "phosphorus": 278.0,
+   "copper": 94.0,
+   "vit_d": 2.6,
+   "epa_dha": 1203.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 fillet piece (100 g)"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, mackerel, atlantic, baked or broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3131",
+  "name": "Light tuna, canned in water",
+  "category": "fish",
+  "form": "canned",
+  "per100g": {
+   "energy_kcal": 116.0,
+   "iron": 1.53,
+   "calcium": 11.0,
+   "magnesium": 27.0,
+   "potassium": 237.0,
+   "fibre": 0.0,
+   "folate_dfe": 4.0,
+   "folic_acid": 0.0,
+   "vit_b12": 2.99,
+   "vit_a_rae": 0.0,
+   "vit_c": 0.0,
+   "zinc": 0.77,
+   "ala": 0.0,
+   "vit_e": 0.33,
+   "selenium": 80.4,
+   "vit_b6": 0.35,
+   "thiamin": 0.032,
+   "riboflavin": 0.074,
+   "niacin": 18.0467,
+   "phosphorus": 163.0,
+   "copper": 51.0,
+   "vit_d": 1.21,
+   "epa_dha": 270.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 small can drained"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, tuna, light, canned in water, drained, unsalted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:3195",
+  "name": "Cod, baked",
+  "category": "fish",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 105.0,
+   "iron": 0.49,
+   "calcium": 14.0,
+   "magnesium": 42.0,
+   "potassium": 244.0,
+   "fibre": 0.0,
+   "folate_dfe": 8.0,
+   "folic_acid": 0.0,
+   "vit_b12": 1.05,
+   "vit_a_rae": 14.0,
+   "retinol": 14.0,
+   "vit_c": 1.0,
+   "vit_k": 0.1,
+   "zinc": 0.58,
+   "choline": 83.7,
+   "ala": 0.001,
+   "vit_e": 0.81,
+   "selenium": 37.6,
+   "vit_b6": 0.283,
+   "thiamin": 0.088,
+   "riboflavin": 0.079,
+   "niacin": 6.7797,
+   "phosphorus": 138.0,
+   "copper": 36.0,
+   "vit_d": 1.2,
+   "epa_dha": 158.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 120.0,
+   "label": "1 fillet (120 g)"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "fish"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Fish, cod (scrod), Atlantic, baked or broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "usda_fdc_sr_legacy:175180",
+  "name": "Shrimp, cooked",
+  "category": "shellfish",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 99.0,
+   "iron": 0.51,
+   "calcium": 70.0,
+   "magnesium": 39.0,
+   "potassium": 259.0,
+   "zinc": 1.64,
+   "ala": 0.001,
+   "phosphorus": 237.0,
+   "copper": 379.0,
+   "epa_dha": 30.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 85.0,
+   "label": "about 12 shrimp"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "crustacean"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Crustaceans, shrimp, cooked",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": [
+   "fibre",
+   "folate_dfe",
+   "vit_b12",
+   "vit_a_rae",
+   "vit_c",
+   "vit_k",
+   "choline",
+   "iodine",
+   "vit_e"
+  ]
+ },
+ {
+  "id": "cnf:3116",
+  "name": "Mussels, steamed",
+  "category": "shellfish",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 172.0,
+   "iron": 6.72,
+   "calcium": 33.0,
+   "magnesium": 37.0,
+   "potassium": 268.0,
+   "fibre": 0.0,
+   "folate_dfe": 76.0,
+   "folic_acid": 0.0,
+   "vit_b12": 24.0,
+   "vit_a_rae": 91.0,
+   "retinol": 91.0,
+   "vit_c": 13.6,
+   "zinc": 2.67,
+   "ala": 0.04,
+   "vit_e": 1.1,
+   "selenium": 89.6,
+   "vit_b6": 0.1,
+   "thiamin": 0.3,
+   "riboflavin": 0.42,
+   "niacin": 7.45,
+   "phosphorus": 285.0,
+   "copper": 149.0,
+   "vit_d": 0.28,
+   "epa_dha": 782.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 85.0,
+   "label": "about 12 mussels"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "mollusc"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Mollusks, mussel, blue, boiled or steamed",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:6146",
+  "name": "Sirloin steak, broiled",
+  "category": "meat",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 172.0,
+   "iron": 2.78,
+   "calcium": 6.04,
+   "magnesium": 27.44,
+   "potassium": 353.22,
+   "fibre": 0.0,
+   "folate_dfe": 6.0,
+   "folic_acid": 0.0,
+   "vit_b12": 3.2,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 1.4,
+   "zinc": 6.65,
+   "choline": 112.1,
+   "ala": 0.02,
+   "vit_e": 0.38,
+   "selenium": 34.3,
+   "vit_b6": 0.4,
+   "thiamin": 0.16,
+   "riboflavin": 0.29,
+   "niacin": 12.5933,
+   "phosphorus": 220.06,
+   "copper": 87.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 piece (100 g)"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beef, loin, top sirloin steak, boneless, lean, cooked, broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2687",
+  "name": "Lean ground beef, cooked",
+  "category": "meat",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 250.0,
+   "iron": 2.6,
+   "calcium": 18.0,
+   "magnesium": 21.0,
+   "potassium": 318.0,
+   "fibre": 0.0,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 2.64,
+   "vit_a_rae": 3.0,
+   "retinol": 3.0,
+   "vit_c": 0.0,
+   "vit_k": 1.2,
+   "zinc": 6.31,
+   "choline": 82.4,
+   "ala": 0.044,
+   "vit_e": 0.12,
+   "selenium": 21.5,
+   "vit_b6": 0.382,
+   "thiamin": 0.046,
+   "riboflavin": 0.176,
+   "niacin": 7.5667,
+   "phosphorus": 198.0,
+   "copper": 85.0,
+   "vit_d": 0.0,
+   "epa_dha": 4.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "100 g cooked"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beef, ground, lean, broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:842",
+  "name": "Chicken breast, roasted",
+  "category": "poultry",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 165.0,
+   "iron": 1.04,
+   "calcium": 15.0,
+   "magnesium": 29.0,
+   "potassium": 256.0,
+   "fibre": 0.0,
+   "folate_dfe": 4.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.34,
+   "vit_a_rae": 6.0,
+   "retinol": 6.0,
+   "vit_c": 0.0,
+   "vit_k": 0.3,
+   "zinc": 1.0,
+   "choline": 85.3,
+   "ala": 0.03,
+   "vit_e": 0.27,
+   "selenium": 27.6,
+   "vit_b6": 0.6,
+   "thiamin": 0.07,
+   "riboflavin": 0.114,
+   "niacin": 19.7453,
+   "phosphorus": 228.0,
+   "copper": 49.0,
+   "vit_d": 0.1,
+   "epa_dha": 30.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 piece (100 g)"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Chicken, broiler, breast, meat, roasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:1932",
+  "name": "Pork tenderloin, roasted",
+  "category": "meat",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 144.0,
+   "iron": 1.3,
+   "calcium": 6.4,
+   "magnesium": 31.0,
+   "potassium": 403.0,
+   "fibre": 0.0,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.55,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.4,
+   "vit_k": 0.0,
+   "zinc": 2.6,
+   "choline": 88.9,
+   "ala": 0.02,
+   "vit_e": 0.08,
+   "selenium": 38.2,
+   "vit_b6": 0.44,
+   "thiamin": 1.4,
+   "riboflavin": 0.38,
+   "niacin": 15.7167,
+   "phosphorus": 245.0,
+   "copper": 180.0,
+   "vit_d": 0.2,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 piece (100 g)"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Pork, loin, tenderloin, lean, roasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:743",
+  "name": "Turkey breast, roasted",
+  "category": "poultry",
+  "form": "roasted_baked",
+  "per100g": {
+   "energy_kcal": 150.0,
+   "iron": 0.342,
+   "calcium": 7.046,
+   "magnesium": 21.407,
+   "potassium": 350.549,
+   "fibre": 0.0,
+   "folate_dfe": 6.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.9,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 1.118,
+   "choline": 84.4,
+   "ala": 0.02,
+   "vit_e": 0.09,
+   "selenium": 15.352,
+   "vit_b6": 0.241,
+   "thiamin": 0.043,
+   "riboflavin": 0.131,
+   "niacin": 19.0103,
+   "phosphorus": 238.893,
+   "copper": 42.0,
+   "vit_d": 0.105,
+   "epa_dha": 5.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "100 g"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Turkey, broiler, breast, meat only, roasted",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:2657",
+  "name": "Beef liver, pan-fried",
+  "category": "organ_meat",
+  "form": "fried",
+  "per100g": {
+   "energy_kcal": 176.0,
+   "iron": 6.17,
+   "calcium": 6.0,
+   "magnesium": 22.0,
+   "potassium": 351.0,
+   "fibre": 0.0,
+   "folate_dfe": 260.0,
+   "folic_acid": 0.0,
+   "vit_b12": 83.13,
+   "vit_a_rae": 7744.0,
+   "retinol": 7728.0,
+   "vit_c": 0.7,
+   "vit_k": 3.9,
+   "zinc": 5.23,
+   "choline": 418.2,
+   "ala": 0.017,
+   "vit_e": 0.46,
+   "selenium": 32.8,
+   "vit_b6": 1.027,
+   "thiamin": 0.177,
+   "riboflavin": 3.425,
+   "niacin": 23.0583,
+   "phosphorus": 485.0,
+   "copper": 14588.0,
+   "vit_d": 1.2,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 85.0,
+   "label": "1 piece (85 g)"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [
+   "high_retinol"
+  ],
+  "source": {
+   "id": "cnf",
+   "name": "Beef, liver, pan-fried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:130",
+  "name": "Eggs, hard-boiled",
+  "category": "eggs",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 141.0,
+   "iron": 1.387,
+   "calcium": 44.816,
+   "magnesium": 8.702,
+   "potassium": 113.743,
+   "fibre": 0.0,
+   "folate_dfe": 54.198,
+   "folic_acid": 0.0,
+   "vit_b12": 1.616,
+   "vit_a_rae": 191.177,
+   "retinol": 191.163,
+   "vit_c": 0.0,
+   "vit_k": 0.3,
+   "zinc": 1.159,
+   "choline": 293.8,
+   "ala": 0.062,
+   "iodine": 47.3,
+   "vit_e": 2.447,
+   "selenium": 34.25,
+   "vit_b6": 0.068,
+   "thiamin": 0.06,
+   "riboflavin": 0.47,
+   "niacin": 3.3777,
+   "phosphorus": 125.818,
+   "copper": 55.0,
+   "vit_d": 1.439,
+   "epa_dha": 74.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "2 large eggs"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "egg"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Egg, chicken, whole, cooked, boiled in shell, hard-cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:61",
+  "name": "Milk 2%",
+  "category": "milk",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 47.0,
+   "iron": 0.15,
+   "calcium": 120.0,
+   "magnesium": 11.4,
+   "potassium": 163.0,
+   "fibre": 0.0,
+   "folate_dfe": 5.0,
+   "folic_acid": 0.0,
+   "vit_b12": 1.468,
+   "vit_a_rae": 63.1576,
+   "retinol": 62.9076,
+   "vit_c": 0.2,
+   "vit_k": 0.2,
+   "zinc": 0.347,
+   "choline": 16.4,
+   "ala": 0.007,
+   "vit_e": 0.03,
+   "selenium": 3.705,
+   "vit_b6": 0.034,
+   "thiamin": 0.029,
+   "riboflavin": 0.171,
+   "niacin": 0.5993,
+   "phosphorus": 94.3,
+   "copper": 1.0,
+   "vit_d": 1.9393,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 258.0,
+   "label": "1 cup (250 mL)"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Milk, fluid, partly skimmed, 2% M.F.",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:7469",
+  "name": "Greek yogurt, plain 2%",
+  "category": "yogurt",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 69.0,
+   "iron": 0.0,
+   "calcium": 282.857,
+   "magnesium": 14.286,
+   "potassium": 160.0,
+   "fibre": 0.0,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.343,
+   "vit_a_rae": 11.43,
+   "retinol": 11.43,
+   "vit_c": 0.686,
+   "zinc": 0.0,
+   "vit_b6": 0.0411,
+   "thiamin": 0.0446,
+   "riboflavin": 0.137,
+   "niacin": 1.7809,
+   "phosphorus": 94.286,
+   "copper": 0.0,
+   "vit_d": 0.857
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 175.0,
+   "label": "¾ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Yogourt (yogurt), Greek style, 2% M.F., plain",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "ala",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ]
+ },
+ {
+  "id": "usda_fdc_sr_legacy:170886",
+  "name": "Yogurt, plain low-fat",
+  "category": "yogurt",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 63.0,
+   "iron": 0.08,
+   "calcium": 183.0,
+   "magnesium": 17.0,
+   "potassium": 234.0,
+   "fibre": 0.0,
+   "folate_dfe": 11.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.56,
+   "vit_a_rae": 14.0,
+   "retinol": 14.0,
+   "vit_c": 0.8,
+   "vit_k": 0.2,
+   "zinc": 0.89,
+   "choline": 15.2,
+   "ala": 0.0,
+   "iodine": 34.0,
+   "vit_e": 0.03,
+   "selenium": 3.3,
+   "vit_b6": 0.049,
+   "thiamin": 0.044,
+   "riboflavin": 0.214,
+   "niacin": 1.1,
+   "phosphorus": 144.0,
+   "copper": 13.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 170.0,
+   "label": "¾ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "usda_fdc_sr_legacy",
+   "name": "Yogurt, plain, low fat",
+   "citation": "USDA FoodData Central (SR Legacy)",
+   "licence": "CC0 1.0 (public domain)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:119",
+  "name": "Cheddar",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 418.0,
+   "iron": 1.26,
+   "calcium": 800.0,
+   "magnesium": 31.0,
+   "potassium": 83.0,
+   "fibre": 0.0,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 1.48,
+   "vit_a_rae": 330.0,
+   "retinol": 330.0,
+   "vit_c": 0.0,
+   "vit_k": 2.4,
+   "zinc": 3.94,
+   "choline": 16.5,
+   "ala": 0.0,
+   "iodine": 20.0,
+   "vit_e": 0.71,
+   "selenium": 34.4,
+   "vit_b6": 0.043,
+   "thiamin": 0.029,
+   "riboflavin": 0.344,
+   "niacin": 9.178,
+   "phosphorus": 512.0,
+   "copper": 62.0,
+   "vit_d": 0.2,
+   "epa_dha": 23.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 slice (30 g)"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, cheddar, mild",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:6291",
+  "name": "Kefir, plain",
+  "category": "milk",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 63.0,
+   "iron": 0.075,
+   "calcium": 113.5,
+   "magnesium": 11.5,
+   "potassium": 152.0,
+   "fibre": 0.0,
+   "folate_dfe": 14.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.2,
+   "vit_a_rae": 36.0,
+   "retinol": 33.5,
+   "vit_c": 0.3,
+   "vit_k": 0.0,
+   "zinc": 0.42,
+   "ala": 0.027,
+   "iodine": 24.3,
+   "vit_e": 0.09,
+   "selenium": 1.15,
+   "vit_b6": 0.039,
+   "thiamin": 0.048,
+   "riboflavin": 0.182,
+   "niacin": 0.8833,
+   "phosphorus": 90.0,
+   "copper": 10.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 258.0,
+   "label": "1 cup (250 mL)"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Kefir, 2-3.9% M.F.",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline"
+  ]
+ },
+ {
+  "id": "cnf:120",
+  "name": "Cottage cheese 2%",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 81.0,
+   "iron": 0.13,
+   "calcium": 111.0,
+   "magnesium": 9.0,
+   "potassium": 125.0,
+   "fibre": 0.0,
+   "folate_dfe": 8.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.47,
+   "vit_a_rae": 68.0,
+   "retinol": 68.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 0.51,
+   "choline": 16.3,
+   "ala": 0.007,
+   "iodine": 24.0,
+   "vit_e": 0.08,
+   "selenium": 11.9,
+   "vit_b6": 0.057,
+   "thiamin": 0.02,
+   "riboflavin": 0.251,
+   "niacin": 2.403,
+   "phosphorus": 150.0,
+   "copper": 33.0,
+   "vit_d": 0.0,
+   "epa_dha": 1.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 113.0,
+   "label": "½ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, cottage, 2% M.F.",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:6331",
+  "name": "Soy beverage, fortified",
+  "category": "milk",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 43.0,
+   "iron": 0.44,
+   "calcium": 123.223,
+   "magnesium": 11.829,
+   "potassium": 147.868,
+   "fibre": 0.8,
+   "folate_dfe": 19.3793,
+   "folic_acid": 4.929,
+   "vit_b12": 0.3943,
+   "vit_a_rae": 39.431,
+   "retinol": 39.431,
+   "vit_c": 0.9858,
+   "zinc": 0.3943,
+   "vit_e": 0.0,
+   "vit_b6": 0.0394,
+   "thiamin": 0.0394,
+   "riboflavin": 0.1479,
+   "niacin": 1.1404,
+   "phosphorus": 98.578,
+   "vit_d": 0.84
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 258.0,
+   "label": "1 cup (250 mL)"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "soy"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Plant-based beverage, soy beverage, all flavours, low fat, fortified",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "ala",
+   "epa_dha",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:7800",
+  "name": "Almond beverage, fortified",
+  "category": "milk",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 29.0,
+   "iron": 0.25,
+   "calcium": 139.0,
+   "magnesium": 6.0,
+   "potassium": 13.0,
+   "fibre": 0.4,
+   "folate_dfe": 1.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.32,
+   "vit_a_rae": 40.0,
+   "vit_c": 0.0,
+   "zinc": 0.51,
+   "ala": 0.0,
+   "vit_e": 0.39,
+   "selenium": 0.1,
+   "vit_b6": 0.004,
+   "thiamin": 0.001,
+   "riboflavin": 0.238,
+   "niacin": 0.1475,
+   "phosphorus": 26.0,
+   "copper": 19.0,
+   "vit_d": 1.2,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 258.0,
+   "label": "1 cup (250 mL)"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Plant-based beverage, almond beverage, plain, fortified, refrigerated and/or shelf-stable",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:422",
+  "name": "Olive oil",
+  "category": "oils_fats",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 885.0,
+   "iron": 0.56,
+   "calcium": 1.0,
+   "magnesium": 0.0,
+   "potassium": 1.0,
+   "fibre": 0.0,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 60.2,
+   "zinc": 0.0,
+   "choline": 0.3,
+   "ala": 0.65,
+   "iodine": 0.1,
+   "vit_e": 14.35,
+   "selenium": 0.0,
+   "vit_b6": 0.0,
+   "thiamin": 0.0,
+   "riboflavin": 0.0,
+   "niacin": 0.0,
+   "phosphorus": 0.0,
+   "copper": 0.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 14.0,
+   "label": "1 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Vegetable oil, olive",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:451",
+  "name": "Canola oil",
+  "category": "oils_fats",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 885.0,
+   "iron": 0.0,
+   "calcium": 0.0,
+   "magnesium": 0.0,
+   "potassium": 0.0,
+   "fibre": 0.0,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 71.3,
+   "zinc": 0.0,
+   "choline": 0.2,
+   "ala": 9.137,
+   "iodine": 0.0,
+   "vit_e": 17.46,
+   "selenium": 0.0,
+   "vit_b6": 0.0,
+   "thiamin": 0.0,
+   "riboflavin": 0.0,
+   "niacin": 0.0,
+   "phosphorus": 0.0,
+   "copper": 0.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 14.0,
+   "label": "1 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Vegetable oil, canola",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:4300",
+  "name": "Blackstrap molasses",
+  "category": "other",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 235.0,
+   "iron": 17.5,
+   "calcium": 860.0,
+   "magnesium": 215.0,
+   "potassium": 2492.0,
+   "fibre": 0.0,
+   "folate_dfe": 1.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "zinc": 1.0,
+   "ala": 0.0,
+   "selenium": 17.8,
+   "vit_b6": 0.7,
+   "thiamin": 0.033,
+   "riboflavin": 0.052,
+   "niacin": 1.08,
+   "phosphorus": 40.0,
+   "copper": 2040.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 20.0,
+   "label": "1 tbsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Sweets, molasses, blackstrap",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine",
+   "vit_e"
+  ]
+ },
+ {
+  "id": "cnf:6672",
+  "name": "Dark chocolate, 70–85%",
+  "category": "other",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 599.0,
+   "iron": 11.9,
+   "calcium": 73.0,
+   "magnesium": 228.0,
+   "potassium": 715.0,
+   "fibre": 10.9,
+   "vit_b12": 0.28,
+   "vit_a_rae": 2.0,
+   "vit_k": 7.3,
+   "zinc": 3.31,
+   "ala": 0.03,
+   "vit_e": 0.59,
+   "selenium": 6.8,
+   "vit_b6": 0.03,
+   "thiamin": 0.03,
+   "riboflavin": 0.07,
+   "niacin": 2.4782,
+   "phosphorus": 308.0,
+   "copper": 1760.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "3 squares (30 g)"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk",
+   "soy"
+  ],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Candies, chocolate, dark, 70-85% cocoa solids",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "folate_dfe",
+   "vit_c",
+   "choline",
+   "iodine"
+  ]
+ },
+ {
+  "id": "cnf:210",
+  "name": "Thyme, dried",
+  "category": "herbs_spices",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 276.0,
+   "iron": 123.6,
+   "calcium": 1890.0,
+   "magnesium": 220.0,
+   "potassium": 814.0,
+   "fibre": 37.0,
+   "folate_dfe": 274.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 190.0,
+   "retinol": 0.0,
+   "vit_c": 50.0,
+   "vit_k": 1714.5,
+   "zinc": 6.18,
+   "choline": 43.6,
+   "ala": 0.69,
+   "iodine": 2.3,
+   "vit_e": 7.48,
+   "selenium": 4.6,
+   "vit_b6": 0.55,
+   "thiamin": 0.513,
+   "riboflavin": 0.399,
+   "niacin": 8.04,
+   "phosphorus": 201.0,
+   "copper": 860.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 1.0,
+   "label": "1 tsp"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Spices, thyme, dried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ },
+ {
+  "id": "cnf:2405",
+  "name": "Parsley, fresh",
+  "category": "herbs_spices",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 36.0,
+   "iron": 6.2,
+   "calcium": 138.0,
+   "magnesium": 50.0,
+   "potassium": 554.0,
+   "fibre": 3.3,
+   "folate_dfe": 152.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 421.0,
+   "retinol": 0.0,
+   "vit_c": 133.0,
+   "vit_k": 1640.0,
+   "zinc": 1.07,
+   "choline": 12.8,
+   "ala": 0.008,
+   "iodine": 7.0,
+   "vit_e": 0.75,
+   "selenium": 0.1,
+   "vit_b6": 0.09,
+   "thiamin": 0.086,
+   "riboflavin": 0.098,
+   "niacin": 2.063,
+   "phosphorus": 58.0,
+   "copper": 149.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 4.0,
+   "label": "1 tbsp chopped"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "source": {
+   "id": "cnf",
+   "name": "Parsley, fresh",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": []
+ }
+]

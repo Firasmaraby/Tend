@@ -45,3 +45,7 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
 
 ## Data
 - The founder's merged database is the only real source. The `@tend/core` maths is tested on hand-entered fixtures. Phase 2 starts when the database file arrives.
+
+## Open for the founder (from the first data run, 2026-10-22)
+- **EPA+DHA floor.** Only fish and seafood carry marine omega-3. Even a large library may never have 15 distinct qualifying foods. Proposal: a per-nutrient floor (for example 8 for EPA+DHA), since a short list of fish is still credible coaching.
+- **Iodine** is known for about a third of foods in the merged database. It stays unselectable until coverage improves, and the selectability report will show when it does.
