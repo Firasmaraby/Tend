@@ -82,6 +82,11 @@ describe("upper limits (EXPECTED_VALUES.md › Upper limits)", () => {
     const lk2 = lookup([zincy]);
     expect(servingGuard(zincy, 100, marks, [entry("zincy", 50, "2026-03-02")], lk2)).toMatchObject({ kind: "excluded", reason: "day_would_exceed_ul" });
   });
+  it("a day already past one UL doesn't block foods that add none of it", () => {
+    const lk2 = lookup([beefLiver, spinach]);
+    const today = [entry("beef_liver", 85, "2026-03-02")];
+    expect(servingGuard(spinach, 180, marks, today, lk2)).toEqual({ kind: "ok" });
+  });
   it("ranking never returns an excluded food", () => {
     const pool = eligibleFoods(ALL_FIXTURES, profile());
     const ranked = rank({ pool, marks, weights: weightsFromRoles([{ nutrient: "zinc", role: "focus" }, { nutrient: "vit_a_rae", role: "focus" }]), today: [], lookup: lk, mode: "serving" });

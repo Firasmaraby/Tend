@@ -2228,16 +2228,18 @@
    "vit_d": 0.0,
    "epa_dha": 0.0
   },
-  "suggestable": true,
+  "suggestable": false,
   "serving": {
    "grams": 30.0,
-   "label": "¼ cup (about 23)"
+   "label": "¼ cup"
   },
-  "diet": "vegan",
+  "diet": " about 23 nuts",
   "allergens": [
+   "vegan"
+  ],
+  "pregnancyFlags": [
    "tree_nut"
   ],
-  "pregnancyFlags": [],
   "source": {
    "id": "cnf",
    "name": "Nuts, almonds, dried, unblanched, unroasted",
@@ -2909,7 +2911,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 fillet piece (100 g)"
+   "label": "1 fillet piece"
   },
   "diet": "pescatarian",
   "allergens": [
@@ -3069,7 +3071,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 fillet piece (100 g)"
+   "label": "1 fillet piece"
   },
   "diet": "pescatarian",
   "allergens": [
@@ -3118,7 +3120,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 fillet piece (100 g)"
+   "label": "1 fillet piece"
   },
   "diet": "pescatarian",
   "allergens": [
@@ -3225,7 +3227,7 @@
   "suggestable": true,
   "serving": {
    "grams": 120.0,
-   "label": "1 fillet (120 g)"
+   "label": "1 fillet"
   },
   "diet": "pescatarian",
   "allergens": [
@@ -3376,7 +3378,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 piece (100 g)"
+   "label": "1 piece"
   },
   "diet": "omnivore",
   "allergens": [],
@@ -3424,13 +3426,15 @@
    "vit_d": 0.0,
    "epa_dha": 4.0
   },
-  "suggestable": true,
+  "suggestable": false,
   "serving": {
    "grams": 100.0,
-   "label": "100 g cooked"
+   "label": "1 portion"
   },
-  "diet": "omnivore",
-  "allergens": [],
+  "diet": " cooked",
+  "allergens": [
+   "omnivore"
+  ],
   "pregnancyFlags": [],
   "source": {
    "id": "cnf",
@@ -3478,7 +3482,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 piece (100 g)"
+   "label": "1 piece"
   },
   "diet": "omnivore",
   "allergens": [],
@@ -3529,7 +3533,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 piece (100 g)"
+   "label": "1 piece"
   },
   "diet": "omnivore",
   "allergens": [],
@@ -3580,7 +3584,7 @@
   "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "100 g"
+   "label": "1 portion"
   },
   "diet": "omnivore",
   "allergens": [],
@@ -3631,7 +3635,7 @@
   "suggestable": true,
   "serving": {
    "grams": 85.0,
-   "label": "1 piece (85 g)"
+   "label": "1 piece"
   },
   "diet": "omnivore",
   "allergens": [],
@@ -3894,7 +3898,7 @@
   "suggestable": true,
   "serving": {
    "grams": 30.0,
-   "label": "1 slice (30 g)"
+   "label": "1 slice"
   },
   "diet": "vegetarian",
   "allergens": [
@@ -4299,7 +4303,7 @@
   "suggestable": true,
   "serving": {
    "grams": 30.0,
-   "label": "3 squares (30 g)"
+   "label": "3 squares"
   },
   "diet": "vegetarian",
   "allergens": [

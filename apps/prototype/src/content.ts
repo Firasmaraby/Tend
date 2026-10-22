@@ -211,16 +211,16 @@ export const GLOSSARY: Record<string, string> = {
 };
 
 /** Starter questions. Each answer adds weight to the nutrients a pattern tends to leave short. */
-export const SCREENER: { id: string; q: string; weights: Partial<Record<NutrientCode, number>>; omnivoreOnly?: boolean; skipFor?: string[] }[] = [
-  { id: "fish", q: "Fish or seafood", weights: { epa_dha: 3, vit_b12: 1, iodine: 1 }, skipFor: ["vegan", "vegetarian"] },
-  { id: "greens", q: "Leafy greens", weights: { vit_k: 2, folate_dfe: 2, magnesium: 1, calcium: 1, vit_a_rae: 1 } },
-  { id: "dairy", q: "Dairy, or fortified soy or almond drinks", weights: { calcium: 3, vit_b12: 1, iodine: 1 } },
-  { id: "legumes", q: "Beans, lentils or tofu", weights: { fibre: 2, iron: 1, folate_dfe: 1, magnesium: 1, potassium: 1, zinc: 1 } },
-  { id: "nuts", q: "Nuts or seeds", weights: { magnesium: 2, vit_e: 2, ala: 1, zinc: 1 } },
-  { id: "eggs", q: "Eggs", weights: { choline: 2, vit_b12: 1 }, skipFor: ["vegan"] },
-  { id: "fruit", q: "Fruit", weights: { vit_c: 2, potassium: 1, fibre: 1 } },
-  { id: "grains", q: "Whole grains like oats or brown rice", weights: { fibre: 2, magnesium: 1, iron: 1 } },
-  { id: "meat", q: "Meat or poultry", weights: { iron: 1, zinc: 2, vit_b12: 2 }, omnivoreOnly: true },
+export const SCREENER: { id: string; q: string; noun: string; weights: Partial<Record<NutrientCode, number>>; omnivoreOnly?: boolean; skipFor?: string[] }[] = [
+  { id: "fish", q: "Fish or seafood", noun: "fish or seafood", weights: { epa_dha: 3, vit_b12: 1, iodine: 1 }, skipFor: ["vegan", "vegetarian"] },
+  { id: "greens", q: "Leafy greens", noun: "leafy greens", weights: { vit_k: 2, folate_dfe: 2, magnesium: 1, calcium: 1, vit_a_rae: 1 } },
+  { id: "dairy", q: "Dairy, or fortified soy or almond drinks", noun: "dairy or fortified drinks", weights: { calcium: 3, vit_b12: 1, iodine: 1 } },
+  { id: "legumes", q: "Beans, lentils or tofu", noun: "beans, lentils or tofu", weights: { fibre: 2, iron: 1, folate_dfe: 1, magnesium: 1, potassium: 1, zinc: 1 } },
+  { id: "nuts", q: "Nuts or seeds", noun: "nuts or seeds", weights: { magnesium: 2, vit_e: 2, ala: 1, zinc: 1 } },
+  { id: "eggs", q: "Eggs", noun: "eggs", weights: { choline: 2, vit_b12: 1 }, skipFor: ["vegan"] },
+  { id: "fruit", q: "Fruit", noun: "fruit", weights: { vit_c: 2, potassium: 1, fibre: 1 } },
+  { id: "grains", q: "Whole grains like oats or brown rice", noun: "whole grains", weights: { fibre: 2, magnesium: 1, iron: 1 } },
+  { id: "meat", q: "Meat or poultry", noun: "meat or poultry", weights: { iron: 1, zinc: 2, vit_b12: 2 }, omnivoreOnly: true },
 ];
 export const FREQUENCIES = [
   { id: "rarely", label: "Rarely", need: 2 },

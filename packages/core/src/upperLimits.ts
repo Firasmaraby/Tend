@@ -59,7 +59,8 @@ export function servingGuard(
       const f = lookup(e.foodId);
       sofar += (f && ulAmount(f, n, e.grams, marks)) ?? 0;
     }
-    if (sofar + serving > ul) return { kind: "excluded", nutrient: n, reason: "day_would_exceed_ul" };
+    // Only a food that adds some of this form can push the day past the UL.
+    if (serving > 0 && sofar + serving > ul) return { kind: "excluded", nutrient: n, reason: "day_would_exceed_ul" };
     if (serving > CAP_SHARE * ul && cap.kind === "ok") cap = { kind: "capped", maxServingsPerDay: 1, nutrient: n };
   }
   if (cap.kind === "capped" && today.some((e) => e.foodId === food.id)) {

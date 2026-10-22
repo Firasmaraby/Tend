@@ -34,7 +34,7 @@
 5. **Glossary words.** *Mark, round, locked in, rotation, carried, project* get a dotted underline wherever they appear. Tapping one opens the same short definition everywhere.
 6. **She stays in control.** Settings has "Show tips" (on by default) and "Replay how it works".
 
-**Engineering:** `nextHint(state, seen)` is a pure function in `@tend/core`. Its inputs contain only progress and first-encounter facts, so it is structurally unable to fire on absence. It allows at most one hint per screen visit. The copy lives in one registry, which is linted for em dashes and banned words.
+**Engineering (planned for the app build):** `nextHint(state, seen)` will be a pure function in `@tend/core`. In the prototype this logic lives in `Today.tsx`. Its inputs contain only progress and first-encounter facts, so it is structurally unable to fire on absence. It allows at most one hint per screen visit. The copy lives in one registry, which is linted for em dashes and banned words.
 
 ## 2. How the features feed each other
 ```

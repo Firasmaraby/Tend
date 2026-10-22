@@ -42,7 +42,7 @@ usda_fdc_sr_legacy:168162,Prunes,fruit,40,4 to 5 prunes,vegan,,,true
 cnf:1603,Mango,fruit,165,1 cup,vegan,,,true
 cnf:1578,Guava,fruit,110,2 guavas,vegan,,,true
 cofid:14-092,Dried figs,fruit,40,5 figs,vegan,,,true
-cnf:2534,Almonds,nuts_seeds,30,¼ cup (about 23),vegan,tree_nut,,true
+cnf:2534,Almonds,nuts_seeds,30,¼ cup, about 23 nuts,vegan,tree_nut,,true
 cnf:2590,Walnuts,nuts_seeds,30,¼ cup,vegan,tree_nut,,true
 cnf:5709,Cashews,nuts_seeds,30,¼ cup,vegan,tree_nut,,true
 cnf:2516,Pumpkin seeds,nuts_seeds,30,¼ cup,vegan,,,true
@@ -55,26 +55,26 @@ cnf:4528,"Flaxseed, ground",small_seeds,14,2 tbsp,vegan,,,true
 cnf:7568,Hemp hearts,small_seeds,20,2 tbsp,vegan,,,true
 cnf:2521,"Sesame seeds, toasted",small_seeds,15,1½ tbsp,vegan,sesame,,true
 cnf:2598,Tahini,small_seeds,15,1 tbsp,vegan,sesame,,true
-cnf:3183,"Salmon, Atlantic, baked",fish,100,1 fillet piece (100 g),pescatarian,fish,,true
+cnf:3183,"Salmon, Atlantic, baked",fish,100,1 fillet piece,pescatarian,fish,,true
 cnf:5965,"Pink salmon, canned with bones",fish,100,½ can drained,pescatarian,fish,,true
 cnf:3203,"Sardines, canned in oil",fish,92,1 can drained,pescatarian,fish,,true
-cnf:3187,"Rainbow trout, baked",fish,100,1 fillet piece (100 g),pescatarian,fish,,true
-cnf:3022,"Atlantic mackerel, baked",fish,100,1 fillet piece (100 g),pescatarian,fish,,true
+cnf:3187,"Rainbow trout, baked",fish,100,1 fillet piece,pescatarian,fish,,true
+cnf:3022,"Atlantic mackerel, baked",fish,100,1 fillet piece,pescatarian,fish,,true
 cnf:3131,"Light tuna, canned in water",fish,100,1 small can drained,pescatarian,fish,,true
-cnf:3195,"Cod, baked",fish,120,1 fillet (120 g),pescatarian,fish,,true
+cnf:3195,"Cod, baked",fish,120,1 fillet,pescatarian,fish,,true
 usda_fdc_sr_legacy:175180,"Shrimp, cooked",shellfish,85,about 12 shrimp,pescatarian,crustacean,,true
 cnf:3116,"Mussels, steamed",shellfish,85,about 12 mussels,pescatarian,mollusc,,true
-cnf:6146,"Sirloin steak, broiled",meat,100,1 piece (100 g),omnivore,,,true
-cnf:2687,"Lean ground beef, cooked",meat,100,100 g cooked,omnivore,,,true
-cnf:842,"Chicken breast, roasted",poultry,100,1 piece (100 g),omnivore,,,true
-cnf:1932,"Pork tenderloin, roasted",meat,100,1 piece (100 g),omnivore,,,true
-cnf:743,"Turkey breast, roasted",poultry,100,100 g,omnivore,,,true
-cnf:2657,"Beef liver, pan-fried",organ_meat,85,1 piece (85 g),omnivore,,high_retinol,true
+cnf:6146,"Sirloin steak, broiled",meat,100,1 piece,omnivore,,,true
+cnf:2687,"Lean ground beef, cooked",meat,100,1 portion, cooked,omnivore,,,true
+cnf:842,"Chicken breast, roasted",poultry,100,1 piece,omnivore,,,true
+cnf:1932,"Pork tenderloin, roasted",meat,100,1 piece,omnivore,,,true
+cnf:743,"Turkey breast, roasted",poultry,100,1 portion,omnivore,,,true
+cnf:2657,"Beef liver, pan-fried",organ_meat,85,1 piece,omnivore,,high_retinol,true
 cnf:130,"Eggs, hard-boiled",eggs,100,2 large eggs,vegetarian,egg,,true
 cnf:61,Milk 2%,milk,258,1 cup (250 mL),vegetarian,milk,,true
 cnf:7469,"Greek yogurt, plain 2%",yogurt,175,¾ cup,vegetarian,milk,,true
 usda_fdc_sr_legacy:170886,"Yogurt, plain low-fat",yogurt,170,¾ cup,vegetarian,milk,,true
-cnf:119,Cheddar,cheese,30,1 slice (30 g),vegetarian,milk,,true
+cnf:119,Cheddar,cheese,30,1 slice,vegetarian,milk,,true
 cnf:6291,"Kefir, plain",milk,258,1 cup (250 mL),vegetarian,milk,,true
 cnf:120,Cottage cheese 2%,cheese,113,½ cup,vegetarian,milk,,true
 cnf:6331,"Soy beverage, fortified",milk,258,1 cup (250 mL),vegan,soy,,true
@@ -82,6 +82,6 @@ cnf:7800,"Almond beverage, fortified",milk,258,1 cup (250 mL),vegan,tree_nut,,tr
 cnf:422,Olive oil,oils_fats,14,1 tbsp,vegan,,,true
 cnf:451,Canola oil,oils_fats,14,1 tbsp,vegan,,,true
 cnf:4300,Blackstrap molasses,other,20,1 tbsp,vegan,,,true
-cnf:6672,"Dark chocolate, 70–85%",other,30,3 squares (30 g),vegetarian,milk|soy,,true
+cnf:6672,"Dark chocolate, 70–85%",other,30,3 squares,vegetarian,milk|soy,,true
 cnf:210,"Thyme, dried",herbs_spices,1,1 tsp,vegan,,,false
 cnf:2405,"Parsley, fresh",herbs_spices,4,1 tbsp chopped,vegan,,,false

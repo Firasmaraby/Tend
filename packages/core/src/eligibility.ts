@@ -55,3 +55,8 @@ export function eligibleFoods(foods: readonly Food[], profile: EligibilityProfil
 export function allergenWarnings(food: Food, profile: Pick<Profile, "allergens">): Allergen[] {
   return (food.allergens ?? []).filter((a) => profile.allergens.includes(a));
 }
+
+/** A subset of an eligible pool is still eligible. */
+export function narrowPool(pool: EligiblePool, keep: (f: Food) => boolean): EligiblePool {
+  return pool.filter(keep) as unknown as EligiblePool;
+}

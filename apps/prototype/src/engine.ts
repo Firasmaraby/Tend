@@ -13,7 +13,9 @@ import {
   isInRound,
   NUTRIENTS,
   nutrientResult,
+  narrowPool,
   rank,
+  servingGuard,
   roundEndsOn,
   selectabilityReport,
   totalFor,
@@ -84,7 +86,8 @@ export function suggestThree(p: Profile, answers: Record<string, string>, on: Lo
   };
   for (const q of SCREENER) {
     const need = FREQUENCIES.find((f) => f.id === answers[q.id])?.need ?? 0;
-    for (const [n, w] of Object.entries(q.weights)) add(n as NutrientCode, need * (w ?? 0), `You have ${q.q.toLowerCase()} ${answers[q.id] === "rarely" ? "rarely" : "only some weeks"}.`);
+    const text = answers[q.id] === "rarely" ? `You rarely have ${q.noun}.` : `You have ${q.noun} only some weeks.`;
+    for (const [n, w] of Object.entries(q.weights)) add(n as NutrientCode, need * (w ?? 0), text);
   }
   const age = ageOn(p, on);
   if (p.menstruating && p.status === "none") add("iron", 2, "Menstruating raises your iron needs.");
@@ -208,7 +211,9 @@ function mulberry32(seed: number) {
  */
 export function seedHistory(p: Profile, round: RoundState, days: number, seed = 7): LogEntry[] {
   const rnd = mulberry32(seed);
-  const pool = eligibleFoods(FOODS, p);
+  // Sample days only use foods Tend could suggest on an empty day.
+  const marksAtStart = marksFor(p, round.startedOn);
+  const pool = narrowPool(eligibleFoods(FOODS, p), (f) => servingGuard(f, f.serving!.grams, marksAtStart, [], lookup).kind !== "excluded");
   const focus = round.nutrients.filter((n) => n.role === "focus" || n.role === "carried");
   const weights = Object.fromEntries(focus.map((n, i) => [n.nutrient, i === focus.length - 1 ? 0.1 : 1]));
   const marks = marksFor(p, round.startedOn);

@@ -1,0 +1,162 @@
+import { NUTRIENTS, type Allergen, type FoodCategory, type NutrientCode, type Ranked } from "@tend/core";
+import type { ProtoFood } from "../engine";
+
+const SHORT: Partial<Record<NutrientCode, string>> = {
+  folate_dfe: "Folate",
+  vit_b12: "Vitamin B12",
+  vit_a_rae: "Vitamin A",
+  vit_c: "Vitamin C",
+  vit_k: "Vitamin K",
+  vit_e: "Vitamin E",
+  vit_d: "Vitamin D",
+  vit_b6: "Vitamin B6",
+  ala: "Plant omega-3",
+  epa_dha: "Marine omega-3",
+};
+const PILL: Partial<Record<NutrientCode, string>> = {
+  vit_b12: "B12",
+  vit_a_rae: "Vit A",
+  vit_c: "Vit C",
+  vit_k: "Vit K",
+  vit_e: "Vit E",
+  vit_d: "Vit D",
+};
+
+/** Display name, title case. */
+export const shortName = (n: NutrientCode): string => SHORT[n] ?? NUTRIENTS[n].name;
+/** For the middle of a sentence. */
+export const inlineName = (n: NutrientCode): string => {
+  const s = shortName(n);
+  return s.charAt(0).toLowerCase() + s.slice(1);
+};
+export const pillName = (n: NutrientCode): string => PILL[n] ?? shortName(n);
+
+export const pct = (x: number): number => Math.round(x * 100);
+
+export function fracText(x: number): string {
+  const whole = Math.floor(x + 1e-9);
+  const rem = Math.round((x - whole) * 4) / 4;
+  const sym = rem === 0.25 ? "¼" : rem === 0.5 ? "½" : rem === 0.75 ? "¾" : "";
+  if (rem === 1) return String(whole + 1);
+  if (whole === 0) return sym || "0";
+  return `${whole}${sym}`;
+}
+
+export const servingsText = (mult: number): string => (mult <= 1 ? `${fracText(mult)} serving` : `${fracText(mult)} servings`);
+
+/** "1 cup cooked", or "2 × 1 cup cooked" when it isn't a single serving. */
+export function servingPhrase(food: ProtoFood, grams: number): string {
+  const label = food.serving?.label ?? "";
+  const mult = food.serving ? grams / food.serving.grams : 1;
+  return Math.abs(mult - 1) < 0.01 ? label : `${fracText(mult)} × ${label}`;
+}
+
+/** Name up to the first comma: "Lentils, cooked" becomes "Lentils". */
+export const foodShort = (name: string): string => name.split(",")[0] ?? name;
+export const foodLower = (name: string): string => foodShort(name).toLowerCase();
+
+export const ALLERGEN_CHIPS: Record<Allergen, string> = {
+  peanut: "Peanuts",
+  tree_nut: "Tree nuts",
+  sesame: "Sesame",
+  milk: "Milk",
+  egg: "Eggs",
+  fish: "Fish",
+  crustacean: "Crustaceans",
+  mollusc: "Molluscs",
+  soy: "Soy",
+  wheat: "Wheat",
+  gluten: "Gluten",
+  mustard: "Mustard",
+  sulphite: "Sulphites",
+};
+export const ALLERGEN_SINGULAR: Record<Allergen, string> = {
+  peanut: "peanut",
+  tree_nut: "tree nut",
+  sesame: "sesame",
+  milk: "milk",
+  egg: "egg",
+  fish: "fish",
+  crustacean: "crustacean",
+  mollusc: "mollusc",
+  soy: "soy",
+  wheat: "wheat",
+  gluten: "gluten",
+  mustard: "mustard",
+  sulphite: "sulphites",
+};
+
+export const CATEGORY_LABEL: Record<FoodCategory, string> = {
+  leafy_greens: "leafy greens",
+  vegetables: "vegetables",
+  fruit: "fruit",
+  legumes: "legumes",
+  grains: "grains",
+  nuts_seeds: "nuts and seeds",
+  small_seeds: "small seeds",
+  fish: "fish",
+  shellfish: "shellfish",
+  meat: "meat",
+  poultry: "poultry",
+  organ_meat: "organ meat",
+  eggs: "eggs",
+  milk: "milk",
+  yogurt: "yogurt",
+  cheese: "cheese",
+  oils_fats: "oils and fats",
+  fortified: "fortified",
+  herbs_spices: "herbs and spices",
+  aromatics: "aromatics",
+  garnish: "garnish",
+  beverages: "beverages",
+  other: "other",
+};
+
+/** The css variable suffix for a category chip colour. */
+export function chipKey(c: FoodCategory): string {
+  switch (c) {
+    case "milk":
+    case "yogurt":
+    case "cheese":
+    case "fortified":
+    case "beverages":
+      return "dairy";
+    case "aromatics":
+    case "garnish":
+      return "herbs_spices";
+    default:
+      return c;
+  }
+}
+
+export interface Pill {
+  nutrient: NutrientCode;
+  share: number;
+}
+
+/** Contribution pills for the nutrients she is working on, where the share is known. */
+export function pillsFor(r: Ranked, order: readonly NutrientCode[], min = 0.05): Pill[] {
+  const out: Pill[] = [];
+  for (const n of order) {
+    const c = r.contributions.find((x) => x.nutrient === n);
+    if (c && c.share !== undefined && c.share >= min) out.push({ nutrient: n, share: c.share });
+  }
+  return out;
+}
+
+/** "Fills 46% of your iron mark", from the biggest known contribution. */
+export function whyLine(r: Ranked, preferred: readonly NutrientCode[]): string | null {
+  const pool = r.contributions.filter((c) => c.share !== undefined && preferred.includes(c.nutrient));
+  const all = pool.length ? pool : r.contributions.filter((c) => c.share !== undefined);
+  let best: { nutrient: NutrientCode; share: number } | null = null;
+  for (const c of all) if (c.share !== undefined && (!best || c.share > best.share)) best = { nutrient: c.nutrient, share: c.share };
+  if (!best || best.share < 0.01) return null;
+  if (best.share >= 1) return `Covers your ${inlineName(best.nutrient)} mark in one serving`;
+  return `Fills ${pct(best.share)}% of your ${inlineName(best.nutrient)} mark`;
+}
+
+export const ordinalWord = (n: number): string => ["zeroth", "first", "second", "third", "fourth", "fifth", "sixth"][n] ?? `number ${n}`;
+
+/** "1 cup cooked · 198 g": the label people recognise, plus the weight the maths uses. */
+export const servingWithGrams = (food: { serving?: { label: string; grams: number } }): string =>
+  food.serving ? `${food.serving.label} · ${Math.round(food.serving.grams)} g` : "";
