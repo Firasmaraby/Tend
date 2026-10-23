@@ -159,6 +159,16 @@ export const EXPLAINERS: Partial<Record<NutrientCode, Explainer>> = {
       "Sunflower seeds and almonds are standouts.",
     ],
   },
+  protein: {
+    line: "Builds and repairs muscle, and keeps you full.",
+    points: [
+      "Helps maintain muscle and bone, which matters more with every decade.",
+      "Keeps meals satisfying for longer.",
+      "Spreading it across your meals works better than one big serving.",
+    ],
+    pairs: "Beans, lentils, tofu, eggs, yogurt and fish bring protein and your three nutrients at the same time.",
+    lifeStage: "Your protein mark is 75 g a day. If you add your weight in settings, Tend uses 1.2 g per kg instead. Your weight is never shown or used for anything else.",
+  },
   vit_d: {
     line: "Helps you absorb calcium and supports your immune system.",
     points: [
@@ -199,6 +209,9 @@ export const HINTS = {
   becoming_yours: "You've had this on four different days. It's joining your rotation.",
   density: "Most nutrient-dense ranks foods by what they give you per calorie. It's about getting a lot from a little, never about eating less.",
   why_jar: "Tap a jar to see what it does for you and where your mark comes from.",
+  first_pairing: "Some foods work better together. Tend points out pairings that help you absorb more, and notices when you make one.",
+  all_nutrients: "Your three get the spotlight, but Tend tracks everything. You can see the full list any time.",
+  library_food: "This food is from the full library. It counts toward your day, but Tend only suggests foods with checked servings.",
 } as const;
 export type HintId = keyof typeof HINTS;
 
@@ -227,3 +240,63 @@ export const FREQUENCIES = [
   { id: "some", label: "Some weeks", need: 1 },
   { id: "most", label: "Most days", need: 0 },
 ] as const;
+
+/** Better together: absorption guidance. Copy for the rules in @tend/core absorption.ts. */
+export const PAIRING_COPY = {
+  iron_vitamin_c: {
+    title: "Iron likes vitamin C",
+    nudge: (food: string) => `Your ${food} has plant iron. Vitamin C in the same meal helps your body take in more of it.`,
+    done: (food: string, helper: string) => `Nice pairing. The vitamin C in your ${helper} helps your body take in the iron from your ${food}.`,
+    chip: "Pair with vitamin C",
+    learn: "Iron from plants (non-heme iron) is absorbed less easily than iron from meat and fish. Vitamin C changes that: about 25 mg in the same meal, the amount in half a red pepper or one kiwi, can make a real difference. Meat, fish and poultry help too.",
+  },
+  fat_soluble: {
+    title: "Greens like a little fat",
+    nudge: (food: string) => `Vitamins A and K in your ${food} absorb better with a little fat. A drizzle of olive oil, some avocado or a few nuts does it.`,
+    done: (food: string, helper: string) => `Good match. The fat in your ${helper} helps you absorb the vitamins in your ${food}.`,
+    chip: "Add a little fat",
+    learn: "Vitamins A, E and K dissolve in fat, not water. Leafy greens and orange vegetables give you more of them when there's some fat in the meal: olive oil, avocado, nuts, seeds, cheese or eggs.",
+  },
+  calcium_oxalate: {
+    title: "Not all greens give calcium equally",
+    nudge: (food: string) => `${food} is great for many things, but most of its calcium is bound by oxalate. For calcium, kale, bok choy and collard greens give calcium your body can use.`,
+    done: () => "",
+    chip: "",
+    learn: "Spinach and Swiss chard contain oxalate, which holds on to most of their calcium. Kale, bok choy and collard greens have little oxalate, so their calcium is absorbed about as well as the calcium in milk.",
+  },
+} as const;
+
+/** Learn-only absorption tips: useful to know, never triggered by her log. */
+export const ABSORPTION_TIPS: { nutrients: NutrientCode[]; title: string; body: string }[] = [
+  {
+    nutrients: ["iron"],
+    title: "Time your tea and coffee",
+    body: "Tea and coffee can reduce how much plant iron you absorb. If iron is one of your three, enjoy them an hour or so before or after an iron-rich meal.",
+  },
+  {
+    nutrients: ["iron", "zinc"],
+    title: "Soak, sprout or ferment",
+    body: "Beans, whole grains and seeds hold some of their iron and zinc tightly. Soaking beans, choosing sprouted grains or eating sourdough bread loosens that grip.",
+  },
+  {
+    nutrients: ["vit_c", "folate_dfe"],
+    title: "Go gentle on the heat",
+    body: "Vitamin C and folate break down with long cooking in lots of water. Eating some vegetables raw, or steaming them briefly, keeps more of both.",
+  },
+  {
+    nutrients: ["vit_a_rae"],
+    title: "Cook your carrots",
+    body: "Cooking carrots, tomatoes and squash with a little oil releases more of their vitamin A than eating them raw.",
+  },
+];
+
+export const SETTINGS_COPY = {
+  energyTitle: "Show energy (kcal)",
+  energyBody: "Adds a running total for the day and energy per serving. It counts up like everything else. Tend never sets an energy target.",
+  weightTitle: "Weight for protein (optional)",
+  weightBody: "Leave this empty and your protein mark is 75 g. Add your weight and Tend uses 1.2 g per kg. It's used for nothing else and never shown.",
+  proteinRate: "Protein per kg",
+  tipsTitle: "Show tips",
+  tipsBody: "The one-line notes that explain things the first time they happen.",
+  replay: "Replay how Tend works",
+};

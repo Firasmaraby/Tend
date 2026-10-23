@@ -1,7 +1,7 @@
 import type { LocalDate } from "./dates";
 import { DRI, DRI_MODIFIERS, type Basis, type BandKey, type DriValues, type UlAppliesTo } from "./dri";
 import { NUTRIENT_CODES, type NutrientCode } from "./nutrients";
-import { bandFor, type Profile } from "./profile";
+import { bandFor, proteinBaselineG, type Profile } from "./profile";
 
 export interface Mark {
   nutrient: NutrientCode;
@@ -57,7 +57,7 @@ export function markFor(nutrient: NutrientCode, profile: Profile, on: LocalDate)
   const { values, modifiers } = referenceValues(nutrient, profile, band);
   const mark: Mark = {
     nutrient,
-    value: markFromValues(dri.basis, values),
+    value: nutrient === "protein" ? proteinBaselineG(profile) : markFromValues(dri.basis, values),
     basis: dri.basis,
     band,
     modifiers,

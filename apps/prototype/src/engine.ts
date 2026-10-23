@@ -15,6 +15,13 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  PROTEIN_WEIGHT,
+  pairingsToday,
+  pairingFor,
+  helperFoods,
+  type PairingMoment,
+  type PairingRuleId,
+  NUTRIENT_CODES,
   servingGuard,
   roundEndsOn,
   selectabilityReport,
@@ -33,10 +40,46 @@ import {
 import rawFoods from "./foods.json";
 import { FREQUENCIES, SCREENER } from "./content";
 
-export type ProtoFood = Food & { source: { id: string; name: string; citation: string; licence: string }; missing: string[] };
+export type ProtoFood = Food & {
+  source: { id: string; name: string; citation: string; licence: string };
+  missing: string[];
+  /** true for foods from the full library: findable and loggable, never suggested. */
+  library?: boolean;
+};
+/** The curated set: vetted servings and tags. Only these are ever suggested. */
 export const FOODS = rawFoods as unknown as ProtoFood[];
-const byId = new Map(FOODS.map((f) => [f.id, f]));
+const byId = new Map<string, ProtoFood>(FOODS.map((f) => [f.id, f]));
 export const lookup = (id: string) => byId.get(id);
+
+let library: ProtoFood[] | null = null;
+/**
+ * The full searchable library (every Canadian Nutrient File food in the
+ * founder's database that isn't curated yet). Loaded on first search. These
+ * foods have no vetted serving and no diet or allergen tags, so eligibleFoods
+ * rejects them: searchable is not suggestable.
+ */
+export async function loadLibrary(): Promise<ProtoFood[]> {
+  if (library) return library;
+  const res = await fetch("library.json");
+  const rows = (await res.json()) as { id: string; n: string; c: Food["category"]; v: Food["per100g"] }[];
+  library = rows.map((r) => ({
+    id: r.id,
+    name: r.n,
+    category: r.c,
+    form: "prepared",
+    per100g: r.v,
+    suggestable: false,
+    diet: null,
+    allergens: null,
+    pregnancyFlags: null,
+    source: { id: "cnf", name: r.n, citation: "Canadian Nutrient File (Health Canada)", licence: "Open Government Licence - Canada" },
+    missing: [],
+    library: true,
+  }));
+  for (const f of library) byId.set(f.id, f);
+  return library;
+}
+export const libraryLoaded = () => library !== null;
 
 export interface RoundState {
   number: number;
@@ -155,7 +198,7 @@ export function bestRightNow(p: Profile, round: RoundState, logs: readonly LogEn
   return rank({
     pool: eligibleFoods(FOODS, p),
     marks,
-    weights: weightsFromRoles(round.nutrients),
+    weights: { ...weightsFromRoles(round.nutrients), protein: PROTEIN_WEIGHT },
     today: entriesOn(logs, today),
     roundMeanToDate,
     lookup,
@@ -236,3 +279,74 @@ export function seedHistory(p: Profile, round: RoundState, days: number, seed = 
 
 export const nutrientName = (n: NutrientCode) => NUTRIENTS[n].name;
 export const nutrientUnit = (n: NutrientCode) => NUTRIENTS[n].unit;
+
+// ---- Foundation, full nutrient list, energy, absorption ----
+
+export interface NutrientRow {
+  nutrient: NutrientCode;
+  /** Her three, protein, locked-in, then everything else. */
+  group: "hers" | "foundation" | "locked" | "other";
+  today: number;
+  todayAmount: number;
+  todayHasUnknown: boolean;
+  /** Mean over logged days this round, unclamped; undefined before any logged day. */
+  roundMean: number | undefined;
+  mark: number;
+}
+
+/** Every tracked nutrient, for the "All nutrients" view. Coverage relative to her mark. */
+export function allNutrients(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate): NutrientRow[] {
+  const marks = marksFor(p, today);
+  const todays = entriesOn(logs, today);
+  const inRound = groupByDate(logs.filter((e) => isInRound(e.logDate, round) && e.logDate <= today));
+  const role = new Map(round.nutrients.map((n) => [n.nutrient, n.role]));
+  const rows = NUTRIENT_CODES.map((n): NutrientRow => {
+    const t = totalFor(todays, n, lookup);
+    let sum = 0;
+    for (const [, es] of inRound) sum += coverage(totalFor(es, n, lookup), marks[n].value);
+    const r = role.get(n);
+    const group = n === "protein" ? "foundation" : r === "locked" ? "locked" : r ? "hers" : "other";
+    return {
+      nutrient: n,
+      group,
+      today: coverage(t, marks[n].value),
+      todayAmount: t.known,
+      todayHasUnknown: t.hasUnknown,
+      roundMean: inRound.size ? sum / inRound.size : undefined,
+      mark: marks[n].value,
+    };
+  });
+  const order = { hers: 0, foundation: 1, locked: 2, other: 3 } as const;
+  return rows.sort((a, b) => order[a.group] - order[b.group]);
+}
+
+export function proteinToday(p: Profile, logs: readonly LogEntry[], today: LocalDate) {
+  const t = totalFor(entriesOn(logs, today), "protein", lookup);
+  return { grams: t.known, mark: marksFor(p, today).protein.value, hasUnknown: t.hasUnknown };
+}
+
+/** Opt-in energy. Counts up; there is no energy target in Tend. */
+export function energyToday(logs: readonly LogEntry[], today: LocalDate) {
+  let kcal = 0;
+  let unknown = false;
+  for (const e of entriesOn(logs, today)) {
+    const v = lookup(e.foodId)?.per100g.energy_kcal;
+    if (v === undefined) unknown = true;
+    else kcal += (v * e.grams) / 100;
+  }
+  return { kcal, hasUnknown: unknown };
+}
+
+const hersOf = (round: RoundState) => round.nutrients.map((n) => n.nutrient);
+
+export function pairingMoments(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate): PairingMoment[] {
+  return pairingsToday(entriesOn(logs, today), lookup, marksFor(p, today), hersOf(round));
+}
+
+export function pairingForFood(p: Profile, round: RoundState, food: Food, today: LocalDate): PairingRuleId | null {
+  return pairingFor(food, marksFor(p, today), hersOf(round));
+}
+
+export function helpersFor(p: Profile, rule: PairingRuleId, limit = 3): ProtoFood[] {
+  return helperFoods(rule, eligibleFoods(FOODS, p), limit) as ProtoFood[];
+}

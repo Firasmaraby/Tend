@@ -60,6 +60,9 @@ export const PREGNANCY_FLAGS = [
 ] as const;
 export type PregnancyFlag = (typeof PREGNANCY_FLAGS)[number];
 
+/** Food facts that matter for advice rather than arithmetic. */
+export type FoodTrait = "high_oxalate";
+
 export interface Serving {
   grams: number;
   /** Human-readable, e.g. "1 cup cooked (198 g)". */
@@ -84,6 +87,7 @@ export interface Food {
   allergens: readonly Allergen[] | null;
   /** null = not yet reviewed for pregnancy food safety. */
   pregnancyFlags: readonly PregnancyFlag[] | null;
+  traits?: readonly FoodTrait[];
   /** Foods that are the same thing share a group, so lists don't show both. */
   dupGroupId?: string;
 }

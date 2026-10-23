@@ -2228,18 +2228,16 @@
    "vit_d": 0.0,
    "epa_dha": 0.0
   },
-  "suggestable": false,
+  "suggestable": true,
   "serving": {
    "grams": 30.0,
-   "label": "¼ cup"
+   "label": "¼ cup, about 23 nuts"
   },
-  "diet": " about 23 nuts",
+  "diet": "vegan",
   "allergens": [
-   "vegan"
-  ],
-  "pregnancyFlags": [
    "tree_nut"
   ],
+  "pregnancyFlags": [],
   "source": {
    "id": "cnf",
    "name": "Nuts, almonds, dried, unblanched, unroasted",
@@ -3426,15 +3424,13 @@
    "vit_d": 0.0,
    "epa_dha": 4.0
   },
-  "suggestable": false,
+  "suggestable": true,
   "serving": {
    "grams": 100.0,
-   "label": "1 portion"
+   "label": "1 portion, cooked"
   },
-  "diet": " cooked",
-  "allergens": [
-   "omnivore"
-  ],
+  "diet": "omnivore",
+  "allergens": [],
   "pregnancyFlags": [],
   "source": {
    "id": "cnf",

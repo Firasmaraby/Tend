@@ -12,6 +12,8 @@ import type { Marks } from "./targets";
 import { servingGuard } from "./upperLimits";
 
 export const ROLE_WEIGHT: Record<Role, number> = { focus: 1, carried: 1, project: 0.6, locked: 0.3 };
+/** Protein is a daily foundation: it counts in suggestions alongside her three, a little lighter. */
+export const PROTEIN_WEIGHT = 0.5;
 export const DENSITY_KCAL_FLOOR = 25;
 /** Density mode only lists foods giving at least this share of some weighted mark. */
 export const DENSITY_MIN_CONTRIBUTION = 0.1;

@@ -10,3 +10,4 @@ export * from "./rounds";
 export * from "./upperLimits";
 export * from "./ranking";
 export * from "./selectability";
+export * from "./absorption";

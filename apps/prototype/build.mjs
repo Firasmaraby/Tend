@@ -15,4 +15,5 @@ await build({
   logLevel: "warning",
 });
 copyFileSync("src/index.html", "dist/index.html");
-console.log("built dist/index.html + dist/app.js");
+copyFileSync("src/library.json", "dist/library.json");
+console.log("built dist/index.html + dist/app.js + dist/library.json");

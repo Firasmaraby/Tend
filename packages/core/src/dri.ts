@@ -254,6 +254,13 @@ export const DRI: Record<NutrientCode, NutrientDri> = {
     ulAppliesTo: "total",
     bands: stage({ rda: 900, ear: 700, ul: 10000 }, { rda: 1000, ear: 800, ul: 10000 }, { rda: 1300, ear: 1000, ul: 10000 }),
   },
+  protein: {
+    // Placeholder only: the protein mark comes from the profile (proteinBaselineG),
+    // 1.2 g/kg when she shares a weight, otherwise a flat 75 g. See targets.ts.
+    basis: "FIXED",
+    ulAppliesTo: "none",
+    bands: same({ fixed: 75 }),
+  },
   vit_d: {
     basis: "RDA",
     ulAppliesTo: "total",

@@ -44,6 +44,24 @@ SELECTABLE = ["iron", "calcium", "magnesium", "potassium", "fibre", "folate_dfe"
               "vit_c", "vit_k", "zinc", "choline", "ala", "epa_dha", "iodine", "vit_e"]
 
 
+DIETS = {"vegan", "vegetarian", "pescatarian", "omnivore"}
+ALLERGENS = {"peanut", "tree_nut", "sesame", "milk", "egg", "fish", "crustacean", "mollusc", "soy", "wheat", "gluten", "mustard", "sulphite"}
+CATEGORIES = {"leafy_greens", "vegetables", "fruit", "legumes", "grains", "nuts_seeds", "small_seeds", "fish", "shellfish", "meat",
+              "poultry", "organ_meat", "eggs", "milk", "yogurt", "cheese", "oils_fats", "fortified", "herbs_spices", "aromatics",
+              "garnish", "beverages", "other"}
+
+
+def validate(c):
+    """A malformed curation row must stop the build, never shift silently into the wrong columns."""
+    if None in c or any(v is None for v in c.values()):
+        raise SystemExit(f"curation row has the wrong number of columns (unquoted comma?): {c}")
+    if c["diet"] not in DIETS or c["category"] not in CATEGORIES:
+        raise SystemExit(f'{c["food_id"]}: bad diet or category {c["diet"]!r} {c["category"]!r}')
+    bad = [a for a in c["allergens"].split("|") if a and a not in ALLERGENS]
+    if bad or not float(c["serving_g"]) > 0 or c["suggestable"] not in ("true", "false"):
+        raise SystemExit(f'{c["food_id"]}: bad allergens {bad}, serving or suggestable flag')
+
+
 def num(s):
     return None if s is None or s.strip() == "" else float(s)
 
@@ -52,6 +70,7 @@ def main(wide_path, cur_path, out_path):
     wide = {r["food_id"]: r for r in csv.DictReader(open(wide_path, encoding="utf-8"))}
     foods, problems = [], []
     for c in csv.DictReader(open(cur_path, encoding="utf-8")):
+        validate(c)
         r = wide.get(c["food_id"])
         if r is None:
             problems.append(f'{c["food_id"]}: not in database')

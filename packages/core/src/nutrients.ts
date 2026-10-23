@@ -7,8 +7,9 @@ export type Unit = "g" | "mg" | "µg";
  * - selectable: can be one of her three (still subject to the selectability floor)
  * - background: tracked and used for safety checks, never offered as a round
  * - blocked_policy: never offered by policy (vitamin D: food rarely gets her there)
+ * - baseline: a daily foundation alongside her three (protein), never a round nutrient
  */
-export type RoundPolicy = "selectable" | "background" | "blocked_policy";
+export type RoundPolicy = "selectable" | "background" | "blocked_policy" | "baseline";
 
 export interface NutrientDef {
   code: NutrientCode;
@@ -42,6 +43,7 @@ export const NUTRIENT_CODES = [
   "phosphorus",
   "copper",
   "vit_d",
+  "protein",
 ] as const;
 
 export type NutrientCode = (typeof NUTRIENT_CODES)[number];
@@ -54,7 +56,8 @@ export type NutrientCode = (typeof NUTRIENT_CODES)[number];
 export const FORM_CODES = ["retinol", "folic_acid"] as const;
 export type FormCode = (typeof FORM_CODES)[number];
 
-export type ValueCode = NutrientCode | FormCode | "energy_kcal";
+/** Context values used for advice (fat for fat-soluble vitamins) and opt-in energy. */
+export type ValueCode = NutrientCode | FormCode | "energy_kcal" | "fat";
 
 const def = (code: NutrientCode, name: string, unit: Unit, roundPolicy: RoundPolicy): NutrientDef => ({
   code,
@@ -90,4 +93,5 @@ export const NUTRIENTS: Record<NutrientCode, NutrientDef> = {
   phosphorus: def("phosphorus", "Phosphorus", "mg", "background"),
   copper: def("copper", "Copper", "µg", "background"),
   vit_d: def("vit_d", "Vitamin D", "µg", "blocked_policy"),
+  protein: def("protein", "Protein", "g", "baseline"),
 };
