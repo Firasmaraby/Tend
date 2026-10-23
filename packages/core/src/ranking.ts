@@ -10,6 +10,7 @@ import { NUTRIENT_CODES, type NutrientCode } from "./nutrients";
 import type { Role } from "./rounds";
 import type { Marks } from "./targets";
 import { servingGuard } from "./upperLimits";
+import { rankable } from "./absorption";
 
 export const ROLE_WEIGHT: Record<Role, number> = { focus: 1, carried: 1, project: 0.6, locked: 0.3 };
 /** Protein is a daily foundation: it counts in suggestions alongside her three, a little lighter. */
@@ -38,6 +39,8 @@ export interface Contribution {
   /** Share of the mark in one serving (unclamped). undefined = unknown in the data. */
   share: number | undefined;
   gain: number;
+  /** Present in the food, but not used for ranking (see absorption.ts rankable). */
+  poorlyAbsorbed?: true;
 }
 
 export interface Ranked {
@@ -77,9 +80,12 @@ export function scoreFood(food: Food, input: Omit<RankInput, "pool" | "mode" | "
     const amt = amountIn(food, n, serving.grams);
     const share = amt === undefined ? undefined : amt / mark;
     const todayCov = coverage(totalFor(input.today, n, input.lookup), mark);
-    const gain = share === undefined ? 0 : Math.min(share, roomLeft(todayCov, input.roundMeanToDate?.[n]));
+    const counts = rankable(food, n);
+    const gain = share === undefined || !counts ? 0 : Math.min(share, roomLeft(todayCov, input.roundMeanToDate?.[n]));
     score += w * gain;
-    contributions.push({ nutrient: n, share, gain });
+    const c: Contribution = { nutrient: n, share, gain };
+    if (!counts) c.poorlyAbsorbed = true;
+    contributions.push(c);
   }
   const servingKcal = amountIn(food, "energy_kcal", serving.grams);
   const ranked: Ranked = {

@@ -2,11 +2,25 @@ import type { LocalDate } from "./dates";
 import { amountIn, type Food } from "./foods";
 import type { NutrientCode } from "./nutrients";
 
+export const MEALS = ["breakfast", "lunch", "dinner", "snack"] as const;
+export type Meal = (typeof MEALS)[number];
+
 export interface LogEntry {
   id: string;
   foodId: string;
   grams: number;
   logDate: LocalDate;
+  /** Optional. Lets pairing advice say "same meal" instead of "same day". */
+  meal?: Meal;
+}
+
+/** A sensible default from her local clock; she can change it with one tap. */
+export function defaultMeal(localHour: number, localMinute = 0): Meal {
+  const t = localHour + localMinute / 60;
+  if (t >= 4 && t < 10.5) return "breakfast";
+  if (t >= 10.5 && t < 14.5) return "lunch";
+  if (t >= 17 && t < 21.5) return "dinner";
+  return "snack";
 }
 
 export interface NutrientTotal {

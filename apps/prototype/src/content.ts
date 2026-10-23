@@ -211,6 +211,7 @@ export const HINTS = {
   why_jar: "Tap a jar to see what it does for you and where your mark comes from.",
   first_pairing: "Some foods work better together. Tend points out pairings that help you absorb more, and notices when you make one.",
   all_nutrients: "Your three get the spotlight, but Tend tracks everything. You can see the full list any time.",
+  meals: "Tend files each food under a meal, based on the time. Change it with one tap. Meals let Tend spot pairings in the same meal.",
   library_food: "This food is from the full library. It counts toward your day, but Tend only suggests foods with checked servings.",
 } as const;
 export type HintId = keyof typeof HINTS;
@@ -300,4 +301,18 @@ export const SETTINGS_COPY = {
   tipsTitle: "Show tips",
   tipsBody: "The one-line notes that explain things the first time they happen.",
   replay: "Replay how Tend works",
+};
+
+export const MEAL_LABEL = { breakfast: "Breakfast", lunch: "Lunch", dinner: "Dinner", snack: "Snack" } as const;
+
+export const SHOPPING_COPY = {
+  title: "Shopping list",
+  intro: "Built from the foods you already love, a few strong ones for your three, and the pairings that help them work.",
+  kinds: { rotation: "Yours", try: "Worth trying", pairing: "Better together" },
+  empty: "Log a few days and your list fills itself.",
+};
+
+export const REPEAT_COPY = {
+  button: (meal: string) => `Repeat yesterday's ${meal.toLowerCase()}`,
+  done: (meal: string) => `Added yesterday's ${meal.toLowerCase()}.`,
 };

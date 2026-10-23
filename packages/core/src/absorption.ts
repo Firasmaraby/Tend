@@ -12,7 +12,7 @@
 // - Oxalate in spinach and Swiss chard binds most of their calcium. Kale, bok
 //   choy and collards give calcium that is absorbed about as well as milk's.
 
-import type { FoodLookup, LogEntry } from "./coverage";
+import type { FoodLookup, LogEntry, Meal } from "./coverage";
 import type { EligiblePool } from "./eligibility";
 import { narrowPool } from "./eligibility";
 import { amountIn, type Food, type FoodCategory } from "./foods";
@@ -90,6 +90,23 @@ export interface PairingMoment {
   /** A helper was logged the same day (the app doesn't track meals yet, so "same day" stands in for "same meal"). */
   paired: boolean;
   helper?: Food;
+  /** The target's meal, when tagged. */
+  meal?: Meal;
+}
+
+/** Same meal when both are tagged; otherwise the same day is the best we know. */
+function sameMeal(a: LogEntry, b: LogEntry): boolean {
+  return a.meal === undefined || b.meal === undefined || a.meal === b.meal;
+}
+
+/**
+ * Some food-table values overstate what the body gets. These still count in
+ * her totals (we never change her numbers) but are not used to rank
+ * suggestions or to pass the selectability floor: spinach is not suggested as
+ * a calcium source.
+ */
+export function rankable(food: Food, nutrient: NutrientCode): boolean {
+  return !(nutrient === "calcium" && (food.traits ?? []).includes("high_oxalate"));
 }
 
 /** One moment per rule for today's log, only for nutrients that are hers. */
@@ -97,21 +114,25 @@ export function pairingsToday(today: readonly LogEntry[], lookup: FoodLookup, ma
   const moments: PairingMoment[] = [];
   for (const rule of Object.values(PAIRING_RULES)) {
     if (!relevant(rule, hers)) continue;
-    const targetEntry = today.find((e) => {
+    const targets = today.filter((e) => {
       const f = lookup(e.foodId);
       return f !== undefined && isTarget(rule.id, f, e.grams, marks);
     });
-    if (!targetEntry) continue;
-    const target = lookup(targetEntry.foodId)!;
-    const helperEntry =
+    if (targets.length === 0) continue;
+    const helperFor = (t: LogEntry) =>
       rule.kind === "pair"
         ? today.find((e) => {
             const f = lookup(e.foodId);
             // The target itself can carry its own helper (avocado brings its own fat).
-            return f !== undefined && isHelper(rule.id, f, e.grams);
+            return f !== undefined && sameMeal(t, e) && isHelper(rule.id, f, e.grams);
           })
         : undefined;
-    const moment: PairingMoment = { rule: rule.id, target, paired: helperEntry !== undefined };
+    // Report a pairing she made if there is one; otherwise the first target.
+    const pairedTarget = targets.find((t) => helperFor(t) !== undefined);
+    const targetEntry = pairedTarget ?? targets[0]!;
+    const helperEntry = pairedTarget ? helperFor(pairedTarget) : undefined;
+    const moment: PairingMoment = { rule: rule.id, target: lookup(targetEntry.foodId)!, paired: helperEntry !== undefined };
+    if (targetEntry.meal) moment.meal = targetEntry.meal;
     const helper = helperEntry ? lookup(helperEntry.foodId) : undefined;
     if (helper) moment.helper = helper;
     moments.push(moment);

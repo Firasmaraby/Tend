@@ -15,6 +15,7 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  type Meal,
   PROTEIN_WEIGHT,
   pairingsToday,
   pairingFor,
@@ -271,7 +272,8 @@ export function seedHistory(p: Profile, round: RoundState, days: number, seed = 
       const fromFav = rnd() < 0.65;
       const f = fromFav ? favourites[Math.floor(rnd() * favourites.length)]! : pool[Math.floor(rnd() * pool.length)]!;
       const mult = rnd() < 0.08 ? 2 : 1;
-      logs.push({ id: `seed${++id}`, foodId: f.id, grams: f.serving!.grams * mult, logDate: date });
+      const meal = (["breakfast", "lunch", "dinner", "snack", "snack"] as const)[i]!;
+      logs.push({ id: `seed${++id}`, foodId: f.id, grams: f.serving!.grams * mult, logDate: date, meal });
     }
   }
   return logs;
@@ -349,4 +351,82 @@ export function pairingForFood(p: Profile, round: RoundState, food: Food, today:
 
 export function helpersFor(p: Profile, rule: PairingRuleId, limit = 3): ProtoFood[] {
   return helperFoods(rule, eligibleFoods(FOODS, p), limit) as ProtoFood[];
+}
+
+// ---- Meals: repeat a meal ----
+
+export function mealEntries(logs: readonly LogEntry[], date: LocalDate, meal: Meal): LogEntry[] {
+  return logs.filter((e) => e.logDate === date && e.meal === meal);
+}
+
+/** Yesterday's meal she could repeat now: only if it had food and today's same meal is still empty. */
+export function repeatableMeal(logs: readonly LogEntry[], today: LocalDate, meal: Meal): LogEntry[] {
+  if (mealEntries(logs, today, meal).length > 0) return [];
+  return mealEntries(logs, addDays(today, -1), meal);
+}
+
+// ---- Shopping list ----
+
+export type Aisle = "Produce" | "Beans, grains and seeds" | "Fish and meat" | "Dairy and eggs" | "Pantry";
+const AISLE: Partial<Record<Food["category"], Aisle>> = {
+  leafy_greens: "Produce", vegetables: "Produce", fruit: "Produce",
+  legumes: "Beans, grains and seeds", grains: "Beans, grains and seeds", nuts_seeds: "Beans, grains and seeds", small_seeds: "Beans, grains and seeds",
+  fish: "Fish and meat", shellfish: "Fish and meat", meat: "Fish and meat", poultry: "Fish and meat", organ_meat: "Fish and meat",
+  milk: "Dairy and eggs", yogurt: "Dairy and eggs", cheese: "Dairy and eggs", eggs: "Dairy and eggs",
+};
+export const AISLE_ORDER: Aisle[] = ["Produce", "Beans, grains and seeds", "Fish and meat", "Dairy and eggs", "Pantry"];
+
+export interface ShoppingItem {
+  food: ProtoFood;
+  /** Why it's on the list, in her terms. */
+  reason: string;
+  kind: "rotation" | "try" | "pairing";
+}
+
+/**
+ * Built from what she already eats (rotation), the strongest foods for her
+ * three that she hasn't made hers yet, and helpers for the pairings that
+ * apply to her foods. Only eligible foods: allergens and diet already applied.
+ */
+export function shoppingList(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate): { aisle: Aisle; items: ShoppingItem[] }[] {
+  const items = new Map<string, ShoppingItem>();
+  const eligibleIds = new Set(eligibleFoods(FOODS, p).map((f) => f.id));
+  const rot = rotation(round, logs).filter((r) => eligibleIds.has(r.food.id));
+  for (const r of rot.slice(0, 8)) items.set(r.food.id, { food: r.food, reason: `In your rotation (${r.days} days)`, kind: "rotation" });
+
+  const marks = marksFor(p, today);
+  const fresh = rank({
+    pool: eligibleFoods(FOODS, p),
+    marks,
+    weights: { ...weightsFromRoles(round.nutrients), protein: PROTEIN_WEIGHT },
+    today: [],
+    lookup,
+    mode: "serving",
+    limit: 12,
+  });
+  let tries = 0;
+  for (const r of fresh) {
+    if (tries >= 5 || items.has(r.food.id)) continue;
+    const best = [...r.contributions].sort((a, b) => b.gain - a.gain)[0];
+    if (!best || best.gain <= 0) continue;
+    items.set(r.food.id, { food: r.food as ProtoFood, reason: `Good for your ${nutrientName(best.nutrient).toLowerCase()}`, kind: "try" });
+    tries++;
+  }
+
+  const hers = round.nutrients.map((n) => n.nutrient);
+  const listed = [...items.values()].map((i) => i.food);
+  for (const rule of ["iron_vitamin_c", "fat_soluble"] as const) {
+    const target = listed.find((f) => pairingFor(f, marks, hers) === rule);
+    if (!target) continue;
+    for (const h of helpersFor(p, rule, 2)) {
+      if (!items.has(h.id)) items.set(h.id, { food: h, reason: `Pairs with your ${target.name.split(",")[0]!.toLowerCase()}`, kind: "pairing" });
+    }
+  }
+
+  const byAisle = new Map<Aisle, ShoppingItem[]>();
+  for (const it of items.values()) {
+    const a = AISLE[it.food.category] ?? "Pantry";
+    byAisle.set(a, [...(byAisle.get(a) ?? []), it]);
+  }
+  return AISLE_ORDER.filter((a) => byAisle.has(a)).map((aisle) => ({ aisle, items: byAisle.get(aisle)! }));
 }

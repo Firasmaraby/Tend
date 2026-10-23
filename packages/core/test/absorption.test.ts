@@ -60,3 +60,29 @@ describe("protein baseline mark", () => {
     expect(allMarks(profile({ weightKg: 65 }), ON).protein.value).toBeCloseTo(78);
   });
 });
+
+describe("meals", () => {
+  it("defaults from her clock", async () => {
+    const { defaultMeal } = await import("../src");
+    expect([defaultMeal(7), defaultMeal(10, 30), defaultMeal(12), defaultMeal(15), defaultMeal(19), defaultMeal(23)]).toEqual([
+      "breakfast", "lunch", "lunch", "snack", "dinner", "snack",
+    ]);
+  });
+  it("tagged meals: the pairing has to be in the same meal", () => {
+    const at = (id: string, g: number, meal: "breakfast" | "dinner") => ({ ...entry(id, g, "2026-03-02"), meal });
+    const apart = pairingsToday([at("lentils_cooked", 198, "dinner"), at("red_pepper", 149, "breakfast")], lk, marks, ["iron"]);
+    expect(apart[0]).toMatchObject({ paired: false, meal: "dinner" });
+    const together = pairingsToday([at("lentils_cooked", 198, "dinner"), at("red_pepper", 149, "dinner")], lk, marks, ["iron"]);
+    expect(together[0]).toMatchObject({ paired: true });
+  });
+});
+
+describe("spinach is not ranked as a calcium source", () => {
+  it("counts in totals, but gives no calcium gain in ranking", async () => {
+    const { scoreFood } = await import("../src");
+    const r = scoreFood(chard, { marks, weights: { calcium: 1 }, today: [], lookup: lk })!;
+    expect(r.score).toBe(0);
+    expect(r.contributions[0]).toMatchObject({ nutrient: "calcium", poorlyAbsorbed: true });
+    expect(r.contributions[0]!.share).toBeGreaterThan(0.12);
+  });
+});

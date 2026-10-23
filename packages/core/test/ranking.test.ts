@@ -90,3 +90,10 @@ describe("selectability floor", () => {
     expect(selectabilityReport(foods, marks, profile()).find((r) => r.nutrient === "calcium")).toMatchObject({ qualifying: 0, status: "fail", selectable: false });
   });
 });
+
+describe("per-nutrient floor", () => {
+  it("EPA+DHA needs 8 qualifying foods, not 15", () => {
+    expect([floorStatus(7, "epa_dha"), floorStatus(8, "epa_dha"), floorStatus(13, "epa_dha")]).toEqual(["fail", "near", "pass"]);
+    expect(floorStatus(8, "iron")).toBe("fail");
+  });
+});
