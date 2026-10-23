@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { coverage, totalFor, type NutrientCode } from "@tend/core";
-import { EXPLAINERS } from "../content";
+import { coverage, totalFor, type NutrientCode, type PairingRuleId } from "@tend/core";
+import { ABSORPTION_TIPS, EXPLAINERS, PAIRING_COPY } from "../content";
 import { FOODS, lookup, pickable } from "../engine";
 import { topFoods, useCtx } from "./ctx";
 import { ExplainerBody, MarkBlock, useMark } from "./Explainer";
@@ -14,10 +14,19 @@ const MYTHS: Partial<Record<NutrientCode, string>> = {
   ala: "Chia isn't a stand-in for salmon. Plant and marine omega-3 work differently, so Tend tracks them separately.",
 };
 
+/** Which nutrients each pairing rule is about, for the "Better together" section on a nutrient page. */
+const RULE_NUTRIENTS: Record<PairingRuleId, NutrientCode[]> = {
+  iron_vitamin_c: ["iron"],
+  fat_soluble: ["vit_k", "vit_a_rae", "vit_e"],
+  calcium_oxalate: ["calcium"],
+};
+const RULE_ORDER = Object.keys(RULE_NUTRIENTS) as PairingRuleId[];
+
 export function Learn() {
   const { state, dispatch, profile, today } = useCtx();
   const n = state.learnNutrient;
   if (n) return <NutrientPage nutrient={n} />;
+  if (state.learnTopic === "pairing") return <PairingPage />;
   const rows = pickable(profile, today);
   return (
     <div className="screen">
@@ -25,6 +34,10 @@ export function Learn() {
       <button type="button" className="card card--link" onClick={() => dispatch({ t: "openGuide", from: "app" })}>
         <span className="card-title">How Tend works</span>
         <span className="card-sub">Four short cards. Replay them any time.</span>
+      </button>
+      <button type="button" className="card card--link" onClick={() => dispatch({ t: "learnTopic", topic: "pairing" })}>
+        <span className="card-title">Better together</span>
+        <span className="card-sub">Small pairings that help you absorb more from the same food.</span>
       </button>
       <h2 className="h2">Nutrients</h2>
       <ul className="list">
@@ -37,7 +50,70 @@ export function Learn() {
           </li>
         ))}
       </ul>
+      <button type="button" className="card card--link card--quiet" onClick={() => dispatch({ t: "sheet", sheet: { kind: "settings" } })}>
+        <span className="card-title">Settings</span>
+        <span className="card-sub">Energy, protein, tips and replaying how Tend works.</span>
+      </button>
     </div>
+  );
+}
+
+function PairingPage() {
+  const { dispatch } = useCtx();
+  return (
+    <div className="screen nutrient-page">
+      <button type="button" className="back-link" onClick={() => dispatch({ t: "learnTopic", topic: null })}>
+        <BackIcon />
+        <span>Learn</span>
+      </button>
+      <h1 className="headline">Better together</h1>
+      <p className="intro intro--tight">Foods can help each other. These are small habits, never rules, and Tend never changes your numbers for them.</p>
+      <div className="panels">
+        {RULE_ORDER.map((rule) => (
+          <div key={rule} className="panel">
+            <p className="eyebrow">{PAIRING_COPY[rule].title}</p>
+            <p>{PAIRING_COPY[rule].learn}</p>
+          </div>
+        ))}
+      </div>
+      <h2 className="h2 h2--gap">Good to know</h2>
+      <div className="panels">
+        {ABSORPTION_TIPS.map((t) => (
+          <div key={t.title} className="panel">
+            <p className="eyebrow">{t.title}</p>
+            <p>{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Pairing rules and tips that apply to one nutrient. */
+function BetterTogether({ nutrient }: { nutrient: NutrientCode }) {
+  const rules = RULE_ORDER.filter((r) => RULE_NUTRIENTS[r].includes(nutrient));
+  const tips = ABSORPTION_TIPS.filter((t) => t.nutrients.includes(nutrient));
+  if (!rules.length && !tips.length) return null;
+  return (
+    <section className="section section--tight" aria-labelledby="bt-h">
+      <h2 id="bt-h" className="h2">
+        Better together
+      </h2>
+      <div className="panels panels--flush">
+        {rules.map((rule) => (
+          <div key={rule} className="panel">
+            <p className="eyebrow">{PAIRING_COPY[rule].title}</p>
+            <p>{PAIRING_COPY[rule].learn}</p>
+          </div>
+        ))}
+        {tips.map((t) => (
+          <div key={t.title} className="panel">
+            <p className="eyebrow">{t.title}</p>
+            <p>{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -63,6 +139,7 @@ function NutrientPage({ nutrient }: { nutrient: NutrientCode }) {
           <p>{myth}</p>
         </aside>
       ) : null}
+      <BetterTogether nutrient={nutrient} />
       <section className="section">
         <h2 className="h2">Top foods for you</h2>
         {tops.length === 0 ? (

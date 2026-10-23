@@ -245,8 +245,9 @@ export const FREQUENCIES = [
 export const PAIRING_COPY = {
   iron_vitamin_c: {
     title: "Iron likes vitamin C",
-    nudge: (food: string) => `Your ${food} has plant iron. Vitamin C in the same meal helps your body take in more of it.`,
+    nudge: (food: string) => `There's plant iron in your ${food}. Vitamin C in the same meal helps your body take in more of it.`,
     done: (food: string, helper: string) => `Nice pairing. The vitamin C in your ${helper} helps your body take in the iron from your ${food}.`,
+    doneAnimal: (food: string, helper: string) => `Nice pairing. Your ${helper} helps your body take in the iron from your ${food}.`,
     chip: "Pair with vitamin C",
     learn: "Iron from plants (non-heme iron) is absorbed less easily than iron from meat and fish. Vitamin C changes that: about 25 mg in the same meal, the amount in half a red pepper or one kiwi, can make a real difference. Meat, fish and poultry help too.",
   },

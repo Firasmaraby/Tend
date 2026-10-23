@@ -14,6 +14,8 @@ import csv, json, sys
 
 COLS = {
     "energy_kcal": ("energy_kcal", 1),
+    "protein": ("protein_g", 1),
+    "fat": ("fat_g", 1),
     "iron": ("iron_mg", 1),
     "calcium": ("calcium_mg", 1),
     "magnesium": ("magnesium_mg", 1),
@@ -107,6 +109,7 @@ def main(wide_path, cur_path, out_path):
             "diet": c["diet"],
             "allergens": [a for a in c["allergens"].split("|") if a],
             "pregnancyFlags": [p for p in c["pregnancy_flags"].split("|") if p],
+            "traits": [t for t in c.get("traits", "").split("|") if t],
             "source": {"id": r["source_id"], "name": r["name_en"], "citation": r["source_citation"], "licence": r["licence"]},
             "missing": missing,
         })

@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { NutrientCode, Ranked } from "@tend/core";
+import { amountIn, type NutrientCode, type PairingRuleId, type Ranked } from "@tend/core";
 import { compass, type HintId } from "../content";
-import { bestRightNow, entriesOn, jars, loggedDayCount, lookup, roundDay, rotation, type JarState } from "../engine";
+import { bestRightNow, entriesOn, jars, loggedDayCount, lookup, pairingForFood, roundDay, rotation, type JarState } from "../engine";
 import { useCtx } from "./ctx";
 import { HintCard } from "./Hint";
 import { Jar } from "./Jar";
-import { servingWithGrams, inlineName, pct, pillName, pillsFor, servingPhrase, shortName, whyLine } from "./format";
+import { Foundation } from "./Foundation";
+import { servingWithGrams, inlineName, kcalText, pct, pillName, pillsFor, servingPhrase, shortName, whyLine } from "./format";
+import { PairChip, PairingCard, usePairingCards } from "./Pairing";
 import { CloseIcon, PlusIcon, Segmented, Swatch } from "./primitives";
 
 export const PREGNANCY_LINE = "Check with your doctor or midwife. Tend isn't medical advice.";
@@ -76,7 +78,7 @@ function MiniStrip({ js, chips }: { js: JarState[]; chips: Chip[] }) {
               .filter((c) => c.nutrient === j.nutrient)
               .map((c) => (
                 <span key={c.key} className="gain-chip gain-chip--mini" aria-hidden="true">
-                  {c.text}
+                  {c.text.split(" ")[0]}
                 </span>
               ))}
           </span>
@@ -91,7 +93,7 @@ function MiniStrip({ js, chips }: { js: JarState[]; chips: Chip[] }) {
 }
 
 function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: number; at: number | undefined }) {
-  const { dispatch } = useCtx();
+  const { dispatch, state } = useCtx();
   const food = lookup(foodId);
   const [fresh, setFresh] = useState(() => at !== undefined && Date.now() - at < 5000);
   useEffect(() => {
@@ -107,7 +109,10 @@ function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: 
           <Swatch category={food.category} />
           <span className="food-name">{food.name}</span>
         </span>
-        <span className="food-serving">{servingPhrase(food, grams)}</span>
+        <span className="food-serving">
+          {servingPhrase(food, grams)}
+          {state.showEnergy ? (kcalText(food, grams) ? ` · ${kcalText(food, grams)}` : "") : ""}
+        </span>
       </span>
       {fresh ? (
         <button type="button" className="undo-btn" onClick={() => dispatch({ t: "unlog", id })} aria-label={`Undo adding ${food.name}`}>
@@ -123,10 +128,29 @@ function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: 
   );
 }
 
-export function FoodRow({ r, order, preferred, onOpen, onAdd }: { r: Ranked; order: readonly NutrientCode[]; preferred: readonly NutrientCode[]; onOpen: () => void; onAdd?: () => void }) {
+export function FoodRow({
+  r,
+  order,
+  preferred,
+  pair,
+  onOpen,
+  onAdd,
+}: {
+  r: Ranked;
+  order: readonly NutrientCode[];
+  preferred: readonly NutrientCode[];
+  pair?: PairingRuleId | null;
+  onOpen: () => void;
+  onAdd?: () => void;
+}) {
+  const { state } = useCtx();
   const f = lookup(r.food.id)!;
   const pills = pillsFor(r, order);
   const why = whyLine(r, preferred);
+  // Protein is a quiet foundation: mention it only when one serving really brings some.
+  const protein = f.serving ? amountIn(f, "protein", f.serving.grams) : undefined;
+  const bigProtein = protein !== undefined && protein >= 10 ? Math.round(protein) : null;
+  const kcal = state.showEnergy ? kcalText(f, f.serving?.grams ?? 100) : null;
   return (
     <li className="food-row">
       <button type="button" className="food-open" onClick={onOpen}>
@@ -134,14 +158,18 @@ export function FoodRow({ r, order, preferred, onOpen, onAdd }: { r: Ranked; ord
           <Swatch category={f.category} />
           <span className="food-name">{f.name}</span>
         </span>
-        <span className="food-serving">{servingWithGrams(f)}</span>
-        {pills.length ? (
+        <span className="food-serving">
+          {servingWithGrams(f)}
+          {kcal ? ` · ${kcal}` : ""}
+        </span>
+        {pills.length || bigProtein !== null ? (
           <span className="pills">
             {pills.map((p) => (
               <span key={p.nutrient} className="pill">
                 {pillName(p.nutrient)} {pct(p.share)}%
               </span>
             ))}
+            {bigProtein !== null ? <span className="pill pill--plain">Protein {bigProtein} g</span> : null}
           </span>
         ) : null}
         {why ? <span className="why">{why}</span> : null}
@@ -152,6 +180,7 @@ export function FoodRow({ r, order, preferred, onOpen, onAdd }: { r: Ranked; ord
           <PlusIcon />
         </button>
       ) : null}
+      {pair ? <PairChip rule={pair} food={f} /> : null}
     </li>
   );
 }
@@ -167,6 +196,15 @@ export function Today() {
   const rot = useMemo(() => rotation(r, logs), [r, logs]);
   const day = roundDay(r, today);
   const stage = compass(day);
+  const pairCards = usePairingCards();
+  const pairByFood = useMemo(() => {
+    const m = new Map<string, PairingRuleId>();
+    for (const rk of best.slice(0, 10)) {
+      const rule = pairingForFood(profile, r, rk.food, today);
+      if (rule) m.set(rk.food.id, rule);
+    }
+    return m;
+  }, [best, profile, r, today]);
   const main = js.filter((j) => j.role !== "locked");
   const locked = js.filter((j) => j.role === "locked");
 
@@ -203,16 +241,17 @@ export function Today() {
   }, []);
 
   // First-time moments: at most one visible, each shown once, never about absence.
-  const candidates: { id: HintId; when: boolean; where: "top" | "best" }[] = [
+  const candidates: { id: HintId; when: boolean; where: "top" | "best" | "pair" }[] = [
     { id: "density", when: mode === "density", where: "best" },
     { id: "why_jar", when: true, where: "top" },
     { id: "first_log", when: logs.length > 0, where: "top" },
     { id: "past_mark", when: js.some((j) => j.today > 1.0001), where: "top" },
     { id: "at_least", when: js.some((j) => j.todayHasUnknown), where: "top" },
     { id: "becoming_yours", when: rot.length > 0, where: "top" },
+    { id: "first_pairing", when: pairCards.length > 0 || pairByFood.size > 0, where: pairCards.length > 0 ? "pair" : "best" },
     { id: "capped", when: best.some((x) => x.maxServingsPerDay), where: "best" },
   ];
-  const hint = candidates.find((c) => c.when && !seen.includes(c.id));
+  const hint = state.showTips ? candidates.find((c) => c.when && !seen.includes(c.id)) : undefined;
 
   const add = (rk: Ranked) => {
     dispatch({ t: "log", foodId: rk.food.id, servings: 1, date: today, at: Date.now() });
@@ -252,6 +291,7 @@ export function Today() {
           </div>
         ) : null}
       </div>
+      <Foundation />
       <div className="sr" aria-live="polite">
         {announce}
       </div>
@@ -272,6 +312,15 @@ export function Today() {
           </ul>
         )}
       </section>
+
+      {pairCards.length ? (
+        <section aria-label="Better together" className="pairs">
+          {hint && hint.where === "pair" ? <HintCard id={hint.id} /> : null}
+          {pairCards.map((m) => (
+            <PairingCard key={m.rule} m={m} />
+          ))}
+        </section>
+      ) : null}
 
       <section aria-labelledby="best-h" className="section">
         <h2 id="best-h" className="h2">
@@ -295,7 +344,7 @@ export function Today() {
         ) : (
           <ul className="list">
             {best.slice(0, 10).map((rk) => (
-              <FoodRow key={rk.food.id} r={rk} order={order.filter((n) => active.includes(n))} preferred={active} onOpen={() => dispatch({ t: "sheet", sheet: { kind: "food", foodId: rk.food.id } })} onAdd={() => add(rk)} />
+              <FoodRow key={rk.food.id} r={rk} order={order.filter((n) => active.includes(n))} preferred={active} pair={pairByFood.get(rk.food.id) ?? null} onOpen={() => dispatch({ t: "sheet", sheet: { kind: "food", foodId: rk.food.id } })} onAdd={() => add(rk)} />
             ))}
           </ul>
         )}

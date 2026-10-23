@@ -49,3 +49,11 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
 ## Open for the founder (from the first data run, 2026-10-22)
 - **EPA+DHA floor.** Only fish and seafood carry marine omega-3. Even a large library may never have 15 distinct qualifying foods. Proposal: a per-nutrient floor (for example 8 for EPA+DHA), since a short list of fish is still credible coaching.
 - **Iodine** is known for about a third of foods in the merged database. It stays unselectable until coverage improves, and the selectability report will show when it does.
+
+## Added 2026-10-23 (from founder feedback on the prototype)
+- **Protein is the daily foundation.** It has its own bar under the three jars, but it isn't a jar or a round nutrient. The mark is a flat 75 g, or 1.2 g/kg (adjustable from 0.8 to 2.2) if she adds her weight in settings. Weight is opt-in, used only for this, and never displayed. In suggestions protein has weight 0.5.
+- **Energy (kcal) is opt-in and off by default.** It counts up, and there is never an energy target.
+- **Absorption ("Better together") teaches and never changes a number.** The rules are in `packages/core/src/absorption.ts`: vitamin C (25 mg or more) or meat/fish with plant iron; fat with greens for vitamins A and K; a "know" card on oxalate in spinach and chard. More tips in Learn: tea/coffee timing, soaking/sprouting, gentle cooking, cooked carrots.
+- **Searchable is not suggestable.** Every food in the library can be found and logged. Only curated foods are suggested.
+- **For the founder:** should spinach and chard count toward calcium in *suggestions*? Most of their calcium isn't absorbed. Recommendation: still count what she logs, but don't rank them as calcium sources.
+- **For the founder:** optional meal tags (breakfast/lunch/dinner/snack) would let pairing tips say "same meal" instead of "same day". The cost is one extra tap when logging. Recommendation: yes, as an optional tag with smart defaults based on time of day.

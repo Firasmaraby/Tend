@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { eligibleFoods, NUTRIENT_CODES, scoreFood, type NutrientCode, type Weights } from "@tend/core";
+import { amountIn, eligibleFoods, NUTRIENT_CODES, scoreFood, type NutrientCode, type Weights } from "@tend/core";
 import { FOODS, lookup, marksFor, type ProtoFood } from "../engine";
 import { useStore } from "./store";
 
@@ -13,6 +13,16 @@ export function sharesOf(food: ProtoFood, marks: ReturnType<typeof marksFor>): S
   if (!r) return null;
   const t: ShareTable = {};
   for (const c of r.contributions) if (c.share !== undefined) t[c.nutrient] = c.share;
+  return t;
+}
+
+/** Share of her mark in 100 g, for library foods that have no serving. Unknown values are absent. */
+export function sharesPer100(food: ProtoFood, marks: ReturnType<typeof marksFor>): ShareTable {
+  const t: ShareTable = {};
+  for (const n of NUTRIENT_CODES) {
+    const v = amountIn(food, n, 100);
+    if (v !== undefined) t[n] = v / marks[n].value;
+  }
   return t;
 }
 

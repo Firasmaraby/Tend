@@ -10,6 +10,21 @@ function effectiveDark(theme: "auto" | "light" | "dark"): boolean {
   }
 }
 
+function GearIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <path
+        d="M12 3.2l1.4 2.2 2.5-.7.9 2.4 2.5.8-.5 2.5 1.8 1.8-1.8 1.8.5 2.5-2.5.8-.9 2.4-2.5-.7L12 20.8l-1.4-2.2-2.5.7-.9-2.4-2.5-.8.5-2.5L3.4 12l1.8-1.8-.5-2.5 2.5-.8.9-2.4 2.5.7z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function DemoMenu() {
   const { state, dispatch } = useStore();
   const [open, setOpen] = useState(false);
@@ -44,8 +59,14 @@ export function DemoMenu() {
   };
   const demo = (kind: DemoKind) => run(() => dispatch({ t: "demo", kind }));
 
+  const showGear = state.phase === "app" && state.round !== null;
   return (
     <div className="demo">
+      {showGear ? (
+        <button type="button" className="icon-btn gear-btn" aria-label="Settings" onClick={() => dispatch({ t: "sheet", sheet: { kind: "settings" } })}>
+          <GearIcon />
+        </button>
+      ) : null}
       <button ref={btn} type="button" className="demo-pill" aria-haspopup="true" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
         <span>Prototype</span>
       </button>

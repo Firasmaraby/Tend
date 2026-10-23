@@ -102,7 +102,7 @@ export function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [state.phase, state.tab, state.learnNutrient]);
+  }, [state.phase, state.tab, state.learnNutrient, state.learnTopic]);
 
   let body;
   switch (state.phase) {

@@ -1,6 +1,6 @@
-import { useEffect, useId, useRef, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { FoodCategory } from "@tend/core";
-import { CATEGORY_LABEL, chipKey } from "./format";
+import { CATEGORY_LABEL, chipKey, sentenceCase } from "./format";
 import { useStore } from "./store";
 import { GLOSSARY } from "../content";
 
@@ -10,6 +10,24 @@ export function Swatch({ category }: { category: FoodCategory }) {
       <span className="swatch" style={{ background: `var(--c-${chipKey(category)})` }} aria-hidden="true" />
       <span className="sr">{CATEGORY_LABEL[category]}: </span>
     </>
+  );
+}
+
+/** A small category chip for library foods: colour swatch plus the plain category name. */
+export function CatChip({ category }: { category: FoodCategory }) {
+  return (
+    <span className="cat-chip">
+      <span className="swatch swatch--sm" style={{ background: `var(--c-${chipKey(category)})` }} aria-hidden="true" />
+      {sentenceCase(CATEGORY_LABEL[category])}
+    </span>
+  );
+}
+
+export function CheckIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 
@@ -128,5 +146,65 @@ export function Sheet({ title, onClose, children, tall }: { title: string; onClo
         <div className="sheet-body">{children}</div>
       </div>
     </div>
+  );
+}
+
+export const reducedMotion = (): boolean => {
+  try {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch {
+    return false;
+  }
+};
+
+/** A number that counts up (or down) to its target. Instant with reduced motion and on first render. */
+export function useCountUp(target: number, ms = 650): number {
+  const [shown, setShown] = useState(target);
+  const from = useRef(target);
+  useEffect(() => {
+    if (reducedMotion() || from.current === target) {
+      from.current = target;
+      setShown(target);
+      return;
+    }
+    const start = performance.now();
+    const a = from.current;
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = a + (target - a) * eased;
+      from.current = v;
+      setShown(v);
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return shown;
+}
+
+/**
+ * A horizontal cousin of the jar: saffron fill, a dashed mark line, and a soft
+ * glow past the mark. Never a warning. `max` is the coverage at the right edge.
+ */
+export function MarkBar({ coverage, max, thick = false, markLabel = false }: { coverage: number; max: number; thick?: boolean; markLabel?: boolean }) {
+  const c = Math.max(0, coverage);
+  const markAt = (1 / max) * 100;
+  const fill = (Math.min(c, 1) / max) * 100;
+  const over = c > 1.0001 ? ((Math.min(c, max) - 1) / max) * 100 : 0;
+  return (
+    <span className={`mbar-wrap${thick ? " mbar-wrap--thick" : ""}${markLabel ? " mbar-wrap--label" : ""}`} aria-hidden="true">
+      <span className={`mbar${c > 1.0001 ? " mbar--past" : ""}`}>
+        <span className="mbar-fill" style={{ width: `${fill}%` }} />
+        <span className="mbar-over" style={{ left: `${markAt}%`, width: `${over}%` }} />
+      </span>
+      <span className="mbar-mark" style={{ left: `${markAt}%` }} />
+      {markLabel ? (
+        <span className="mbar-mark-label" style={{ left: `${markAt}%` }}>
+          mark
+        </span>
+      ) : null}
+    </span>
   );
 }

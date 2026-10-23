@@ -46,9 +46,20 @@ export const servingsText = (mult: number): string => (mult <= 1 ? `${fracText(m
 
 /** "1 cup cooked", or "2 × 1 cup cooked" when it isn't a single serving. */
 export function servingPhrase(food: ProtoFood, grams: number): string {
+  // Library foods have no vetted serving: they are logged, and shown, by weight.
+  if (!food.serving) return gramsText(grams);
   const label = food.serving?.label ?? "";
   const mult = food.serving ? grams / food.serving.grams : 1;
   return Math.abs(mult - 1) < 0.01 ? label : `${fracText(mult)} × ${label}`;
+}
+
+/** "150 g", without float noise. */
+export const gramsText = (grams: number): string => `${Math.round(grams * 10) / 10} g`;
+
+/** "120 kcal" for an amount of a food, or null when its energy isn't listed. */
+export function kcalText(food: ProtoFood, grams: number): string | null {
+  const per100 = food.per100g.energy_kcal;
+  return per100 === undefined ? null : `${Math.round((per100 * grams) / 100).toLocaleString("en-CA")} kcal`;
 }
 
 /** Name up to the first comma: "Lentils, cooked" becomes "Lentils". */
@@ -160,3 +171,6 @@ export const ordinalWord = (n: number): string => ["zeroth", "first", "second", 
 /** "1 cup cooked · 198 g": the label people recognise, plus the weight the maths uses. */
 export const servingWithGrams = (food: { serving?: { label: string; grams: number } }): string =>
   food.serving ? `${food.serving.label} · ${Math.round(food.serving.grams)} g` : "";
+
+/** Capitalise the first letter. */
+export const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);

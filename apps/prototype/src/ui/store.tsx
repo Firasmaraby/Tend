@@ -14,7 +14,9 @@ export type SheetSpec =
   | { kind: "explainer"; nutrient: NutrientCode }
   | { kind: "add" }
   | { kind: "food"; foodId: string }
-  | { kind: "glossary"; term: string };
+  | { kind: "glossary"; term: string }
+  | { kind: "all" }
+  | { kind: "settings" };
 
 export interface NextRoundContext {
   carried: NutrientCode | null;
@@ -35,6 +37,12 @@ export interface AppState {
   addedAt: Record<string, number>;
   tab: Tab;
   learnNutrient: NutrientCode | null;
+  /** A Learn page that isn't a nutrient. */
+  learnTopic: "pairing" | null;
+  /** Opt-in energy (DECISIONS.md 17): off by default. */
+  showEnergy: boolean;
+  /** Once-only tips: on by default. */
+  showTips: boolean;
   sheets: SheetSpec[];
   seen: HintId[];
   mode: "serving" | "density";
@@ -81,6 +89,9 @@ export function initialState(theme: Theme = "auto"): AppState {
     addedAt: {},
     tab: "today",
     learnNutrient: null,
+    learnTopic: null,
+    showEnergy: false,
+    showTips: true,
     sheets: [],
     seen: [],
     mode: "serving",
@@ -99,7 +110,9 @@ type Action =
   | { t: "profileSet" }
   | { t: "answer"; id: string; value: string }
   | { t: "startRound"; nutrients: RoundNutrient[] }
-  | { t: "log"; foodId: string; servings: number; date: LocalDate; at: number }
+  | { t: "log"; foodId: string; servings: number; date: LocalDate; at: number; grams?: number }
+  | { t: "setting"; key: "showEnergy" | "showTips"; value: boolean }
+  | { t: "learnTopic"; topic: "pairing" | null }
   | { t: "unlog"; id: string }
   | { t: "tab"; tab: Tab }
   | { t: "learn"; nutrient: NutrientCode | null }
@@ -141,17 +154,23 @@ function reducer(s: AppState, a: Action): AppState {
     }
     case "log": {
       const f = lookup(a.foodId);
-      if (!f || !f.serving) return s;
+      // Curated foods log by servings; library foods have no serving, so they log by grams.
+      const grams = a.grams ?? (f?.serving ? f.serving.grams * a.servings : undefined);
+      if (!f || grams === undefined) return s;
       const id = `u${s.seq + 1}`;
-      const entry: LogEntry = { id, foodId: a.foodId, grams: Math.round(f.serving.grams * a.servings * 100) / 100, logDate: a.date };
+      const entry: LogEntry = { id, foodId: a.foodId, grams: Math.round(grams * 100) / 100, logDate: a.date };
       return { ...s, seq: s.seq + 1, logs: [...s.logs, entry], addedAt: { ...s.addedAt, [id]: a.at } };
     }
     case "unlog":
       return { ...s, logs: s.logs.filter((e) => e.id !== a.id) };
     case "tab":
-      return { ...s, tab: a.tab, learnNutrient: a.tab === "learn" ? s.learnNutrient : null };
+      return { ...s, tab: a.tab, learnNutrient: a.tab === "learn" ? s.learnNutrient : null, learnTopic: a.tab === "learn" ? s.learnTopic : null };
     case "learn":
-      return { ...s, learnNutrient: a.nutrient, tab: "learn", sheets: [] };
+      return { ...s, learnNutrient: a.nutrient, learnTopic: null, tab: "learn", sheets: [] };
+    case "learnTopic":
+      return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", sheets: [] };
+    case "setting":
+      return { ...s, [a.key]: a.value };
     case "sheet":
       return { ...s, sheets: [...s.sheets, a.sheet] };
     case "closeSheet":
@@ -169,7 +188,7 @@ function reducer(s: AppState, a: Action): AppState {
     case "choosing":
       return { ...s, choosing: a.ctx };
     case "reset":
-      return initialState(s.theme);
+      return { ...initialState(s.theme), showEnergy: s.showEnergy, showTips: s.showTips };
     case "demo": {
       const nutrients: RoundNutrient[] = [
         { nutrient: "iron", role: "focus" },
@@ -183,6 +202,8 @@ function reducer(s: AppState, a: Action): AppState {
       const seen: HintId[] = a.kind === "day9" ? ["first_log"] : ["first_log", "why_jar", "becoming_yours"];
       return {
         ...initialState(s.theme),
+        showEnergy: s.showEnergy,
+        showTips: s.showTips,
         phase: a.kind === "end" ? "end" : "app",
         profile: DEMO_PROFILE,
         profileSet: true,
