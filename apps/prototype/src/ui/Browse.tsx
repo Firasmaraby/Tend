@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { allergenWarnings, MIN_SERVING_SHARE, type NutrientCode } from "@tend/core";
-import { sharesOf, sharesPer100, useCtx, type ShareTable } from "./ctx";
+import { rankedShares, sharesOf, sharesPer100, useCtx, type ShareTable } from "./ctx";
 import { ALLERGEN_SINGULAR, kcalText, servingWithGrams, pct, pillName, shortName } from "./format";
 import { CatChip, Swatch } from "./primitives";
 import { searchFoods, useLibrary } from "./search";
@@ -19,7 +19,7 @@ export function Browse() {
     const rows: { food: ProtoFood; t: ShareTable }[] = [];
     for (const food of pool) {
       const t = sharesOf(food, marks);
-      if (t) rows.push({ food, t });
+      if (t) rows.push({ food, t: rankedShares(food, t) });
     }
     return rows;
   }, [pool, marks]);
@@ -69,7 +69,7 @@ export function Browse() {
           {found.curated.length ? (
             <ul className="list">
               {found.curated.map((food) => {
-                const t = sharesOf(food, marks);
+                const t = rankedShares(food, sharesOf(food, marks));
                 const warn = allergenWarnings(food, profile);
                 const kcal = state.showEnergy ? kcalText(food, food.serving?.grams ?? 100) : null;
                 return (
@@ -114,7 +114,7 @@ export function Browse() {
               <h2 className="subhead">From the full library</h2>
               <ul className="list">
                 {found.library.map((food) => {
-                  const t = sharesPer100(food, marks);
+                  const t = rankedShares(food, sharesPer100(food, marks));
                   const kcal = state.showEnergy ? kcalText(food, 100) : null;
                   return (
                     <li key={food.id} className="food-row">

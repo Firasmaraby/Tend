@@ -1,10 +1,10 @@
 // Better together: teaches, never quantifies. Nothing here changes a number.
 import { useId, useMemo, useState } from "react";
-import { HEME_CATEGORIES, PAIRING_RULES, type PairingMoment, type PairingRuleId } from "@tend/core";
+import { HEME_CATEGORIES, PAIRING_RULES, type Meal, type PairingMoment, type PairingRuleId } from "@tend/core";
 import { PAIRING_COPY } from "../content";
 import { helpersFor, pairingMoments, type ProtoFood } from "../engine";
 import { useCtx } from "./ctx";
-import { foodLower, foodShort, sentenceCase } from "./format";
+import { foodLower, foodShort, mealNow, mealPhrase, sentenceCase, withMeal } from "./format";
 import { PlusIcon } from "./primitives";
 
 /** The pairing moments worth showing today: at most two, things to add before things to know. */
@@ -19,8 +19,8 @@ export function usePairingCards(): PairingMoment[] {
   }, [profile, round, state.logs, today]);
 }
 
-/** One-tap "+ Red bell pepper" buttons: each logs one serving. */
-export function HelperButtons({ rule, limit }: { rule: PairingRuleId; limit: number }) {
+/** One-tap "+ Red bell pepper" buttons: each logs one serving, into the target's meal when we know it. */
+export function HelperButtons({ rule, limit, meal }: { rule: PairingRuleId; limit: number; meal?: Meal | undefined }) {
   const { dispatch, profile, today } = useCtx();
   const helpers = useMemo<ProtoFood[]>(() => helpersFor(profile, rule, limit), [profile, rule, limit]);
   if (!helpers.length) return null;
@@ -32,7 +32,7 @@ export function HelperButtons({ rule, limit }: { rule: PairingRuleId; limit: num
           type="button"
           className="helper-btn"
           aria-label={`Add one serving of ${h.name}`}
-          onClick={() => dispatch({ t: "log", foodId: h.id, servings: 1, date: today, at: Date.now() })}
+          onClick={() => dispatch({ t: "log", foodId: h.id, servings: 1, date: today, at: Date.now(), meal: meal ?? mealNow() })}
         >
           <PlusIcon />
           <span>{foodShort(h.name)}</span>
@@ -50,6 +50,12 @@ function Sparkle() {
   );
 }
 
+/** Celebration lines for a food that is its own helper. Same warm tone as PAIRING_COPY. */
+const SELF_DONE: Partial<Record<PairingRuleId, (food: string) => string>> = {
+  iron_vitamin_c: (food) => `Nice pairing. Your ${food} brings its own vitamin C, which helps your body take in its iron.`,
+  fat_soluble: (food) => `Good match. Your ${food} has some fat of its own, which helps you absorb its vitamins.`,
+};
+
 export function PairingCard({ m }: { m: PairingMoment }) {
   const copy = PAIRING_COPY[m.rule];
   const kind = PAIRING_RULES[m.rule].kind;
@@ -58,10 +64,13 @@ export function PairingCard({ m }: { m: PairingMoment }) {
     const helper = m.helper ? foodLower(m.helper.name) : "pairing";
     // The iron rule counts meat, fish and poultry as helpers too, but the shared line talks about vitamin C.
     const heme = m.rule === "iron_vitamin_c" && !!m.helper && HEME_CATEGORIES.has(m.helper.category);
+    // Some foods bring their own helper (spinach has vitamin C, avocado has fat): say so, not "your spinach helps your spinach".
+    const self = !!m.helper && m.helper.id === m.target.id;
+    const text = self ? SELF_DONE[m.rule as "iron_vitamin_c" | "fat_soluble"]?.(food) : undefined;
     return (
       <p className="pair-done">
         <Sparkle />
-        <span>{heme ? PAIRING_COPY.iron_vitamin_c.doneAnimal(food, helper) : copy.done(food, helper)}</span>
+        <span>{withMeal(text ?? (heme ? PAIRING_COPY.iron_vitamin_c.doneAnimal(food, helper) : copy.done(food, helper)), m.meal)}</span>
       </p>
     );
   }
@@ -69,6 +78,7 @@ export function PairingCard({ m }: { m: PairingMoment }) {
     return (
       <article className="pair-card pair-card--know">
         <h3 className="pair-title">{copy.title}</h3>
+        {m.meal ? <p className="pair-meal">{mealPhrase(m.meal)}</p> : null}
         <p className="pair-text">{copy.nudge(sentenceCase(foodShort(m.target.name)))}</p>
       </article>
     );
@@ -76,8 +86,9 @@ export function PairingCard({ m }: { m: PairingMoment }) {
   return (
     <article className="pair-card">
       <h3 className="pair-title">{copy.title}</h3>
+      {m.meal ? <p className="pair-meal">{mealPhrase(m.meal)}</p> : null}
       <p className="pair-text">{copy.nudge(foodLower(m.target.name))}</p>
-      <HelperButtons rule={m.rule} limit={3} />
+      <HelperButtons rule={m.rule} limit={3} meal={m.meal} />
     </article>
   );
 }

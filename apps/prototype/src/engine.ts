@@ -267,7 +267,8 @@ export function seedHistory(p: Profile, round: RoundState, days: number, seed = 
   for (let d = 0; d < days; d++) {
     if (rnd() < 0.2) continue;
     const date = addDays(round.startedOn, d);
-    const n = 3 + Math.floor(rnd() * 3);
+    // The current day stops after breakfast, so the demo opens mid-day with meals still to come.
+    const n = d === days - 1 ? 1 : 3 + Math.floor(rnd() * 3);
     for (let i = 0; i < n; i++) {
       const fromFav = rnd() < 0.65;
       const f = fromFav ? favourites[Math.floor(rnd() * favourites.length)]! : pool[Math.floor(rnd() * pool.length)]!;

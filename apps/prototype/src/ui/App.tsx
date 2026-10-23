@@ -10,6 +10,7 @@ import { Learn } from "./Learn";
 import { About, Screener } from "./Onboarding";
 import { RoundTab } from "./Round";
 import { SheetHost } from "./Sheets";
+import { Shopping } from "./Shopping";
 import { Today } from "./Today";
 import { useStore, type Tab } from "./store";
 
@@ -73,6 +74,7 @@ function TabBar() {
 
 function Main() {
   const { state } = useStore();
+  if (state.page === "shopping") return <Shopping />;
   switch (state.tab) {
     case "today":
       return <Today />;
@@ -102,7 +104,7 @@ export function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [state.phase, state.tab, state.learnNutrient, state.learnTopic]);
+  }, [state.phase, state.tab, state.page, state.learnNutrient, state.learnTopic]);
 
   let body;
   switch (state.phase) {

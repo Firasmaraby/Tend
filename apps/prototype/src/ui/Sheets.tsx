@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { addDays, allergenWarnings, isInRound, NUTRIENT_CODES, type NutrientCode } from "@tend/core";
+import { addDays, allergenWarnings, isInRound, NUTRIENT_CODES, rankable, type Meal, type NutrientCode } from "@tend/core";
 import { EXPLAINERS, GLOSSARY, HINTS } from "../content";
 import { allNutrients, FOODS, lookup, proteinToday, type ProtoFood } from "../engine";
 import { AllNutrientsSheet } from "./Foundation";
 import { GramPicker, parseGrams } from "./Amount";
-import { sharesOf, sharesPer100, useCtx } from "./ctx";
+import { rankedShares, sharesOf, sharesPer100, useCtx } from "./ctx";
 import { ExplainerBody, MarkBlock } from "./Explainer";
-import { ALLERGEN_SINGULAR, fracText, gramsText, kcalText, pct, servingsText, servingWithGrams, shortName } from "./format";
+import { ALLERGEN_SINGULAR, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
+import { HintCard } from "./Hint";
+import { MealPick, RepeatButton, useRepeat, useRepeatable } from "./Meals";
 import { CatChip, CheckIcon, PlusIcon, Segmented, Sheet, Swatch } from "./primitives";
 import { searchFoods, useLibrary } from "./search";
 import { SettingsSheet } from "./Settings";
@@ -95,16 +97,19 @@ function FoodSheet({ foodId, onClose }: { foodId: string; onClose: () => void })
   const library = !!food && !food.serving;
   const shares = useMemo(() => (food ? (library ? sharesPer100(food, marks) : sharesOf(food, marks)) : null), [food, library, marks]);
   const [grams, setGrams] = useState("100");
+  const [meal, setMeal] = useState<Meal>(mealNow);
   if (!food) return null;
   const mine = order;
-  const others = NUTRIENT_CODES.filter((n) => !mine.includes(n) && (shares?.[n] ?? 0) >= 0.2)
-    .sort((a, b) => (shares?.[b] ?? 0) - (shares?.[a] ?? 0))
+  // What the food advertises elsewhere leaves out poorly absorbed nutrients (spinach calcium).
+  const advertised = rankedShares(food, shares);
+  const others = NUTRIENT_CODES.filter((n) => !mine.includes(n) && (advertised[n] ?? 0) >= 0.2)
+    .sort((a, b) => (advertised[b] ?? 0) - (advertised[a] ?? 0))
     .slice(0, 6);
   const amount = parseGrams(grams);
   const kcal = state.showEnergy ? kcalText(food, library ? 100 : food.serving!.grams) : null;
   const addLibrary = () => {
     if (amount === null) return;
-    dispatch({ t: "log", foodId: food.id, servings: 1, grams: amount, date: state.today, at: Date.now() });
+    dispatch({ t: "log", foodId: food.id, servings: 1, grams: amount, date: state.today, at: Date.now(), meal });
     dispatch({ t: "toast", text: `Added ${gramsText(amount)} of ${food.name} to today` });
     onClose();
   };
@@ -122,17 +127,19 @@ function FoodSheet({ foodId, onClose }: { foodId: string; onClose: () => void })
           <ul className="share-list">
             {mine.map((n) => {
               const s = shares?.[n];
+              const muted = s !== undefined && !rankable(food, n);
               return (
-                <li key={n}>
+                <li key={n} className={muted ? "is-muted" : undefined}>
                   <span className="share-name">{shortName(n)}</span>
                   {s === undefined ? (
                     <span className="share-val share-val--na">Not listed for this food</span>
                   ) : (
                     <>
                       <span className="bar" aria-hidden="true">
-                        <span className="bar-fill" style={{ width: `${Math.min(100, s * 100)}%` }} />
+                        <span className={`bar-fill${muted ? " bar-fill--muted" : ""}`} style={{ width: `${Math.min(100, s * 100)}%` }} />
                       </span>
                       <span className="share-val">{pct(s)}%</span>
+                      {muted ? <span className="share-note">Most of this {shortName(n).toLowerCase()} isn't absorbed (oxalate).</span> : null}
                     </>
                   )}
                 </li>
@@ -144,7 +151,7 @@ function FoodSheet({ foodId, onClose }: { foodId: string; onClose: () => void })
       {others.length ? (
         <>
           <h3 className="h3">Also a good source of</h3>
-          <p className="small">{others.map((n) => `${shortName(n)} ${pct(shares?.[n] ?? 0)}%`).join(", ")}</p>
+          <p className="small">{others.map((n) => `${shortName(n)} ${pct(advertised[n] ?? 0)}%`).join(", ")}</p>
         </>
       ) : null}
       <p className="source">Source: {food.source.citation}</p>
@@ -152,22 +159,26 @@ function FoodSheet({ foodId, onClose }: { foodId: string; onClose: () => void })
         <>
           <h3 className="h3 h3--tight">How much?</h3>
           <GramPicker text={grams} setText={setGrams} />
+          <MealPick value={meal} onChange={setMeal} />
           <button type="button" className="btn btn--primary" disabled={amount === null} onClick={addLibrary}>
             {amount === null ? "Add to today" : `Add ${gramsText(amount)} to today`}
           </button>
         </>
       ) : (
-        <button
-          type="button"
-          className="btn btn--primary"
-          onClick={() => {
-            dispatch({ t: "log", foodId: food.id, servings: 1, date: state.today, at: Date.now() });
-            dispatch({ t: "toast", text: `Added ${food.name} to today` });
-            onClose();
-          }}
-        >
-          Add to today
-        </button>
+        <>
+          <MealPick value={meal} onChange={setMeal} />
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={() => {
+              dispatch({ t: "log", foodId: food.id, servings: 1, date: state.today, at: Date.now(), meal });
+              dispatch({ t: "toast", text: `Added ${food.name} to today` });
+              onClose();
+            }}
+          >
+            Add to today
+          </button>
+        </>
       )}
     </Sheet>
   );
@@ -186,7 +197,18 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
   const [mult, setMult] = useState(1);
   const [grams, setGrams] = useState("100");
   const [flash, setFlash] = useState<string | null>(null);
+  const [meal, setMealState] = useState<Meal>(mealNow);
+  const [mealTouched, setMealTouched] = useState(false);
+  const repeat = useRepeat();
+  const repeatable = useRepeatable();
   const flashTimer = useRef<number>(0);
+
+  // The first time the sheet opens, show the tip; it is marked seen straight away so it appears once.
+  const [firstTime] = useState(() => state.showTips && !state.seen.includes("meals"));
+  const [hintOpen, setHintOpen] = useState(firstTime);
+  useEffect(() => {
+    if (firstTime) dispatch({ t: "seen", id: "meals" });
+  }, [firstTime, dispatch]);
   const lib = useLibrary();
   const canYesterday = round ? addDays(today, -1) >= round.startedOn : false;
   const searching = q.trim() !== "";
@@ -220,6 +242,15 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
   const all = useMemo(() => [...FOODS].sort((a, b) => a.name.localeCompare(b.name)), []);
 
   const date = day === "today" ? today : addDays(today, -1);
+  const setMeal = (m: Meal) => {
+    setMealState(m);
+    setMealTouched(true);
+  };
+  // Today follows the clock; yesterday is most often dinner. Her own choice wins once she makes one.
+  const changeDay = (d: "today" | "yesterday") => {
+    setDay(d);
+    if (!mealTouched) setMealState(d === "today" ? mealNow() : "dinner");
+  };
   const pick = (f: ProtoFood) => {
     setPicked(f);
     setMult(1);
@@ -229,17 +260,17 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
   const add = () => {
     if (!picked) return;
     if (picked.serving) {
-      dispatch({ t: "log", foodId: picked.id, servings: mult, date, at: Date.now() });
+      dispatch({ t: "log", foodId: picked.id, servings: mult, date, at: Date.now(), meal });
       dispatch({ t: "toast", text: `Added ${picked.name} to ${day}` });
     } else {
       if (amount === null) return;
-      dispatch({ t: "log", foodId: picked.id, servings: 1, grams: amount, date, at: Date.now() });
+      dispatch({ t: "log", foodId: picked.id, servings: 1, grams: amount, date, at: Date.now(), meal });
       dispatch({ t: "toast", text: `Added ${gramsText(amount)} of ${picked.name} to ${day}` });
     }
     onClose();
   };
   const quick = (f: ProtoFood) => {
-    dispatch({ t: "log", foodId: f.id, ...quickAmount(f), date, at: Date.now() });
+    dispatch({ t: "log", foodId: f.id, ...quickAmount(f), date, at: Date.now(), meal });
     dispatch({ t: "toast", text: `Added ${f.name} to ${day}` });
     setFlash(f.id);
     window.clearTimeout(flashTimer.current);
@@ -313,13 +344,15 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
           <Segmented
             label="Day"
             value={day}
-            onChange={setDay}
+            onChange={changeDay}
             options={[
               { id: "today", label: "Today" },
               { id: "yesterday", label: "Yesterday" },
             ]}
           />
         ) : null}
+        <MealPick value={meal} onChange={setMeal} />
+        {hintOpen ? <HintCard id="meals" onDismiss={() => setHintOpen(false)} /> : null}
       </div>
       <div className="add-list" aria-label="Foods">
         {searching ? (
@@ -346,15 +379,27 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
           </>
         ) : (
           <>
+            {day === "today" && repeatable.length ? (
+              <>
+                <h3 className="subhead subhead--first">Yesterday</h3>
+                <ul className="list">
+                  {repeatable.map(({ meal: m, entries }) => (
+                    <li key={m} className="repeat-line">
+                      <RepeatButton meal={m} entries={entries} onRepeat={() => repeat(m, entries)} />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
             {usuals.length ? (
               <>
-                <h3 className="subhead subhead--first">Your usuals</h3>
+                <h3 className={`subhead${day === "today" && repeatable.length ? "" : " subhead--first"}`}>Your usuals</h3>
                 <ul className="list">{usuals.map((f) => row(f, true))}</ul>
               </>
             ) : null}
             {recent.length ? (
               <>
-                <h3 className={`subhead${usuals.length ? "" : " subhead--first"}`}>Recent</h3>
+                <h3 className={`subhead${usuals.length || (day === "today" && repeatable.length) ? "" : " subhead--first"}`}>Recent</h3>
                 <ul className="list">{recent.map((f) => row(f, true))}</ul>
               </>
             ) : null}

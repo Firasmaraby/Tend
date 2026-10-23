@@ -1,14 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { amountIn, type NutrientCode, type PairingRuleId, type Ranked } from "@tend/core";
-import { compass, type HintId } from "../content";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { amountIn, MEALS, type LogEntry, type Meal, type NutrientCode, type PairingRuleId, type Ranked } from "@tend/core";
+import { compass, MEAL_LABEL, type HintId } from "../content";
 import { bestRightNow, entriesOn, jars, loggedDayCount, lookup, pairingForFood, roundDay, rotation, type JarState } from "../engine";
 import { useCtx } from "./ctx";
 import { HintCard } from "./Hint";
 import { Jar } from "./Jar";
 import { Foundation } from "./Foundation";
-import { servingWithGrams, inlineName, kcalText, pct, pillName, pillsFor, servingPhrase, shortName, whyLine } from "./format";
+import { servingWithGrams, inlineName, kcalText, mealNow, pct, pillName, pillsFor, servingPhrase, shortName, whyLine } from "./format";
+import { MealPick, RepeatNow } from "./Meals";
 import { PairChip, PairingCard, usePairingCards } from "./Pairing";
-import { CloseIcon, PlusIcon, Segmented, Swatch } from "./primitives";
+import { Chevron, CloseIcon, PlusIcon, Segmented, Swatch } from "./primitives";
 
 export const PREGNANCY_LINE = "Check with your doctor or midwife. Tend isn't medical advice.";
 
@@ -92,10 +93,12 @@ function MiniStrip({ js, chips }: { js: JarState[]; chips: Chip[] }) {
   );
 }
 
-function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: number; at: number | undefined }) {
+function LogRow({ id, foodId, grams, meal, at }: { id: string; foodId: string; grams: number; meal: Meal | undefined; at: number | undefined }) {
   const { dispatch, state } = useCtx();
   const food = lookup(foodId);
   const [fresh, setFresh] = useState(() => at !== undefined && Date.now() - at < 5000);
+  const [moving, setMoving] = useState(false);
+  const moveId = useId();
   useEffect(() => {
     if (!fresh || at === undefined) return;
     const t = window.setTimeout(() => setFresh(false), Math.max(0, 5000 - (Date.now() - at)));
@@ -113,6 +116,12 @@ function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: 
           {servingPhrase(food, grams)}
           {state.showEnergy ? (kcalText(food, grams) ? ` · ${kcalText(food, grams)}` : "") : ""}
         </span>
+        <button type="button" className="meal-chip" aria-expanded={moving} aria-controls={moveId} aria-label={`${meal ? MEAL_LABEL[meal] : "No meal"}. Change the meal for ${food.name}`} onClick={() => setMoving((o) => !o)}>
+          <span className="meal-chip-pill">
+            {meal ? MEAL_LABEL[meal] : "Set meal"}
+            <Chevron open={moving} />
+          </span>
+        </button>
       </span>
       {fresh ? (
         <button type="button" className="undo-btn" onClick={() => dispatch({ t: "unlog", id })} aria-label={`Undo adding ${food.name}`}>
@@ -124,7 +133,41 @@ function LogRow({ id, foodId, grams, at }: { id: string; foodId: string; grams: 
           Remove
         </button>
       )}
+      {moving ? (
+        <div id={moveId} className="meal-move">
+          <MealPick
+            label={`Meal for ${food.name}`}
+            value={meal ?? null}
+            onChange={(m) => {
+              dispatch({ t: "setMeal", id, meal: m });
+              setMoving(false);
+            }}
+          />
+        </div>
+      ) : null}
     </li>
+  );
+}
+
+/** Her day, grouped: only meals that have food, in meal order. Newest first inside a meal. */
+function MealGroups({ entries, addedAt }: { entries: LogEntry[]; addedAt: Record<string, number> }) {
+  const groups: { key: string; title: string; items: LogEntry[] }[] = MEALS.map((m) => ({ key: m, title: MEAL_LABEL[m], items: entries.filter((e) => e.meal === m).reverse() }));
+  groups.push({ key: "none", title: "Today", items: entries.filter((e) => !e.meal).reverse() });
+  return (
+    <>
+      {groups
+        .filter((g) => g.items.length > 0)
+        .map((g) => (
+          <div key={g.key} className="meal-group">
+            <h3 className="meal-head">{g.title}</h3>
+            <ul className="list">
+              {g.items.map((e) => (
+                <LogRow key={e.id} id={e.id} foodId={e.foodId} grams={e.grams} meal={e.meal} at={addedAt[e.id]} />
+              ))}
+            </ul>
+          </div>
+        ))}
+    </>
   );
 }
 
@@ -254,7 +297,7 @@ export function Today() {
   const hint = state.showTips ? candidates.find((c) => c.when && !seen.includes(c.id)) : undefined;
 
   const add = (rk: Ranked) => {
-    dispatch({ t: "log", foodId: rk.food.id, servings: 1, date: today, at: Date.now() });
+    dispatch({ t: "log", foodId: rk.food.id, servings: 1, date: today, at: Date.now(), meal: mealNow() });
   };
 
   return (
@@ -302,15 +345,8 @@ export function Today() {
         <h2 id="had-h" className="h2">
           What you've had today
         </h2>
-        {todays.length === 0 ? (
-          <p className="small">Foods you add will appear here.</p>
-        ) : (
-          <ul className="list">
-            {[...todays].reverse().map((e) => (
-              <LogRow key={e.id} id={e.id} foodId={e.foodId} grams={e.grams} at={state.addedAt[e.id]} />
-            ))}
-          </ul>
-        )}
+        <RepeatNow />
+        {todays.length === 0 ? <p className="small">Foods you add will appear here.</p> : <MealGroups entries={todays} addedAt={state.addedAt} />}
       </section>
 
       {pairCards.length ? (

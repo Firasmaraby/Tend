@@ -1,13 +1,15 @@
 // App state. One reducer, one context. Nothing here does nutrition maths:
 // that all comes from @tend/core via ../engine.
-import { createContext, useContext, useMemo, useReducer, type ReactNode, type Dispatch } from "react";
-import { addDays, asLocalDate, nextRoundStart, type LocalDate, type LogEntry, type NutrientCode, type Profile, type RoundNutrient } from "@tend/core";
+import { createContext, useContext, useEffect, useMemo, useReducer, type ReactNode, type Dispatch } from "react";
+import { addDays, asLocalDate, nextRoundStart, type LocalDate, type LogEntry, type Meal, type NutrientCode, type Profile, type RoundNutrient } from "@tend/core";
 import { lookup, newRound, seedHistory, type RoundState } from "../engine";
 import type { HintId } from "../content";
 
 export type Phase = "guide" | "about" | "screener" | "choose" | "app" | "end";
 export type Tab = "today" | "browse" | "learn" | "round";
 export type Theme = "auto" | "light" | "dark";
+/** A full screen that sits over the current tab (with its own back link). */
+export type Page = "shopping";
 export type DemoKind = "day9" | "day14" | "day36" | "end";
 
 export type SheetSpec =
@@ -36,6 +38,9 @@ export interface AppState {
   logs: LogEntry[];
   addedAt: Record<string, number>;
   tab: Tab;
+  page: Page | null;
+  /** Shopping list ticks, by food id. Kept in localStorage when it is available. */
+  shopChecked: string[];
   learnNutrient: NutrientCode | null;
   /** A Learn page that isn't a nutrient. */
   learnTopic: "pairing" | null;
@@ -88,6 +93,8 @@ export function initialState(theme: Theme = "auto"): AppState {
     logs: [],
     addedAt: {},
     tab: "today",
+    page: null,
+    shopChecked: [],
     learnNutrient: null,
     learnTopic: null,
     showEnergy: false,
@@ -110,7 +117,12 @@ type Action =
   | { t: "profileSet" }
   | { t: "answer"; id: string; value: string }
   | { t: "startRound"; nutrients: RoundNutrient[] }
-  | { t: "log"; foodId: string; servings: number; date: LocalDate; at: number; grams?: number }
+  | { t: "log"; foodId: string; servings: number; date: LocalDate; at: number; grams?: number; meal?: Meal }
+  | { t: "setMeal"; id: string; meal: Meal }
+  | { t: "repeat"; from: LogEntry[]; date: LocalDate; meal: Meal; at: number }
+  | { t: "page"; page: Page | null }
+  | { t: "shopToggle"; foodId: string }
+  | { t: "shopClear" }
   | { t: "setting"; key: "showEnergy" | "showTips"; value: boolean }
   | { t: "learnTopic"; topic: "pairing" | null }
   | { t: "unlog"; id: string }
@@ -130,7 +142,7 @@ type Action =
 function reducer(s: AppState, a: Action): AppState {
   switch (a.t) {
     case "phase":
-      return { ...s, phase: a.phase, sheets: [] };
+      return { ...s, phase: a.phase, page: null, sheets: [] };
     case "openGuide":
       return { ...s, phase: "guide", guideReturn: a.from, sheets: [] };
     case "profile":
@@ -147,6 +159,7 @@ function reducer(s: AppState, a: Action): AppState {
         round: newRound(number, startedOn, a.nutrients),
         phase: "app",
         tab: "today",
+        page: null,
         choosing: null,
         sheets: [],
         mode: "serving",
@@ -158,17 +171,36 @@ function reducer(s: AppState, a: Action): AppState {
       const grams = a.grams ?? (f?.serving ? f.serving.grams * a.servings : undefined);
       if (!f || grams === undefined) return s;
       const id = `u${s.seq + 1}`;
-      const entry: LogEntry = { id, foodId: a.foodId, grams: Math.round(grams * 100) / 100, logDate: a.date };
+      const entry: LogEntry = { id, foodId: a.foodId, grams: Math.round(grams * 100) / 100, logDate: a.date, ...(a.meal ? { meal: a.meal } : {}) };
       return { ...s, seq: s.seq + 1, logs: [...s.logs, entry], addedAt: { ...s.addedAt, [id]: a.at } };
     }
+    case "setMeal":
+      return { ...s, logs: s.logs.map((e) => (e.id === a.id ? { ...e, meal: a.meal } : e)) };
+    case "repeat": {
+      // Copies, not moves: new ids, today's date, the same grams.
+      let seq = s.seq;
+      const added = { ...s.addedAt };
+      const copies = a.from.map((e): LogEntry => {
+        const id = `u${++seq}`;
+        added[id] = a.at;
+        return { id, foodId: e.foodId, grams: e.grams, logDate: a.date, meal: a.meal };
+      });
+      return { ...s, seq, logs: [...s.logs, ...copies], addedAt: added };
+    }
+    case "page":
+      return { ...s, page: a.page, sheets: [] };
+    case "shopToggle":
+      return { ...s, shopChecked: s.shopChecked.includes(a.foodId) ? s.shopChecked.filter((x) => x !== a.foodId) : [...s.shopChecked, a.foodId] };
+    case "shopClear":
+      return { ...s, shopChecked: [] };
     case "unlog":
       return { ...s, logs: s.logs.filter((e) => e.id !== a.id) };
     case "tab":
-      return { ...s, tab: a.tab, learnNutrient: a.tab === "learn" ? s.learnNutrient : null, learnTopic: a.tab === "learn" ? s.learnTopic : null };
+      return { ...s, tab: a.tab, page: null, learnNutrient: a.tab === "learn" ? s.learnNutrient : null, learnTopic: a.tab === "learn" ? s.learnTopic : null };
     case "learn":
-      return { ...s, learnNutrient: a.nutrient, learnTopic: null, tab: "learn", sheets: [] };
+      return { ...s, learnNutrient: a.nutrient, learnTopic: null, tab: "learn", page: null, sheets: [] };
     case "learnTopic":
-      return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", sheets: [] };
+      return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", page: null, sheets: [] };
     case "setting":
       return { ...s, [a.key]: a.value };
     case "sheet":
@@ -225,8 +257,27 @@ interface Store {
 }
 const Ctx = createContext<Store | null>(null);
 
+const SHOP_KEY = "tend.shopChecked";
+
+function loadChecked(): string[] {
+  try {
+    const raw = window.localStorage.getItem(SHOP_KEY);
+    const v: unknown = raw ? JSON.parse(raw) : [];
+    return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, () => initialState());
+  const [state, dispatch] = useReducer(reducer, undefined, () => ({ ...initialState(), shopChecked: loadChecked() }));
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(SHOP_KEY, JSON.stringify(state.shopChecked));
+    } catch {
+      /* storage can be blocked; the ticks then last for the session only */
+    }
+  }, [state.shopChecked]);
   const value = useMemo(() => ({ state, dispatch }), [state]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

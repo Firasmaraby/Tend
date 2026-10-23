@@ -1,4 +1,4 @@
-import { NUTRIENTS, type Allergen, type FoodCategory, type NutrientCode, type Ranked } from "@tend/core";
+import { defaultMeal, NUTRIENTS, type Allergen, type FoodCategory, type Meal, type NutrientCode, type Ranked } from "@tend/core";
 import type { ProtoFood } from "../engine";
 
 const SHORT: Partial<Record<NutrientCode, string>> = {
@@ -150,15 +150,17 @@ export function pillsFor(r: Ranked, order: readonly NutrientCode[], min = 0.05):
   const out: Pill[] = [];
   for (const n of order) {
     const c = r.contributions.find((x) => x.nutrient === n);
-    if (c && c.share !== undefined && c.share >= min) out.push({ nutrient: n, share: c.share });
+    // Present but poorly absorbed (spinach calcium): never advertised as a source.
+    if (c && !c.poorlyAbsorbed && c.share !== undefined && c.share >= min) out.push({ nutrient: n, share: c.share });
   }
   return out;
 }
 
 /** "Fills 46% of your iron mark", from the biggest known contribution. */
 export function whyLine(r: Ranked, preferred: readonly NutrientCode[]): string | null {
-  const pool = r.contributions.filter((c) => c.share !== undefined && preferred.includes(c.nutrient));
-  const all = pool.length ? pool : r.contributions.filter((c) => c.share !== undefined);
+  const known = r.contributions.filter((c) => c.share !== undefined && !c.poorlyAbsorbed);
+  const pool = known.filter((c) => preferred.includes(c.nutrient));
+  const all = pool.length ? pool : known;
   let best: { nutrient: NutrientCode; share: number } | null = null;
   for (const c of all) if (c.share !== undefined && (!best || c.share > best.share)) best = { nutrient: c.nutrient, share: c.share };
   if (!best || best.share < 0.01) return null;
@@ -174,3 +176,25 @@ export const servingWithGrams = (food: { serving?: { label: string; grams: numbe
 
 /** Capitalise the first letter. */
 export const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
+
+
+// ---- Meals ----
+
+/** The meal for "right now" on her clock. */
+export const mealNow = (): Meal => {
+  const d = new Date();
+  return defaultMeal(d.getHours(), d.getMinutes());
+};
+
+/** "At dinner", "At snack time": for the small line above a pairing. */
+export const mealPhrase = (meal: Meal): string => (meal === "snack" ? "At snack time" : `At ${meal}`);
+
+/**
+ * Weaves the meal into a celebration line that opens with a short phrase:
+ * "Nice pairing. The vitamin C..." becomes "Nice pairing at dinner. The vitamin C...".
+ */
+export function withMeal(text: string, meal: Meal | undefined): string {
+  if (!meal || !text) return text;
+  const where = meal === "snack" ? "at snack time" : `at ${meal}`;
+  return /^[^.]{1,24}\./.test(text) ? text.replace(/^([^.]{1,24})\./, `$1 ${where}.`) : `${sentenceCase(where)}. ${text}`;
+}

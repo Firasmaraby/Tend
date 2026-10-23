@@ -38,6 +38,9 @@ export function Foundation() {
       <button type="button" className="text-btn see-all" onClick={() => dispatch({ t: "sheet", sheet: { kind: "all" } })}>
         See all nutrients
       </button>
+      <button type="button" className="text-btn see-all" onClick={() => dispatch({ t: "page", page: "shopping" })}>
+        Shopping list
+      </button>
     </div>
   );
 }

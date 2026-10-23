@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { amountIn, eligibleFoods, NUTRIENT_CODES, scoreFood, type NutrientCode, type Weights } from "@tend/core";
+import { amountIn, eligibleFoods, NUTRIENT_CODES, rankable, scoreFood, type NutrientCode, type Weights } from "@tend/core";
 import { FOODS, lookup, marksFor, type ProtoFood } from "../engine";
 import { useStore } from "./store";
 
@@ -14,6 +14,17 @@ export function sharesOf(food: ProtoFood, marks: ReturnType<typeof marksFor>): S
   const t: ShareTable = {};
   for (const c of r.contributions) if (c.share !== undefined) t[c.nutrient] = c.share;
   return t;
+}
+
+/**
+ * The shares a view may rank or advertise: spinach and chard calcium is
+ * present (and still counts when she logs it) but is left out here.
+ */
+export function rankedShares(food: ProtoFood, t: ShareTable | null | undefined): ShareTable {
+  const out: ShareTable = {};
+  if (!t) return out;
+  for (const n of NUTRIENT_CODES) if (t[n] !== undefined && rankable(food, n)) out[n] = t[n]!;
+  return out;
 }
 
 /** Share of her mark in 100 g, for library foods that have no serving. Unknown values are absent. */
@@ -50,6 +61,7 @@ export function topFoods(pool: ProtoFood[], marks: ReturnType<typeof marksFor>, 
   const seenGroups = new Set<string>();
   const all = pool
     .map((food) => ({ food, t: sharesOf(food, marks) }))
+    .map((x) => ({ food: x.food, t: x.t && rankedShares(x.food, x.t) }))
     .filter((x): x is { food: ProtoFood; t: ShareTable } => x.t !== null && x.t[n] !== undefined && (x.t[n] ?? 0) > 0)
     .sort((a, b) => (b.t[n] ?? 0) - (a.t[n] ?? 0));
   for (const x of all) {

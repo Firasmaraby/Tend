@@ -50,7 +50,7 @@ function roleText(role: string) {
 }
 
 export function RoundTab() {
-  const { state, profile, today, round, active } = useCtx();
+  const { state, dispatch, profile, today, round, active } = useCtx();
   const r = round!;
   const day = roundDay(r, today);
   const week = Math.ceil(day / 7);
@@ -141,6 +141,11 @@ export function RoundTab() {
           </ul>
         )}
       </section>
+
+      <button type="button" className="card card--link" onClick={() => dispatch({ t: "page", page: "shopping" })}>
+        <span className="card-title">Shopping list</span>
+        <span className="card-sub">Your rotation, a few strong foods for your three, and what pairs well. Grouped by aisle.</span>
+      </button>
 
       <section className="section" aria-labelledby="words-h">
         <h2 id="words-h" className="h2">
