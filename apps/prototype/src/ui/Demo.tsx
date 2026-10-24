@@ -79,6 +79,9 @@ export function DemoMenu() {
           <button type="button" className="demo-item" onClick={demo("day9")}>
             Jump to day 9<span className="demo-sub">Sample data</span>
           </button>
+          <button type="button" className="demo-item" onClick={demo("period")}>
+            Period days (day 2)<span className="demo-sub">Sample data</span>
+          </button>
           <button type="button" className="demo-item" onClick={demo("day14")}>
             Jump to day 14 (check-in)<span className="demo-sub">Sample data</span>
           </button>

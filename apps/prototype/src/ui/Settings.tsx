@@ -3,26 +3,11 @@ import { PROTEIN_DEFAULT_G_PER_KG } from "@tend/core";
 import { SETTINGS_COPY } from "../content";
 import { proteinToday } from "../engine";
 import { useCtx } from "./ctx";
-import { Sheet } from "./primitives";
+import { PeriodSettings } from "./Period";
+import { Sheet, Toggle } from "./primitives";
 
 const MIN_KG = 30;
 const MAX_KG = 250;
-
-function Toggle({ title, body, checked, onChange }: { title: string; body: string; checked: boolean; onChange: (v: boolean) => void }) {
-  const id = useId();
-  return (
-    <div className="setting">
-      <label className="switch">
-        <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} aria-describedby={id} />
-        <span className="switch-track" aria-hidden="true" />
-        <span className="setting-title">{title}</span>
-      </label>
-      <p id={id} className="small setting-body">
-        {body}
-      </p>
-    </div>
-  );
-}
 
 export function SettingsSheet({ onClose }: { onClose: () => void }) {
   const { state, dispatch, profile, today } = useCtx();
@@ -81,6 +66,8 @@ export function SettingsSheet({ onClose }: { onClose: () => void }) {
           </div>
         ) : null}
       </div>
+
+      <PeriodSettings />
 
       <Toggle title={SETTINGS_COPY.tipsTitle} body={SETTINGS_COPY.tipsBody} checked={state.showTips} onChange={(v) => dispatch({ t: "setting", key: "showTips", value: v })} />
 

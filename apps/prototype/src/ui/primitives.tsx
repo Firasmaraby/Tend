@@ -99,6 +99,24 @@ export function BackIcon() {
   );
 }
 
+/** A switch with a title and a plain-words body. Extra controls can sit under it. */
+export function Toggle({ title, body, checked, onChange, children }: { title: string; body: string; checked: boolean; onChange: (v: boolean) => void; children?: ReactNode }) {
+  const id = useId();
+  return (
+    <div className="setting">
+      <label className="switch">
+        <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} aria-describedby={id} />
+        <span className="switch-track" aria-hidden="true" />
+        <span className="setting-title">{title}</span>
+      </label>
+      <p id={id} className="small setting-body">
+        {body}
+      </p>
+      {children}
+    </div>
+  );
+}
+
 /** Bottom sheet with focus handling, Escape and scroll lock. */
 export function Sheet({ title, onClose, children, tall }: { title: string; onClose: () => void; children: ReactNode; tall?: boolean }) {
   const panel = useRef<HTMLDivElement>(null);

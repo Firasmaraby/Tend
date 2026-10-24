@@ -9,14 +9,14 @@ import { PlusIcon } from "./primitives";
 
 /** The pairing moments worth showing today: at most two, things to add before things to know. */
 export function usePairingCards(): PairingMoment[] {
-  const { state, profile, round, today } = useCtx();
+  const { state, profile, round, today, periodActive } = useCtx();
   return useMemo(() => {
     if (!round) return [];
     const rank = (m: PairingMoment) => (PAIRING_RULES[m.rule].kind === "know" ? 2 : m.paired ? 1 : 0);
-    return pairingMoments(profile, round, state.logs, today)
+    return pairingMoments(profile, round, state.logs, today, periodActive)
       .sort((a, b) => rank(a) - rank(b))
       .slice(0, 2);
-  }, [profile, round, state.logs, today]);
+  }, [profile, round, state.logs, today, periodActive]);
 }
 
 /** One-tap "+ Red bell pepper" buttons: each logs one serving, into the target's meal when we know it. */

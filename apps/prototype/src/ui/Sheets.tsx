@@ -11,6 +11,7 @@ import { HintCard } from "./Hint";
 import { MealPick, RepeatButton, useRepeat, useRepeatable } from "./Meals";
 import { CatChip, CheckIcon, PlusIcon, Segmented, Sheet, Swatch } from "./primitives";
 import { searchFoods, useLibrary } from "./search";
+import { PeriodSheet } from "./Period";
 import { SettingsSheet } from "./Settings";
 
 export function SheetHost() {
@@ -33,6 +34,8 @@ export function SheetHost() {
             return <AllNutrientsSheet key={key} onClose={close} />;
           case "settings":
             return <SettingsSheet key={key} onClose={close} />;
+          case "period":
+            return <PeriodSheet key={key} onClose={close} />;
         }
       })}
     </>

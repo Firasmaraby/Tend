@@ -533,6 +533,34 @@ input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appea
 .copy-fallback{margin-top:14px}
 .copy-box{display:block;margin-top:8px;padding:10px 12px;line-height:1.45;resize:vertical}
 
+/* ---------- period timing ---------- */
+.period-card{margin-top:12px;padding:4px 6px 2px 14px;background:var(--tint);border:1px solid var(--line);border-left:3px solid var(--leaf);border-radius:14px}
+.period-row{display:flex;align-items:center;gap:10px}
+.period-drop{flex:none;color:var(--leaf)}
+.period-line{flex:1;min-width:0;font-size:15px;line-height:1.4;padding:8px 0}
+.period-foot{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin-left:34px}
+.period-end{font-size:14.5px;padding:0 8px 0 0}
+.period-ended{font-size:14px;color:var(--muted);line-height:1.4;padding:4px 0;flex:1 1 100%}
+.period-start{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;margin:2px 0 0 -4px}
+.text-btn--soft{color:var(--muted);font-weight:500;font-size:14px}
+.period-dot{display:inline-block;width:7px;height:7px;margin-left:6px;border-radius:50%;background:var(--leaf);vertical-align:middle;position:relative;top:-1px}
+.period-why{font-size:16px;line-height:1.5;margin-top:0}
+.period-why + .period-why,.period-why + .care-line{margin-top:12px}
+.optin{margin-top:14px;padding:2px 14px 16px;background:var(--tint);border-radius:14px}
+.optin .setting{border-bottom:0;padding:10px 0 0}
+.optin .setting-body{margin-left:58px}
+.heavy{margin-top:16px}
+.setting .heavy{margin-top:18px}
+.heavy .q-text{margin-bottom:8px}
+.optin .seg{background:var(--surface)}
+.optin .seg-btn[aria-pressed="true"]{background:var(--tint)}
+.stepper-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.stepper-label{font-weight:600;font-size:15px}
+.stepper{display:flex;align-items:center;gap:6px}
+.step-btn{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--leaf);background:var(--surface);color:var(--leaf);display:grid;place-items:center}
+.step-btn:disabled{opacity:.45}
+.step-val{min-width:64px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+
 @media (prefers-reduced-motion:reduce){
   .jar-fill,.jar-svg,.switch-track,.switch-track::after,.mbar,.mbar-fill,.mbar-over{transition:none!important}
   .sheet,.backdrop,.end-rise,.guide .flow-body,.toast{animation:none!important}

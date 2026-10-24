@@ -9,6 +9,7 @@ import { Foundation } from "./Foundation";
 import { servingWithGrams, inlineName, kcalText, mealNow, pct, pillName, pillsFor, servingPhrase, shortName, whyLine } from "./format";
 import { MealPick, RepeatNow } from "./Meals";
 import { PairChip, PairingCard, usePairingCards } from "./Pairing";
+import { PeriodCard, PeriodStart } from "./Period";
 import { Chevron, CloseIcon, PlusIcon, Segmented, Swatch } from "./primitives";
 
 export const PREGNANCY_LINE = "Check with your doctor or midwife. Tend isn't medical advice.";
@@ -33,7 +34,7 @@ function roleLabel(role: JarState["role"]): string | null {
 }
 
 function JarCol({ j, chips }: { j: JarState; chips: Chip[] }) {
-  const { dispatch } = useCtx();
+  const { dispatch, periodActive } = useCtx();
   const role = roleLabel(j.role);
   const label = `${shortName(j.nutrient)}, ${j.today === 0 && j.todayHasUnknown ? "not listed yet in your foods" : `${j.todayHasUnknown ? "at least " : ""}${pct(j.today)} percent of your mark`}${role ? `, ${role}` : ""}. Tap for details.`;
   return (
@@ -48,6 +49,7 @@ function JarCol({ j, chips }: { j: JarState; chips: Chip[] }) {
       </span>
       <span className="jar-name" aria-hidden="true">
         {shortName(j.nutrient)}
+        {periodActive && j.nutrient === "iron" ? <span className="period-dot" /> : null}
       </span>
       <span className="jar-pct" aria-hidden="true">
         {pctText(j)}
@@ -229,11 +231,11 @@ export function FoodRow({
 }
 
 export function Today() {
-  const { state, dispatch, profile, today, round, order, active } = useCtx();
+  const { state, dispatch, profile, today, round, order, active, periodActive } = useCtx();
   const r = round!;
   const { logs, mode, seen } = state;
   const js = useMemo(() => jars(profile, r, logs, today), [profile, r, logs, today]);
-  const best = useMemo(() => bestRightNow(profile, r, logs, today, mode, 12), [profile, r, logs, today, mode]);
+  const best = useMemo(() => bestRightNow(profile, r, logs, today, mode, 12, periodActive), [profile, r, logs, today, mode, periodActive]);
   const todays = entriesOn(logs, today);
   const logged = loggedDayCount(r, logs);
   const rot = useMemo(() => rotation(r, logs), [r, logs]);
@@ -243,11 +245,16 @@ export function Today() {
   const pairByFood = useMemo(() => {
     const m = new Map<string, PairingRuleId>();
     for (const rk of best.slice(0, 10)) {
-      const rule = pairingForFood(profile, r, rk.food, today);
+      const rule = pairingForFood(profile, r, rk.food, today, periodActive);
       if (rule) m.set(rk.food.id, rule);
     }
     return m;
-  }, [best, profile, r, today]);
+  }, [best, profile, r, today, periodActive]);
+  // On period days iron shows its share on suggestions even when it isn't one of her three.
+  const pillOrder = useMemo(() => {
+    const base = order.filter((n) => active.includes(n));
+    return periodActive && !base.includes("iron") ? [...base, "iron" as NutrientCode] : base;
+  }, [order, active, periodActive]);
   const main = js.filter((j) => j.role !== "locked");
   const locked = js.filter((j) => j.role === "locked");
 
@@ -285,6 +292,7 @@ export function Today() {
 
   // First-time moments: at most one visible, each shown once, never about absence.
   const candidates: { id: HintId; when: boolean; where: "top" | "best" | "pair" }[] = [
+    { id: "first_period", when: periodActive, where: "top" },
     { id: "density", when: mode === "density", where: "best" },
     { id: "why_jar", when: true, where: "top" },
     { id: "first_log", when: logs.length > 0, where: "top" },
@@ -334,7 +342,9 @@ export function Today() {
           </div>
         ) : null}
       </div>
+      {periodActive ? <PeriodCard /> : null}
       <Foundation />
+      <PeriodStart />
       <div className="sr" aria-live="polite">
         {announce}
       </div>
@@ -380,7 +390,7 @@ export function Today() {
         ) : (
           <ul className="list">
             {best.slice(0, 10).map((rk) => (
-              <FoodRow key={rk.food.id} r={rk} order={order.filter((n) => active.includes(n))} preferred={active} pair={pairByFood.get(rk.food.id) ?? null} onOpen={() => dispatch({ t: "sheet", sheet: { kind: "food", foodId: rk.food.id } })} onAdd={() => add(rk)} />
+              <FoodRow key={rk.food.id} r={rk} order={pillOrder} preferred={pillOrder} pair={pairByFood.get(rk.food.id) ?? null} onOpen={() => dispatch({ t: "sheet", sheet: { kind: "food", foodId: rk.food.id } })} onAdd={() => add(rk)} />
             ))}
           </ul>
         )}

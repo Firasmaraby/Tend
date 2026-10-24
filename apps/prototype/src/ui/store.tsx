@@ -1,7 +1,7 @@
 // App state. One reducer, one context. Nothing here does nutrition maths:
 // that all comes from @tend/core via ../engine.
 import { createContext, useContext, useEffect, useMemo, useReducer, type ReactNode, type Dispatch } from "react";
-import { addDays, asLocalDate, nextRoundStart, type LocalDate, type LogEntry, type Meal, type NutrientCode, type Profile, type RoundNutrient } from "@tend/core";
+import { addDays, asLocalDate, nextRoundStart, PERIOD_DEFAULT_DAYS, type LocalDate, type LogEntry, type Meal, type NutrientCode, type PeriodState, type Profile, type RoundNutrient } from "@tend/core";
 import { lookup, newRound, seedHistory, type RoundState } from "../engine";
 import type { HintId } from "../content";
 
@@ -10,7 +10,7 @@ export type Tab = "today" | "browse" | "learn" | "round";
 export type Theme = "auto" | "light" | "dark";
 /** A full screen that sits over the current tab (with its own back link). */
 export type Page = "shopping";
-export type DemoKind = "day9" | "day14" | "day36" | "end";
+export type DemoKind = "day9" | "day14" | "day36" | "end" | "period";
 
 export type SheetSpec =
   | { kind: "explainer"; nutrient: NutrientCode }
@@ -18,7 +18,8 @@ export type SheetSpec =
   | { kind: "food"; foodId: string }
   | { kind: "glossary"; term: string }
   | { kind: "all" }
-  | { kind: "settings" };
+  | { kind: "settings" }
+  | { kind: "period" };
 
 export interface NextRoundContext {
   carried: NutrientCode | null;
@@ -48,6 +49,13 @@ export interface AppState {
   showEnergy: boolean;
   /** Once-only tips: on by default. */
   showTips: boolean;
+  /** Period timing (opt-in, off by default). Only the current period's start and her usual length are kept. */
+  periodEnabled: boolean;
+  period: PeriodState | null;
+  /** How many days hers usually lasts, 2 to 10: used when she says it started. */
+  periodLength: number;
+  /** Asked once, can be skipped: null means not answered. Never used for anything but a care line. */
+  heavyPeriods: boolean | null;
   sheets: SheetSpec[];
   seen: HintId[];
   mode: "serving" | "density";
@@ -99,6 +107,10 @@ export function initialState(theme: Theme = "auto"): AppState {
     learnTopic: null,
     showEnergy: false,
     showTips: true,
+    periodEnabled: false,
+    period: null,
+    periodLength: PERIOD_DEFAULT_DAYS,
+    heavyPeriods: null,
     sheets: [],
     seen: [],
     mode: "serving",
@@ -124,6 +136,12 @@ type Action =
   | { t: "shopToggle"; foodId: string }
   | { t: "shopClear" }
   | { t: "setting"; key: "showEnergy" | "showTips"; value: boolean }
+  | { t: "periodEnabled"; value: boolean }
+  | { t: "periodLength"; days: number }
+  | { t: "periodStart"; daysAgo: 0 | 1 }
+  | { t: "periodEnd" }
+  | { t: "periodReopen" }
+  | { t: "heavy"; value: boolean | null }
   | { t: "learnTopic"; topic: "pairing" | null }
   | { t: "unlog"; id: string }
   | { t: "tab"; tab: Tab }
@@ -203,6 +221,24 @@ function reducer(s: AppState, a: Action): AppState {
       return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", page: null, sheets: [] };
     case "setting":
       return { ...s, [a.key]: a.value };
+    case "periodEnabled":
+      // Turning it off also forgets the current period: nothing is kept that isn't being used.
+      return { ...s, periodEnabled: a.value, period: a.value ? s.period : null };
+    case "periodLength": {
+      const days = Math.min(10, Math.max(2, Math.round(a.days)));
+      return { ...s, periodLength: days, period: s.period ? { ...s.period, lengthDays: days } : null };
+    }
+    case "periodStart":
+      return { ...s, period: { startedOn: addDays(s.today, -a.daysAgo), lengthDays: s.periodLength } };
+    case "periodEnd":
+      return s.period ? { ...s, period: { ...s.period, endedOn: s.today } } : s;
+    case "periodReopen": {
+      if (!s.period) return s;
+      const { endedOn: _ended, ...rest } = s.period;
+      return { ...s, period: rest };
+    }
+    case "heavy":
+      return { ...s, heavyPeriods: a.value };
     case "sheet":
       return { ...s, sheets: [...s.sheets, a.sheet] };
     case "closeSheet":
@@ -228,7 +264,7 @@ function reducer(s: AppState, a: Action): AppState {
         { nutrient: "calcium", role: "focus" },
       ];
       const round = newRound(1, DEMO_START, nutrients);
-      const days = a.kind === "day9" ? 9 : a.kind === "day14" ? 14 : a.kind === "day36" ? 36 : 42;
+      const days = a.kind === "day9" || a.kind === "period" ? 9 : a.kind === "day14" ? 14 : a.kind === "day36" ? 36 : 42;
       const today = addDays(DEMO_START, days === 42 ? 42 : days - 1);
       const logs = seedHistory(DEMO_PROFILE, round, days);
       const seen: HintId[] = a.kind === "day9" ? ["first_log"] : ["first_log", "why_jar", "becoming_yours"];
@@ -236,6 +272,11 @@ function reducer(s: AppState, a: Action): AppState {
         ...initialState(s.theme),
         showEnergy: s.showEnergy,
         showTips: s.showTips,
+        // Period timing is a setting like the others, so it carries across demos; the period itself does not.
+        periodEnabled: a.kind === "period" ? true : s.periodEnabled,
+        periodLength: s.periodLength,
+        heavyPeriods: s.heavyPeriods,
+        period: a.kind === "period" ? { startedOn: addDays(today, -1), lengthDays: s.periodLength } : null,
         phase: a.kind === "end" ? "end" : "app",
         profile: DEMO_PROFILE,
         profileSet: true,

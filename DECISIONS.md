@@ -58,3 +58,13 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
 - **Spinach and chard calcium (decided 2026-10-23):** it counts in her totals, but isn't used to rank suggestions or to pass the calcium floor (`rankable` in core).
 - **Meal tags (decided 2026-10-23):** every log gets breakfast, lunch, dinner or snack, defaulted from her clock and changeable with one tap. Pairings count within the same meal when both foods are tagged.
 - **Shopping list and repeat-a-meal (decided 2026-10-23):** built from her rotation, strong foods for her three, and pairing helpers.
+
+## Added 2026-10-24
+- **Food as its own pairing partner: kept.** Spinach with its own vitamin C, or avocado with its own fat, counts as a pairing.
+- **Period timing (brought back from the v1 beta).** It's opt-in, and she taps "My period started" and "My period ended".
+  - On period days iron gets extra weight in suggestions: +0.5, or 0.6 if iron isn't one of her three. The iron pairing tips switch on.
+  - **The iron mark is not raised.** The menstruating RDA already averages period losses across the month, so raising it would count them twice.
+  - An optional heavy-periods question leads to a "worth asking your doctor about checking your iron" note.
+  - Data kept: the current period's start date, its usual length, and an end date if she ends it. No cycle history and no predictions.
+  - Code: `packages/core/src/period.ts`.
+  - Open item for the native build: a "still going" action for a period that runs longer than usual.

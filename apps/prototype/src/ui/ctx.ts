@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { amountIn, eligibleFoods, NUTRIENT_CODES, rankable, scoreFood, type NutrientCode, type Weights } from "@tend/core";
+import { amountIn, eligibleFoods, isPeriodDay, NUTRIENT_CODES, periodDay, rankable, scoreFood, type NutrientCode, type Weights } from "@tend/core";
 import { FOODS, lookup, marksFor, type ProtoFood } from "../engine";
 import { useStore } from "./store";
 
@@ -52,7 +52,12 @@ export function useCtx() {
   const pool = useMemo(() => eligibleFoods(FOODS, profile) as unknown as ProtoFood[], [profile]);
   const order = useMemo(() => (round ? round.nutrients.map((n) => n.nutrient) : []), [round]);
   const active = useMemo(() => (round ? round.nutrients.filter((n) => n.role !== "locked").map((n) => n.nutrient) : []), [round]);
-  return { state, dispatch, profile, today, round, marks, pool, order, active };
+  // Period timing: on only if she opted in, menstruates, isn't pregnant, and today falls inside her period.
+  const { periodEnabled, period } = state;
+  const periodEligible = profile.menstruating && profile.status !== "pregnant";
+  const periodActive = periodEnabled && isPeriodDay(profile, period, today);
+  const periodDayNo = periodActive && period ? periodDay(period, today) : null;
+  return { state, dispatch, profile, today, round, marks, pool, order, active, periodEligible, periodActive, periodDayNo };
 }
 
 /** Eligible foods with a known share of one nutrient, biggest first. */

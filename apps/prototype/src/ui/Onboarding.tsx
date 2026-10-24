@@ -4,6 +4,7 @@ import { FREQUENCIES, SCREENER } from "../content";
 import { useCtx } from "./ctx";
 import { ALLERGEN_CHIPS } from "./format";
 import { BackIcon, Segmented } from "./primitives";
+import { PeriodOptIn } from "./Period";
 import { PREGNANCY_LINE } from "./Today";
 
 export function Screen({ step, title, intro, onBack, footer, children }: { step?: string; title: string; intro?: ReactNode; onBack?: () => void; footer: ReactNode; children: ReactNode }) {
@@ -74,7 +75,9 @@ export function About() {
           className="btn btn--primary"
           disabled={!ready}
           onClick={() => {
-            dispatch({ t: "profile", patch: { menstruating: pregnant ? false : (periods ?? true) } });
+            const menstruating = pregnant ? false : (periods ?? true);
+            dispatch({ t: "profile", patch: { menstruating } });
+            if (!menstruating) dispatch({ t: "periodEnabled", value: false });
             dispatch({ t: "profileSet" });
             dispatch({ t: "phase", phase: "screener" });
           }}
@@ -141,6 +144,7 @@ export function About() {
           ]}
         />
       ) : null}
+      {!pregnant && periods === true ? <PeriodOptIn /> : null}
 
       <Radio<DietPattern>
         name="diet"
