@@ -56,8 +56,8 @@ export type NutrientCode = (typeof NUTRIENT_CODES)[number];
 export const FORM_CODES = ["retinol", "folic_acid"] as const;
 export type FormCode = (typeof FORM_CODES)[number];
 
-/** Context values used for advice (fat for fat-soluble vitamins) and opt-in energy. */
-export type ValueCode = NutrientCode | FormCode | "energy_kcal" | "fat";
+/** Context values: fat for fat-soluble vitamin advice; energy, carbs and fat for the opt-in macros line. */
+export type ValueCode = NutrientCode | FormCode | "energy_kcal" | "fat" | "carbs";
 
 const def = (code: NutrientCode, name: string, unit: Unit, roundPolicy: RoundPolicy): NutrientDef => ({
   code,

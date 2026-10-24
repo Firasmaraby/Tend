@@ -56,10 +56,24 @@ export function servingPhrase(food: ProtoFood, grams: number): string {
 /** "150 g", without float noise. */
 export const gramsText = (grams: number): string => `${Math.round(grams * 10) / 10} g`;
 
-/** "120 kcal" for an amount of a food, or null when its energy isn't listed. */
+/**
+ * Opt-in energy and macros for an amount of a food: "120 kcal · Protein 8 g ·
+ * Carbs 20 g · Fat 2 g". Unknown values are left out, never shown as 0.
+ * Null when nothing is listed.
+ */
 export function kcalText(food: ProtoFood, grams: number): string | null {
-  const per100 = food.per100g.energy_kcal;
-  return per100 === undefined ? null : `${Math.round((per100 * grams) / 100).toLocaleString("en-CA")} kcal`;
+  const v = (k: "energy_kcal" | "protein" | "carbs" | "fat") => {
+    const per100 = food.per100g[k];
+    return per100 === undefined ? undefined : (per100 * grams) / 100;
+  };
+  const parts: string[] = [];
+  const kcal = v("energy_kcal");
+  if (kcal !== undefined) parts.push(`${Math.round(kcal).toLocaleString("en-CA")} kcal`);
+  for (const [k, label] of [["protein", "Protein"], ["carbs", "Carbs"], ["fat", "Fat"]] as const) {
+    const g = v(k);
+    if (g !== undefined) parts.push(`${label} ${g < 10 ? Math.round(g * 10) / 10 : Math.round(g)} g`);
+  }
+  return parts.length ? parts.join(" · ") : null;
 }
 
 /** Name up to the first comma: "Lentils, cooked" becomes "Lentils". */

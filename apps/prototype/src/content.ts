@@ -294,8 +294,8 @@ export const ABSORPTION_TIPS: { nutrients: NutrientCode[]; title: string; body: 
 ];
 
 export const SETTINGS_COPY = {
-  energyTitle: "Show energy (kcal)",
-  energyBody: "Adds a running total for the day and energy per serving. It counts up like everything else. Tend never sets an energy target.",
+  energyTitle: "Show calories and macros",
+  energyBody: "Adds a running total under your protein bar (calories, protein, carbs and fat) and shows them on every food. It counts up like everything else. Tend never sets a calorie or macro target.",
   weightTitle: "Weight for protein (optional)",
   weightBody: "Leave this empty and your protein mark is 75 g. Add your weight and Tend uses 1.2 g per kg. It's used for nothing else and never shown.",
   proteinRate: "Protein per kg",

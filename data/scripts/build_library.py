@@ -31,6 +31,8 @@ def main(wide_path, cur_path, out_path, source="cnf"):
         epa, dha = num(r.get("omega3_epa_g")), num(r.get("omega3_dha_g"))
         if epa is not None and dha is not None:
             v["epa_dha"] = round((epa + dha) * 1000, 3)
+        if "carbs" not in v and num(r.get("carbs_available_g")) is not None:
+            v["carbs"] = round(num(r["carbs_available_g"]) + (num(r.get("fiber_g")) or 0), 4)
         out.append({"id": r["food_id"], "n": r["name_en"], "c": GROUPS.get(r["food_group"], "other"), "v": v})
     json.dump(out, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(f"{len(out)} library foods written to {out_path}", file=sys.stderr)

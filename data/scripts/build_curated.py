@@ -16,6 +16,7 @@ COLS = {
     "energy_kcal": ("energy_kcal", 1),
     "protein": ("protein_g", 1),
     "fat": ("fat_g", 1),
+    "carbs": ("carbs_by_difference_g", 1),
     "iron": ("iron_mg", 1),
     "calcium": ("calcium_mg", 1),
     "magnesium": ("magnesium_mg", 1),
@@ -92,6 +93,8 @@ def main(wide_path, cur_path, out_path):
         epa, dha = num(r.get("omega3_epa_g")), num(r.get("omega3_dha_g"))
         if epa is not None and dha is not None:
             per100["epa_dha"] = round((epa + dha) * 1000, 6)
+        if "carbs" not in per100 and num(r.get("carbs_available_g")) is not None:
+            per100["carbs"] = round(num(r["carbs_available_g"]) + (num(r.get("fiber_g")) or 0), 6)
 
         # Energy plausibility (Atwater): flags misnamed or mis-based records.
         p, f, cd = num(r.get("protein_g")), num(r.get("fat_g")), num(r.get("carbs_by_difference_g"))

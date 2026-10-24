@@ -110,14 +110,16 @@ function LogRow({ id, foodId, grams, meal, at, editable = true }: { id: string; 
   return (
     <li className="log-row">
       <span className="log-main">
-        <span className="food-line">
-          <Swatch category={food.category} />
-          <span className="food-name">{food.name}</span>
-        </span>
-        <span className="food-serving">
-          {servingPhrase(food, grams)}
-          {state.showEnergy ? (kcalText(food, grams) ? ` · ${kcalText(food, grams)}` : "") : ""}
-        </span>
+        <button type="button" className="log-open" aria-label={`${food.name}, ${servingPhrase(food, grams)}. See what it gave you.`} onClick={() => dispatch({ t: "sheet", sheet: { kind: "entry", id } })}>
+          <span className="food-line">
+            <Swatch category={food.category} />
+            <span className="food-name">{food.name}</span>
+          </span>
+          <span className="food-serving">
+            {servingPhrase(food, grams)}
+            {state.showEnergy ? (kcalText(food, grams) ? ` · ${kcalText(food, grams)}` : "") : ""}
+          </span>
+        </button>
         {editable ? (
         <button type="button" className="meal-chip" aria-expanded={moving} aria-controls={moveId} aria-label={`${meal ? MEAL_LABEL[meal] : "No meal"}. Change the meal for ${food.name}`} onClick={() => setMoving((o) => !o)}>
           <span className="meal-chip-pill">

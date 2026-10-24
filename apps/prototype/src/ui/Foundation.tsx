@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { amountIn, isInRound, NUTRIENTS, type NutrientCode } from "@tend/core";
 import { EXPLAINERS } from "../content";
-import { allNutrients, energyToday, lookup, proteinToday, type NutrientRow } from "../engine";
+import { allNutrients, energyToday, lookup, macrosOn, proteinToday, type NutrientRow } from "../engine";
 import { useCtx } from "./ctx";
 import { dayWord, shortName, pct } from "./format";
 import { HintCard } from "./Hint";
@@ -16,6 +16,7 @@ export function Foundation() {
   const { state, dispatch, profile, viewDate, isToday } = useCtx();
   const p = useMemo(() => proteinToday(profile, state.logs, viewDate), [profile, state.logs, viewDate]);
   const e = useMemo(() => energyToday(state.logs, viewDate), [state.logs, viewDate]);
+  const m = useMemo(() => macrosOn(state.logs, viewDate), [state.logs, viewDate]);
   const grams = useCountUp(p.grams);
   const kcal = useCountUp(e.kcal);
   const mark = Math.round(p.mark);
@@ -32,7 +33,9 @@ export function Foundation() {
       </button>
       {state.showEnergy ? (
         <p className="energy-line" aria-live="polite">
-          {e.kcal === 0 && e.hasUnknown ? "Not listed yet" : `${e.hasUnknown ? "at least " : ""}${num(kcal)} kcal ${isToday ? "today" : "that day"}`}
+          {e.kcal === 0 && e.hasUnknown
+            ? "Not listed yet"
+            : `${isToday ? "Today" : "That day"}: ${m.unknown ? "at least " : ""}${num(kcal)} kcal · Protein ${num(p.grams)} g · Carbs ${num(m.carbs)} g · Fat ${num(m.fat)} g`}
         </p>
       ) : null}
       <button type="button" className="text-btn see-all" onClick={() => dispatch({ t: "sheet", sheet: { kind: "all" } })}>

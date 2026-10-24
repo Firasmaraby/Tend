@@ -6,7 +6,7 @@ import { AllNutrientsSheet } from "./Foundation";
 import { GramPicker, parseGrams } from "./Amount";
 import { rankedShares, sharesOf, sharesPer100, useCtx } from "./ctx";
 import { ExplainerBody, MarkBlock } from "./Explainer";
-import { ALLERGEN_SINGULAR, dateLong, dayWord, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
+import { ALLERGEN_SINGULAR, dateLong, dayWord, fracText, gramsText, kcalText, mealNow, pct, servingPhrase, servingsText, servingWithGrams, shortName } from "./format";
 import { HintCard } from "./Hint";
 import { MealPick, RepeatButton, useRepeat, useRepeatable } from "./Meals";
 import { CatChip, CheckIcon, PlusIcon, Segmented, Sheet, Swatch } from "./primitives";
@@ -29,6 +29,8 @@ export function SheetHost() {
             return <GlossarySheet key={key} term={s.term} onClose={close} />;
           case "food":
             return <FoodSheet key={key} foodId={s.foodId} onClose={close} />;
+          case "entry":
+            return <EntrySheet key={key} id={s.id} onClose={close} />;
           case "add":
             return <AddFoodSheet key={key} onClose={close} {...(s.date ? { startDate: s.date } : {})} forList={s.mode === "shopping"} />;
           case "all":
@@ -185,6 +187,86 @@ function FoodSheet({ foodId, onClose }: { foodId: string; onClose: () => void })
           </button>
         </>
       )}
+    </Sheet>
+  );
+}
+
+/** A food she logged: what that amount gave her marks, her protein and (opt-in) her macros. */
+function EntrySheet({ id, onClose }: { id: string; onClose: () => void }) {
+  const { state, dispatch, marks, order, today, round } = useCtx();
+  const entry = state.logs.find((e) => e.id === id);
+  const food = entry ? lookup(entry.foodId) : undefined;
+  if (!entry || !food) return null;
+  const share = (n: NutrientCode) => {
+    const per100 = food.per100g[n];
+    return per100 === undefined ? undefined : (per100 * entry.grams) / 100 / marks[n].value;
+  };
+  const protein = food.per100g.protein === undefined ? undefined : (food.per100g.protein * entry.grams) / 100;
+  const others = NUTRIENT_CODES.filter((n) => n !== "protein" && !order.includes(n) && rankable(food, n) && (share(n) ?? 0) >= 0.15)
+    .sort((a, b) => (share(b) ?? 0) - (share(a) ?? 0))
+    .slice(0, 6);
+  const macros = state.showEnergy ? kcalText(food, entry.grams) : null;
+  const editable = canEditDay(entry.logDate, today, round?.startedOn);
+  const when = [entry.meal ? entry.meal.charAt(0).toUpperCase() + entry.meal.slice(1) : null, dayWord(entry.logDate, today)].filter(Boolean).join(", ");
+  return (
+    <Sheet title={food.name} onClose={onClose}>
+      <p className="small" style={{ marginTop: 0 }}>
+        <Swatch category={food.category} />
+        {servingPhrase(food, entry.grams)} · {when}
+      </p>
+      {macros ? <p className="small">{macros}</p> : null}
+      {order.length ? (
+        <>
+          <h3 className="h3">What it gave your marks</h3>
+          <ul className="share-list">
+            {order.map((n) => {
+              const s = share(n);
+              const muted = s !== undefined && !rankable(food, n);
+              return (
+                <li key={n} className={muted ? "is-muted" : undefined}>
+                  <span className="share-name">{shortName(n)}</span>
+                  {s === undefined ? (
+                    <span className="share-val share-val--na">Not listed for this food</span>
+                  ) : (
+                    <>
+                      <span className="bar" aria-hidden="true">
+                        <span className={`bar-fill${muted ? " bar-fill--muted" : ""}`} style={{ width: `${Math.min(100, s * 100)}%` }} />
+                      </span>
+                      <span className="share-val">{pct(s)}%</span>
+                      {muted ? <span className="share-note">Most of this {shortName(n).toLowerCase()} isn't absorbed (oxalate).</span> : null}
+                    </>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      ) : null}
+      {protein !== undefined ? (
+        <p className="small">
+          Protein: {Math.round(protein)} g of your {Math.round(marks.protein.value)} g
+        </p>
+      ) : null}
+      {others.length ? (
+        <>
+          <h3 className="h3">Also gave you</h3>
+          <p className="small">{others.map((n) => `${shortName(n)} ${pct(share(n) ?? 0)}%`).join(", ")}</p>
+        </>
+      ) : null}
+      <p className="source">Source: {food.source.citation}</p>
+      {editable ? (
+        <button
+          type="button"
+          className="btn btn--quiet"
+          onClick={() => {
+            dispatch({ t: "unlog", id: entry.id });
+            dispatch({ t: "toast", text: `Removed ${food.name}` });
+            onClose();
+          }}
+        >
+          Remove
+        </button>
+      ) : null}
     </Sheet>
   );
 }

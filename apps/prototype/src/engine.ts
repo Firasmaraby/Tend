@@ -490,3 +490,17 @@ export function weekCarriers(round: RoundState, logs: readonly LogEntry[], today
       .filter((c) => c.food),
   }));
 }
+
+/** Opt-in energy and macros for a day. Counts up; Tend sets no energy or macro target (protein's mark lives in its own bar). */
+export function macrosOn(logs: readonly LogEntry[], date: LocalDate) {
+  const out = { kcal: 0, carbs: 0, fat: 0, unknown: false };
+  for (const e of entriesOn(logs, date)) {
+    const f = lookup(e.foodId);
+    for (const [k, col] of [["kcal", "energy_kcal"], ["carbs", "carbs"], ["fat", "fat"]] as const) {
+      const per100 = f?.per100g[col];
+      if (per100 === undefined) out.unknown = true;
+      else out[k] += (per100 * e.grams) / 100;
+    }
+  }
+  return out;
+}

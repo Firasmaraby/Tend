@@ -16,6 +16,7 @@ export type SheetSpec =
   | { kind: "explainer"; nutrient: NutrientCode }
   | { kind: "add"; date?: LocalDate; mode?: "shopping" }
   | { kind: "food"; foodId: string }
+  | { kind: "entry"; id: string }
   | { kind: "glossary"; term: string }
   | { kind: "all" }
   | { kind: "settings" }
