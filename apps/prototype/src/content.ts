@@ -212,6 +212,7 @@ export const HINTS = {
   first_pairing: "Some foods work better together. Tend points out pairings that help you absorb more, and notices when you make one.",
   all_nutrients: "Your three get the spotlight, but Tend tracks everything. You can see the full list any time.",
   meals: "Tend files each food under a meal, based on the time. Change it with one tap. Meals let Tend spot pairings in the same meal.",
+  first_period: "On period days, iron foods move up your suggestions. Your marks stay the same.",
   library_food: "This food is from the full library. It counts toward your day, but Tend only suggests foods with checked servings.",
 } as const;
 export type HintId = keyof typeof HINTS;
@@ -315,4 +316,20 @@ export const SHOPPING_COPY = {
 export const REPEAT_COPY = {
   button: (meal: string) => `Repeat yesterday's ${meal.toLowerCase()}`,
   done: (meal: string) => `Added yesterday's ${meal.toLowerCase()}.`,
+};
+
+/** Period timing. Never raises the iron mark (see core period.ts); leans suggestions toward iron. */
+export const PERIOD_COPY = {
+  settingTitle: "Period timing",
+  settingBody: "Tell Tend when your period starts, and iron gets extra attention in your suggestions for those days. Tend keeps only the start date and how long yours usually lasts.",
+  lengthLabel: "Usually lasts",
+  start: "My period started",
+  startYesterday: "It started yesterday",
+  end: "My period ended",
+  todayLine: (day: number) => `Period day ${day}. Iron gets extra attention in your suggestions.`,
+  why: "You lose some iron with each period. Your iron mark already allows for this across the month, so Tend doesn't raise it. Instead, on your period days Tend leans your suggestions toward iron and points out vitamin C pairings, so you replenish when it matters most.",
+  ironNotHers: "Iron isn't one of your three right now, but on period days it still gets some attention.",
+  heavyQuestion: "Are your periods often heavy?",
+  heavyNote: "Heavy periods can lower your iron stores over time. It's worth asking your doctor whether to check your iron.",
+  onboardingOffer: "Want iron to get extra attention during your period? You can turn this on or off any time in settings.",
 };

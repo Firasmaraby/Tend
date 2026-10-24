@@ -15,6 +15,8 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  withPeriodWeights,
+  adviceNutrients,
   type Meal,
   PROTEIN_WEIGHT,
   pairingsToday,
@@ -191,7 +193,8 @@ export function jars(p: Profile, round: RoundState, logs: readonly LogEntry[], t
   });
 }
 
-export function bestRightNow(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate, mode: "serving" | "density", limit = 12): Ranked[] {
+/** periodActive: on period days iron gets extra weight (the mark itself never changes). */
+export function bestRightNow(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate, mode: "serving" | "density", limit = 12, periodActive = false): Ranked[] {
   const marks = marksFor(p, today);
   const js = jars(p, round, logs, today);
   const roundMeanToDate: Partial<Record<NutrientCode, number>> = {};
@@ -199,7 +202,7 @@ export function bestRightNow(p: Profile, round: RoundState, logs: readonly LogEn
   return rank({
     pool: eligibleFoods(FOODS, p),
     marks,
-    weights: { ...weightsFromRoles(round.nutrients), protein: PROTEIN_WEIGHT },
+    weights: withPeriodWeights({ ...weightsFromRoles(round.nutrients), protein: PROTEIN_WEIGHT }, periodActive),
     today: entriesOn(logs, today),
     roundMeanToDate,
     lookup,
@@ -342,12 +345,12 @@ export function energyToday(logs: readonly LogEntry[], today: LocalDate) {
 
 const hersOf = (round: RoundState) => round.nutrients.map((n) => n.nutrient);
 
-export function pairingMoments(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate): PairingMoment[] {
-  return pairingsToday(entriesOn(logs, today), lookup, marksFor(p, today), hersOf(round));
+export function pairingMoments(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate, periodActive = false): PairingMoment[] {
+  return pairingsToday(entriesOn(logs, today), lookup, marksFor(p, today), adviceNutrients(hersOf(round), periodActive));
 }
 
-export function pairingForFood(p: Profile, round: RoundState, food: Food, today: LocalDate): PairingRuleId | null {
-  return pairingFor(food, marksFor(p, today), hersOf(round));
+export function pairingForFood(p: Profile, round: RoundState, food: Food, today: LocalDate, periodActive = false): PairingRuleId | null {
+  return pairingFor(food, marksFor(p, today), adviceNutrients(hersOf(round), periodActive));
 }
 
 export function helpersFor(p: Profile, rule: PairingRuleId, limit = 3): ProtoFood[] {

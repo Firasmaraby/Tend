@@ -11,3 +11,4 @@ export * from "./upperLimits";
 export * from "./ranking";
 export * from "./selectability";
 export * from "./absorption";
+export * from "./period";
