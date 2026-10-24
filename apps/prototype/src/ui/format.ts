@@ -1,4 +1,4 @@
-import { defaultMeal, NUTRIENTS, type Allergen, type FoodCategory, type Meal, type NutrientCode, type Ranked } from "@tend/core";
+import { addDays, defaultMeal, NUTRIENTS, type Allergen, type LocalDate, type FoodCategory, type Meal, type NutrientCode, type Ranked } from "@tend/core";
 import type { ProtoFood } from "../engine";
 
 const SHORT: Partial<Record<NutrientCode, string>> = {
@@ -198,3 +198,26 @@ export function withMeal(text: string, meal: Meal | undefined): string {
   const where = meal === "snack" ? "at snack time" : `at ${meal}`;
   return /^[^.]{1,24}\./.test(text) ? text.replace(/^([^.]{1,24})\./, `$1 ${where}.`) : `${sentenceCase(where)}. ${text}`;
 }
+
+// ---- Dates (calendar days, so a fixed zone keeps them from shifting) ----
+
+const dayAt = (d: string) => new Date(`${d}T12:00:00Z`);
+const fmt = (d: string, o: Intl.DateTimeFormatOptions) => dayAt(d).toLocaleDateString("en-US", { ...o, timeZone: "UTC" });
+
+export const weekdayLong = (d: string): string => fmt(d, { weekday: "long" });
+export const weekdayInitial = (d: string): string => weekdayLong(d).charAt(0);
+export const dayNumber = (d: string): string => fmt(d, { day: "numeric" });
+/** "Tuesday, October 20" */
+export const dateLong = (d: string): string => fmt(d, { weekday: "long", month: "long", day: "numeric" });
+/** "Oct 20" */
+export const dateShort = (d: string): string => fmt(d, { month: "short", day: "numeric" });
+
+/** "Today", "Yesterday", otherwise the weekday. */
+export function dayWord(date: LocalDate, today: LocalDate): string {
+  if (date === today) return "Today";
+  if (date === addDays(today, -1)) return "Yesterday";
+  return weekdayLong(date);
+}
+
+/** First letter up, the rest as written: "lentils" becomes "Lentils". */
+export const capFirst = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);

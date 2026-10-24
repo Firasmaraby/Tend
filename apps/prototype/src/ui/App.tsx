@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { compass } from "../content";
+import { compass, SHOPPING_EDIT_COPY } from "../content";
 import { roundDay } from "../engine";
 import { Browse } from "./Browse";
 import { Choose } from "./Choose";
@@ -11,6 +11,7 @@ import { About, Screener } from "./Onboarding";
 import { RoundTab } from "./Round";
 import { SheetHost } from "./Sheets";
 import { Shopping } from "./Shopping";
+import { Week } from "./Week";
 import { Today } from "./Today";
 import { useStore, type Tab } from "./store";
 
@@ -75,6 +76,7 @@ function TabBar() {
 function Main() {
   const { state } = useStore();
   if (state.page === "shopping") return <Shopping />;
+  if (state.page === "week") return <Week />;
   switch (state.tab) {
     case "today":
       return <Today />;
@@ -98,9 +100,10 @@ export function App() {
 
   useEffect(() => {
     if (!state.toast) return;
-    const t = window.setTimeout(() => dispatch({ t: "toast", text: null }), 2600);
+    // A toast with Undo stays a little longer so there is time to reach it.
+    const t = window.setTimeout(() => dispatch({ t: "toast", text: null }), state.toastUndo ? 6000 : 2600);
     return () => window.clearTimeout(t);
-  }, [state.toast, dispatch]);
+  }, [state.toast, state.toastUndo, dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,7 +145,16 @@ export function App() {
       {body}
       <SheetHost />
       <div className="toast-wrap" aria-live="polite">
-        {state.toast ? <p className="toast">{state.toast}</p> : null}
+        {state.toast && state.toastUndo ? (
+          <div className="toast toast--act">
+            <span>{state.toast}</span>
+            <button type="button" className="toast-btn" onClick={() => dispatch({ t: "shopUndo", undo: state.toastUndo! })}>
+              {SHOPPING_EDIT_COPY.undo}
+            </button>
+          </div>
+        ) : state.toast ? (
+          <p className="toast">{state.toast}</p>
+        ) : null}
       </div>
     </div>
   );

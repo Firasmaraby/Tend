@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { addDays, isInRound, ROUND_DAYS } from "@tend/core";
-import { EXPLAINERS, GLOSSARY } from "../content";
+import { EXPLAINERS, GLOSSARY, HISTORY_COPY } from "../content";
 import { jars, loggedDayCount, rotation, roundDay } from "../engine";
 import { useCtx } from "./ctx";
 import { shortName } from "./format";
@@ -73,6 +73,11 @@ export function RoundTab() {
       <p className="small" style={{ marginTop: 8 }}>
         A filled dot is a day you logged. Every logged day counts.
       </p>
+
+      <button type="button" className="card card--link" onClick={() => dispatch({ t: "page", page: "week" })}>
+        <span className="card-title">{HISTORY_COPY.weekTitle}</span>
+        <span className="card-sub">{HISTORY_COPY.weekIntro}</span>
+      </button>
 
       {checkIn ? (
         <section className="card card--checkin" aria-labelledby="ci-h">

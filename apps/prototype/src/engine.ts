@@ -15,6 +15,7 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  rankable,
   contributorsFor,
   withPeriodWeights,
   adviceNutrients,
@@ -479,7 +480,9 @@ export function weekCarriers(round: RoundState, logs: readonly LogEntry[], today
   const week = logs.filter((e) => e.logDate >= from && e.logDate <= today);
   return round.nutrients.map(({ nutrient }) => ({
     nutrient,
+    // Poorly absorbed sources (spinach calcium) still count in her totals but aren't credited as carriers.
     top: contributorsFor(week, nutrient, lookup)
+      .filter((c) => { const f = lookup(c.foodId); return !f || rankable(f, nutrient); })
       .slice(0, limit)
       .map((c) => ({ food: lookup(c.foodId)!, share: c.share }))
       .filter((c) => c.food),

@@ -6,13 +6,14 @@ import { AllNutrientsSheet } from "./Foundation";
 import { GramPicker, parseGrams } from "./Amount";
 import { rankedShares, sharesOf, sharesPer100, useCtx } from "./ctx";
 import { ExplainerBody, MarkBlock } from "./Explainer";
-import { ALLERGEN_SINGULAR, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
+import { ALLERGEN_SINGULAR, dayWord, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
 import { HintCard } from "./Hint";
 import { MealPick, RepeatButton, useRepeat, useRepeatable } from "./Meals";
 import { CatChip, CheckIcon, PlusIcon, Segmented, Sheet, Swatch } from "./primitives";
 import { searchFoods, useLibrary } from "./search";
 import { PeriodSheet } from "./Period";
 import { SettingsSheet } from "./Settings";
+import { useAddToList } from "./Shopping";
 
 export function SheetHost() {
   const { state, dispatch } = useCtx();
@@ -29,7 +30,7 @@ export function SheetHost() {
           case "food":
             return <FoodSheet key={key} foodId={s.foodId} onClose={close} />;
           case "add":
-            return <AddFoodSheet key={key} onClose={close} />;
+            return <AddFoodSheet key={key} onClose={close} startDay={s.day} forList={s.mode === "shopping"} />;
           case "all":
             return <AllNutrientsSheet key={key} onClose={close} />;
           case "settings":
@@ -43,9 +44,10 @@ export function SheetHost() {
 }
 
 function ExplainerSheet({ nutrient, onClose }: { nutrient: NutrientCode; onClose: () => void }) {
-  const { state, dispatch, round, profile, today } = useCtx();
+  const { state, dispatch, round, profile, today, viewDate } = useCtx();
   const e = EXPLAINERS[nutrient];
-  const row = round ? allNutrients(profile, round, state.logs, today).find((x) => x.nutrient === nutrient) : undefined;
+  const day = dayWord(viewDate, today);
+  const row = round ? allNutrients(profile, round, state.logs, viewDate).find((x) => x.nutrient === nutrient) : undefined;
   const isProtein = nutrient === "protein";
   return (
     <Sheet title={shortName(nutrient)} onClose={onClose}>
@@ -53,8 +55,8 @@ function ExplainerSheet({ nutrient, onClose }: { nutrient: NutrientCode; onClose
       {row ? (
         <p className="small" style={{ marginTop: 0 }}>
           {isProtein
-            ? `Today: ${row.todayHasUnknown ? "at least " : ""}${Math.round(row.todayAmount)} of ${Math.round(row.mark)} g.`
-            : `${row.todayHasUnknown ? "Today: at least " : "Today: "}${pct(row.today)}% of your mark.`}
+            ? `${day}: ${row.todayHasUnknown ? "at least " : ""}${Math.round(row.todayAmount)} of ${Math.round(row.mark)} g.`
+            : `${row.todayHasUnknown ? `${day}: at least ` : `${day}: `}${pct(row.today)}% of your mark.`}
         </p>
       ) : null}
       <ExplainerBody nutrient={nutrient} />
@@ -192,28 +194,29 @@ const STEPS = [0.5, 1, 1.5, 2];
 /** One serving for a curated food, 100 g for a library food. */
 const quickAmount = (f: ProtoFood) => (f.serving ? { servings: 1 } : { servings: 1, grams: 100 });
 
-function AddFoodSheet({ onClose }: { onClose: () => void }) {
+function AddFoodSheet({ onClose, startDay, forList = false }: { onClose: () => void; startDay?: "yesterday" | undefined; forList?: boolean }) {
   const { state, dispatch, profile, today, round } = useCtx();
   const [q, setQ] = useState("");
-  const [day, setDay] = useState<"today" | "yesterday">("today");
+  const [day, setDay] = useState<"today" | "yesterday">(startDay ?? "today");
   const [picked, setPicked] = useState<ProtoFood | null>(null);
   const [mult, setMult] = useState(1);
   const [grams, setGrams] = useState("100");
   const [flash, setFlash] = useState<string | null>(null);
-  const [meal, setMealState] = useState<Meal>(mealNow);
+  const [meal, setMealState] = useState<Meal>(() => (startDay === "yesterday" ? "dinner" : mealNow()));
   const [mealTouched, setMealTouched] = useState(false);
   const repeat = useRepeat();
   const repeatable = useRepeatable();
+  const addToList = useAddToList();
   const flashTimer = useRef<number>(0);
 
   // The first time the sheet opens, show the tip; it is marked seen straight away so it appears once.
-  const [firstTime] = useState(() => state.showTips && !state.seen.includes("meals"));
+  const [firstTime] = useState(() => !forList && state.showTips && !state.seen.includes("meals"));
   const [hintOpen, setHintOpen] = useState(firstTime);
   useEffect(() => {
     if (firstTime) dispatch({ t: "seen", id: "meals" });
   }, [firstTime, dispatch]);
   const lib = useLibrary();
-  const canYesterday = round ? addDays(today, -1) >= round.startedOn : false;
+  const canYesterday = !forList && (round ? addDays(today, -1) >= round.startedOn : false);
   const searching = q.trim() !== "";
   useEffect(() => () => window.clearTimeout(flashTimer.current), []);
 
@@ -255,6 +258,12 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
     if (!mealTouched) setMealState(d === "today" ? mealNow() : "dinner");
   };
   const pick = (f: ProtoFood) => {
+    // Picking for the shopping list is one tap: it goes on the list and the sheet closes.
+    if (forList) {
+      addToList(f);
+      onClose();
+      return;
+    }
     setPicked(f);
     setMult(1);
     setGrams("100");
@@ -325,7 +334,7 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
   const nothing = searching && found.curated.length === 0 && found.library.length === 0 && lib.status !== "loading";
 
   return (
-    <Sheet title="Add food" onClose={onClose} tall>
+    <Sheet title={forList ? "Add to shopping list" : "Add food"} onClose={onClose} tall>
       <div className="add-controls">
         <label className="sr" htmlFor="food-search">
           Search foods
@@ -354,7 +363,7 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
             ]}
           />
         ) : null}
-        <MealPick value={meal} onChange={setMeal} />
+        {forList ? null : <MealPick value={meal} onChange={setMeal} />}
         {hintOpen ? <HintCard id="meals" onDismiss={() => setHintOpen(false)} /> : null}
       </div>
       <div className="add-list" aria-label="Foods">
@@ -382,7 +391,7 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
           </>
         ) : (
           <>
-            {day === "today" && repeatable.length ? (
+            {!forList && day === "today" && repeatable.length ? (
               <>
                 <h3 className="subhead subhead--first">Yesterday</h3>
                 <ul className="list">
@@ -396,14 +405,14 @@ function AddFoodSheet({ onClose }: { onClose: () => void }) {
             ) : null}
             {usuals.length ? (
               <>
-                <h3 className={`subhead${day === "today" && repeatable.length ? "" : " subhead--first"}`}>Your usuals</h3>
-                <ul className="list">{usuals.map((f) => row(f, true))}</ul>
+                <h3 className={`subhead${!forList && day === "today" && repeatable.length ? "" : " subhead--first"}`}>Your usuals</h3>
+                <ul className="list">{usuals.map((f) => row(f, !forList))}</ul>
               </>
             ) : null}
             {recent.length ? (
               <>
-                <h3 className={`subhead${usuals.length || (day === "today" && repeatable.length) ? "" : " subhead--first"}`}>Recent</h3>
-                <ul className="list">{recent.map((f) => row(f, true))}</ul>
+                <h3 className={`subhead${usuals.length || (!forList && day === "today" && repeatable.length) ? "" : " subhead--first"}`}>Recent</h3>
+                <ul className="list">{recent.map((f) => row(f, !forList))}</ul>
               </>
             ) : null}
             {usuals.length || recent.length ? <h3 className="subhead">All foods</h3> : null}

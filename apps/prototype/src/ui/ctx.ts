@@ -57,7 +57,10 @@ export function useCtx() {
   const periodEligible = profile.menstruating && profile.status !== "pregnant";
   const periodActive = periodEnabled && isPeriodDay(profile, period, today);
   const periodDayNo = periodActive && period ? periodDay(period, today) : null;
-  return { state, dispatch, profile, today, round, marks, pool, order, active, periodEligible, periodActive, periodDayNo };
+  // The day Today is showing: today unless she tapped an earlier day in the week strip.
+  const viewDate = state.viewDate ?? today;
+  const isToday = viewDate === today;
+  return { state, dispatch, profile, today, viewDate, isToday, round, marks, pool, order, active, periodEligible, periodActive, periodDayNo };
 }
 
 /** Eligible foods with a known share of one nutrient, biggest first. */

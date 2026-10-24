@@ -5,7 +5,7 @@ import { amountIn, isInRound, NUTRIENTS, type NutrientCode } from "@tend/core";
 import { EXPLAINERS } from "../content";
 import { allNutrients, energyToday, lookup, proteinToday, type NutrientRow } from "../engine";
 import { useCtx } from "./ctx";
-import { shortName, pct } from "./format";
+import { dayWord, shortName, pct } from "./format";
 import { HintCard } from "./Hint";
 import { MarkBar, Segmented, Sheet, useCountUp } from "./primitives";
 
@@ -13,9 +13,9 @@ const num = (n: number) => Math.round(n).toLocaleString("en-CA");
 
 /** Under the three jars: protein as a horizontal bar, with energy and the full list a tap away. */
 export function Foundation() {
-  const { state, dispatch, profile, today } = useCtx();
-  const p = useMemo(() => proteinToday(profile, state.logs, today), [profile, state.logs, today]);
-  const e = useMemo(() => energyToday(state.logs, today), [state.logs, today]);
+  const { state, dispatch, profile, viewDate, isToday } = useCtx();
+  const p = useMemo(() => proteinToday(profile, state.logs, viewDate), [profile, state.logs, viewDate]);
+  const e = useMemo(() => energyToday(state.logs, viewDate), [state.logs, viewDate]);
   const grams = useCountUp(p.grams);
   const kcal = useCountUp(e.kcal);
   const mark = Math.round(p.mark);
@@ -32,7 +32,7 @@ export function Foundation() {
       </button>
       {state.showEnergy ? (
         <p className="energy-line" aria-live="polite">
-          {e.kcal === 0 && e.hasUnknown ? "Not listed yet" : `${e.hasUnknown ? "at least " : ""}${num(kcal)} kcal today`}
+          {e.kcal === 0 && e.hasUnknown ? "Not listed yet" : `${e.hasUnknown ? "at least " : ""}${num(kcal)} kcal ${isToday ? "today" : "that day"}`}
         </p>
       ) : null}
       <button type="button" className="text-btn see-all" onClick={() => dispatch({ t: "sheet", sheet: { kind: "all" } })}>
@@ -60,9 +60,9 @@ const GROUPS: { id: NutrientRow["group"]; title: string }[] = [
 ];
 
 export function AllNutrientsSheet({ onClose }: { onClose: () => void }) {
-  const { state, dispatch, profile, round, today, order } = useCtx();
+  const { state, dispatch, profile, round, today, viewDate, order } = useCtx();
   const [view, setView] = useState<"today" | "round">("today");
-  const rows = useMemo(() => (round ? allNutrients(profile, round, state.logs, today) : []), [profile, round, state.logs, today]);
+  const rows = useMemo(() => (round ? allNutrients(profile, round, state.logs, viewDate) : []), [profile, round, state.logs, viewDate]);
 
   // The first time the sheet opens, show the tip; it is marked seen straight away so it appears once.
   const [firstTime] = useState(() => state.showTips && !state.seen.includes("all_nutrients"));
@@ -76,12 +76,12 @@ export function AllNutrientsSheet({ onClose }: { onClose: () => void }) {
     const out = new Set<NutrientCode>();
     if (!round) return out;
     for (const e of state.logs) {
-      if (!isInRound(e.logDate, round) || e.logDate > today) continue;
+      if (!isInRound(e.logDate, round) || e.logDate > viewDate) continue;
       const f = lookup(e.foodId);
       for (const r of rows) if (!f || amountIn(f, r.nutrient, e.grams) === undefined) out.add(r.nutrient);
     }
     return out;
-  }, [state.logs, round, today, rows]);
+  }, [state.logs, round, viewDate, rows]);
 
   return (
     <Sheet title="All nutrients" onClose={onClose} tall>
@@ -91,7 +91,7 @@ export function AllNutrientsSheet({ onClose }: { onClose: () => void }) {
           value={view}
           onChange={setView}
           options={[
-            { id: "today", label: "Today" },
+            { id: "today", label: dayWord(viewDate, today) },
             { id: "round", label: "Round average" },
           ]}
         />

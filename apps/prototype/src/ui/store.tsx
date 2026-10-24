@@ -1,7 +1,7 @@
 // App state. One reducer, one context. Nothing here does nutrition maths:
 // that all comes from @tend/core via ../engine.
 import { createContext, useContext, useEffect, useMemo, useReducer, type ReactNode, type Dispatch } from "react";
-import { addDays, asLocalDate, nextRoundStart, PERIOD_DEFAULT_DAYS, type LocalDate, type LogEntry, type Meal, type NutrientCode, type PeriodState, type Profile, type RoundNutrient } from "@tend/core";
+import { addDays, asLocalDate, nextRoundStart, PERIOD_DEFAULT_DAYS, type FoodCategory, type LocalDate, type LogEntry, type Meal, type NutrientCode, type PeriodState, type Profile, type RoundNutrient } from "@tend/core";
 import { lookup, newRound, seedHistory, type RoundState } from "../engine";
 import type { HintId } from "../content";
 
@@ -9,12 +9,12 @@ export type Phase = "guide" | "about" | "screener" | "choose" | "app" | "end";
 export type Tab = "today" | "browse" | "learn" | "round";
 export type Theme = "auto" | "light" | "dark";
 /** A full screen that sits over the current tab (with its own back link). */
-export type Page = "shopping";
+export type Page = "shopping" | "week";
 export type DemoKind = "day9" | "day14" | "day36" | "end" | "period";
 
 export type SheetSpec =
   | { kind: "explainer"; nutrient: NutrientCode }
-  | { kind: "add" }
+  | { kind: "add"; day?: "yesterday"; mode?: "shopping" }
   | { kind: "food"; foodId: string }
   | { kind: "glossary"; term: string }
   | { kind: "all" }
@@ -26,6 +26,21 @@ export interface NextRoundContext {
   locked: NutrientCode[];
   projects: NutrientCode[];
 }
+
+/** A line she typed onto the shopping list. */
+export interface CustomItem {
+  id: string;
+  name: string;
+}
+/** A food she picked for the shopping list. Kept with its name so it shows even before the full library loads. */
+export interface AddedFood {
+  id: string;
+  name: string;
+  category: FoodCategory;
+  serving?: string;
+}
+/** What the toast's Undo button puts back. */
+export type ShopUndo = { kind: "restore"; foodId: string } | { kind: "custom"; item: CustomItem; at: number } | { kind: "food"; item: AddedFood; at: number };
 
 export interface AppState {
   phase: Phase;
@@ -40,8 +55,16 @@ export interface AppState {
   addedAt: Record<string, number>;
   tab: Tab;
   page: Page | null;
-  /** Shopping list ticks, by food id. Kept in localStorage when it is available. */
+  /** The day Today is showing: null means today. Never kept between tabs. */
+  viewDate: LocalDate | null;
+  /** Shopping list ticks, by item key. Kept in localStorage when it is available. */
   shopChecked: string[];
+  /** Generated items she took off the list, by food id. Kept in localStorage too. */
+  shopRemoved: string[];
+  /** Her own typed items, newest first. Kept in localStorage too. */
+  shopCustom: CustomItem[];
+  /** Foods she picked for the list, newest first. Kept in localStorage too. */
+  shopAdded: AddedFood[];
   learnNutrient: NutrientCode | null;
   /** A Learn page that isn't a nutrient. */
   learnTopic: "pairing" | null;
@@ -63,6 +86,8 @@ export interface AppState {
   choosing: NextRoundContext | null;
   theme: Theme;
   toast: string | null;
+  /** When set, the toast shows an Undo button that dispatches this. */
+  toastUndo: ShopUndo | null;
   seq: number;
 }
 
@@ -102,7 +127,11 @@ export function initialState(theme: Theme = "auto"): AppState {
     addedAt: {},
     tab: "today",
     page: null,
+    viewDate: null,
     shopChecked: [],
+    shopRemoved: [],
+    shopCustom: [],
+    shopAdded: [],
     learnNutrient: null,
     learnTopic: null,
     showEnergy: false,
@@ -118,6 +147,7 @@ export function initialState(theme: Theme = "auto"): AppState {
     choosing: null,
     theme,
     toast: null,
+    toastUndo: null,
     seq: 0,
   };
 }
@@ -131,7 +161,17 @@ type Action =
   | { t: "startRound"; nutrients: RoundNutrient[] }
   | { t: "log"; foodId: string; servings: number; date: LocalDate; at: number; grams?: number; meal?: Meal }
   | { t: "setMeal"; id: string; meal: Meal }
-  | { t: "repeat"; from: LogEntry[]; date: LocalDate; meal: Meal; at: number }
+  | { t: "repeat"; from: LogEntry[]; date: LocalDate; meal?: Meal; at: number }
+  | { t: "viewDay"; date: LocalDate | null }
+  | { t: "shopRemove"; foodId: string }
+  | { t: "shopRestore"; foodId: string }
+  | { t: "shopRestoreAll" }
+  | { t: "shopAddCustom"; item: CustomItem }
+  | { t: "shopRemoveCustom"; id: string }
+  | { t: "shopAddFood"; item: AddedFood }
+  | { t: "shopRemoveFood"; id: string }
+  | { t: "shopUndo"; undo: ShopUndo }
+  | { t: "toastUndo"; text: string; undo: ShopUndo }
   | { t: "page"; page: Page | null }
   | { t: "shopToggle"; foodId: string }
   | { t: "shopClear" }
@@ -201,7 +241,7 @@ function reducer(s: AppState, a: Action): AppState {
       const copies = a.from.map((e): LogEntry => {
         const id = `u${++seq}`;
         added[id] = a.at;
-        return { id, foodId: e.foodId, grams: e.grams, logDate: a.date, meal: a.meal };
+        return { id, foodId: e.foodId, grams: e.grams, logDate: a.date, ...(a.meal ? { meal: a.meal } : {}) };
       });
       return { ...s, seq, logs: [...s.logs, ...copies], addedAt: added };
     }
@@ -211,14 +251,42 @@ function reducer(s: AppState, a: Action): AppState {
       return { ...s, shopChecked: s.shopChecked.includes(a.foodId) ? s.shopChecked.filter((x) => x !== a.foodId) : [...s.shopChecked, a.foodId] };
     case "shopClear":
       return { ...s, shopChecked: [] };
+    case "viewDay":
+      return { ...s, tab: "today", page: null, sheets: [], viewDate: a.date === s.today ? null : a.date };
+    case "shopRemove":
+      return s.shopRemoved.includes(a.foodId) ? s : { ...s, shopRemoved: [...s.shopRemoved, a.foodId] };
+    case "shopRestore":
+      return { ...s, shopRemoved: s.shopRemoved.filter((x) => x !== a.foodId) };
+    case "shopRestoreAll":
+      return { ...s, shopRemoved: [] };
+    case "shopAddCustom":
+      return { ...s, shopCustom: [a.item, ...s.shopCustom] };
+    case "shopRemoveCustom":
+      return { ...s, shopCustom: s.shopCustom.filter((c) => c.id !== a.id), shopChecked: s.shopChecked.filter((x) => x !== a.id) };
+    case "shopAddFood":
+      return s.shopAdded.some((f) => f.id === a.item.id) ? s : { ...s, shopAdded: [a.item, ...s.shopAdded] };
+    case "shopRemoveFood":
+      return { ...s, shopAdded: s.shopAdded.filter((f) => f.id !== a.id), shopChecked: s.shopChecked.filter((x) => x !== a.id) };
+    case "shopUndo": {
+      const u = a.undo;
+      if (u.kind === "restore") return { ...s, shopRemoved: s.shopRemoved.filter((x) => x !== u.foodId), toast: null, toastUndo: null };
+      if (u.kind === "custom") {
+        const list = s.shopCustom.filter((c) => c.id !== u.item.id);
+        list.splice(Math.min(u.at, list.length), 0, u.item);
+        return { ...s, shopCustom: list, toast: null, toastUndo: null };
+      }
+      const list = s.shopAdded.filter((f) => f.id !== u.item.id);
+      list.splice(Math.min(u.at, list.length), 0, u.item);
+      return { ...s, shopAdded: list, toast: null, toastUndo: null };
+    }
     case "unlog":
       return { ...s, logs: s.logs.filter((e) => e.id !== a.id) };
     case "tab":
-      return { ...s, tab: a.tab, page: null, learnNutrient: a.tab === "learn" ? s.learnNutrient : null, learnTopic: a.tab === "learn" ? s.learnTopic : null };
+      return { ...s, tab: a.tab, page: null, viewDate: null, learnNutrient: a.tab === "learn" ? s.learnNutrient : null, learnTopic: a.tab === "learn" ? s.learnTopic : null };
     case "learn":
-      return { ...s, learnNutrient: a.nutrient, learnTopic: null, tab: "learn", page: null, sheets: [] };
+      return { ...s, learnNutrient: a.nutrient, learnTopic: null, tab: "learn", page: null, viewDate: null, sheets: [] };
     case "learnTopic":
-      return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", page: null, sheets: [] };
+      return { ...s, learnTopic: a.topic, learnNutrient: null, tab: "learn", page: null, viewDate: null, sheets: [] };
     case "setting":
       return { ...s, [a.key]: a.value };
     case "periodEnabled":
@@ -252,7 +320,9 @@ function reducer(s: AppState, a: Action): AppState {
     case "theme":
       return { ...s, theme: a.theme };
     case "toast":
-      return { ...s, toast: a.text };
+      return { ...s, toast: a.text, toastUndo: null };
+    case "toastUndo":
+      return { ...s, toast: a.text, toastUndo: a.undo };
     case "choosing":
       return { ...s, choosing: a.ctx };
     case "reset":
@@ -299,26 +369,43 @@ interface Store {
 const Ctx = createContext<Store | null>(null);
 
 const SHOP_KEY = "tend.shopChecked";
+const REMOVED_KEY = "tend.shopRemoved";
+const CUSTOM_KEY = "tend.shopCustom";
+const ADDED_KEY = "tend.shopAdded";
 
-function loadChecked(): string[] {
+function load<T>(key: string, ok: (x: unknown) => x is T): T[] {
   try {
-    const raw = window.localStorage.getItem(SHOP_KEY);
+    const raw = window.localStorage.getItem(key);
     const v: unknown = raw ? JSON.parse(raw) : [];
-    return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [];
+    return Array.isArray(v) ? v.filter(ok) : [];
   } catch {
     return [];
   }
 }
+function save(key: string, value: unknown) {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    /* storage can be blocked; the list then lasts for the session only */
+  }
+}
+const isStr = (x: unknown): x is string => typeof x === "string";
+const isObj = (x: unknown): x is Record<string, unknown> => typeof x === "object" && x !== null;
+const isCustom = (x: unknown): x is CustomItem => isObj(x) && isStr(x.id) && isStr(x.name) && x.name.length > 0 && x.name.length <= 60;
+const isAdded = (x: unknown): x is AddedFood => isObj(x) && isStr(x.id) && isStr(x.name) && isStr(x.category) && (x.serving === undefined || isStr(x.serving));
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, () => ({ ...initialState(), shopChecked: loadChecked() }));
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(SHOP_KEY, JSON.stringify(state.shopChecked));
-    } catch {
-      /* storage can be blocked; the ticks then last for the session only */
-    }
-  }, [state.shopChecked]);
+  const [state, dispatch] = useReducer(reducer, undefined, () => ({
+    ...initialState(),
+    shopChecked: load(SHOP_KEY, isStr),
+    shopRemoved: load(REMOVED_KEY, isStr),
+    shopCustom: load(CUSTOM_KEY, isCustom),
+    shopAdded: load(ADDED_KEY, isAdded),
+  }));
+  useEffect(() => save(SHOP_KEY, state.shopChecked), [state.shopChecked]);
+  useEffect(() => save(REMOVED_KEY, state.shopRemoved), [state.shopRemoved]);
+  useEffect(() => save(CUSTOM_KEY, state.shopCustom), [state.shopCustom]);
+  useEffect(() => save(ADDED_KEY, state.shopAdded), [state.shopAdded]);
   const value = useMemo(() => ({ state, dispatch }), [state]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
