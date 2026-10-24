@@ -4771,6 +4771,1906 @@
   "curation": "hand"
  },
  {
+  "id": "cnf:5562",
+  "name": "Cottage cheese, with vegetables",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 95.0,
+   "protein": 10.9,
+   "fat": 4.2,
+   "iron": 0.1,
+   "calcium": 56.0,
+   "magnesium": 4.0,
+   "potassium": 86.0,
+   "fibre": 0.1,
+   "folate_dfe": 17.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.49,
+   "vit_a_rae": 53.0,
+   "retinol": 41.0,
+   "vit_c": 4.0,
+   "vit_k": 11.0,
+   "zinc": 0.29,
+   "choline": 17.5,
+   "ala": 0.037,
+   "vit_e": 0.05,
+   "selenium": 4.5,
+   "vit_b6": 0.05,
+   "thiamin": 0.01,
+   "riboflavin": 0.13,
+   "niacin": 2.3333,
+   "phosphorus": 128.0,
+   "copper": 28.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 113.0,
+   "label": "½ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, cottage, with vegetables",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:cottage-cheese"
+ },
+ {
+  "id": "cnf:108",
+  "name": "Feta",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 270.0,
+   "protein": 16.77,
+   "fat": 22.461,
+   "iron": 0.59,
+   "calcium": 399.0,
+   "magnesium": 10.0,
+   "potassium": 52.0,
+   "fibre": 0.0,
+   "folate_dfe": 2.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.45,
+   "vit_a_rae": 125.0,
+   "retinol": 125.0,
+   "vit_c": 0.0,
+   "vit_k": 1.8,
+   "zinc": 1.65,
+   "choline": 15.4,
+   "ala": 0.0,
+   "iodine": 22.3,
+   "vit_e": 0.18,
+   "selenium": 14.4,
+   "vit_b6": 0.028,
+   "thiamin": 0.03,
+   "riboflavin": 0.203,
+   "niacin": 2.6427,
+   "phosphorus": 239.0,
+   "copper": 74.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 38.0,
+   "label": "¼ cup crumbled"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, feta",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:feta"
+ },
+ {
+  "id": "cnf:7754",
+  "name": "Feta, light",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 213.0,
+   "protein": 20.76,
+   "fat": 13.419,
+   "iron": 0.51,
+   "calcium": 352.0,
+   "magnesium": 8.0,
+   "potassium": 38.0,
+   "fibre": 0.0,
+   "folate_dfe": 7.7,
+   "folic_acid": 1.0,
+   "vit_b12": 0.62,
+   "vit_c": 0.0,
+   "zinc": 1.75,
+   "ala": 0.0,
+   "selenium": 16.8,
+   "vit_b6": 0.01,
+   "thiamin": 0.028,
+   "riboflavin": 0.212,
+   "niacin": 5.654,
+   "phosphorus": 259.0,
+   "copper": 58.0,
+   "vit_d": 0.2,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 38.0,
+   "label": "¼ cup crumbled"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, feta, light",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_a_rae",
+   "vit_k",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:feta"
+ },
+ {
+  "id": "cnf:96",
+  "name": "Goat cheese, hard",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 452.0,
+   "protein": 30.52,
+   "fat": 35.59,
+   "iron": 1.88,
+   "calcium": 895.0,
+   "magnesium": 54.0,
+   "potassium": 48.0,
+   "fibre": 0.0,
+   "folate_dfe": 4.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.12,
+   "vit_a_rae": 486.0,
+   "retinol": 478.0,
+   "vit_c": 0.0,
+   "vit_k": 3.0,
+   "zinc": 1.59,
+   "choline": 15.4,
+   "ala": 0.0,
+   "vit_e": 0.31,
+   "selenium": 5.5,
+   "vit_b6": 0.08,
+   "thiamin": 0.14,
+   "riboflavin": 1.19,
+   "niacin": 7.75,
+   "phosphorus": 729.0,
+   "copper": 627.0,
+   "vit_d": 0.7,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 slice"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, goat, hard, (less than 35% water, 36% M.F.)",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:goat-cheese"
+ },
+ {
+  "id": "cnf:97",
+  "name": "Goat cheese, semi-soft",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 364.0,
+   "protein": 21.58,
+   "fat": 29.84,
+   "iron": 1.62,
+   "calcium": 298.0,
+   "magnesium": 29.0,
+   "potassium": 158.0,
+   "fibre": 0.0,
+   "folate_dfe": 2.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.22,
+   "vit_a_rae": 407.0,
+   "retinol": 401.0,
+   "vit_c": 0.0,
+   "vit_k": 2.5,
+   "zinc": 0.66,
+   "choline": 15.4,
+   "ala": 0.0,
+   "iodine": 69.5,
+   "vit_e": 0.26,
+   "selenium": 3.8,
+   "vit_b6": 0.06,
+   "thiamin": 0.072,
+   "riboflavin": 0.676,
+   "niacin": 4.9313,
+   "phosphorus": 375.0,
+   "copper": 564.0,
+   "vit_d": 0.5,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 slice"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, goat, semi-soft, (35% to 55% water, 30% M.F.)",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:goat-cheese"
+ },
+ {
+  "id": "cnf:98",
+  "name": "Goat cheese, soft",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 288.0,
+   "protein": 17.18,
+   "fat": 23.727,
+   "iron": 0.08,
+   "calcium": 67.0,
+   "magnesium": 13.0,
+   "potassium": 126.0,
+   "fibre": 0.0,
+   "folate_dfe": 12.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.1,
+   "vit_a_rae": 288.0,
+   "retinol": 283.0,
+   "vit_c": 0.0,
+   "vit_k": 1.8,
+   "zinc": 0.42,
+   "choline": 15.4,
+   "ala": 0.0,
+   "vit_e": 0.18,
+   "selenium": 19.2,
+   "vit_b6": 0.019,
+   "thiamin": 0.027,
+   "riboflavin": 0.258,
+   "niacin": 4.003,
+   "phosphorus": 211.0,
+   "copper": 77.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 38.0,
+   "label": "¼ cup crumbled"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, goat, soft, (more than 55% water, 24% M.F.)",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:goat-cheese"
+ },
+ {
+  "id": "cnf:43",
+  "name": "Ricotta",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 193.0,
+   "protein": 9.83,
+   "fat": 14.407,
+   "iron": 0.37,
+   "calcium": 243.0,
+   "magnesium": 13.0,
+   "potassium": 160.0,
+   "fibre": 0.0,
+   "folate_dfe": 1.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.46,
+   "vit_a_rae": 120.0,
+   "retinol": 117.0,
+   "vit_c": 0.0,
+   "vit_k": 1.1,
+   "zinc": 0.85,
+   "choline": 17.5,
+   "ala": 0.0,
+   "iodine": 24.3552,
+   "vit_e": 0.11,
+   "selenium": 9.5,
+   "vit_b6": 0.031,
+   "thiamin": 0.031,
+   "riboflavin": 0.185,
+   "niacin": 3.4704,
+   "phosphorus": 169.0,
+   "copper": 33.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 113.0,
+   "label": "½ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, ricotta",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:ricotta"
+ },
+ {
+  "id": "cnf:44",
+  "name": "Ricotta, light",
+  "category": "cheese",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 127.0,
+   "protein": 10.91,
+   "fat": 6.176,
+   "iron": 0.39,
+   "calcium": 287.0,
+   "magnesium": 16.0,
+   "potassium": 175.0,
+   "fibre": 0.0,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.54,
+   "vit_a_rae": 107.0,
+   "retinol": 105.0,
+   "vit_c": 0.0,
+   "vit_k": 0.7,
+   "zinc": 0.87,
+   "choline": 16.3,
+   "ala": 0.0,
+   "vit_e": 0.07,
+   "selenium": 9.5,
+   "vit_b6": 0.036,
+   "thiamin": 0.032,
+   "riboflavin": 0.229,
+   "niacin": 3.8155,
+   "phosphorus": 196.0,
+   "copper": 27.0,
+   "vit_d": 0.047,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 113.0,
+   "label": "½ cup"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "milk"
+  ],
+  "pregnancyFlags": [
+   "soft_cheese"
+  ],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cheese, ricotta, light",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:ricotta"
+ },
+ {
+  "id": "cnf:1697",
+  "name": "Apple, raw, without skin",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 48.0,
+   "protein": 0.27,
+   "fat": 0.13,
+   "iron": 0.07,
+   "calcium": 5.0,
+   "magnesium": 4.0,
+   "potassium": 90.0,
+   "fibre": 1.3,
+   "folate_dfe": 0.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 2.0,
+   "retinol": 0.0,
+   "vit_c": 4.0,
+   "vit_k": 0.6,
+   "zinc": 0.05,
+   "choline": 3.4,
+   "ala": 0.007,
+   "iodine": 9.56,
+   "vit_e": 0.05,
+   "selenium": 0.0,
+   "vit_b6": 0.037,
+   "thiamin": 0.019,
+   "riboflavin": 0.028,
+   "niacin": 0.1077,
+   "phosphorus": 11.0,
+   "copper": 31.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 182.0,
+   "label": "1 medium"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Apple, raw, without skin",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:apple"
+ },
+ {
+  "id": "cnf:6416",
+  "name": "Cranberry (lingonberry), wild, raw",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 55.0,
+   "protein": 1.1,
+   "fat": 0.2,
+   "iron": 1.0,
+   "calcium": 20.0,
+   "potassium": 140.0,
+   "fibre": 6.7,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_c": 15.0,
+   "thiamin": 0.0,
+   "riboflavin": 0.01,
+   "niacin": 1.1017,
+   "phosphorus": 15.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 145.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Cranberry (lingonberry), wild, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "magnesium",
+   "folate_dfe",
+   "vit_a_rae",
+   "vit_k",
+   "zinc",
+   "choline",
+   "ala",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:cranberry"
+ },
+ {
+  "id": "cnf:6530",
+  "name": "Raspberry, wild, raw",
+  "category": "fruit",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 62.0,
+   "protein": 1.12,
+   "fat": 0.28,
+   "iron": 0.64,
+   "calcium": 36.0,
+   "magnesium": 26.0,
+   "potassium": 175.0,
+   "fibre": 7.5,
+   "folate_dfe": 5.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 2.0,
+   "vit_c": 26.4,
+   "vit_k": 6.6,
+   "zinc": 0.47,
+   "choline": 9.5,
+   "vit_e": 0.57,
+   "vit_b6": 0.104,
+   "thiamin": 0.018,
+   "riboflavin": 0.08,
+   "niacin": 1.2353,
+   "phosphorus": 41.0,
+   "copper": 97.0,
+   "vit_d": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 123.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Raspberry, wild, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "ala",
+   "epa_dha",
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:raspberry"
+ },
+ {
+  "id": "cnf:4514",
+  "name": "Pasta, egg noodles, spinach, enriched, cooked",
+  "category": "grains",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 132.0,
+   "protein": 5.04,
+   "fat": 1.57,
+   "iron": 1.09,
+   "calcium": 19.0,
+   "magnesium": 24.0,
+   "potassium": 37.0,
+   "fibre": 1.33,
+   "folate_dfe": 177.4,
+   "folic_acid": 92.0,
+   "vit_b12": 0.14,
+   "vit_a_rae": 10.0,
+   "retinol": 6.0,
+   "vit_c": 0.0,
+   "vit_k": 101.1,
+   "zinc": 0.63,
+   "choline": 25.7,
+   "ala": 0.04,
+   "vit_e": 0.55,
+   "selenium": 21.8,
+   "vit_b6": 0.114,
+   "thiamin": 0.4155,
+   "riboflavin": 0.1385,
+   "niacin": 3.7304,
+   "phosphorus": 57.0,
+   "copper": 80.0,
+   "vit_d": 0.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 140.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegetarian",
+  "allergens": [
+   "egg",
+   "gluten",
+   "wheat"
+  ],
+  "pregnancyFlags": [],
+  "traits": [
+   "high_oxalate"
+  ],
+  "source": {
+   "id": "cnf",
+   "name": "Pasta, egg noodles, spinach, enriched, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:pasta-egg-noodles"
+ },
+ {
+  "id": "cnf:1985",
+  "name": "Amaranth leaves, cooked",
+  "category": "leafy_greens",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 21.0,
+   "protein": 2.11,
+   "fat": 0.18,
+   "iron": 2.26,
+   "calcium": 209.0,
+   "magnesium": 55.0,
+   "potassium": 641.0,
+   "folate_dfe": 57.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 139.0,
+   "retinol": 0.0,
+   "vit_c": 41.1,
+   "zinc": 0.88,
+   "ala": 0.001,
+   "selenium": 0.9,
+   "vit_b6": 0.177,
+   "thiamin": 0.02,
+   "riboflavin": 0.134,
+   "niacin": 1.009,
+   "phosphorus": 72.0,
+   "copper": 158.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 170.0,
+   "label": "about 1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Amaranth leaves, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "fibre",
+   "vit_k",
+   "choline",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:amaranth-leaves"
+ },
+ {
+  "id": "cnf:1984",
+  "name": "Amaranth leaves, fresh",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 23.0,
+   "protein": 2.46,
+   "fat": 0.33,
+   "iron": 2.32,
+   "calcium": 215.0,
+   "magnesium": 55.0,
+   "potassium": 611.0,
+   "folate_dfe": 85.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 146.0,
+   "retinol": 0.0,
+   "vit_c": 43.3,
+   "vit_k": 1140.0,
+   "zinc": 0.9,
+   "ala": 0.002,
+   "selenium": 0.9,
+   "vit_b6": 0.192,
+   "thiamin": 0.027,
+   "riboflavin": 0.158,
+   "niacin": 1.1747,
+   "phosphorus": 50.0,
+   "copper": 162.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 35.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Amaranth leaves, fresh",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "fibre",
+   "choline",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:amaranth-leaves"
+ },
+ {
+  "id": "cnf:2038",
+  "name": "Bok choy, pak-choi, raw",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 13.0,
+   "protein": 1.5,
+   "fat": 0.2,
+   "iron": 0.8,
+   "calcium": 105.0,
+   "magnesium": 19.0,
+   "potassium": 252.0,
+   "fibre": 1.0,
+   "folate_dfe": 66.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 223.0,
+   "retinol": 0.0,
+   "vit_c": 45.0,
+   "vit_k": 45.5,
+   "zinc": 0.19,
+   "choline": 6.4,
+   "ala": 0.051,
+   "iodine": 1.0,
+   "vit_e": 0.09,
+   "selenium": 0.5,
+   "vit_b6": 0.194,
+   "thiamin": 0.04,
+   "riboflavin": 0.07,
+   "niacin": 0.75,
+   "phosphorus": 37.0,
+   "copper": 21.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 35.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Bok choy, pak-choi, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:bok-choy"
+ },
+ {
+  "id": "cnf:2115",
+  "name": "Lettuce, butterhead (Boston, bibb)",
+  "category": "leafy_greens",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 13.0,
+   "protein": 1.35,
+   "fat": 0.22,
+   "iron": 1.24,
+   "calcium": 35.0,
+   "magnesium": 13.0,
+   "potassium": 238.0,
+   "fibre": 1.1,
+   "folate_dfe": 73.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 166.0,
+   "retinol": 0.0,
+   "vit_c": 3.7,
+   "vit_k": 102.3,
+   "zinc": 0.2,
+   "choline": 8.4,
+   "ala": 0.082,
+   "iodine": 0.6,
+   "vit_e": 0.18,
+   "selenium": 0.6,
+   "vit_b6": 0.082,
+   "thiamin": 0.057,
+   "riboflavin": 0.062,
+   "niacin": 0.6045,
+   "phosphorus": 33.0,
+   "copper": 16.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 40.0,
+   "label": "1 cup shredded"
+  },
+  "diet": "vegetarian",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Lettuce, butterhead (Boston, bibb)",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:lettuce"
+ },
+ {
+  "id": "cnf:2398",
+  "name": "Lettuce, iceberg",
+  "category": "leafy_greens",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 14.0,
+   "protein": 0.9,
+   "fat": 0.14,
+   "iron": 0.41,
+   "calcium": 18.0,
+   "magnesium": 7.0,
+   "potassium": 141.0,
+   "fibre": 1.2,
+   "folate_dfe": 29.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 25.0,
+   "retinol": 0.0,
+   "vit_c": 2.8,
+   "vit_k": 24.1,
+   "zinc": 0.15,
+   "choline": 6.7,
+   "ala": 0.052,
+   "iodine": 0.6,
+   "vit_e": 0.18,
+   "selenium": 0.1,
+   "vit_b6": 0.042,
+   "thiamin": 0.041,
+   "riboflavin": 0.025,
+   "niacin": 0.273,
+   "phosphorus": 20.0,
+   "copper": 25.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 72.0,
+   "label": "1 cup shredded"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Lettuce, iceberg",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:lettuce"
+ },
+ {
+  "id": "cnf:5412",
+  "name": "Lettuce, red leaf",
+  "category": "leafy_greens",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 13.0,
+   "protein": 1.33,
+   "fat": 0.22,
+   "iron": 1.2,
+   "calcium": 33.0,
+   "magnesium": 12.0,
+   "potassium": 187.0,
+   "fibre": 0.9,
+   "folate_dfe": 36.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 375.0,
+   "retinol": 0.0,
+   "vit_c": 3.7,
+   "vit_k": 140.3,
+   "zinc": 0.2,
+   "choline": 11.8,
+   "iodine": 7.0,
+   "vit_e": 0.15,
+   "selenium": 1.5,
+   "vit_b6": 0.1,
+   "thiamin": 0.064,
+   "riboflavin": 0.077,
+   "niacin": 0.5648,
+   "phosphorus": 28.0,
+   "copper": 28.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 40.0,
+   "label": "1 cup shredded"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Lettuce, red leaf",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "ala"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:lettuce"
+ },
+ {
+  "id": "cnf:2132",
+  "name": "New Zealand spinach, raw",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 14.0,
+   "protein": 1.5,
+   "fat": 0.2,
+   "iron": 0.8,
+   "calcium": 58.0,
+   "magnesium": 39.0,
+   "potassium": 130.0,
+   "fibre": 1.5,
+   "folate_dfe": 15.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 220.0,
+   "retinol": 0.0,
+   "vit_c": 30.0,
+   "vit_k": 337.0,
+   "zinc": 0.38,
+   "ala": 0.066,
+   "vit_e": 1.42,
+   "selenium": 0.7,
+   "vit_b6": 0.304,
+   "thiamin": 0.04,
+   "riboflavin": 0.13,
+   "niacin": 0.775,
+   "phosphorus": 28.0,
+   "copper": 93.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [
+   "high_oxalate"
+  ],
+  "source": {
+   "id": "cnf",
+   "name": "New Zealand spinach, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "choline",
+   "epa_dha",
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:new-zealand-spinach"
+ },
+ {
+  "id": "cnf:2190",
+  "name": "Pumpkin leaves, raw",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 19.0,
+   "protein": 3.15,
+   "fat": 0.4,
+   "iron": 2.22,
+   "calcium": 39.0,
+   "magnesium": 38.0,
+   "potassium": 436.0,
+   "folate_dfe": 36.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 97.0,
+   "retinol": 0.0,
+   "vit_c": 11.0,
+   "zinc": 0.2,
+   "ala": 0.012,
+   "selenium": 0.9,
+   "vit_b6": 0.207,
+   "thiamin": 0.094,
+   "riboflavin": 0.128,
+   "niacin": 1.6033,
+   "phosphorus": 104.0,
+   "copper": 133.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 35.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Pumpkin leaves, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "fibre",
+   "vit_k",
+   "choline",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:pumpkin-leaves"
+ },
+ {
+  "id": "cnf:2276",
+  "name": "Watercress, raw",
+  "category": "leafy_greens",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 11.0,
+   "protein": 2.3,
+   "fat": 0.1,
+   "iron": 0.2,
+   "calcium": 120.0,
+   "magnesium": 21.0,
+   "potassium": 330.0,
+   "fibre": 0.5,
+   "folate_dfe": 9.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 160.0,
+   "retinol": 0.0,
+   "vit_c": 43.0,
+   "vit_k": 250.0,
+   "zinc": 0.11,
+   "choline": 9.0,
+   "ala": 0.023,
+   "iodine": 13.8,
+   "vit_e": 1.0,
+   "selenium": 0.9,
+   "vit_b6": 0.129,
+   "thiamin": 0.09,
+   "riboflavin": 0.12,
+   "niacin": 0.7,
+   "phosphorus": 60.0,
+   "copper": 77.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 35.0,
+   "label": "1 cup"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Watercress, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [],
+  "curation": "approved",
+  "dupGroupId": "g:watercress"
+ },
+ {
+  "id": "cnf:3339",
+  "name": "Falafel, homemade",
+  "category": "legumes",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 333.0,
+   "protein": 13.31,
+   "fat": 17.8,
+   "iron": 3.42,
+   "calcium": 54.0,
+   "magnesium": 82.0,
+   "potassium": 585.0,
+   "fibre": 7.8,
+   "folate_dfe": 103.5,
+   "folic_acid": 15.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 1.0,
+   "retinol": 0.0,
+   "vit_c": 1.6,
+   "zinc": 1.5,
+   "ala": 0.111,
+   "selenium": 1.0,
+   "vit_b6": 0.125,
+   "thiamin": 0.146,
+   "riboflavin": 0.166,
+   "niacin": 3.2773,
+   "phosphorus": 192.0,
+   "copper": 258.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 50.0,
+   "label": "3 patties"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Falafel, homemade",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:falafel"
+ },
+ {
+  "id": "cnf:5543",
+  "name": "Meatless, fillets",
+  "category": "legumes",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 290.0,
+   "protein": 23.0,
+   "fat": 18.0,
+   "iron": 2.0,
+   "calcium": 95.0,
+   "magnesium": 23.0,
+   "potassium": 600.0,
+   "fibre": 6.1,
+   "folate_dfe": 102.0,
+   "folic_acid": 0.0,
+   "vit_b12": 4.2,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 1.4,
+   "choline": 82.0,
+   "ala": 1.04,
+   "vit_e": 3.45,
+   "selenium": 1.0,
+   "vit_b6": 1.5,
+   "thiamin": 1.1,
+   "riboflavin": 0.9,
+   "niacin": 16.2167,
+   "phosphorus": 450.0,
+   "copper": 925.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 90.0,
+   "label": "1 fillet"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Meatless, fillets",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:meatless"
+ },
+ {
+  "id": "cnf:2545",
+  "name": "Butternuts (long walnuts)",
+  "category": "nuts_seeds",
+  "form": "dried",
+  "per100g": {
+   "energy_kcal": 612.0,
+   "protein": 24.9,
+   "fat": 56.98,
+   "iron": 4.02,
+   "calcium": 53.0,
+   "magnesium": 237.0,
+   "potassium": 421.0,
+   "fibre": 4.7,
+   "folate_dfe": 66.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 6.0,
+   "retinol": 0.0,
+   "vit_c": 3.2,
+   "zinc": 3.13,
+   "ala": 8.718,
+   "vit_e": 3.5,
+   "selenium": 17.2,
+   "vit_b6": 0.56,
+   "thiamin": 0.383,
+   "riboflavin": 0.148,
+   "niacin": 7.145,
+   "phosphorus": 446.0,
+   "copper": 450.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 30.0,
+   "label": "1 small handful"
+  },
+  "diet": "vegan",
+  "allergens": [
+   "tree_nut"
+  ],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Nuts, butternuts (long walnuts), dried",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:butternuts"
+ },
+ {
+  "id": "cnf:4840",
+  "name": "Duck, duckling, domestic, Pekin, breast, cooked without skin, broiled",
+  "category": "poultry",
+  "form": "grilled",
+  "per100g": {
+   "energy_kcal": 140.0,
+   "protein": 27.6,
+   "fat": 2.5,
+   "iron": 4.49,
+   "calcium": 9.0,
+   "fibre": 0.0,
+   "folic_acid": 0.0,
+   "vit_a_rae": 23.0,
+   "vit_c": 3.2,
+   "ala": 0.012,
+   "selenium": 29.0,
+   "niacin": 16.6833,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 portion"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Duck, duckling, domestic, Pekin, breast, meat only, boneless, cooked without skin, broiled",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "magnesium",
+   "potassium",
+   "folate_dfe",
+   "vit_b12",
+   "vit_k",
+   "zinc",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:duck"
+ },
+ {
+  "id": "cnf:4841",
+  "name": "Duck, duckling, domestic, Pekin, leg, bone in, cooked without skin, braised",
+  "category": "poultry",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 178.0,
+   "protein": 29.1,
+   "fat": 5.96,
+   "iron": 2.33,
+   "calcium": 10.0,
+   "fibre": 0.0,
+   "folic_acid": 0.0,
+   "vit_a_rae": 23.0,
+   "vit_c": 2.3,
+   "ala": 0.039,
+   "selenium": 21.6,
+   "niacin": 11.9967,
+   "epa_dha": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 portion"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Duck, duckling, domestic, Pekin, leg, meat only, bone in, cooked without skin, braised",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "magnesium",
+   "potassium",
+   "folate_dfe",
+   "vit_b12",
+   "vit_k",
+   "zinc",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:duck"
+ },
+ {
+  "id": "cnf:816",
+  "name": "Turkey ground, cooked",
+  "category": "poultry",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 196.0,
+   "protein": 27.628,
+   "fat": 8.706,
+   "iron": 1.077,
+   "calcium": 83.244,
+   "magnesium": 19.243,
+   "potassium": 333.065,
+   "fibre": 0.0,
+   "folate_dfe": 7.0,
+   "folic_acid": 0.0,
+   "vit_b12": 3.203,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.9,
+   "zinc": 3.251,
+   "choline": 75.0,
+   "ala": 0.107,
+   "vit_e": 0.34,
+   "selenium": 7.445,
+   "vit_b6": 0.149,
+   "thiamin": 0.054,
+   "riboflavin": 0.168,
+   "niacin": 11.3493,
+   "phosphorus": 297.649,
+   "copper": 86.0,
+   "vit_d": 0.29,
+   "epa_dha": 10.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 100.0,
+   "label": "1 portion"
+  },
+  "diet": "omnivore",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Turkey, all classes, ground, cooked",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:turkey-ground"
+ },
+ {
+  "id": "cnf:3237",
+  "name": "Jonah crab, steamed",
+  "category": "shellfish",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 99.0,
+   "protein": 16.2,
+   "fat": 1.9,
+   "calcium": 95.991,
+   "magnesium": 32.634,
+   "potassium": 279.3,
+   "fibre": 0.0,
+   "folic_acid": 0.0,
+   "vit_c": 0.0,
+   "ala": 0.018,
+   "epa_dha": 411.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 85.0,
+   "label": "1 portion"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "crustacean"
+  ],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Crustaceans, crab, jonah, steamed",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iron",
+   "folate_dfe",
+   "vit_b12",
+   "vit_a_rae",
+   "vit_k",
+   "zinc",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:jonah-crab"
+ },
+ {
+  "id": "cnf:3238",
+  "name": "Red crab, steamed",
+  "category": "shellfish",
+  "form": "unknown",
+  "per100g": {
+   "energy_kcal": 79.0,
+   "protein": 15.05,
+   "fat": 0.935,
+   "calcium": 40.9695,
+   "magnesium": 27.456,
+   "potassium": 255.97,
+   "fibre": 0.0,
+   "folic_acid": 0.0,
+   "vit_c": 0.0,
+   "ala": 0.009,
+   "phosphorus": 190.19,
+   "epa_dha": 203.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 85.0,
+   "label": "1 portion"
+  },
+  "diet": "pescatarian",
+  "allergens": [
+   "crustacean"
+  ],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Crustaceans, crab, red, steamed",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iron",
+   "folate_dfe",
+   "vit_b12",
+   "vit_a_rae",
+   "vit_k",
+   "zinc",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:red-crab"
+ },
+ {
+  "id": "cnf:6279",
+  "name": "Broccoli, stalks, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 28.0,
+   "protein": 2.98,
+   "fat": 0.35,
+   "iron": 0.88,
+   "calcium": 48.0,
+   "magnesium": 25.0,
+   "potassium": 325.0,
+   "folate_dfe": 71.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 20.0,
+   "retinol": 0.0,
+   "vit_c": 93.2,
+   "zinc": 0.4,
+   "ala": 0.129,
+   "selenium": 3.0,
+   "vit_b6": 0.159,
+   "thiamin": 0.065,
+   "riboflavin": 0.119,
+   "niacin": 1.1213,
+   "phosphorus": 66.0,
+   "copper": 45.0,
+   "vit_d": 0.0,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 91.0,
+   "label": "1 cup chopped"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Broccoli, stalks, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "fibre",
+   "vit_k",
+   "choline",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:broccoli"
+ },
+ {
+  "id": "cnf:2002",
+  "name": "Kidney beans, sprouted, cooked",
+  "category": "vegetables",
+  "form": "cooked_moist",
+  "per100g": {
+   "energy_kcal": 33.0,
+   "protein": 4.83,
+   "fat": 0.58,
+   "iron": 0.89,
+   "calcium": 19.0,
+   "magnesium": 23.0,
+   "potassium": 194.0,
+   "fibre": 0.8,
+   "folate_dfe": 47.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 35.6,
+   "zinc": 0.44,
+   "ala": 0.194,
+   "selenium": 0.6,
+   "vit_b6": 0.093,
+   "thiamin": 0.362,
+   "riboflavin": 0.273,
+   "niacin": 3.8573,
+   "phosphorus": 38.0,
+   "copper": 174.0,
+   "vit_d": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 172.0,
+   "label": "1 cup cooked"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Beans, kidney, sprouted, boiled, drained",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:kidney-beans"
+ },
+ {
+  "id": "cnf:6928",
+  "name": "Mushroom, Chanterelle, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 32.0,
+   "protein": 1.49,
+   "fat": 0.53,
+   "iron": 3.47,
+   "calcium": 15.0,
+   "magnesium": 13.0,
+   "potassium": 506.0,
+   "fibre": 3.8,
+   "folate_dfe": 2.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "retinol": 0.0,
+   "vit_c": 5.67,
+   "zinc": 0.71,
+   "iodine": 2.15,
+   "vit_e": 0.06,
+   "selenium": 2.2,
+   "vit_b6": 0.044,
+   "thiamin": 0.015,
+   "riboflavin": 0.215,
+   "niacin": 4.3582,
+   "phosphorus": 57.0,
+   "copper": 353.0,
+   "vit_d": 5.3,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 70.0,
+   "label": "1 cup sliced"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Mushroom, Chanterelle, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_a_rae",
+   "vit_k",
+   "choline",
+   "ala"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:mushroom"
+ },
+ {
+  "id": "cnf:6219",
+  "name": "Mushroom, Maitake, raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 37.0,
+   "protein": 1.94,
+   "fat": 0.19,
+   "iron": 0.3,
+   "calcium": 1.0,
+   "magnesium": 10.0,
+   "potassium": 204.0,
+   "fibre": 2.7,
+   "folate_dfe": 21.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 0.0,
+   "vit_k": 0.0,
+   "zinc": 0.75,
+   "choline": 51.1,
+   "ala": 0.0,
+   "vit_e": 0.01,
+   "selenium": 2.2,
+   "vit_b6": 0.056,
+   "thiamin": 0.146,
+   "riboflavin": 0.242,
+   "niacin": 7.1683,
+   "phosphorus": 74.0,
+   "copper": 252.0,
+   "vit_d": 28.1,
+   "epa_dha": 0.0
+  },
+  "suggestable": true,
+  "serving": {
+   "grams": 70.0,
+   "label": "1 cup sliced"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Mushroom, Maitake, raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "iodine"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:mushroom"
+ },
+ {
+  "id": "cnf:2277",
+  "name": "Waxgourd (Chinese preserving melon), raw",
+  "category": "vegetables",
+  "form": "raw",
+  "per100g": {
+   "energy_kcal": 13.0,
+   "protein": 0.4,
+   "fat": 0.2,
+   "iron": 0.4,
+   "calcium": 19.0,
+   "magnesium": 10.0,
+   "potassium": 6.0,
+   "fibre": 2.9,
+   "folate_dfe": 5.0,
+   "folic_acid": 0.0,
+   "vit_b12": 0.0,
+   "vit_a_rae": 0.0,
+   "retinol": 0.0,
+   "vit_c": 13.0,
+   "zinc": 0.61,
+   "selenium": 0.2,
+   "vit_b6": 0.035,
+   "thiamin": 0.04,
+   "riboflavin": 0.11,
+   "niacin": 0.4333,
+   "phosphorus": 19.0,
+   "copper": 23.0,
+   "vit_d": 0.0
+  },
+  "suggestable": false,
+  "serving": {
+   "grams": 125.0,
+   "label": "about 1 cup chopped"
+  },
+  "diet": "vegan",
+  "allergens": [],
+  "pregnancyFlags": [],
+  "traits": [],
+  "source": {
+   "id": "cnf",
+   "name": "Waxgourd (Chinese preserving melon), raw",
+   "citation": "Canadian Nutrient File, Health Canada, 2026",
+   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
+  },
+  "missing": [
+   "vit_k",
+   "choline",
+   "ala",
+   "epa_dha",
+   "iodine",
+   "vit_e"
+  ],
+  "curation": "approved",
+  "dupGroupId": "g:waxgourd"
+ },
+ {
   "id": "cnf:7732",
   "name": "Asiago",
   "category": "cheese",
@@ -28171,61 +30071,6 @@
   "dupGroupId": "g:kale"
  },
  {
-  "id": "cnf:2115",
-  "name": "Lettuce, butterhead (Boston, bibb)",
-  "category": "leafy_greens",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 13.0,
-   "protein": 1.35,
-   "fat": 0.22,
-   "iron": 1.24,
-   "calcium": 35.0,
-   "magnesium": 13.0,
-   "potassium": 238.0,
-   "fibre": 1.1,
-   "folate_dfe": 73.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 166.0,
-   "retinol": 0.0,
-   "vit_c": 3.7,
-   "vit_k": 102.3,
-   "zinc": 0.2,
-   "choline": 8.4,
-   "ala": 0.082,
-   "iodine": 0.6,
-   "vit_e": 0.18,
-   "selenium": 0.6,
-   "vit_b6": 0.082,
-   "thiamin": 0.057,
-   "riboflavin": 0.062,
-   "niacin": 0.6045,
-   "phosphorus": 33.0,
-   "copper": 16.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": true,
-  "serving": {
-   "grams": 40.0,
-   "label": "1 cup shredded"
-  },
-  "diet": "vegetarian",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Lettuce, butterhead (Boston, bibb)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "auto_passed",
-  "dupGroupId": "g:lettuce"
- },
- {
   "id": "cnf:2116",
   "name": "Lettuce, cos or romaine",
   "category": "leafy_greens",
@@ -28273,61 +30118,6 @@
   "source": {
    "id": "cnf",
    "name": "Lettuce, cos or romaine",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "auto_passed",
-  "dupGroupId": "g:lettuce"
- },
- {
-  "id": "cnf:2398",
-  "name": "Lettuce, iceberg",
-  "category": "leafy_greens",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 14.0,
-   "protein": 0.9,
-   "fat": 0.14,
-   "iron": 0.41,
-   "calcium": 18.0,
-   "magnesium": 7.0,
-   "potassium": 141.0,
-   "fibre": 1.2,
-   "folate_dfe": 29.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 25.0,
-   "retinol": 0.0,
-   "vit_c": 2.8,
-   "vit_k": 24.1,
-   "zinc": 0.15,
-   "choline": 6.7,
-   "ala": 0.052,
-   "iodine": 0.6,
-   "vit_e": 0.18,
-   "selenium": 0.1,
-   "vit_b6": 0.042,
-   "thiamin": 0.041,
-   "riboflavin": 0.025,
-   "niacin": 0.273,
-   "phosphorus": 20.0,
-   "copper": 25.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": true,
-  "serving": {
-   "grams": 72.0,
-   "label": "1 cup shredded"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Lettuce, iceberg",
    "citation": "Canadian Nutrient File, Health Canada, 2026",
    "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
   },
@@ -28387,62 +30177,6 @@
   },
   "missing": [
    "iodine"
-  ],
-  "curation": "auto_passed",
-  "dupGroupId": "g:lettuce"
- },
- {
-  "id": "cnf:5412",
-  "name": "Lettuce, red leaf",
-  "category": "leafy_greens",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 13.0,
-   "protein": 1.33,
-   "fat": 0.22,
-   "iron": 1.2,
-   "calcium": 33.0,
-   "magnesium": 12.0,
-   "potassium": 187.0,
-   "fibre": 0.9,
-   "folate_dfe": 36.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 375.0,
-   "retinol": 0.0,
-   "vit_c": 3.7,
-   "vit_k": 140.3,
-   "zinc": 0.2,
-   "choline": 11.8,
-   "iodine": 7.0,
-   "vit_e": 0.15,
-   "selenium": 1.5,
-   "vit_b6": 0.1,
-   "thiamin": 0.064,
-   "riboflavin": 0.077,
-   "niacin": 0.5648,
-   "phosphorus": 28.0,
-   "copper": 28.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": true,
-  "serving": {
-   "grams": 40.0,
-   "label": "1 cup shredded"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Lettuce, red leaf",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "ala"
   ],
   "curation": "auto_passed",
   "dupGroupId": "g:lettuce"
@@ -63115,184 +64849,8 @@
    "choline",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:calorie-reduced"
- },
- {
-  "id": "cnf:5562",
-  "name": "Cottage cheese, with vegetables",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 95.0,
-   "protein": 10.9,
-   "fat": 4.2,
-   "iron": 0.1,
-   "calcium": 56.0,
-   "magnesium": 4.0,
-   "potassium": 86.0,
-   "fibre": 0.1,
-   "folate_dfe": 17.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.49,
-   "vit_a_rae": 53.0,
-   "retinol": 41.0,
-   "vit_c": 4.0,
-   "vit_k": 11.0,
-   "zinc": 0.29,
-   "choline": 17.5,
-   "ala": 0.037,
-   "vit_e": 0.05,
-   "selenium": 4.5,
-   "vit_b6": 0.05,
-   "thiamin": 0.01,
-   "riboflavin": 0.13,
-   "niacin": 2.3333,
-   "phosphorus": 128.0,
-   "copper": 28.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 113.0,
-   "label": "½ cup"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, cottage, with vegetables",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:cottage-cheese"
- },
- {
-  "id": "cnf:108",
-  "name": "Feta",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 270.0,
-   "protein": 16.77,
-   "fat": 22.461,
-   "iron": 0.59,
-   "calcium": 399.0,
-   "magnesium": 10.0,
-   "potassium": 52.0,
-   "fibre": 0.0,
-   "folate_dfe": 2.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.45,
-   "vit_a_rae": 125.0,
-   "retinol": 125.0,
-   "vit_c": 0.0,
-   "vit_k": 1.8,
-   "zinc": 1.65,
-   "choline": 15.4,
-   "ala": 0.0,
-   "iodine": 22.3,
-   "vit_e": 0.18,
-   "selenium": 14.4,
-   "vit_b6": 0.028,
-   "thiamin": 0.03,
-   "riboflavin": 0.203,
-   "niacin": 2.6427,
-   "phosphorus": 239.0,
-   "copper": 74.0,
-   "vit_d": 0.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 38.0,
-   "label": "¼ cup crumbled"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, feta",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:feta"
- },
- {
-  "id": "cnf:7754",
-  "name": "Feta, light",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 213.0,
-   "protein": 20.76,
-   "fat": 13.419,
-   "iron": 0.51,
-   "calcium": 352.0,
-   "magnesium": 8.0,
-   "potassium": 38.0,
-   "fibre": 0.0,
-   "folate_dfe": 7.7,
-   "folic_acid": 1.0,
-   "vit_b12": 0.62,
-   "vit_c": 0.0,
-   "zinc": 1.75,
-   "ala": 0.0,
-   "selenium": 16.8,
-   "vit_b6": 0.01,
-   "thiamin": 0.028,
-   "riboflavin": 0.212,
-   "niacin": 5.654,
-   "phosphorus": 259.0,
-   "copper": 58.0,
-   "vit_d": 0.2,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 38.0,
-   "label": "¼ cup crumbled"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, feta, light",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_a_rae",
-   "vit_k",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:feta"
  },
  {
   "id": "cnf:31",
@@ -63349,187 +64907,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:gjetost"
- },
- {
-  "id": "cnf:96",
-  "name": "Goat cheese, hard",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 452.0,
-   "protein": 30.52,
-   "fat": 35.59,
-   "iron": 1.88,
-   "calcium": 895.0,
-   "magnesium": 54.0,
-   "potassium": 48.0,
-   "fibre": 0.0,
-   "folate_dfe": 4.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.12,
-   "vit_a_rae": 486.0,
-   "retinol": 478.0,
-   "vit_c": 0.0,
-   "vit_k": 3.0,
-   "zinc": 1.59,
-   "choline": 15.4,
-   "ala": 0.0,
-   "vit_e": 0.31,
-   "selenium": 5.5,
-   "vit_b6": 0.08,
-   "thiamin": 0.14,
-   "riboflavin": 1.19,
-   "niacin": 7.75,
-   "phosphorus": 729.0,
-   "copper": 627.0,
-   "vit_d": 0.7,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 30.0,
-   "label": "1 slice"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, goat, hard, (less than 35% water, 36% M.F.)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:goat-cheese"
- },
- {
-  "id": "cnf:97",
-  "name": "Goat cheese, semi-soft",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 364.0,
-   "protein": 21.58,
-   "fat": 29.84,
-   "iron": 1.62,
-   "calcium": 298.0,
-   "magnesium": 29.0,
-   "potassium": 158.0,
-   "fibre": 0.0,
-   "folate_dfe": 2.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.22,
-   "vit_a_rae": 407.0,
-   "retinol": 401.0,
-   "vit_c": 0.0,
-   "vit_k": 2.5,
-   "zinc": 0.66,
-   "choline": 15.4,
-   "ala": 0.0,
-   "iodine": 69.5,
-   "vit_e": 0.26,
-   "selenium": 3.8,
-   "vit_b6": 0.06,
-   "thiamin": 0.072,
-   "riboflavin": 0.676,
-   "niacin": 4.9313,
-   "phosphorus": 375.0,
-   "copper": 564.0,
-   "vit_d": 0.5,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 30.0,
-   "label": "1 slice"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, goat, semi-soft, (35% to 55% water, 30% M.F.)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:goat-cheese"
- },
- {
-  "id": "cnf:98",
-  "name": "Goat cheese, soft",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 288.0,
-   "protein": 17.18,
-   "fat": 23.727,
-   "iron": 0.08,
-   "calcium": 67.0,
-   "magnesium": 13.0,
-   "potassium": 126.0,
-   "fibre": 0.0,
-   "folate_dfe": 12.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.1,
-   "vit_a_rae": 288.0,
-   "retinol": 283.0,
-   "vit_c": 0.0,
-   "vit_k": 1.8,
-   "zinc": 0.42,
-   "choline": 15.4,
-   "ala": 0.0,
-   "vit_e": 0.18,
-   "selenium": 19.2,
-   "vit_b6": 0.019,
-   "thiamin": 0.027,
-   "riboflavin": 0.258,
-   "niacin": 4.003,
-   "phosphorus": 211.0,
-   "copper": 77.0,
-   "vit_d": 0.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 38.0,
-   "label": "¼ cup crumbled"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, goat, soft, (more than 55% water, 24% M.F.)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:goat-cheese"
  },
  {
   "id": "cnf:7756",
@@ -63587,7 +64966,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:goat-cheese"
  },
  {
@@ -63645,7 +65024,7 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:mozzarella"
  },
  {
@@ -63702,127 +65081,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:oka"
- },
- {
-  "id": "cnf:43",
-  "name": "Ricotta",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 193.0,
-   "protein": 9.83,
-   "fat": 14.407,
-   "iron": 0.37,
-   "calcium": 243.0,
-   "magnesium": 13.0,
-   "potassium": 160.0,
-   "fibre": 0.0,
-   "folate_dfe": 1.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.46,
-   "vit_a_rae": 120.0,
-   "retinol": 117.0,
-   "vit_c": 0.0,
-   "vit_k": 1.1,
-   "zinc": 0.85,
-   "choline": 17.5,
-   "ala": 0.0,
-   "iodine": 24.3552,
-   "vit_e": 0.11,
-   "selenium": 9.5,
-   "vit_b6": 0.031,
-   "thiamin": 0.031,
-   "riboflavin": 0.185,
-   "niacin": 3.4704,
-   "phosphorus": 169.0,
-   "copper": 33.0,
-   "vit_d": 0.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 113.0,
-   "label": "½ cup"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, ricotta",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:ricotta"
- },
- {
-  "id": "cnf:44",
-  "name": "Ricotta, light",
-  "category": "cheese",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 127.0,
-   "protein": 10.91,
-   "fat": 6.176,
-   "iron": 0.39,
-   "calcium": 287.0,
-   "magnesium": 16.0,
-   "potassium": 175.0,
-   "fibre": 0.0,
-   "folate_dfe": 0.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.54,
-   "vit_a_rae": 107.0,
-   "retinol": 105.0,
-   "vit_c": 0.0,
-   "vit_k": 0.7,
-   "zinc": 0.87,
-   "choline": 16.3,
-   "ala": 0.0,
-   "vit_e": 0.07,
-   "selenium": 9.5,
-   "vit_b6": 0.036,
-   "thiamin": 0.032,
-   "riboflavin": 0.229,
-   "niacin": 3.8155,
-   "phosphorus": 196.0,
-   "copper": 27.0,
-   "vit_d": 0.047,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 113.0,
-   "label": "½ cup"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "milk"
-  ],
-  "pregnancyFlags": [
-   "soft_cheese"
-  ],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cheese, ricotta, light",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:ricotta"
  },
  {
   "id": "cnf:2995",
@@ -63879,66 +65139,8 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:black-and-red-caviar"
- },
- {
-  "id": "cnf:3220",
-  "name": "Coho salmon, wild, poached",
-  "category": "fish",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 184.0,
-   "protein": 23.5,
-   "fat": 3.5,
-   "iron": 0.642,
-   "calcium": 44.8,
-   "magnesium": 35.6,
-   "potassium": 337.0,
-   "fibre": 0.0,
-   "folate_dfe": 9.0,
-   "folic_acid": 0.0,
-   "vit_b12": 3.61,
-   "vit_a_rae": 32.0,
-   "retinol": 32.0,
-   "vit_c": 1.0,
-   "zinc": 0.687,
-   "ala": 0.19,
-   "vit_e": 0.82,
-   "selenium": 46.2,
-   "vit_b6": 0.48,
-   "thiamin": 0.115,
-   "riboflavin": 0.09,
-   "niacin": 21.9,
-   "phosphorus": 794.0,
-   "copper": 65.0,
-   "vit_d": 11.74,
-   "epa_dha": 1374.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 100.0,
-   "label": "1 piece"
-  },
-  "diet": "pescatarian",
-  "allergens": [
-   "fish"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Fish, salmon, coho, wild, poached",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:coho-salmon"
  },
  {
   "id": "cnf:3154",
@@ -63995,7 +65197,7 @@
    "choline",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:roe"
  },
  {
@@ -64052,7 +65254,7 @@
    "choline",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:smelt"
  },
  {
@@ -64108,63 +65310,8 @@
    "choline",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:acerola"
- },
- {
-  "id": "cnf:1697",
-  "name": "Apple, raw, without skin",
-  "category": "fruit",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 48.0,
-   "protein": 0.27,
-   "fat": 0.13,
-   "iron": 0.07,
-   "calcium": 5.0,
-   "magnesium": 4.0,
-   "potassium": 90.0,
-   "fibre": 1.3,
-   "folate_dfe": 0.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 2.0,
-   "retinol": 0.0,
-   "vit_c": 4.0,
-   "vit_k": 0.6,
-   "zinc": 0.05,
-   "choline": 3.4,
-   "ala": 0.007,
-   "iodine": 9.56,
-   "vit_e": 0.05,
-   "selenium": 0.0,
-   "vit_b6": 0.037,
-   "thiamin": 0.019,
-   "riboflavin": 0.028,
-   "niacin": 0.1077,
-   "phosphorus": 11.0,
-   "copper": 31.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 182.0,
-   "label": "1 medium"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Apple, raw, without skin",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:apple"
  },
  {
   "id": "cnf:6260",
@@ -64219,60 +65366,8 @@
    "epa_dha",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:chokecherry"
- },
- {
-  "id": "cnf:6416",
-  "name": "Cranberry (lingonberry), wild, raw",
-  "category": "fruit",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 55.0,
-   "protein": 1.1,
-   "fat": 0.2,
-   "iron": 1.0,
-   "calcium": 20.0,
-   "potassium": 140.0,
-   "fibre": 6.7,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_c": 15.0,
-   "thiamin": 0.0,
-   "riboflavin": 0.01,
-   "niacin": 1.1017,
-   "phosphorus": 15.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 145.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Cranberry (lingonberry), wild, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "magnesium",
-   "folate_dfe",
-   "vit_a_rae",
-   "vit_k",
-   "zinc",
-   "choline",
-   "ala",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:cranberry"
  },
  {
   "id": "cnf:7596",
@@ -64317,7 +65412,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:goji-berries"
  },
  {
@@ -64368,7 +65463,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:huckleberries"
  },
  {
@@ -64424,7 +65519,7 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:lemon"
  },
  {
@@ -64479,124 +65574,8 @@
    "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
   },
   "missing": [],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:lime"
- },
- {
-  "id": "cnf:6530",
-  "name": "Raspberry, wild, raw",
-  "category": "fruit",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 62.0,
-   "protein": 1.12,
-   "fat": 0.28,
-   "iron": 0.64,
-   "calcium": 36.0,
-   "magnesium": 26.0,
-   "potassium": 175.0,
-   "fibre": 7.5,
-   "folate_dfe": 5.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 2.0,
-   "vit_c": 26.4,
-   "vit_k": 6.6,
-   "zinc": 0.47,
-   "choline": 9.5,
-   "vit_e": 0.57,
-   "vit_b6": 0.104,
-   "thiamin": 0.018,
-   "riboflavin": 0.08,
-   "niacin": 1.2353,
-   "phosphorus": 41.0,
-   "copper": 97.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 123.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Raspberry, wild, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "ala",
-   "epa_dha",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:raspberry"
- },
- {
-  "id": "cnf:4514",
-  "name": "Pasta, egg noodles, spinach, enriched, cooked",
-  "category": "grains",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 132.0,
-   "protein": 5.04,
-   "fat": 1.57,
-   "iron": 1.09,
-   "calcium": 19.0,
-   "magnesium": 24.0,
-   "potassium": 37.0,
-   "fibre": 1.33,
-   "folate_dfe": 177.4,
-   "folic_acid": 92.0,
-   "vit_b12": 0.14,
-   "vit_a_rae": 10.0,
-   "retinol": 6.0,
-   "vit_c": 0.0,
-   "vit_k": 101.1,
-   "zinc": 0.63,
-   "choline": 25.7,
-   "ala": 0.04,
-   "vit_e": 0.55,
-   "selenium": 21.8,
-   "vit_b6": 0.114,
-   "thiamin": 0.4155,
-   "riboflavin": 0.1385,
-   "niacin": 3.7304,
-   "phosphorus": 57.0,
-   "copper": 80.0,
-   "vit_d": 0.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 140.0,
-   "label": "1 cup cooked"
-  },
-  "diet": "vegetarian",
-  "allergens": [
-   "egg",
-   "gluten",
-   "wheat"
-  ],
-  "pregnancyFlags": [],
-  "traits": [
-   "high_oxalate"
-  ],
-  "source": {
-   "id": "cnf",
-   "name": "Pasta, egg noodles, spinach, enriched, cooked",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:pasta-egg-noodles"
  },
  {
   "id": "cnf:7135",
@@ -64649,7 +65628,7 @@
    "epa_dha",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:seaweed"
  },
  {
@@ -64705,7 +65684,7 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:seaweed"
  },
  {
@@ -64761,175 +65740,8 @@
    "epa_dha",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:seaweed"
- },
- {
-  "id": "cnf:1985",
-  "name": "Amaranth leaves, cooked",
-  "category": "leafy_greens",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 21.0,
-   "protein": 2.11,
-   "fat": 0.18,
-   "iron": 2.26,
-   "calcium": 209.0,
-   "magnesium": 55.0,
-   "potassium": 641.0,
-   "folate_dfe": 57.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 139.0,
-   "retinol": 0.0,
-   "vit_c": 41.1,
-   "zinc": 0.88,
-   "ala": 0.001,
-   "selenium": 0.9,
-   "vit_b6": 0.177,
-   "thiamin": 0.02,
-   "riboflavin": 0.134,
-   "niacin": 1.009,
-   "phosphorus": 72.0,
-   "copper": 158.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 170.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Amaranth leaves, boiled, drained",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "vit_k",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:amaranth-leaves"
- },
- {
-  "id": "cnf:1984",
-  "name": "Amaranth leaves, fresh",
-  "category": "leafy_greens",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 23.0,
-   "protein": 2.46,
-   "fat": 0.33,
-   "iron": 2.32,
-   "calcium": 215.0,
-   "magnesium": 55.0,
-   "potassium": 611.0,
-   "folate_dfe": 85.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 146.0,
-   "retinol": 0.0,
-   "vit_c": 43.3,
-   "vit_k": 1140.0,
-   "zinc": 0.9,
-   "ala": 0.002,
-   "selenium": 0.9,
-   "vit_b6": 0.192,
-   "thiamin": 0.027,
-   "riboflavin": 0.158,
-   "niacin": 1.1747,
-   "phosphorus": 50.0,
-   "copper": 162.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 35.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Amaranth leaves, fresh",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:amaranth-leaves"
- },
- {
-  "id": "cnf:2038",
-  "name": "Bok choy, pak-choi, raw",
-  "category": "leafy_greens",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 13.0,
-   "protein": 1.5,
-   "fat": 0.2,
-   "iron": 0.8,
-   "calcium": 105.0,
-   "magnesium": 19.0,
-   "potassium": 252.0,
-   "fibre": 1.0,
-   "folate_dfe": 66.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 223.0,
-   "retinol": 0.0,
-   "vit_c": 45.0,
-   "vit_k": 45.5,
-   "zinc": 0.19,
-   "choline": 6.4,
-   "ala": 0.051,
-   "iodine": 1.0,
-   "vit_e": 0.09,
-   "selenium": 0.5,
-   "vit_b6": 0.194,
-   "thiamin": 0.04,
-   "riboflavin": 0.07,
-   "niacin": 0.75,
-   "phosphorus": 37.0,
-   "copper": 21.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 35.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Bok choy, pak-choi, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:bok-choy"
  },
  {
   "id": "cnf:4856",
@@ -64984,122 +65796,8 @@
   "missing": [
    "choline"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:grape-leaves"
- },
- {
-  "id": "cnf:2132",
-  "name": "New Zealand spinach, raw",
-  "category": "leafy_greens",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 14.0,
-   "protein": 1.5,
-   "fat": 0.2,
-   "iron": 0.8,
-   "calcium": 58.0,
-   "magnesium": 39.0,
-   "potassium": 130.0,
-   "fibre": 1.5,
-   "folate_dfe": 15.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 220.0,
-   "retinol": 0.0,
-   "vit_c": 30.0,
-   "vit_k": 337.0,
-   "zinc": 0.38,
-   "ala": 0.066,
-   "vit_e": 1.42,
-   "selenium": 0.7,
-   "vit_b6": 0.304,
-   "thiamin": 0.04,
-   "riboflavin": 0.13,
-   "niacin": 0.775,
-   "phosphorus": 28.0,
-   "copper": 93.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 30.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [
-   "high_oxalate"
-  ],
-  "source": {
-   "id": "cnf",
-   "name": "New Zealand spinach, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "choline",
-   "epa_dha",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:new-zealand-spinach"
- },
- {
-  "id": "cnf:2190",
-  "name": "Pumpkin leaves, raw",
-  "category": "leafy_greens",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 19.0,
-   "protein": 3.15,
-   "fat": 0.4,
-   "iron": 2.22,
-   "calcium": 39.0,
-   "magnesium": 38.0,
-   "potassium": 436.0,
-   "folate_dfe": 36.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 97.0,
-   "retinol": 0.0,
-   "vit_c": 11.0,
-   "zinc": 0.2,
-   "ala": 0.012,
-   "selenium": 0.9,
-   "vit_b6": 0.207,
-   "thiamin": 0.094,
-   "riboflavin": 0.128,
-   "niacin": 1.6033,
-   "phosphorus": 104.0,
-   "copper": 133.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 35.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Pumpkin leaves, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "vit_k",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:pumpkin-leaves"
  },
  {
   "id": "cnf:2315",
@@ -65156,63 +65854,8 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:spinach-souffle"
- },
- {
-  "id": "cnf:2276",
-  "name": "Watercress, raw",
-  "category": "leafy_greens",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 11.0,
-   "protein": 2.3,
-   "fat": 0.1,
-   "iron": 0.2,
-   "calcium": 120.0,
-   "magnesium": 21.0,
-   "potassium": 330.0,
-   "fibre": 0.5,
-   "folate_dfe": 9.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 160.0,
-   "retinol": 0.0,
-   "vit_c": 43.0,
-   "vit_k": 250.0,
-   "zinc": 0.11,
-   "choline": 9.0,
-   "ala": 0.023,
-   "iodine": 13.8,
-   "vit_e": 1.0,
-   "selenium": 0.9,
-   "vit_b6": 0.129,
-   "thiamin": 0.09,
-   "riboflavin": 0.12,
-   "niacin": 0.7,
-   "phosphorus": 60.0,
-   "copper": 77.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 35.0,
-   "label": "1 cup"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Watercress, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [],
-  "curation": "needs_review",
-  "dupGroupId": "g:watercress"
  },
  {
   "id": "cnf:2281",
@@ -65267,168 +65910,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:winged-beans-leaves"
- },
- {
-  "id": "cnf:3246",
-  "name": "Adzuki beans, yokan (bean jelly)",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 260.0,
-   "protein": 3.29,
-   "fat": 0.12,
-   "iron": 1.16,
-   "calcium": 27.0,
-   "magnesium": 18.0,
-   "potassium": 45.0,
-   "folate_dfe": 8.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "zinc": 0.07,
-   "selenium": 2.3,
-   "vit_b6": 0.008,
-   "thiamin": 0.005,
-   "riboflavin": 0.004,
-   "niacin": 0.5903,
-   "phosphorus": 40.0,
-   "copper": 29.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Beans, adzuki, yokan (bean jelly)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "vit_k",
-   "choline",
-   "ala",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:adzuki-beans"
- },
- {
-  "id": "cnf:6667",
-  "name": "Coffee whitener (non dairy), liquid, soy creamer",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 100.0,
-   "protein": 0.0,
-   "fat": 6.67,
-   "iron": 0.0,
-   "calcium": 0.0,
-   "fibre": 0.0,
-   "vit_c": 0.0,
-   "ala": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Coffee whitener (non dairy), liquid, soy creamer",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "magnesium",
-   "potassium",
-   "folate_dfe",
-   "vit_b12",
-   "vit_a_rae",
-   "vit_k",
-   "zinc",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:coffee-whitener"
- },
- {
-  "id": "cnf:3339",
-  "name": "Falafel, homemade",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 333.0,
-   "protein": 13.31,
-   "fat": 17.8,
-   "iron": 3.42,
-   "calcium": 54.0,
-   "magnesium": 82.0,
-   "potassium": 585.0,
-   "fibre": 7.8,
-   "folate_dfe": 103.5,
-   "folic_acid": 15.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 1.0,
-   "retinol": 0.0,
-   "vit_c": 1.6,
-   "zinc": 1.5,
-   "ala": 0.111,
-   "selenium": 1.0,
-   "vit_b6": 0.125,
-   "thiamin": 0.146,
-   "riboflavin": 0.166,
-   "niacin": 3.2773,
-   "phosphorus": 192.0,
-   "copper": 258.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Falafel, homemade",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:falafel"
  },
  {
   "id": "cnf:5492",
@@ -65467,8 +65950,8 @@
   },
   "suggestable": false,
   "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
+   "grams": 13.0,
+   "label": "1 papad"
   },
   "diet": "vegan",
   "allergens": [],
@@ -65483,296 +65966,8 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:indian"
- },
- {
-  "id": "cnf:5543",
-  "name": "Meatless, fillets",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 290.0,
-   "protein": 23.0,
-   "fat": 18.0,
-   "iron": 2.0,
-   "calcium": 95.0,
-   "magnesium": 23.0,
-   "potassium": 600.0,
-   "fibre": 6.1,
-   "folate_dfe": 102.0,
-   "folic_acid": 0.0,
-   "vit_b12": 4.2,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 1.4,
-   "choline": 82.0,
-   "ala": 1.04,
-   "vit_e": 3.45,
-   "selenium": 1.0,
-   "vit_b6": 1.5,
-   "thiamin": 1.1,
-   "riboflavin": 0.9,
-   "niacin": 16.2167,
-   "phosphorus": 450.0,
-   "copper": 925.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Meatless, fillets",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:meatless"
- },
- {
-  "id": "cnf:3368",
-  "name": "Soy protein concentrate",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 328.0,
-   "protein": 63.63,
-   "fat": 0.46,
-   "iron": 10.78,
-   "calcium": 363.0,
-   "magnesium": 140.0,
-   "potassium": 450.0,
-   "fibre": 5.5,
-   "folate_dfe": 340.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 4.4,
-   "ala": 0.024,
-   "selenium": 0.8,
-   "vit_b6": 0.134,
-   "thiamin": 0.316,
-   "riboflavin": 0.142,
-   "niacin": 14.6327,
-   "phosphorus": 839.0,
-   "copper": 976.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Soy protein concentrate (prepared with acid and water wash)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:soy-protein-concentrate"
- },
- {
-  "id": "cnf:3327",
-  "name": "Soy protein concentrate (prepared with alcohol)",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 328.0,
-   "protein": 63.63,
-   "fat": 0.46,
-   "iron": 10.78,
-   "calcium": 363.0,
-   "magnesium": 315.0,
-   "potassium": 2202.0,
-   "fibre": 5.5,
-   "folate_dfe": 340.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 4.4,
-   "ala": 0.024,
-   "vit_e": 0.0,
-   "selenium": 0.8,
-   "vit_b6": 0.134,
-   "thiamin": 0.316,
-   "riboflavin": 0.142,
-   "niacin": 14.6327,
-   "phosphorus": 839.0,
-   "copper": 976.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Soy protein concentrate (prepared with alcohol)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "choline",
-   "epa_dha",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:soy-protein-concentrate"
- },
- {
-  "id": "cnf:3369",
-  "name": "Soy protein isolate (prepared with potassium)",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 321.0,
-   "protein": 88.32,
-   "fat": 0.53,
-   "iron": 14.5,
-   "calcium": 178.0,
-   "magnesium": 39.0,
-   "potassium": 1590.0,
-   "fibre": 0.0,
-   "folate_dfe": 176.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 4.03,
-   "choline": 190.9,
-   "ala": 0.035,
-   "vit_e": 0.0,
-   "selenium": 0.8,
-   "vit_b6": 0.1,
-   "thiamin": 0.176,
-   "riboflavin": 0.1,
-   "niacin": 20.038,
-   "phosphorus": 776.0,
-   "copper": 1599.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Soy protein isolate (prepared with potassium)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:soy-protein-isolate"
- },
- {
-  "id": "cnf:3328",
-  "name": "Soy protein isolate (prepared with sodium)",
-  "category": "legumes",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 335.0,
-   "protein": 88.32,
-   "fat": 3.39,
-   "iron": 14.5,
-   "calcium": 178.0,
-   "magnesium": 39.0,
-   "potassium": 81.0,
-   "fibre": 0.0,
-   "folate_dfe": 176.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 4.03,
-   "choline": 190.9,
-   "ala": 0.195,
-   "vit_e": 0.0,
-   "selenium": 0.8,
-   "vit_b6": 0.1,
-   "thiamin": 0.176,
-   "riboflavin": 0.1,
-   "niacin": 20.038,
-   "phosphorus": 776.0,
-   "copper": 1599.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 175.0,
-   "label": "about 1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Soy protein isolate (prepared with sodium)",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:soy-protein-isolate"
  },
  {
   "id": "cnf:3331",
@@ -65808,8 +66003,8 @@
   },
   "suggestable": false,
   "serving": {
-   "grams": 125.0,
-   "label": "½ cup"
+   "grams": 17.0,
+   "label": "1 piece, dried"
   },
   "diet": "vegan",
   "allergens": [
@@ -65829,7 +66024,7 @@
    "epa_dha",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:tofu"
  },
  {
@@ -65866,8 +66061,8 @@
   },
   "suggestable": false,
   "serving": {
-   "grams": 125.0,
-   "label": "½ cup"
+   "grams": 17.0,
+   "label": "1 piece, dried"
   },
   "diet": "vegan",
   "allergens": [
@@ -65887,66 +66082,8 @@
    "epa_dha",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:tofu"
- },
- {
-  "id": "cnf:2545",
-  "name": "Butternuts (long walnuts)",
-  "category": "nuts_seeds",
-  "form": "dried",
-  "per100g": {
-   "energy_kcal": 612.0,
-   "protein": 24.9,
-   "fat": 56.98,
-   "iron": 4.02,
-   "calcium": 53.0,
-   "magnesium": 237.0,
-   "potassium": 421.0,
-   "fibre": 4.7,
-   "folate_dfe": 66.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 6.0,
-   "retinol": 0.0,
-   "vit_c": 3.2,
-   "zinc": 3.13,
-   "ala": 8.718,
-   "vit_e": 3.5,
-   "selenium": 17.2,
-   "vit_b6": 0.56,
-   "thiamin": 0.383,
-   "riboflavin": 0.148,
-   "niacin": 7.145,
-   "phosphorus": 446.0,
-   "copper": 450.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 30.0,
-   "label": "1 small handful"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "tree_nut"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Nuts, butternuts (long walnuts), dried",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:butternuts"
  },
  {
   "id": "cnf:2604",
@@ -66000,7 +66137,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:sisymbrium-sp-seeds"
  },
  {
@@ -66048,278 +66185,8 @@
    "choline",
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:flaxseed-oil"
- },
- {
-  "id": "cnf:442",
-  "name": "Soybean lecithin oil",
-  "category": "oils_fats",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 763.0,
-   "protein": 0.0,
-   "fat": 100.0,
-   "iron": 0.0,
-   "calcium": 0.0,
-   "magnesium": 0.0,
-   "potassium": 0.0,
-   "fibre": 0.0,
-   "folate_dfe": 0.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 183.9,
-   "zinc": 0.0,
-   "choline": 350.0,
-   "vit_e": 8.18,
-   "selenium": 0.0,
-   "vit_b6": 0.0,
-   "thiamin": 0.0,
-   "riboflavin": 0.0,
-   "niacin": 0.0,
-   "phosphorus": 0.0,
-   "copper": 0.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 14.0,
-   "label": "1 tbsp"
-  },
-  "diet": "vegan",
-  "allergens": [
-   "soy"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Vegetable oil, soybean lecithin",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "ala",
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:soybean-lecithin-oil"
- },
- {
-  "id": "cnf:4840",
-  "name": "Duck, duckling, domestic, Pekin, breast, cooked without skin, broiled",
-  "category": "poultry",
-  "form": "grilled",
-  "per100g": {
-   "energy_kcal": 140.0,
-   "protein": 27.6,
-   "fat": 2.5,
-   "iron": 4.49,
-   "calcium": 9.0,
-   "fibre": 0.0,
-   "folic_acid": 0.0,
-   "vit_a_rae": 23.0,
-   "vit_c": 3.2,
-   "ala": 0.012,
-   "selenium": 29.0,
-   "niacin": 16.6833,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 100.0,
-   "label": "1 portion"
-  },
-  "diet": "omnivore",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Duck, duckling, domestic, Pekin, breast, meat only, boneless, cooked without skin, broiled",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "magnesium",
-   "potassium",
-   "folate_dfe",
-   "vit_b12",
-   "vit_k",
-   "zinc",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:duck"
- },
- {
-  "id": "cnf:4841",
-  "name": "Duck, duckling, domestic, Pekin, leg, bone in, cooked without skin, braised",
-  "category": "poultry",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 178.0,
-   "protein": 29.1,
-   "fat": 5.96,
-   "iron": 2.33,
-   "calcium": 10.0,
-   "fibre": 0.0,
-   "folic_acid": 0.0,
-   "vit_a_rae": 23.0,
-   "vit_c": 2.3,
-   "ala": 0.039,
-   "selenium": 21.6,
-   "niacin": 11.9967,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 100.0,
-   "label": "1 portion"
-  },
-  "diet": "omnivore",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Duck, duckling, domestic, Pekin, leg, meat only, bone in, cooked without skin, braised",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "magnesium",
-   "potassium",
-   "folate_dfe",
-   "vit_b12",
-   "vit_k",
-   "zinc",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:duck"
- },
- {
-  "id": "cnf:816",
-  "name": "Turkey ground, cooked",
-  "category": "poultry",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 196.0,
-   "protein": 27.628,
-   "fat": 8.706,
-   "iron": 1.077,
-   "calcium": 83.244,
-   "magnesium": 19.243,
-   "potassium": 333.065,
-   "fibre": 0.0,
-   "folate_dfe": 7.0,
-   "folic_acid": 0.0,
-   "vit_b12": 3.203,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.9,
-   "zinc": 3.251,
-   "choline": 75.0,
-   "ala": 0.107,
-   "vit_e": 0.34,
-   "selenium": 7.445,
-   "vit_b6": 0.149,
-   "thiamin": 0.054,
-   "riboflavin": 0.168,
-   "niacin": 11.3493,
-   "phosphorus": 297.649,
-   "copper": 86.0,
-   "vit_d": 0.29,
-   "epa_dha": 10.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 100.0,
-   "label": "1 portion"
-  },
-  "diet": "omnivore",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Turkey, all classes, ground, cooked",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:turkey-ground"
- },
- {
-  "id": "cnf:3113",
-  "name": "Clam, canned, liquid",
-  "category": "shellfish",
-  "form": "canned",
-  "per100g": {
-   "energy_kcal": 2.0,
-   "protein": 0.4,
-   "fat": 0.02,
-   "iron": 0.3,
-   "calcium": 13.0,
-   "magnesium": 11.0,
-   "potassium": 149.0,
-   "fibre": 0.0,
-   "folate_dfe": 2.0,
-   "folic_acid": 0.0,
-   "vit_b12": 5.0,
-   "vit_a_rae": 9.0,
-   "retinol": 9.0,
-   "vit_c": 1.0,
-   "vit_k": 0.2,
-   "zinc": 0.1,
-   "choline": 13.0,
-   "ala": 0.0,
-   "vit_e": 0.31,
-   "selenium": 4.1,
-   "vit_b6": 0.01,
-   "thiamin": 0.01,
-   "riboflavin": 0.02,
-   "niacin": 0.2533,
-   "phosphorus": 114.0,
-   "copper": 389.0,
-   "vit_d": 0.0,
-   "epa_dha": 3.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 85.0,
-   "label": "1 portion"
-  },
-  "diet": "pescatarian",
-  "allergens": [
-   "mollusc"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Mollusks, clam, mixed species, canned, liquid",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:clam"
  },
  {
   "id": "cnf:5427",
@@ -66376,57 +66243,8 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:conch"
- },
- {
-  "id": "cnf:3237",
-  "name": "Jonah crab, steamed",
-  "category": "shellfish",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 99.0,
-   "protein": 16.2,
-   "fat": 1.9,
-   "calcium": 95.991,
-   "magnesium": 32.634,
-   "potassium": 279.3,
-   "fibre": 0.0,
-   "folic_acid": 0.0,
-   "vit_c": 0.0,
-   "ala": 0.018,
-   "epa_dha": 411.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 85.0,
-   "label": "1 portion"
-  },
-  "diet": "pescatarian",
-  "allergens": [
-   "crustacean"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Crustaceans, crab, jonah, steamed",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iron",
-   "folate_dfe",
-   "vit_b12",
-   "vit_a_rae",
-   "vit_k",
-   "zinc",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:jonah-crab"
  },
  {
   "id": "cnf:3175",
@@ -66482,58 +66300,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:mixed-spsecies-cuttlefish"
- },
- {
-  "id": "cnf:3238",
-  "name": "Red crab, steamed",
-  "category": "shellfish",
-  "form": "unknown",
-  "per100g": {
-   "energy_kcal": 79.0,
-   "protein": 15.05,
-   "fat": 0.935,
-   "calcium": 40.9695,
-   "magnesium": 27.456,
-   "potassium": 255.97,
-   "fibre": 0.0,
-   "folic_acid": 0.0,
-   "vit_c": 0.0,
-   "ala": 0.009,
-   "phosphorus": 190.19,
-   "epa_dha": 203.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 85.0,
-   "label": "1 portion"
-  },
-  "diet": "pescatarian",
-  "allergens": [
-   "crustacean"
-  ],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Crustaceans, crab, red, steamed",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iron",
-   "folate_dfe",
-   "vit_b12",
-   "vit_a_rae",
-   "vit_k",
-   "zinc",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:red-crab"
  },
  {
   "id": "cnf:1995",
@@ -66588,64 +66356,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:balsam-pear"
- },
- {
-  "id": "cnf:6279",
-  "name": "Broccoli, stalks, raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 28.0,
-   "protein": 2.98,
-   "fat": 0.35,
-   "iron": 0.88,
-   "calcium": 48.0,
-   "magnesium": 25.0,
-   "potassium": 325.0,
-   "folate_dfe": 71.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 20.0,
-   "retinol": 0.0,
-   "vit_c": 93.2,
-   "zinc": 0.4,
-   "ala": 0.129,
-   "selenium": 3.0,
-   "vit_b6": 0.159,
-   "thiamin": 0.065,
-   "riboflavin": 0.119,
-   "niacin": 1.1213,
-   "phosphorus": 66.0,
-   "copper": 45.0,
-   "vit_d": 0.0,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 91.0,
-   "label": "1 cup chopped"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Broccoli, stalks, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "vit_k",
-   "choline",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:broccoli"
  },
  {
   "id": "cnf:2083",
@@ -66700,7 +66412,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:cowpeas"
  },
  {
@@ -66756,62 +66468,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:cowpeas"
- },
- {
-  "id": "cnf:4906",
-  "name": "Fiddlehead greens (ferns), raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 34.0,
-   "protein": 4.55,
-   "fat": 0.4,
-   "iron": 1.31,
-   "calcium": 32.0,
-   "magnesium": 34.0,
-   "potassium": 370.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 181.0,
-   "retinol": 0.0,
-   "vit_c": 26.6,
-   "zinc": 0.83,
-   "thiamin": 0.02,
-   "riboflavin": 0.21,
-   "niacin": 5.8142,
-   "phosphorus": 101.0,
-   "copper": 320.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 125.0,
-   "label": "about 1 cup chopped"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Fiddlehead greens (ferns), raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "fibre",
-   "folate_dfe",
-   "vit_k",
-   "choline",
-   "ala",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:fiddlehead-greens"
  },
  {
   "id": "cnf:2103",
@@ -66866,288 +66524,8 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:jute"
- },
- {
-  "id": "cnf:2002",
-  "name": "Kidney beans, sprouted, cooked",
-  "category": "vegetables",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 33.0,
-   "protein": 4.83,
-   "fat": 0.58,
-   "iron": 0.89,
-   "calcium": 19.0,
-   "magnesium": 23.0,
-   "potassium": 194.0,
-   "fibre": 0.8,
-   "folate_dfe": 47.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 35.6,
-   "zinc": 0.44,
-   "ala": 0.194,
-   "selenium": 0.6,
-   "vit_b6": 0.093,
-   "thiamin": 0.362,
-   "riboflavin": 0.273,
-   "niacin": 3.8573,
-   "phosphorus": 38.0,
-   "copper": 174.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 172.0,
-   "label": "1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Beans, kidney, sprouted, boiled, drained",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:kidney-beans"
- },
- {
-  "id": "cnf:6928",
-  "name": "Mushroom, Chanterelle, raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 32.0,
-   "protein": 1.49,
-   "fat": 0.53,
-   "iron": 3.47,
-   "calcium": 15.0,
-   "magnesium": 13.0,
-   "potassium": 506.0,
-   "fibre": 3.8,
-   "folate_dfe": 2.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "retinol": 0.0,
-   "vit_c": 5.67,
-   "zinc": 0.71,
-   "iodine": 2.15,
-   "vit_e": 0.06,
-   "selenium": 2.2,
-   "vit_b6": 0.044,
-   "thiamin": 0.015,
-   "riboflavin": 0.215,
-   "niacin": 4.3582,
-   "phosphorus": 57.0,
-   "copper": 353.0,
-   "vit_d": 5.3,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 70.0,
-   "label": "1 cup sliced"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Mushroom, Chanterelle, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_a_rae",
-   "vit_k",
-   "choline",
-   "ala"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:mushroom"
- },
- {
-  "id": "cnf:6219",
-  "name": "Mushroom, Maitake, raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 37.0,
-   "protein": 1.94,
-   "fat": 0.19,
-   "iron": 0.3,
-   "calcium": 1.0,
-   "magnesium": 10.0,
-   "potassium": 204.0,
-   "fibre": 2.7,
-   "folate_dfe": 21.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.0,
-   "vit_k": 0.0,
-   "zinc": 0.75,
-   "choline": 51.1,
-   "ala": 0.0,
-   "vit_e": 0.01,
-   "selenium": 2.2,
-   "vit_b6": 0.056,
-   "thiamin": 0.146,
-   "riboflavin": 0.242,
-   "niacin": 7.1683,
-   "phosphorus": 74.0,
-   "copper": 252.0,
-   "vit_d": 28.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 70.0,
-   "label": "1 cup sliced"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Mushroom, Maitake, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "iodine"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:mushroom"
- },
- {
-  "id": "cnf:6929",
-  "name": "Mushroom, morel, raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 31.0,
-   "protein": 3.12,
-   "fat": 0.57,
-   "iron": 12.18,
-   "calcium": 43.0,
-   "magnesium": 19.0,
-   "potassium": 411.0,
-   "fibre": 2.8,
-   "folate_dfe": 9.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 5.0,
-   "zinc": 2.03,
-   "ala": 0.0,
-   "iodine": 10.0,
-   "vit_e": 0.19,
-   "selenium": 2.2,
-   "vit_b6": 0.136,
-   "thiamin": 0.069,
-   "riboflavin": 0.205,
-   "niacin": 2.824,
-   "phosphorus": 194.0,
-   "copper": 625.0,
-   "vit_d": 5.1,
-   "epa_dha": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 70.0,
-   "label": "1 cup sliced"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Mushroom, morel, raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:mushroom"
- },
- {
-  "id": "cnf:2014",
-  "name": "Pinto beans, frozen, cooked",
-  "category": "vegetables",
-  "form": "cooked_moist",
-  "per100g": {
-   "energy_kcal": 162.0,
-   "protein": 9.31,
-   "fat": 0.48,
-   "iron": 2.71,
-   "calcium": 52.0,
-   "magnesium": 54.0,
-   "potassium": 646.0,
-   "fibre": 5.4,
-   "folate_dfe": 34.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "retinol": 0.0,
-   "vit_c": 0.7,
-   "zinc": 0.69,
-   "ala": 1.77,
-   "selenium": 1.4,
-   "vit_b6": 0.194,
-   "thiamin": 0.274,
-   "riboflavin": 0.108,
-   "niacin": 2.3388,
-   "phosphorus": 100.0,
-   "copper": 88.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 172.0,
-   "label": "1 cup cooked"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Beans, pinto, frozen, boiled, drained",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_a_rae",
-   "vit_k",
-   "choline",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:pinto-beans"
  },
  {
   "id": "cnf:2187",
@@ -67202,7 +66580,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:potato-salad"
  },
  {
@@ -67258,7 +66636,7 @@
    "iodine",
    "vit_e"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:potato"
  },
  {
@@ -67314,63 +66692,7 @@
   "missing": [
    "iodine"
   ],
-  "curation": "needs_review",
+  "curation": "searchable_only",
   "dupGroupId": "g:potato"
- },
- {
-  "id": "cnf:2277",
-  "name": "Waxgourd (Chinese preserving melon), raw",
-  "category": "vegetables",
-  "form": "raw",
-  "per100g": {
-   "energy_kcal": 13.0,
-   "protein": 0.4,
-   "fat": 0.2,
-   "iron": 0.4,
-   "calcium": 19.0,
-   "magnesium": 10.0,
-   "potassium": 6.0,
-   "fibre": 2.9,
-   "folate_dfe": 5.0,
-   "folic_acid": 0.0,
-   "vit_b12": 0.0,
-   "vit_a_rae": 0.0,
-   "retinol": 0.0,
-   "vit_c": 13.0,
-   "zinc": 0.61,
-   "selenium": 0.2,
-   "vit_b6": 0.035,
-   "thiamin": 0.04,
-   "riboflavin": 0.11,
-   "niacin": 0.4333,
-   "phosphorus": 19.0,
-   "copper": 23.0,
-   "vit_d": 0.0
-  },
-  "suggestable": false,
-  "serving": {
-   "grams": 125.0,
-   "label": "about 1 cup chopped"
-  },
-  "diet": "vegan",
-  "allergens": [],
-  "pregnancyFlags": [],
-  "traits": [],
-  "source": {
-   "id": "cnf",
-   "name": "Waxgourd (Chinese preserving melon), raw",
-   "citation": "Canadian Nutrient File, Health Canada, 2026",
-   "licence": "Open Government Licence - Canada (ca-ogl-lgo)"
-  },
-  "missing": [
-   "vit_k",
-   "choline",
-   "ala",
-   "epa_dha",
-   "iodine",
-   "vit_e"
-  ],
-  "curation": "needs_review",
-  "dupGroupId": "g:waxgourd"
  }
 ]

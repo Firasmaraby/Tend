@@ -1,4 +1,38 @@
 food_id,display_name,category,serving_g,serving_label,diet,allergens,pregnancy_flags,suggestable,traits,status,reasons,source_name,dup_group
+cnf:5562,"Cottage cheese, with vegetables",cheese,113,½ cup,vegetarian,milk,,true,,approved,vit_k outlier for cheese,"Cheese, cottage, with vegetables",g:cottage-cheese
+cnf:108,Feta,cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, feta",g:feta
+cnf:7754,"Feta, light",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, feta, light",g:feta
+cnf:96,"Goat cheese, hard",cheese,30,1 slice,vegetarian,milk,,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, hard, (less than 35% water, 36% M.F.)",g:goat-cheese
+cnf:97,"Goat cheese, semi-soft",cheese,30,1 slice,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, semi-soft, (35% to 55% water, 30% M.F.)",g:goat-cheese
+cnf:98,"Goat cheese, soft",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, soft, (more than 55% water, 24% M.F.)",g:goat-cheese
+cnf:43,Ricotta,cheese,113,½ cup,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, ricotta",g:ricotta
+cnf:44,"Ricotta, light",cheese,113,½ cup,vegetarian,milk,soft_cheese,true,,approved,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, ricotta, light",g:ricotta
+cnf:1697,"Apple, raw, without skin",fruit,182,1 medium,vegan,,,true,,approved,iodine outlier for fruit,"Apple, raw, without skin",g:apple
+cnf:6416,"Cranberry (lingonberry), wild, raw",fruit,145,1 cup,vegan,,,false,,approved,energy 55 vs Atwater 42,"Cranberry (lingonberry), wild, raw",g:cranberry
+cnf:6530,"Raspberry, wild, raw",fruit,123,1 cup,vegan,,,true,,approved,energy 62 vs Atwater 47,"Raspberry, wild, raw",g:raspberry
+cnf:4514,"Pasta, egg noodles, spinach, enriched, cooked",grains,140,1 cup cooked,vegetarian,egg|gluten|wheat,,true,high_oxalate,approved,vit_k outlier for grains,"Pasta, egg noodles, spinach, enriched, cooked",g:pasta-egg-noodles
+cnf:1985,"Amaranth leaves, cooked",leafy_greens,170,about 1 cup cooked,vegan,,,false,,approved,energy 21 vs Atwater 26,"Amaranth leaves, boiled, drained",g:amaranth-leaves
+cnf:1984,"Amaranth leaves, fresh",leafy_greens,35,1 cup,vegan,,,false,,approved,energy 23 vs Atwater 29,"Amaranth leaves, fresh",g:amaranth-leaves
+cnf:2038,"Bok choy, pak-choi, raw",leafy_greens,35,1 cup,vegan,,,true,,approved,serving energy 5 kcal,"Bok choy, pak-choi, raw",g:bok-choy
+cnf:2115,"Lettuce, butterhead (Boston, bibb)",leafy_greens,40,1 cup shredded,vegetarian,,,true,,approved,,"Lettuce, butterhead (Boston, bibb)",g:lettuce
+cnf:2398,"Lettuce, iceberg",leafy_greens,72,1 cup shredded,vegan,,,true,,approved,,"Lettuce, iceberg",g:lettuce
+cnf:5412,"Lettuce, red leaf",leafy_greens,40,1 cup shredded,vegan,,,true,,approved,,"Lettuce, red leaf",g:lettuce
+cnf:2132,"New Zealand spinach, raw",leafy_greens,30,1 cup,vegan,,,false,high_oxalate,approved,serving energy 4 kcal,"New Zealand spinach, raw",g:new-zealand-spinach
+cnf:2190,"Pumpkin leaves, raw",leafy_greens,35,1 cup,vegan,,,false,,approved,energy 19 vs Atwater 26,"Pumpkin leaves, raw",g:pumpkin-leaves
+cnf:2276,"Watercress, raw",leafy_greens,35,1 cup,vegan,,,false,,approved,energy 11 vs Atwater 14; serving energy 4 kcal,"Watercress, raw",g:watercress
+cnf:3339,"Falafel, homemade",legumes,50.0,3 patties,vegan,,,false,,approved,serving energy 583 kcal,"Falafel, homemade",g:falafel
+cnf:5543,"Meatless, fillets",legumes,90.0,1 fillet,vegan,,,false,,approved,serving energy 508 kcal,"Meatless, fillets",g:meatless
+cnf:2545,Butternuts (long walnuts),nuts_seeds,30,1 small handful,vegan,tree_nut,,false,,approved,ala outlier for nuts_seeds,"Nuts, butternuts (long walnuts), dried",g:butternuts
+cnf:4840,"Duck, duckling, domestic, Pekin, breast, cooked without skin, broiled",poultry,100,1 portion,omnivore,,,false,,approved,thin data (5/10 core values),"Duck, duckling, domestic, Pekin, breast, meat only, boneless, cooked without skin, broiled",g:duck
+cnf:4841,"Duck, duckling, domestic, Pekin, leg, bone in, cooked without skin, braised",poultry,100,1 portion,omnivore,,,false,,approved,thin data (5/10 core values),"Duck, duckling, domestic, Pekin, leg, meat only, bone in, cooked without skin, braised",g:duck
+cnf:816,"Turkey ground, cooked",poultry,100,1 portion,omnivore,,,true,,approved,calcium outlier for poultry,"Turkey, all classes, ground, cooked",g:turkey-ground
+cnf:3237,"Jonah crab, steamed",shellfish,85,1 portion,pescatarian,crustacean,,true,,approved,thin data (5/10 core values),"Crustaceans, crab, jonah, steamed",g:jonah-crab
+cnf:3238,"Red crab, steamed",shellfish,85,1 portion,pescatarian,crustacean,,true,,approved,thin data (5/10 core values),"Crustaceans, crab, red, steamed",g:red-crab
+cnf:6279,"Broccoli, stalks, raw",vegetables,91,1 cup chopped,vegan,,,true,,approved,energy 28 vs Atwater 36,"Broccoli, stalks, raw",g:broccoli
+cnf:2002,"Kidney beans, sprouted, cooked",vegetables,172,1 cup cooked,vegan,,,true,,approved,energy 33 vs Atwater 42,"Beans, kidney, sprouted, boiled, drained",g:kidney-beans
+cnf:6928,"Mushroom, Chanterelle, raw",vegetables,70,1 cup sliced,vegan,,,true,,approved,vit_d outlier for vegetables,"Mushroom, Chanterelle, raw",g:mushroom
+cnf:6219,"Mushroom, Maitake, raw",vegetables,70,1 cup sliced,vegan,,,true,,approved,vit_d outlier for vegetables,"Mushroom, Maitake, raw",g:mushroom
+cnf:2277,"Waxgourd (Chinese preserving melon), raw",vegetables,125,about 1 cup chopped,vegan,,,false,,approved,energy 13 vs Atwater 10,"Waxgourd (Chinese preserving melon), raw",g:waxgourd
 cnf:7732,Asiago,cheese,30,1 slice,vegetarian,milk,,false,,auto_passed,,"Cheese, asiago",g:asiago
 cnf:18,Blue,cheese,30,1 slice,vegetarian,milk,soft_cheese,false,,auto_passed,,"Cheese, blue",g:blue
 cnf:7743,Bocconcini,cheese,30,1 slice,vegetarian,milk,,false,,auto_passed,,"Cheese, bocconcini",g:bocconcini
@@ -410,11 +444,8 @@ cnf:2107,"Kale, frozen, cooked",leafy_greens,130,1 cup cooked,vegan,,,true,,auto
 cnf:2395,"Kale, raw",leafy_greens,21,1 cup chopped,vegan,,,true,,auto_passed,,"Kale, raw",g:kale
 cnf:2296,"Kale, scotch, cooked",leafy_greens,130,1 cup cooked,vegan,,,true,,auto_passed,,"Kale, scotch, boiled, drained",g:kale
 cnf:2295,"Kale, scotch, raw",leafy_greens,21,1 cup chopped,vegan,,,true,,auto_passed,,"Kale, scotch, raw",g:kale
-cnf:2115,"Lettuce, butterhead (Boston, bibb)",leafy_greens,40,1 cup shredded,vegetarian,,,true,,auto_passed,,"Lettuce, butterhead (Boston, bibb)",g:lettuce
 cnf:2116,"Lettuce, cos or romaine",leafy_greens,47,1 cup shredded,vegan,,,true,,auto_passed,,"Lettuce, cos or romaine",g:lettuce
-cnf:2398,"Lettuce, iceberg",leafy_greens,72,1 cup shredded,vegan,,,true,,auto_passed,,"Lettuce, iceberg",g:lettuce
 cnf:2117,"Lettuce, looseleaf",leafy_greens,40,1 cup shredded,vegan,,,true,,auto_passed,,"Lettuce, looseleaf",g:lettuce
-cnf:5412,"Lettuce, red leaf",leafy_greens,40,1 cup shredded,vegan,,,true,,auto_passed,,"Lettuce, red leaf",g:lettuce
 cnf:6616,"Lettuce, spring mix (mesclun)",leafy_greens,40,1 cup shredded,vegan,,,true,,auto_passed,,"Lettuce, spring mix (mesclun)",g:lettuce
 cnf:4883,"Malabar spinach, cooked",leafy_greens,180,1 cup cooked,vegan,,,false,high_oxalate,auto_passed,,"Malabar spinach, cooked",g:malabar-spinach
 cnf:2127,"Mustard greens, cooked",leafy_greens,140,1 cup cooked,vegan,,,false,,auto_passed,,"Mustard greens, boiled, drained",g:mustard-greens
@@ -1032,80 +1063,37 @@ cnf:7121,"Yogurt, goat, plain",yogurt,175,¾ cup,vegetarian,milk,,true,,auto_pas
 cnf:6975,"Yogurt, rich/Mediterranean style, 6-9%, plain",yogurt,175,¾ cup,vegetarian,milk,,true,,auto_passed,,"Yogourt (yogurt), rich/Mediterranean style, 6-9% M.F., plain",g:yogurt-rich-mediterranean-style
 cnf:7364,"Yogurt, rich/Mediterranean style, 6-9%, plain, made with Vitamin D fortified milk",yogurt,175,¾ cup,vegetarian,milk,,true,,auto_passed,,"Yogourt (yogurt), rich/Mediterranean style, 6-9% M.F., plain, made with Vitamin D fortified milk",g:yogurt-rich-mediterranean-style
 cnf:6987,"Yogurt, soy, plain",yogurt,175,¾ cup,vegan,soy,,true,,auto_passed,,"Yogourt (yogurt), soy, plain",g:yogurt-soy
-cnf:160,"Calorie-reduced, 6%",cheese,30,1 slice,vegetarian,milk,,false,,needs_review,thin data (3/10 core values),"Cheese, calorie-reduced, 6% M.F.",g:calorie-reduced
-cnf:5562,"Cottage cheese, with vegetables",cheese,113,½ cup,vegetarian,milk,,false,,needs_review,vit_k outlier for cheese,"Cheese, cottage, with vegetables",g:cottage-cheese
-cnf:108,Feta,cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, feta",g:feta
-cnf:7754,"Feta, light",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, feta, light",g:feta
-cnf:31,Gjetost,cheese,30,1 slice,vegetarian,milk,,false,,needs_review,potassium outlier for cheese,"Cheese, gjetost",g:gjetost
-cnf:96,"Goat cheese, hard",cheese,30,1 slice,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, hard, (less than 35% water, 36% M.F.)",g:goat-cheese
-cnf:97,"Goat cheese, semi-soft",cheese,30,1 slice,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, semi-soft, (35% to 55% water, 30% M.F.)",g:goat-cheese
-cnf:98,"Goat cheese, soft",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, soft, (more than 55% water, 24% M.F.)",g:goat-cheese
-cnf:7756,"Goat cheese, soft, with cranberries",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, soft, with cranberries",g:goat-cheese
-cnf:5512,"Mozzarella, fat free",cheese,28,1 slice,vegetarian,milk,,false,,needs_review,fibre outlier for cheese,"Cheese, mozzarella, fat free",g:mozzarella
-cnf:7762,"Oka, with rind",cheese,30,1 slice,vegetarian,milk,,false,,needs_review,folic_acid outlier for cheese,"Cheese, oka, with rind",g:oka
-cnf:43,Ricotta,cheese,113,½ cup,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, ricotta",g:ricotta
-cnf:44,"Ricotta, light",cheese,113,½ cup,vegetarian,milk,soft_cheese,false,,needs_review,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, ricotta, light",g:ricotta
-cnf:2995,"Black and red caviar, granular",fish,100,1 piece,pescatarian,fish,,false,,needs_review,choline outlier for fish,"Fish, caviar, black and red, granular",g:black-and-red-caviar
-cnf:3220,"Coho salmon, wild, poached",fish,100,1 piece,pescatarian,fish,,false,,needs_review,energy 184 vs Atwater 126,"Fish, salmon, coho, wild, poached",g:coho-salmon
-cnf:3154,"Roe, baked",fish,100,1 piece,pescatarian,fish,,false,,needs_review,vit_c outlier for fish,"Fish, roe, mixed species, baked or broiled",g:roe
-cnf:6264,"Smelt, dried",fish,100,1 piece,pescatarian,fish,,false,,needs_review,calcium outlier for fish,"Fish, smelt, dried",g:smelt
-cnf:1484,"Acerola (West Indian cherry), raw",fruit,140,1 medium or 1 cup,vegan,,,false,,needs_review,vit_c outlier for fruit,"Acerola (West Indian cherry), raw",g:acerola
-cnf:1697,"Apple, raw, without skin",fruit,182,1 medium,vegan,,,false,,needs_review,iodine outlier for fruit,"Apple, raw, without skin",g:apple
-cnf:6260,"Chokecherry, raw, pitted",fruit,140,1 medium or 1 cup,vegan,,,false,,needs_review,energy 156 vs Atwater 122,"Chokecherry, raw, pitted",g:chokecherry
-cnf:6416,"Cranberry (lingonberry), wild, raw",fruit,145,1 cup,vegan,,,false,,needs_review,energy 55 vs Atwater 42,"Cranberry (lingonberry), wild, raw",g:cranberry
-cnf:7596,"Goji berries, dried",fruit,40,¼ cup,vegan,,,false,,needs_review,thin data (4/10 core values); protein outlier for fruit,"Goji berries, dried",g:goji-berries
-cnf:6444,"Huckleberries, raw",fruit,145,1 cup,vegan,,,false,,needs_review,thin data (4/10 core values),"Huckleberries, raw",g:huckleberries
-cnf:1587,"Lemon, raw, without peel",fruit,140,1 medium or 1 cup,vegan,,,false,,needs_review,energy 29 vs Atwater 39,"Lemon, raw, without peel",g:lemon
-cnf:1593,"Lime, raw",fruit,140,1 medium or 1 cup,vegan,,,false,,needs_review,energy 30 vs Atwater 41,"Lime, raw",g:lime
-cnf:6530,"Raspberry, wild, raw",fruit,123,1 cup,vegan,,,false,,needs_review,energy 62 vs Atwater 47,"Raspberry, wild, raw",g:raspberry
-cnf:4514,"Pasta, egg noodles, spinach, enriched, cooked",grains,140,1 cup cooked,vegetarian,egg|gluten|wheat,,false,high_oxalate,needs_review,vit_k outlier for grains,"Pasta, egg noodles, spinach, enriched, cooked",g:pasta-egg-noodles
-cnf:7135,"Seaweed, Canadian cultivated Emi-Tsunomata, rehydrated",herbs_spices,100,100 g,vegan,,,false,,needs_review,energy 31 vs Atwater 22,"Seaweed, Canadian cultivated Emi-Tsunomata, rehydrated",g:seaweed
-cnf:2205,"Seaweed, dulse (laver, nori), raw",herbs_spices,100,100 g,vegan,,,false,,needs_review,energy 35 vs Atwater 46,"Seaweed, dulse (laver, nori), raw",g:seaweed
-cnf:2319,"Seaweed, spirulina, raw",herbs_spices,100,100 g,vegan,,,false,,needs_review,energy 26 vs Atwater 36,"Seaweed, spirulina, raw",g:seaweed
-cnf:1985,"Amaranth leaves, cooked",leafy_greens,170,about 1 cup cooked,vegan,,,false,,needs_review,energy 21 vs Atwater 26,"Amaranth leaves, boiled, drained",g:amaranth-leaves
-cnf:1984,"Amaranth leaves, fresh",leafy_greens,35,1 cup,vegan,,,false,,needs_review,energy 23 vs Atwater 29,"Amaranth leaves, fresh",g:amaranth-leaves
-cnf:2038,"Bok choy, pak-choi, raw",leafy_greens,35,1 cup,vegan,,,false,,needs_review,serving energy 5 kcal,"Bok choy, pak-choi, raw",g:bok-choy
-cnf:4856,"Grape leaves (vine leaves), canned",leafy_greens,151,1 cup,vegan,,,false,,needs_review,copper outlier for leafy_greens,"Grape leaves (vine leaves), canned",g:grape-leaves
-cnf:2132,"New Zealand spinach, raw",leafy_greens,30,1 cup,vegan,,,false,high_oxalate,needs_review,serving energy 4 kcal,"New Zealand spinach, raw",g:new-zealand-spinach
-cnf:2190,"Pumpkin leaves, raw",leafy_greens,35,1 cup,vegan,,,false,,needs_review,energy 19 vs Atwater 26,"Pumpkin leaves, raw",g:pumpkin-leaves
-cnf:2315,"Spinach souffle, homemade",leafy_greens,35,1 cup,vegan,,,false,high_oxalate,needs_review,fat outlier for leafy_greens,"Spinach souffle, homemade",g:spinach-souffle
-cnf:2276,"Watercress, raw",leafy_greens,35,1 cup,vegan,,,false,,needs_review,energy 11 vs Atwater 14; serving energy 4 kcal,"Watercress, raw",g:watercress
-cnf:2281,"Winged beans (goa bean) leaves, raw",leafy_greens,35,1 cup,vegan,,,false,,needs_review,thiamin outlier for leafy_greens,"Winged beans (goa bean) leaves, raw",g:winged-beans-leaves
-cnf:3246,"Adzuki beans, yokan (bean jelly)",legumes,175,about 1 cup cooked,vegan,,,false,,needs_review,serving energy 455 kcal,"Beans, adzuki, yokan (bean jelly)",g:adzuki-beans
-cnf:6667,"Coffee whitener (non dairy), liquid, soy creamer",legumes,175,about 1 cup cooked,vegan,soy,,false,,needs_review,thin data (4/10 core values),"Coffee whitener (non dairy), liquid, soy creamer",g:coffee-whitener
-cnf:3339,"Falafel, homemade",legumes,175,about 1 cup cooked,vegan,,,false,,needs_review,serving energy 583 kcal,"Falafel, homemade",g:falafel
-cnf:5492,"Indian, papad (papadum)",legumes,175,about 1 cup cooked,vegan,,,false,,needs_review,serving energy 649 kcal,"Indian, papad (papadum)",g:indian
-cnf:5543,"Meatless, fillets",legumes,175,about 1 cup cooked,vegan,,,false,,needs_review,serving energy 508 kcal,"Meatless, fillets",g:meatless
-cnf:3368,Soy protein concentrate,legumes,175,about 1 cup cooked,vegan,soy,,false,,needs_review,serving energy 574 kcal,Soy protein concentrate (prepared with acid and water wash),g:soy-protein-concentrate
-cnf:3327,Soy protein concentrate (prepared with alcohol),legumes,175,about 1 cup cooked,vegan,soy,,false,,needs_review,serving energy 574 kcal,Soy protein concentrate (prepared with alcohol),g:soy-protein-concentrate
-cnf:3369,Soy protein isolate (prepared with potassium),legumes,175,about 1 cup cooked,vegan,soy,,false,,needs_review,serving energy 562 kcal,Soy protein isolate (prepared with potassium),g:soy-protein-isolate
-cnf:3328,Soy protein isolate (prepared with sodium),legumes,175,about 1 cup cooked,vegan,soy,,false,,needs_review,serving energy 586 kcal,Soy protein isolate (prepared with sodium),g:soy-protein-isolate
-cnf:3331,"Tofu, koyadofu, dried-frozen",legumes,125,½ cup,vegan,soy,,false,,needs_review,serving energy 596 kcal,"Tofu, koyadofu, dried-frozen",g:tofu
-cnf:3370,"Tofu, koyadofu, dried-frozen",legumes,125,½ cup,vegan,soy,,false,,needs_review,serving energy 588 kcal; calcium outlier for legumes,"Tofu, koyadofu, dried-frozen (prepared with calcium sulphate)",g:tofu
-cnf:2545,Butternuts (long walnuts),nuts_seeds,30,1 small handful,vegan,tree_nut,,false,,needs_review,ala outlier for nuts_seeds,"Nuts, butternuts (long walnuts), dried",g:butternuts
-cnf:2604,"Sisymbrium sp. seeds, whole",nuts_seeds,30,¼ cup,vegan,,,false,,needs_review,calcium outlier for nuts_seeds,"Seeds, sisymbrium sp. seeds, whole, dried",g:sisymbrium-sp-seeds
-cnf:7050,"Flaxseed oil, contains added sliced flaxseed",oils_fats,14,1 tbsp,vegan,,,false,,needs_review,thin data (5/10 core values); calcium outlier for oils_fats; zinc outlier for oils_fats; phosphorus outlier for oils_fats,"Vegetable oil, flaxseed, contains added sliced flaxseed",g:flaxseed-oil
-cnf:442,Soybean lecithin oil,oils_fats,14,1 tbsp,vegan,soy,,false,,needs_review,choline outlier for oils_fats,"Vegetable oil, soybean lecithin",g:soybean-lecithin-oil
-cnf:4840,"Duck, duckling, domestic, Pekin, breast, cooked without skin, broiled",poultry,100,1 portion,omnivore,,,false,,needs_review,thin data (5/10 core values),"Duck, duckling, domestic, Pekin, breast, meat only, boneless, cooked without skin, broiled",g:duck
-cnf:4841,"Duck, duckling, domestic, Pekin, leg, bone in, cooked without skin, braised",poultry,100,1 portion,omnivore,,,false,,needs_review,thin data (5/10 core values),"Duck, duckling, domestic, Pekin, leg, meat only, bone in, cooked without skin, braised",g:duck
-cnf:816,"Turkey ground, cooked",poultry,100,1 portion,omnivore,,,false,,needs_review,calcium outlier for poultry,"Turkey, all classes, ground, cooked",g:turkey-ground
-cnf:3113,"Clam, canned, liquid",shellfish,85,1 portion,pescatarian,mollusc,,false,,needs_review,serving energy 2 kcal,"Mollusks, clam, mixed species, canned, liquid",g:clam
-cnf:5427,"Conch, baked",shellfish,85,1 portion,pescatarian,mollusc,,false,,needs_review,folate_dfe outlier for shellfish,"Mollusks, conch, baked or broiled",g:conch
-cnf:3237,"Jonah crab, steamed",shellfish,85,1 portion,pescatarian,crustacean,,false,,needs_review,thin data (5/10 core values),"Crustaceans, crab, jonah, steamed",g:jonah-crab
-cnf:3175,"Mixed spsecies cuttlefish, cooked",shellfish,85,1 portion,pescatarian,mollusc,,false,,needs_review,riboflavin outlier for shellfish,"Mollusks, cuttlefish, mixed spsecies, boiled or steamed",g:mixed-spsecies-cuttlefish
-cnf:3238,"Red crab, steamed",shellfish,85,1 portion,pescatarian,crustacean,,false,,needs_review,thin data (5/10 core values),"Crustaceans, crab, red, steamed",g:red-crab
-cnf:1995,"Balsam-pear, leafy tips, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,energy 30 vs Atwater 41,"Balsam-pear (bitter gourd, bitter melon), leafy tips, raw",g:balsam-pear
-cnf:6279,"Broccoli, stalks, raw",vegetables,91,1 cup chopped,vegan,,,false,,needs_review,energy 28 vs Atwater 36,"Broccoli, stalks, raw",g:broccoli
-cnf:2083,"Cowpeas, leafy tips, cooked",vegetables,155,about 1 cup cooked,vegan,,,false,,needs_review,energy 22 vs Atwater 31,"Cowpeas, leafy tips, boiled, drained",g:cowpeas
-cnf:2082,"Cowpeas, leafy tips, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,energy 29 vs Atwater 38,"Cowpeas, leafy tips, raw",g:cowpeas
-cnf:4906,"Fiddlehead greens (ferns), raw",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,energy 34 vs Atwater 44,"Fiddlehead greens (ferns), raw",g:fiddlehead-greens
-cnf:2103,"Jute, potherb, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,energy 34 vs Atwater 44,"Jute, potherb, raw",g:jute
-cnf:2002,"Kidney beans, sprouted, cooked",vegetables,172,1 cup cooked,vegan,,,false,,needs_review,energy 33 vs Atwater 42,"Beans, kidney, sprouted, boiled, drained",g:kidney-beans
-cnf:6928,"Mushroom, Chanterelle, raw",vegetables,70,1 cup sliced,vegan,,,false,,needs_review,vit_d outlier for vegetables,"Mushroom, Chanterelle, raw",g:mushroom
-cnf:6219,"Mushroom, Maitake, raw",vegetables,70,1 cup sliced,vegan,,,false,,needs_review,vit_d outlier for vegetables,"Mushroom, Maitake, raw",g:mushroom
-cnf:6929,"Mushroom, morel, raw",vegetables,70,1 cup sliced,vegan,,,false,,needs_review,vit_d outlier for vegetables,"Mushroom, morel, raw",g:mushroom
-cnf:2014,"Pinto beans, frozen, cooked",vegetables,172,1 cup cooked,vegan,,,false,,needs_review,ala outlier for vegetables,"Beans, pinto, frozen, boiled, drained",g:pinto-beans
-cnf:2187,"Potato salad, homemade",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,retinol outlier for vegetables,"Potato salad, homemade",g:potato-salad
-cnf:2323,"Potato, O'brien, homemade",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,retinol outlier for vegetables,"Potato, O'brien, homemade",g:potato
-cnf:7695,"Potato, mashed, ready-to-eat",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,vit_b12 outlier for vegetables; retinol outlier for vegetables,"Potato, mashed, ready-to-eat",g:potato
-cnf:2277,"Waxgourd (Chinese preserving melon), raw",vegetables,125,about 1 cup chopped,vegan,,,false,,needs_review,energy 13 vs Atwater 10,"Waxgourd (Chinese preserving melon), raw",g:waxgourd
+cnf:160,"Calorie-reduced, 6%",cheese,30,1 slice,vegetarian,milk,,false,,searchable_only,thin data (3/10 core values),"Cheese, calorie-reduced, 6% M.F.",g:calorie-reduced
+cnf:31,Gjetost,cheese,30,1 slice,vegetarian,milk,,false,,searchable_only,potassium outlier for cheese,"Cheese, gjetost",g:gjetost
+cnf:7756,"Goat cheese, soft, with cranberries",cheese,38,¼ cup crumbled,vegetarian,milk,soft_cheese,false,,searchable_only,pregnancy cheese rule: confirm pasteurised and soft/semi-soft status,"Cheese, goat, soft, with cranberries",g:goat-cheese
+cnf:5512,"Mozzarella, fat free",cheese,28,1 slice,vegetarian,milk,,false,,searchable_only,fibre outlier for cheese,"Cheese, mozzarella, fat free",g:mozzarella
+cnf:7762,"Oka, with rind",cheese,30,1 slice,vegetarian,milk,,false,,searchable_only,folic_acid outlier for cheese,"Cheese, oka, with rind",g:oka
+cnf:2995,"Black and red caviar, granular",fish,100,1 piece,pescatarian,fish,,false,,searchable_only,choline outlier for fish,"Fish, caviar, black and red, granular",g:black-and-red-caviar
+cnf:3154,"Roe, baked",fish,100,1 piece,pescatarian,fish,,false,,searchable_only,vit_c outlier for fish,"Fish, roe, mixed species, baked or broiled",g:roe
+cnf:6264,"Smelt, dried",fish,100,1 piece,pescatarian,fish,,false,,searchable_only,calcium outlier for fish,"Fish, smelt, dried",g:smelt
+cnf:1484,"Acerola (West Indian cherry), raw",fruit,140,1 medium or 1 cup,vegan,,,false,,searchable_only,vit_c outlier for fruit,"Acerola (West Indian cherry), raw",g:acerola
+cnf:6260,"Chokecherry, raw, pitted",fruit,140,1 medium or 1 cup,vegan,,,false,,searchable_only,energy 156 vs Atwater 122,"Chokecherry, raw, pitted",g:chokecherry
+cnf:7596,"Goji berries, dried",fruit,40,¼ cup,vegan,,,false,,searchable_only,thin data (4/10 core values); protein outlier for fruit,"Goji berries, dried",g:goji-berries
+cnf:6444,"Huckleberries, raw",fruit,145,1 cup,vegan,,,false,,searchable_only,thin data (4/10 core values),"Huckleberries, raw",g:huckleberries
+cnf:1587,"Lemon, raw, without peel",fruit,140,1 medium or 1 cup,vegan,,,false,,searchable_only,energy 29 vs Atwater 39,"Lemon, raw, without peel",g:lemon
+cnf:1593,"Lime, raw",fruit,140,1 medium or 1 cup,vegan,,,false,,searchable_only,energy 30 vs Atwater 41,"Lime, raw",g:lime
+cnf:7135,"Seaweed, Canadian cultivated Emi-Tsunomata, rehydrated",herbs_spices,100,100 g,vegan,,,false,,searchable_only,energy 31 vs Atwater 22,"Seaweed, Canadian cultivated Emi-Tsunomata, rehydrated",g:seaweed
+cnf:2205,"Seaweed, dulse (laver, nori), raw",herbs_spices,100,100 g,vegan,,,false,,searchable_only,energy 35 vs Atwater 46,"Seaweed, dulse (laver, nori), raw",g:seaweed
+cnf:2319,"Seaweed, spirulina, raw",herbs_spices,100,100 g,vegan,,,false,,searchable_only,energy 26 vs Atwater 36,"Seaweed, spirulina, raw",g:seaweed
+cnf:4856,"Grape leaves (vine leaves), canned",leafy_greens,151,1 cup,vegan,,,false,,searchable_only,copper outlier for leafy_greens,"Grape leaves (vine leaves), canned",g:grape-leaves
+cnf:2315,"Spinach souffle, homemade",leafy_greens,35,1 cup,vegan,,,false,high_oxalate,searchable_only,fat outlier for leafy_greens,"Spinach souffle, homemade",g:spinach-souffle
+cnf:2281,"Winged beans (goa bean) leaves, raw",leafy_greens,35,1 cup,vegan,,,false,,searchable_only,thiamin outlier for leafy_greens,"Winged beans (goa bean) leaves, raw",g:winged-beans-leaves
+cnf:5492,"Indian, papad (papadum)",legumes,13.0,1 papad,vegan,,,false,,searchable_only,serving energy 649 kcal,"Indian, papad (papadum)",g:indian
+cnf:3331,"Tofu, koyadofu, dried-frozen",legumes,17.0,"1 piece, dried",vegan,soy,,false,,searchable_only,serving energy 596 kcal,"Tofu, koyadofu, dried-frozen",g:tofu
+cnf:3370,"Tofu, koyadofu, dried-frozen",legumes,17.0,"1 piece, dried",vegan,soy,,false,,searchable_only,serving energy 588 kcal; calcium outlier for legumes,"Tofu, koyadofu, dried-frozen (prepared with calcium sulphate)",g:tofu
+cnf:2604,"Sisymbrium sp. seeds, whole",nuts_seeds,30,¼ cup,vegan,,,false,,searchable_only,calcium outlier for nuts_seeds,"Seeds, sisymbrium sp. seeds, whole, dried",g:sisymbrium-sp-seeds
+cnf:7050,"Flaxseed oil, contains added sliced flaxseed",oils_fats,14,1 tbsp,vegan,,,false,,searchable_only,thin data (5/10 core values); calcium outlier for oils_fats; zinc outlier for oils_fats; phosphorus outlier for oils_fats,"Vegetable oil, flaxseed, contains added sliced flaxseed",g:flaxseed-oil
+cnf:5427,"Conch, baked",shellfish,85,1 portion,pescatarian,mollusc,,false,,searchable_only,folate_dfe outlier for shellfish,"Mollusks, conch, baked or broiled",g:conch
+cnf:3175,"Mixed spsecies cuttlefish, cooked",shellfish,85,1 portion,pescatarian,mollusc,,false,,searchable_only,riboflavin outlier for shellfish,"Mollusks, cuttlefish, mixed spsecies, boiled or steamed",g:mixed-spsecies-cuttlefish
+cnf:1995,"Balsam-pear, leafy tips, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,energy 30 vs Atwater 41,"Balsam-pear (bitter gourd, bitter melon), leafy tips, raw",g:balsam-pear
+cnf:2083,"Cowpeas, leafy tips, cooked",vegetables,155,about 1 cup cooked,vegan,,,false,,searchable_only,energy 22 vs Atwater 31,"Cowpeas, leafy tips, boiled, drained",g:cowpeas
+cnf:2082,"Cowpeas, leafy tips, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,energy 29 vs Atwater 38,"Cowpeas, leafy tips, raw",g:cowpeas
+cnf:2103,"Jute, potherb, raw",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,energy 34 vs Atwater 44,"Jute, potherb, raw",g:jute
+cnf:2187,"Potato salad, homemade",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,retinol outlier for vegetables,"Potato salad, homemade",g:potato-salad
+cnf:2323,"Potato, O'brien, homemade",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,retinol outlier for vegetables,"Potato, O'brien, homemade",g:potato
+cnf:7695,"Potato, mashed, ready-to-eat",vegetables,125,about 1 cup chopped,vegan,,,false,,searchable_only,vit_b12 outlier for vegetables; retinol outlier for vegetables,"Potato, mashed, ready-to-eat",g:potato

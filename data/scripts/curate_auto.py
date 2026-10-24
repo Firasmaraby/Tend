@@ -263,8 +263,18 @@ def pregnancy(cat, n):
     return sorted(f)
 
 
+def load_decisions(path):
+    """Founder review decisions (data/curation/review_decisions.csv), keyed by food id."""
+    try:
+        return {r["food_id"]: r for r in csv.DictReader(open(path, encoding="utf-8"))}
+    except FileNotFoundError:
+        return {}
+
+
 def main(wide_path, starter_path, out_path, report_path=None):
     starter = {r["food_id"]: r for r in csv.DictReader(open(starter_path, encoding="utf-8"))}
+    decisions = load_decisions(out_path.rsplit("/", 1)[0] + "/review_decisions.csv")
+    removed = []
     rows = [r for r in csv.DictReader(open(wide_path, encoding="utf-8"))
             if r["source_id"] == "cnf" and r["is_preferred"] == "True" and r["status"] == "active"
             and r["basis"] == "per 100 g edible portion"]
@@ -314,6 +324,18 @@ def main(wide_path, starter_path, out_path, report_path=None):
         if cat == "cheese" and re.search(r"feta|goat|ricotta", n, re.I):
             reasons.append("pregnancy cheese rule: confirm pasteurised and soft/semi-soft status")
         status = "needs_review" if reasons else "auto_passed"
+        pflags = "|".join(pregnancy(cat, n))
+        dec = decisions.get(r["food_id"])
+        if dec:
+            if dec["decision"] == "remove":
+                removed.append({"food_id": r["food_id"], "source_name": n, "why": "founder review: remove"})
+                counts[cat]["removed"] += 1
+                continue
+            status = {"approve": "approved", "searchable": "searchable_only"}[dec["decision"]]
+            if dec["serving_g"]:
+                g, label = float(dec["serving_g"]), dec["serving_label"]
+            if dec["pregnancy_flags"] != "keep":
+                pflags = dec["pregnancy_flags"]
         counts[cat][status] += 1
         out.append({
             "food_id": r["food_id"],
@@ -323,8 +345,8 @@ def main(wide_path, starter_path, out_path, report_path=None):
             "serving_label": label,
             "diet": diet(cat, n),
             "allergens": "|".join(allergens(cat, n)),
-            "pregnancy_flags": "|".join(pregnancy(cat, n)),
-            "suggestable": "true" if status == "auto_passed" and cat != "herbs_spices" and EVERYDAY.search(n) and not polish.NOT_SUGGESTED.search(n) and not re.search(r"sheep|goat milk|buffalo|horse|bison|elk|venison|caribou|moose", n, re.I) else "false",
+            "pregnancy_flags": pflags,
+            "suggestable": "true" if status in ("auto_passed", "approved") and cat != "herbs_spices" and EVERYDAY.search(n) and not polish.NOT_SUGGESTED.search(n) and not re.search(r"sheep|goat milk|buffalo|horse|bison|elk|venison|caribou|moose", n, re.I) else "false",
             "traits": "high_oxalate" if re.search(r"spinach|chard|beet greens", n, re.I) else "",
             "status": status,
             "reasons": "; ".join(reasons),
@@ -332,6 +354,10 @@ def main(wide_path, starter_path, out_path, report_path=None):
             "dup_group": polish.dup_group(polish.clean_name(n, cat)),
         })
 
+    with open(out_path.rsplit("/", 1)[0] + "/removed.csv", "w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["food_id", "source_name", "why"], lineterminator="\n")
+        w.writeheader()
+        w.writerows(removed)
     fields = ["food_id", "display_name", "category", "serving_g", "serving_label", "diet", "allergens", "pregnancy_flags", "suggestable", "traits", "status", "reasons", "source_name", "dup_group"]
     with open(out_path, "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, lineterminator="\n")
@@ -341,6 +367,7 @@ def main(wide_path, starter_path, out_path, report_path=None):
     everyday = sum(1 for o in out if o["suggestable"] == "true")
     print(f"{everyday} everyday foods are suggestable; the rest stay searchable with servings", file=sys.stderr)
     total_review = sum(v["needs_review"] for v in counts.values())
+    print(f"founder decisions applied: {len(decisions)} ({len(removed)} removed)", file=sys.stderr)
     print(f"{len(rows)} CNF foods, {len(scoped)} in scope: {total_pass} auto-passed, {total_review} need review", file=sys.stderr)
     for c in sorted(counts):
         print(f"  {c:14} passed {counts[c]['auto_passed']:4}  review {counts[c]['needs_review']:4}", file=sys.stderr)

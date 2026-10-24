@@ -82,3 +82,9 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
   - poached coho salmon's energy doesn't match its macros;
   - peeled apple has a borrowed iodine value about 25 times the skin-on value;
   - chanterelle has borrowed omega-3 values.
+- **Founder review applied (2026-10-24):** all 80 flagged foods were decided by accepting the recommendations. The record is in `data/curation/review_decisions.csv`.
+  - 12 removed, from both suggestions and the searchable library (listed in `removed.csv`).
+  - 34 approved; 34 searchable only.
+  - Fixes: falafel 3 patties (50 g), papadum 1 piece (13 g), meatless fillet 90 g, koyadofu 1 dried piece (17 g). Hard goat cheese lost the soft-cheese pregnancy flag.
+  - The 30-food spot-check sample is still open on the review page.
+- **Totals after review:** 585 suggestable entries (86 hand-checked and 499 automatic), 0 foods awaiting review.

@@ -11,3 +11,5 @@ The raw database is not committed here. It lives in the founder's repo (`foodpip
 - `curation/review_queue.csv`: the foods flagged for a human look, with a reason for each. Fill in the `decision` column (approve, fix or reject).
 - Build the app data from both files: `build_curated.py FOODS_WIDE starter.csv,auto.csv OUT_JSON` (hand-checked rows win).
 - `apps/prototype/report.ts`: the selectability report per life stage and diet (bundle with esbuild, run with node).
+- `curation/review_decisions.csv`: the founder's decisions from the review page. `curate_auto.py` applies them on every run (remove, approve, searchable only, serving fixes, pregnancy flag changes).
+- `curation/removed.csv`: foods removed in review. Pass it to `build_library.py` too, so removed foods aren't searchable either.
