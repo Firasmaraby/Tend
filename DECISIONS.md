@@ -74,4 +74,11 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
 - **Result:** 1,110 foods in scope. 1,030 pass every check; 80 are in `data/curation/review_queue.csv` for the founder. 628 everyday foods are **suggestable** (86 hand-checked plus 542 automatic). The rest keep a serving and stay searchable and loggable.
 - **Suggested only if everyday:** a food must pass every check *and* be on the everyday-food list. Rare foods (sheep's milk, grape leaves) crowded out common ones in testing.
 - **Remaining gaps are real, not data bugs:** vegan B12 (professional referral), plant-based EPA+DHA, iodine (missing in the database), and choline for vegetarians and vegans.
-- **For the founder:** automatic foods use category servings ("about 1 cup cooked") and source names ("Beans, adzuki, boiled"). Polishing names and servings, plus the review queue, can happen over time. Proposal: automatic foods are suggestable in the beta, and the founder spot-checks a sample.
+- **Decided (2026-10-24):** automatic everyday foods are suggestable in the beta, and the founder spot-checks a 30-food sample.
+- **Polish (2026-10-24):** readable names (`data/scripts/polish.py`) and food-specific household servings. Near-duplicates share a `dupGroupId`, so lists show one cheddar, not ten. Condiments, toasted and low-sodium variants and dish components are not suggested. Result: 566 suggestable rows, about 290 distinct foods.
+- **Review page:** the founder records decisions on the 80 flagged foods and the spot-check sample on an artifact page (collections `decisions` and `spotcheck`). Claude reads them back and applies them to `data/curation/`.
+- **Errors found in the merged database (report to the pipeline):**
+  - frozen pinto beans list ALA (1.77 g) above total fat (0.48 g);
+  - poached coho salmon's energy doesn't match its macros;
+  - peeled apple has a borrowed iodine value about 25 times the skin-on value;
+  - chanterelle has borrowed omega-3 values.

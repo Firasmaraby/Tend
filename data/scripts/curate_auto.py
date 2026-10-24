@@ -18,6 +18,7 @@ from collections import defaultdict
 
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
 from build_curated import COLS, num  # one column mapping, one NULL rule
+import polish
 
 GROUPS = {"vegetables", "fruits", "grains_cereals", "legumes", "nuts_seeds", "meat_poultry", "fish_seafood", "eggs", "dairy", "fats_oils", "beverages"}
 
@@ -68,7 +69,7 @@ EVERYDAY = re.compile(
     r"avocado|apples?|bananas?|oranges?|strawberr|blueberr|raspberr|blackberr|grapes?\b|kiwi|mango|pears?\b|peach|plums?\b|cherr|cantaloupe|melon|watermelon|pineapple|papaya|grapefruit|apricot|prunes|plums, dried|raisins|dates|figs|clementine|tangerine|mandarin|"
     r"nuts, (almonds|walnuts|cashew|pecans|pistachio|filberts|hazelnuts|brazil|macadamia|pine nuts)|peanuts|peanut butter|almond butter|seeds, (sunflower|pumpkin|sesame|chia|flax|hemp)|sesame butter|tahini|"
     r"fish, (salmon|trout|sardine|mackerel, atlantic|tuna, light|cod|haddock|halibut|tilapia|pollock|sole|herring|arctic char|whitefish|catfish|perch|snapper)|crustaceans, (shrimp|crab|lobster)|mollusks, (mussel|scallop|clam|oyster)|"
-    r"chicken|turkey|beef|pork|lamb|egg, chicken|"
+    r"chicken|turkey|beef,|pork,|lamb,|egg, chicken|"
     r"milk, fluid, (skim|partly skimmed|whole|1%|2%|3\.25%)|milk, fluid, (partly|whole)|kefir|yogourt|cheese, (cheddar|mozzarella|swiss|parmesan|cottage|ricotta|feta|gouda|brie|camembert|havarti|edam|provolone|monterey|colby|goat)|"
     r"plant-based beverage|vegetable oil, (olive|canola|flaxseed|walnut|avocado|sunflower))",
     re.I,
@@ -287,7 +288,7 @@ def main(wide_path, starter_path, out_path, report_path=None):
     for r in scoped:
         n = r["name_en"]
         cat = category(r)
-        g, label = serving(cat, r)
+        g, label = polish.serving_for(n, *serving(cat, r), category=cat)
         reasons = []
         kcal = num(r.get("energy_kcal"))
         p, fat, cd = num(r.get("protein_g")), num(r.get("fat_g")), num(r.get("carbs_by_difference_g"))
@@ -316,21 +317,22 @@ def main(wide_path, starter_path, out_path, report_path=None):
         counts[cat][status] += 1
         out.append({
             "food_id": r["food_id"],
-            "display_name": clean_name(n),
+            "display_name": polish.clean_name(n, cat),
             "category": cat,
             "serving_g": g,
             "serving_label": label,
             "diet": diet(cat, n),
             "allergens": "|".join(allergens(cat, n)),
             "pregnancy_flags": "|".join(pregnancy(cat, n)),
-            "suggestable": "true" if status == "auto_passed" and cat != "herbs_spices" and EVERYDAY.search(n) and not re.search(r"sheep|goat milk|buffalo|horse|bison|elk|venison|caribou|moose", n, re.I) else "false",
+            "suggestable": "true" if status == "auto_passed" and cat != "herbs_spices" and EVERYDAY.search(n) and not polish.NOT_SUGGESTED.search(n) and not re.search(r"sheep|goat milk|buffalo|horse|bison|elk|venison|caribou|moose", n, re.I) else "false",
             "traits": "high_oxalate" if re.search(r"spinach|chard|beet greens", n, re.I) else "",
             "status": status,
             "reasons": "; ".join(reasons),
             "source_name": n,
+            "dup_group": polish.dup_group(polish.clean_name(n, cat)),
         })
 
-    fields = ["food_id", "display_name", "category", "serving_g", "serving_label", "diet", "allergens", "pregnancy_flags", "suggestable", "traits", "status", "reasons", "source_name"]
+    fields = ["food_id", "display_name", "category", "serving_g", "serving_label", "diet", "allergens", "pregnancy_flags", "suggestable", "traits", "status", "reasons", "source_name", "dup_group"]
     with open(out_path, "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, lineterminator="\n")
         w.writeheader()

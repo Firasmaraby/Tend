@@ -1,6 +1,6 @@
 # Automatic curation report
 
-1110 foods in scope from the Canadian Nutrient File. 1030 passed every check, 80 need a look. 544 everyday foods are suggestable.
+1110 foods in scope from the Canadian Nutrient File. 1033 passed every check, 77 need a look. 482 everyday foods are suggestable.
 
 | Category | Passed | Review |
 |---|---|---|
@@ -10,7 +10,7 @@
 | fruit | 117 | 9 |
 | grains | 100 | 1 |
 | herbs_spices | 15 | 3 |
-| leafy_greens | 39 | 12 |
+| leafy_greens | 42 | 9 |
 | legumes | 62 | 11 |
 | meat | 89 | 0 |
 | milk | 15 | 0 |

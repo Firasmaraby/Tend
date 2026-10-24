@@ -118,6 +118,7 @@ def main(wide_path, cur_path, out_path):
             "source": {"id": r["source_id"], "name": r["name_en"], "citation": r["source_citation"], "licence": r["licence"]},
             "missing": missing,
             "curation": "hand" if "status" not in c else c["status"],
+            **({"dupGroupId": c["dup_group"]} if c.get("dup_group") else {}),
         })
     json.dump(foods, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{len(foods)} foods written to {out_path}", file=sys.stderr)

@@ -1,0 +1,226 @@
+<title>Tend Food Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one calm column of review cards, a sticky progress bar, Tend's pantry palette. */
+:root{
+  --paper:#F4F1E8; --surface:#FBF9F3; --ink:#1E2A22; --muted:#55625A; --line:#DCD6C6;
+  --leaf:#2F5D46; --leaf-ink:#FBF9F3; --fill:#E2A93B; --tint:#EAF0E8; --warm:#F6EBD3; --clay:#B4673F;
+  --display:"Fraunces", Georgia, serif; --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#141814; --surface:#1B211C; --ink:#ECE8DC; --muted:#A9B3AA; --line:#2C342D;
+  --leaf:#8CC2A0; --leaf-ink:#141814; --fill:#EDB54A; --tint:#1F2A22; --warm:#2A2416; --clay:#D08B66; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141814; --surface:#1B211C; --ink:#ECE8DC; --muted:#A9B3AA; --line:#2C342D;
+  --leaf:#8CC2A0; --leaf-ink:#141814; --fill:#EDB54A; --tint:#1F2A22; --warm:#2A2416; --clay:#D08B66; color-scheme:dark}
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 64px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,6vw,40px);line-height:1.1;margin:8px 0 6px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 16px;max-width:62ch}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding:10px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--tint);border-radius:12px;padding:4px;gap:4px}
+.tabs button{min-height:44px;border:0;border-radius:9px;background:none;color:var(--muted);font:600 15px var(--body);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.progress{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.track{flex:1;min-width:140px;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.track span{display:block;height:100%;background:var(--fill);border-radius:99px;transition:width .4s}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chipbtn{min-height:40px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px var(--body);cursor:pointer}
+.chipbtn[aria-pressed="true"]{background:var(--leaf);color:var(--leaf-ink);border-color:var(--leaf)}
+.chipbtn.primary{background:var(--leaf);color:var(--leaf-ink);border-color:var(--leaf)}
+.notice{background:var(--warm);border:1px solid var(--line);border-left:3px solid var(--fill);border-radius:12px;padding:10px 14px;margin:12px 0;font-size:15px}
+.confirm{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.list{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.done{opacity:.72}
+.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.name{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.2;margin:0}
+.src{font-size:13px;color:var(--muted);margin:2px 0 0;overflow-wrap:anywhere}
+.cat{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.flag{font-size:14px;color:var(--ink);background:var(--tint);border-radius:10px;padding:8px 10px}
+.flag b{font-weight:600}
+.vals{display:flex;flex-wrap:wrap;gap:6px}
+.val{font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:3px 10px;font-variant-numeric:tabular-nums}
+.rec{border-left:3px solid var(--leaf);padding:4px 0 4px 12px}
+.rec .label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--leaf);font-weight:700}
+.rec p{margin:2px 0 0;font-size:15px}
+.choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.choices.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.choice{min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:600 14px var(--body);cursor:pointer;padding:0 6px}
+.choice.suggested{border-color:var(--leaf);border-style:dashed}
+.choice[aria-pressed="true"]{background:var(--leaf);color:var(--leaf-ink);border-color:var(--leaf);border-style:solid}
+.fix{display:grid;grid-template-columns:110px 1fr;gap:8px}
+input,textarea{font:15px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px;min-width:0;width:100%;box-sizing:border-box}
+textarea{min-height:44px;resize:vertical}
+label.small{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+.saved{font-size:13px;color:var(--muted);min-height:18px}
+.meta{font-size:14px;color:var(--muted)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--fill);outline-offset:2px}
+@media (max-width:520px){.choices{grid-template-columns:repeat(2,minmax(0,1fr))}.fix{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.track span{transition:none}}
+</style>
+
+<div class="wrap">
+  <p class="cat">Tend · Food curation</p>
+  <h1>Food review</h1>
+  <p class="lede">Each food has my recommendation. Tap it to accept, or choose differently. Your decisions save as you go, and I read them back to update the app.</p>
+  <div id="notice"></div>
+  <div class="bar">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-flagged" aria-selected="true">Flagged foods</button>
+      <button role="tab" id="tab-spot" aria-selected="false">Spot-check sample</button>
+    </div>
+    <div class="progress"><div class="track" aria-hidden="true"><span id="prog"></span></div><span class="count" id="count"></span></div>
+    <div class="tools">
+      <button class="chipbtn" id="f-todo" aria-pressed="true">To do</button>
+      <button class="chipbtn" id="f-all" aria-pressed="false">All</button>
+      <button class="chipbtn primary" id="bulk">Accept my recommendation for the rest</button>
+    </div>
+    <div id="confirm"></div>
+  </div>
+  <div class="list" id="list"></div>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const DECISIONS = { approve: "Approve", searchable: "Searchable only", fix: "Fix", remove: "Remove" };
+const SPOT = { ok: "Looks right", off: "Something's off" };
+const CAT = { leafy_greens: "Leafy greens", small_seeds: "Small seeds", nuts_seeds: "Nuts and seeds", oils_fats: "Oils", herbs_spices: "Herbs and seaweed" };
+const VAL = [["kcal", "kcal", ""], ["protein", "Protein", " g"], ["iron", "Iron", " mg"], ["calcium", "Calcium", " mg"], ["magnesium", "Magnesium", " mg"], ["fibre", "Fibre", " g"], ["vitC", "Vit C", " mg"], ["folate", "Folate", " µg"]];
+
+const state = { tab: "flagged", filter: "todo", flagged: {}, spot: {}, confirming: false };
+let db = null;
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const catName = (c) => CAT[c] || (c.charAt(0).toUpperCase() + c.slice(1).replace(/_/g, " "));
+
+function values(v) {
+  return VAL.filter(([k]) => v[k] !== null && v[k] !== undefined).map(([k, label, unit]) => `<span class="val">${label} ${v[k]}${unit}</span>`).join("");
+}
+
+function render() {
+  const items = DATA[state.tab];
+  const store = state[state.tab];
+  const done = items.filter((i) => store[i.id]).length;
+  el("prog").style.width = `${(100 * done) / items.length}%`;
+  el("count").textContent = `${done} of ${items.length} decided`;
+  el("tab-flagged").setAttribute("aria-selected", String(state.tab === "flagged"));
+  el("tab-spot").setAttribute("aria-selected", String(state.tab === "spot"));
+  el("f-todo").setAttribute("aria-pressed", String(state.filter === "todo"));
+  el("f-all").setAttribute("aria-pressed", String(state.filter === "all"));
+  el("bulk").hidden = state.tab !== "flagged" || done === items.length || !db;
+  el("confirm").innerHTML = state.confirming
+    ? `<div class="confirm"><span>Accept my recommendation for the ${items.length - done} foods you haven't decided?</span><button class="chipbtn primary" id="bulk-yes">Accept them</button><button class="chipbtn" id="bulk-no">Cancel</button></div>`
+    : "";
+  const shown = items.filter((i) => state.filter === "all" || !store[i.id]);
+  el("list").innerHTML = shown.length
+    ? shown.map((i) => (state.tab === "flagged" ? flaggedCard(i, store[i.id]) : spotCard(i, store[i.id]))).join("")
+    : `<p class="meta">All done here. Thank you. Switch to "All" to look back over your decisions.</p>`;
+}
+
+function flaggedCard(i, d) {
+  const pick = d?.decision;
+  const btns = Object.entries(DECISIONS).map(([k, label]) =>
+    `<button class="choice${k === i.rec ? " suggested" : ""}" aria-pressed="${pick === k}" data-id="${esc(i.id)}" data-pick="${k}">${label}</button>`).join("");
+  const fix = pick === "fix" ? `<div class="fix">
+      <div><label class="small" for="g-${esc(i.id)}">Serving (g)</label><input id="g-${esc(i.id)}" inputmode="decimal" data-field="serving_g" data-id="${esc(i.id)}" value="${esc(d?.serving_g ?? "")}"></div>
+      <div><label class="small" for="l-${esc(i.id)}">Serving label</label><input id="l-${esc(i.id)}" data-field="serving_label" data-id="${esc(i.id)}" value="${esc(d?.serving_label ?? "")}" placeholder="e.g. 3 patties"></div></div>` : "";
+  return `<article class="card${pick ? " done" : ""}">
+    <div class="top"><div style="min-width:0"><h2 class="name">${esc(i.name)}</h2><p class="src">${esc(i.source)}</p></div><span class="cat">${esc(catName(i.category))}</span></div>
+    <div class="flag"><b>Flagged:</b> ${esc(i.reasons)}</div>
+    <div class="vals"><span class="val">${esc(i.serving)} · ${i.g} g</span>${values(i.values)}</div>
+    <div class="rec"><span class="label">My recommendation: ${DECISIONS[i.rec]}</span><p>${esc(i.why)}</p></div>
+    <div class="choices">${btns}</div>${fix}
+    <div><label class="small" for="n-${esc(i.id)}">Notes (optional)</label><textarea id="n-${esc(i.id)}" data-field="notes" data-id="${esc(i.id)}">${esc(d?.notes ?? "")}</textarea></div>
+    <div class="saved" id="s-${esc(i.id)}">${pick ? "Saved" : ""}</div>
+  </article>`;
+}
+
+function spotCard(i, d) {
+  const pick = d?.decision;
+  const btns = Object.entries(SPOT).map(([k, label]) => `<button class="choice" aria-pressed="${pick === k}" data-id="${esc(i.id)}" data-pick="${k}">${label}</button>`).join("");
+  const tags = [`Diet: ${i.diet}`, `Allergens: ${i.allergens || "none tagged"}`, i.pregnancy ? `Pregnancy: ${i.pregnancy.replace(/_/g, " ")}` : ""].filter(Boolean);
+  return `<article class="card${pick ? " done" : ""}">
+    <div class="top"><div style="min-width:0"><h2 class="name">${esc(i.name)}</h2><p class="src">${esc(i.source)}</p></div><span class="cat">${esc(catName(i.category))}</span></div>
+    <div class="vals"><span class="val">${esc(i.serving)} · ${i.g} g</span>${values(i.values)}</div>
+    <p class="meta" style="margin:0">${tags.map(esc).join(" · ")}</p>
+    <p class="meta" style="margin:0">Is the name clear, the serving realistic, and are the tags right?</p>
+    <div class="choices two">${btns}</div>
+    <div><label class="small" for="n-${esc(i.id)}">What's off? (optional)</label><textarea id="n-${esc(i.id)}" data-field="notes" data-id="${esc(i.id)}">${esc(d?.notes ?? "")}</textarea></div>
+    <div class="saved" id="s-${esc(i.id)}">${pick ? "Saved" : ""}</div>
+  </article>`;
+}
+
+const collectionFor = () => (state.tab === "flagged" ? "decisions" : "spotcheck");
+
+async function save(id, patch) {
+  const store = state[state.tab];
+  const next = { ...(store[id] || {}), ...patch, updatedAt: new Date().toISOString() };
+  store[id] = next;
+  const s = el("s-" + id);
+  if (!db) { if (s) s.textContent = "Not saved: open this page signed in on claude.ai"; return; }
+  if (s) s.textContent = "Saving…";
+  try {
+    await db.collection(collectionFor()).doc(id).set(next);
+    const s2 = el("s-" + id); if (s2) s2.textContent = "Saved";
+  } catch (e) {
+    const s2 = el("s-" + id); if (s2) s2.textContent = "Couldn't save. Check your connection and tap again.";
+  }
+}
+
+document.addEventListener("click", async (e) => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  if (t.id === "tab-flagged" || t.id === "tab-spot") { state.tab = t.id === "tab-flagged" ? "flagged" : "spot"; state.confirming = false; render(); return; }
+  if (t.id === "f-todo" || t.id === "f-all") { state.filter = t.id === "f-todo" ? "todo" : "all"; render(); return; }
+  if (t.id === "bulk") { state.confirming = true; render(); return; }
+  if (t.id === "bulk-no") { state.confirming = false; render(); return; }
+  if (t.id === "bulk-yes") {
+    state.confirming = false;
+    const rest = DATA.flagged.filter((i) => !state.flagged[i.id]);
+    for (const i of rest) await save(i.id, { decision: i.rec, viaBulk: true });
+    render(); return;
+  }
+  if (t.dataset.pick) {
+    const id = t.dataset.id;
+    await save(id, { decision: t.dataset.pick });
+    if (state.filter === "todo" && t.dataset.pick !== "fix") setTimeout(render, 450); else render();
+  }
+});
+
+const timers = {};
+document.addEventListener("input", (e) => {
+  const f = e.target.dataset.field; if (!f) return;
+  const id = e.target.dataset.id;
+  clearTimeout(timers[id + f]);
+  timers[id + f] = setTimeout(() => save(id, { [f]: e.target.value }), 700);
+});
+
+render();
+(async () => {
+  db = await window.claude?.use?.("db") ?? null;
+  if (!db) {
+    el("notice").innerHTML = `<div class="notice">Decisions can't be saved in this view. Open the page on claude.ai while signed in, and your choices will save as you go.</div>`;
+    render(); return;
+  }
+  const sub = (name, key) => db.collection(name).onSnapshot((snap) => {
+    const m = {}; snap.docs.forEach((d) => { if (d.exists) m[d.id] = d.data(); });
+    state[key] = { ...m };
+    // Don't rebuild the list while she's typing a note: it would drop focus mid-word.
+    const typing = document.activeElement && document.activeElement.dataset && document.activeElement.dataset.field;
+    if (typing) { const items = DATA[state.tab], store = state[state.tab], done = items.filter((i) => store[i.id]).length;
+      el("prog").style.width = `${(100 * done) / items.length}%`; el("count").textContent = `${done} of ${items.length} decided`; return; }
+    render();
+  }, () => { el("notice").innerHTML = `<div class="notice">Saving stopped working. Reload the page to continue.</div>`; });
+  sub("decisions", "flagged");
+  sub("spotcheck", "spot");
+  render();
+})();
+</script>
