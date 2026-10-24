@@ -46,13 +46,18 @@ describe("calendar dates in her zone", () => {
   it("addDays crosses DST without drift", () => expect(addDays(d("2026-03-07"), 2)).toBe("2026-03-09"));
 });
 
-describe("backdating is yesterday only", () => {
+describe("editing past days: the last 7, never a closed round", () => {
   const now = new Date("2026-03-08T16:00:00Z"); // 12:00 EDT
   const tz = "America/Toronto";
   it.each([
     ["2026-03-08", true],
     ["2026-03-07", true],
-    ["2026-03-06", false],
-    ["2026-03-09", false],
+    ["2026-03-01", true], // 7 days back
+    ["2026-02-28", false], // 8 days back
+    ["2026-03-09", false], // tomorrow
   ])("%s → %s", (date, ok) => expect(canLogFor(d(date), now, tz)).toBe(ok));
+  it("days before the open round's first day are locked", () => {
+    expect(canLogFor(d("2026-03-04"), now, tz, d("2026-03-05"))).toBe(false);
+    expect(canLogFor(d("2026-03-05"), now, tz, d("2026-03-05"))).toBe(true);
+  });
 });

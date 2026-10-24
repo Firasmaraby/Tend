@@ -285,8 +285,7 @@ export function Today() {
   const { state, dispatch, profile, today, viewDate, isToday, round, order, active, periodActive } = useCtx();
   const r = round!;
   const { logs, mode, seen } = state;
-  const editable = canEditDay(viewDate, today);
-  const yesterday = viewDate === addDays(today, -1);
+  const editable = canEditDay(viewDate, today, r.startedOn);
   const js = useMemo(() => jars(profile, r, logs, viewDate), [profile, r, logs, viewDate]);
   const best = useMemo(() => bestRightNow(profile, r, logs, today, mode, 12, periodActive), [profile, r, logs, today, mode, periodActive]);
   const dayEntries = useMemo(() => entriesOn(logs, viewDate), [logs, viewDate]);
@@ -391,7 +390,7 @@ export function Today() {
           </button>
         </div>
       ) : null}
-      {!isToday ? <p className="small day-note">{yesterday ? HISTORY_COPY.yesterdayNote : HISTORY_COPY.pastDayNote}</p> : null}
+      {!isToday ? <p className="small day-note">{editable ? HISTORY_COPY.editableNote : HISTORY_COPY.pastDayNote}</p> : null}
       {profile.status === "pregnant" ? <p className="care-line">{PREGNANCY_LINE}</p> : null}
 
       <div className="shelf" ref={rowRef}>
@@ -480,7 +479,7 @@ export function Today() {
       ) : null}
 
       {editable ? (
-        <button type="button" className="fab" onClick={() => dispatch({ t: "sheet", sheet: { kind: "add", ...(isToday ? {} : { day: "yesterday" as const }) } })}>
+        <button type="button" className="fab" onClick={() => dispatch({ t: "sheet", sheet: { kind: "add", ...(isToday ? {} : { date: viewDate }) } })}>
           <PlusIcon />
           <span>Add food</span>
         </button>

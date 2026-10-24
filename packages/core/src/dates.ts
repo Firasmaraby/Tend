@@ -58,10 +58,24 @@ export function localDateIn(instant: Date, timeZone: string): LocalDate {
 }
 
 /**
- * Backdating is "yesterday" only: a flat battery doesn't become a permanent
- * zero, but nobody can rebuild a round the night before it ends.
+ * How far back she can add, remove or change food (DECISIONS.md, 2026-10-24):
+ * the last 7 days, matching the week strip. Long enough to fill in what she
+ * forgot; short enough that nobody rebuilds a six-week round from memory the
+ * night before it ends.
  */
-export function canLogFor(target: LocalDate, now: Date, timeZone: string): boolean {
-  const diff = daysBetween(target, localDateIn(now, timeZone));
-  return diff === 0 || diff === 1;
+export const BACKDATE_DAYS = 7;
+
+/**
+ * Whether a day can still be changed. `lockedBefore` is the first day of the
+ * open round: days in a round that has closed keep the verdict they produced.
+ */
+export function canEditDate(target: LocalDate, today: LocalDate, lockedBefore?: LocalDate, maxDaysBack = BACKDATE_DAYS): boolean {
+  const diff = daysBetween(target, today);
+  if (diff < 0 || diff > maxDaysBack) return false;
+  return lockedBefore === undefined || dayNumber(target) >= dayNumber(lockedBefore);
+}
+
+/** canEditDate for a moment in her zone (what the server enforces on every write). */
+export function canLogFor(target: LocalDate, now: Date, timeZone: string, lockedBefore?: LocalDate): boolean {
+  return canEditDate(target, localDateIn(now, timeZone), lockedBefore);
 }

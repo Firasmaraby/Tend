@@ -73,7 +73,7 @@ Mark rule (DECISIONS.md §2): RDA basis → `max(EAR, 0.8 × RDA)`; AI basis →
 - Lord Howe (DST ends 2026-04-05 at 02:00 local, which is 2026-04-04T15:00Z; UTC+11 → UTC+10:30):
   - 2026-04-04T12:45Z → **2026-04-04** (23:45)
   - 2026-04-04T13:15Z → **2026-04-05** (00:15)
-- Backdating: with today 2026-03-08 in her zone, 2026-03-08 and 2026-03-07 are allowed. 2026-03-06 and 2026-03-09 are not.
+- Editing past days (changed 2026-10-24 from yesterday-only): with today 2026-03-08 in her zone, 2026-03-01 through 2026-03-08 are allowed (7 days back). 2026-02-28 and 2026-03-09 are not. Days before the open round's first day are locked.
 
 ## Round verdicts (gate: at least 21 logged days)
 | Case | Working | Outcome |

@@ -15,6 +15,7 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  canEditDate,
   rankable,
   contributorsFor,
   withPeriodWeights,
@@ -466,7 +467,8 @@ export function recentDays(p: Profile, round: RoundState, logs: readonly LogEntr
 }
 
 /** Backdating rule: today and yesterday can change; older days are kept as they were. */
-export const canEditDay = (date: LocalDate, today: LocalDate) => date === today || date === addDays(today, -1);
+/** Last 7 days are editable; days before the open round's start keep their closed verdict (core canEditDate). */
+export const canEditDay = (date: LocalDate, today: LocalDate, roundStart?: LocalDate) => canEditDate(date, today, roundStart);
 
 export interface WeekCarrier {
   nutrient: NutrientCode;

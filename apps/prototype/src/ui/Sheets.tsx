@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { addDays, allergenWarnings, isInRound, NUTRIENT_CODES, rankable, type Meal, type NutrientCode } from "@tend/core";
+import { addDays, allergenWarnings, isInRound, NUTRIENT_CODES, rankable, type LocalDate, type Meal, type NutrientCode } from "@tend/core";
 import { EXPLAINERS, GLOSSARY, HINTS } from "../content";
-import { allNutrients, FOODS, lookup, proteinToday, type ProtoFood } from "../engine";
+import { allNutrients, canEditDay, FOODS, lookup, proteinToday, type ProtoFood } from "../engine";
 import { AllNutrientsSheet } from "./Foundation";
 import { GramPicker, parseGrams } from "./Amount";
 import { rankedShares, sharesOf, sharesPer100, useCtx } from "./ctx";
 import { ExplainerBody, MarkBlock } from "./Explainer";
-import { ALLERGEN_SINGULAR, dayWord, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
+import { ALLERGEN_SINGULAR, dateLong, dayWord, fracText, gramsText, kcalText, mealNow, pct, servingsText, servingWithGrams, shortName } from "./format";
 import { HintCard } from "./Hint";
 import { MealPick, RepeatButton, useRepeat, useRepeatable } from "./Meals";
 import { CatChip, CheckIcon, PlusIcon, Segmented, Sheet, Swatch } from "./primitives";
@@ -30,7 +30,7 @@ export function SheetHost() {
           case "food":
             return <FoodSheet key={key} foodId={s.foodId} onClose={close} />;
           case "add":
-            return <AddFoodSheet key={key} onClose={close} startDay={s.day} forList={s.mode === "shopping"} />;
+            return <AddFoodSheet key={key} onClose={close} {...(s.date ? { startDate: s.date } : {})} forList={s.mode === "shopping"} />;
           case "all":
             return <AllNutrientsSheet key={key} onClose={close} />;
           case "settings":
@@ -194,15 +194,17 @@ const STEPS = [0.5, 1, 1.5, 2];
 /** One serving for a curated food, 100 g for a library food. */
 const quickAmount = (f: ProtoFood) => (f.serving ? { servings: 1 } : { servings: 1, grams: 100 });
 
-function AddFoodSheet({ onClose, startDay, forList = false }: { onClose: () => void; startDay?: "yesterday" | undefined; forList?: boolean }) {
+function AddFoodSheet({ onClose, startDate, forList = false }: { onClose: () => void; startDate?: LocalDate; forList?: boolean }) {
   const { state, dispatch, profile, today, round } = useCtx();
   const [q, setQ] = useState("");
-  const [day, setDay] = useState<"today" | "yesterday">(startDay ?? "today");
+  // Logs go to the day she is looking at; from today she can switch to yesterday in one tap.
+  const [date, setDate] = useState<LocalDate>(startDate ?? today);
+  const day = date === today ? "today" : date === addDays(today, -1) ? "yesterday" : "earlier";
   const [picked, setPicked] = useState<ProtoFood | null>(null);
   const [mult, setMult] = useState(1);
   const [grams, setGrams] = useState("100");
   const [flash, setFlash] = useState<string | null>(null);
-  const [meal, setMealState] = useState<Meal>(() => (startDay === "yesterday" ? "dinner" : mealNow()));
+  const [meal, setMealState] = useState<Meal>(() => (startDate && startDate !== today ? "dinner" : mealNow()));
   const [mealTouched, setMealTouched] = useState(false);
   const repeat = useRepeat();
   const repeatable = useRepeatable();
@@ -216,7 +218,7 @@ function AddFoodSheet({ onClose, startDay, forList = false }: { onClose: () => v
     if (firstTime) dispatch({ t: "seen", id: "meals" });
   }, [firstTime, dispatch]);
   const lib = useLibrary();
-  const canYesterday = !forList && (round ? addDays(today, -1) >= round.startedOn : false);
+  const canYesterday = !forList && day !== "earlier" && canEditDay(addDays(today, -1), today, round?.startedOn);
   const searching = q.trim() !== "";
   useEffect(() => () => window.clearTimeout(flashTimer.current), []);
 
@@ -247,14 +249,13 @@ function AddFoodSheet({ onClose, startDay, forList = false }: { onClose: () => v
   const found = useMemo(() => searchFoods(q, lib.status === "ready"), [q, lib.status]);
   const all = useMemo(() => [...FOODS].sort((a, b) => a.name.localeCompare(b.name)), []);
 
-  const date = day === "today" ? today : addDays(today, -1);
   const setMeal = (m: Meal) => {
     setMealState(m);
     setMealTouched(true);
   };
   // Today follows the clock; yesterday is most often dinner. Her own choice wins once she makes one.
   const changeDay = (d: "today" | "yesterday") => {
-    setDay(d);
+    setDate(d === "today" ? today : addDays(today, -1));
     if (!mealTouched) setMealState(d === "today" ? mealNow() : "dinner");
   };
   const pick = (f: ProtoFood) => {
@@ -352,6 +353,7 @@ function AddFoodSheet({ onClose, startDay, forList = false }: { onClose: () => v
           }}
           autoComplete="off"
         />
+        {!forList && day === "earlier" ? <p className="small day-note">Adding to {dateLong(date)}</p> : null}
         {canYesterday ? (
           <Segmented
             label="Day"

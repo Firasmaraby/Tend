@@ -88,3 +88,4 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
   - Fixes: falafel 3 patties (50 g), papadum 1 piece (13 g), meatless fillet 90 g, koyadofu 1 dried piece (17 g). Hard goat cheese lost the soft-cheese pregnancy flag.
   - The 30-food spot-check sample is still open on the review page.
 - **Totals after review:** 585 suggestable entries (86 hand-checked and 499 automatic), 0 foods awaiting review.
+- **Editing past days (founder request, 2026-10-24):** she can add, remove or change food on any of the **last 7 days** (it was yesterday only), matching the week strip. Days in a round that has closed stay locked, so a verdict never changes after the fact. Code: `canEditDate` and `BACKDATE_DAYS` in `packages/core/src/dates.ts`. Widening it to the whole open round is a one-number change.

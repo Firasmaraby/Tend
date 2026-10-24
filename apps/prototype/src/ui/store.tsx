@@ -14,7 +14,7 @@ export type DemoKind = "day9" | "day14" | "day36" | "end" | "period";
 
 export type SheetSpec =
   | { kind: "explainer"; nutrient: NutrientCode }
-  | { kind: "add"; day?: "yesterday"; mode?: "shopping" }
+  | { kind: "add"; date?: LocalDate; mode?: "shopping" }
   | { kind: "food"; foodId: string }
   | { kind: "glossary"; term: string }
   | { kind: "all" }
