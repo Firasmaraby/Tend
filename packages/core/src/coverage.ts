@@ -63,3 +63,27 @@ export function groupByDate(entries: readonly LogEntry[]): Map<LocalDate, LogEnt
   }
   return byDate;
 }
+
+export interface FoodContribution {
+  foodId: string;
+  amount: number;
+  /** Share of the known total for this nutrient across the entries. */
+  share: number;
+}
+
+/**
+ * Which foods carried a nutrient across a set of entries (a day or a week):
+ * "Lentils gave 38% of your iron this week." Unknown values contribute nothing.
+ */
+export function contributorsFor(entries: readonly LogEntry[], nutrient: NutrientCode, food: FoodLookup): FoodContribution[] {
+  const byFood = new Map<string, number>();
+  for (const e of entries) {
+    const f = food(e.foodId);
+    const amt = f ? amountIn(f, nutrient, e.grams) : undefined;
+    if (amt !== undefined && amt > 0) byFood.set(e.foodId, (byFood.get(e.foodId) ?? 0) + amt);
+  }
+  const total = [...byFood.values()].reduce((a, b) => a + b, 0);
+  return [...byFood.entries()]
+    .map(([foodId, amount]) => ({ foodId, amount, share: total > 0 ? amount / total : 0 }))
+    .sort((a, b) => b.amount - a.amount || a.foodId.localeCompare(b.foodId));
+}

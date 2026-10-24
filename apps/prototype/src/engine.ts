@@ -15,6 +15,7 @@ import {
   nutrientResult,
   narrowPool,
   rank,
+  contributorsFor,
   withPeriodWeights,
   adviceNutrients,
   type Meal,
@@ -433,4 +434,54 @@ export function shoppingList(p: Profile, round: RoundState, logs: readonly LogEn
     byAisle.set(a, [...(byAisle.get(a) ?? []), it]);
   }
   return AISLE_ORDER.filter((a) => byAisle.has(a)).map((aisle) => ({ aisle, items: byAisle.get(aisle)! }));
+}
+
+// ---- History ----
+
+export interface HistoryDay {
+  date: LocalDate;
+  logged: boolean;
+  /** Coverage of each of her round nutrients that day (unclamped). */
+  coverage: { nutrient: NutrientCode; value: number; hasUnknown: boolean }[];
+  entries: LogEntry[];
+}
+
+/** The last `days` calendar days ending today, newest first. Unlogged days are simply empty. */
+export function recentDays(p: Profile, round: RoundState, logs: readonly LogEntry[], today: LocalDate, days = 7): HistoryDay[] {
+  const marks = marksFor(p, today);
+  return Array.from({ length: days }, (_, i) => {
+    const date = addDays(today, -i);
+    const es = entriesOn(logs, date);
+    return {
+      date,
+      logged: es.length > 0,
+      coverage: round.nutrients.map(({ nutrient }) => {
+        const t = totalFor(es, nutrient, lookup);
+        return { nutrient, value: coverage(t, marks[nutrient].value), hasUnknown: t.hasUnknown };
+      }),
+      entries: es,
+    };
+  });
+}
+
+/** Backdating rule: today and yesterday can change; older days are kept as they were. */
+export const canEditDay = (date: LocalDate, today: LocalDate) => date === today || date === addDays(today, -1);
+
+export interface WeekCarrier {
+  nutrient: NutrientCode;
+  /** Top foods by share of the week's known intake of this nutrient. */
+  top: { food: ProtoFood; share: number }[];
+}
+
+/** "Lentils gave 38% of your iron this week": the foods that carried each of her nutrients over the last 7 days. */
+export function weekCarriers(round: RoundState, logs: readonly LogEntry[], today: LocalDate, limit = 3): WeekCarrier[] {
+  const from = addDays(today, -6);
+  const week = logs.filter((e) => e.logDate >= from && e.logDate <= today);
+  return round.nutrients.map(({ nutrient }) => ({
+    nutrient,
+    top: contributorsFor(week, nutrient, lookup)
+      .slice(0, limit)
+      .map((c) => ({ food: lookup(c.foodId)!, share: c.share }))
+      .filter((c) => c.food),
+  }));
 }

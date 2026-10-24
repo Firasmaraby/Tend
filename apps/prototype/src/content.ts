@@ -333,3 +333,24 @@ export const PERIOD_COPY = {
   heavyNote: "Heavy periods can lower your iron stores over time. It's worth asking your doctor whether to check your iron.",
   onboardingOffer: "Want iron to get extra attention during your period? You can turn this on or off any time in settings.",
 };
+
+export const HISTORY_COPY = {
+  weekTitle: "Your week",
+  weekIntro: "What you ate over the last seven days, and which foods carried your three.",
+  carried: (food: string, pct: number, nutrient: string) => `${food} gave ${pct}% of your ${nutrient} this week.`,
+  pastDayNote: "Kept as it was. You can add to today and yesterday.",
+  yesterdayNote: "You can still add to yesterday.",
+  haveAgain: "Have it again today",
+  backToToday: "Back to today",
+  notLogged: "Nothing logged this day.",
+};
+
+export const SHOPPING_EDIT_COPY = {
+  addPlaceholder: "Add an item",
+  addButton: "Add",
+  addFromFoods: "Add from foods",
+  removed: (name: string) => `Removed ${name}.`,
+  undo: "Undo",
+  yourItems: "Your items",
+  restoreAll: "Show removed items",
+};

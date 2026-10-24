@@ -11,7 +11,7 @@ import {
   type LogEntry,
   type NutrientRoundResult,
 } from "../src";
-import { entry, food, lookup, salmon } from "./fixtures";
+import { entry, food, lentils, lookup, salmon } from "./fixtures";
 
 const start = asLocalDate("2026-03-02");
 const round = { startedOn: start, endsOn: roundEndsOn(start) };
@@ -121,4 +121,19 @@ describe("drift on locked-in nutrients", () => {
   it("three weeks under the mark", () => expect(isDrifting([1.2, 0.9, 0.8, 0.7])).toBe(true));
   it("not if any recent week reached it", () => expect(isDrifting([0.9, 1.0, 0.8])).toBe(false));
   it("not on thin data", () => expect(isDrifting([0.5, null, 0.5])).toBe(false));
+});
+
+describe("contributors", () => {
+  it("which foods carried a nutrient, by share of the known total", async () => {
+    const { contributorsFor } = await import("../src");
+    const es = [entry("probe", 30, "2026-03-02"), entry("probe", 10, "2026-03-03"), entry("probe_unknown", 100, "2026-03-03"), entry("salmon", 100, "2026-03-03")];
+    // probe: 1 mg iron per gram → 40 mg total; unknown and salmon (no iron value) add nothing.
+    expect(contributorsFor(es, "iron", lk)).toEqual([{ foodId: "probe", amount: 40, share: 1 }]);
+    // Probe 30 mg vs lentils 6.5934 mg (198 g × 3.33/100): shares 0.81982 and 0.18018.
+    const lk2 = (id: string) => (id === "lentils_cooked" ? lentils : lk(id));
+    const two = contributorsFor([entry("probe", 30, "2026-03-02"), entry("lentils_cooked", 198, "2026-03-03")], "iron", lk2);
+    expect(two.map((c) => c.foodId)).toEqual(["probe", "lentils_cooked"]);
+    expect(two[0]!.share).toBeCloseTo(0.81982, 5);
+    expect(two[1]!.share).toBeCloseTo(0.18018, 5);
+  });
 });
