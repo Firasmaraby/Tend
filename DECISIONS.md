@@ -68,3 +68,10 @@ These are the founder's decisions, made 2026-10-22. The full reasoning is in `do
   - Data kept: the current period's start date, its usual length, and an end date if she ends it. No cycle history and no predictions.
   - Code: `packages/core/src/period.ts`.
   - Open item for the native build: a "still going" action for a period that runs longer than usual.
+
+## Curation at scale (2026-10-24)
+- `data/scripts/curate_auto.py` scopes the Canadian Nutrient File to everyday foods in the form people eat them. It assigns category servings, diet, allergen and pregnancy tags, then runs the checks.
+- **Result:** 1,110 foods in scope. 1,030 pass every check; 80 are in `data/curation/review_queue.csv` for the founder. 628 everyday foods are **suggestable** (86 hand-checked plus 542 automatic). The rest keep a serving and stay searchable and loggable.
+- **Suggested only if everyday:** a food must pass every check *and* be on the everyday-food list. Rare foods (sheep's milk, grape leaves) crowded out common ones in testing.
+- **Remaining gaps are real, not data bugs:** vegan B12 (professional referral), plant-based EPA+DHA, iodine (missing in the database), and choline for vegetarians and vegans.
+- **For the founder:** automatic foods use category servings ("about 1 cup cooked") and source names ("Beans, adzuki, boiled"). Polishing names and servings, plus the review queue, can happen over time. Proposal: automatic foods are suggestable in the beta, and the founder spot-checks a sample.

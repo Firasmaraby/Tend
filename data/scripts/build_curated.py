@@ -71,7 +71,12 @@ def num(s):
 def main(wide_path, cur_path, out_path):
     wide = {r["food_id"]: r for r in csv.DictReader(open(wide_path, encoding="utf-8"))}
     foods, problems = [], []
-    for c in csv.DictReader(open(cur_path, encoding="utf-8")):
+    seen = set()
+    rows = [c for path in cur_path.split(",") for c in csv.DictReader(open(path, encoding="utf-8"))]
+    for c in rows:
+        if c["food_id"] in seen:
+            continue
+        seen.add(c["food_id"])
         validate(c)
         r = wide.get(c["food_id"])
         if r is None:
@@ -112,6 +117,7 @@ def main(wide_path, cur_path, out_path):
             "traits": [t for t in c.get("traits", "").split("|") if t],
             "source": {"id": r["source_id"], "name": r["name_en"], "citation": r["source_citation"], "licence": r["licence"]},
             "missing": missing,
+            "curation": "hand" if "status" not in c else c["status"],
         })
     json.dump(foods, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{len(foods)} foods written to {out_path}", file=sys.stderr)

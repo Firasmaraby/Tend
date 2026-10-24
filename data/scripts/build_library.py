@@ -16,7 +16,7 @@ GROUPS = {"vegetables": "vegetables", "fruits": "fruit", "grains_cereals": "grai
           "snacks": "other", "other": "other"}
 
 def main(wide_path, cur_path, out_path, source="cnf"):
-    curated = {r["food_id"] for r in csv.DictReader(open(cur_path, encoding="utf-8"))}
+    curated = {r["food_id"] for path in cur_path.split(",") for r in csv.DictReader(open(path, encoding="utf-8"))}
     out = []
     for r in csv.DictReader(open(wide_path, encoding="utf-8")):
         if r["source_id"] != source or r["is_preferred"] != "True" or r["status"] != "active":
